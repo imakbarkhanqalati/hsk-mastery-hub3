@@ -1,0 +1,6 @@
+{
+  "name": "HSK Mastery Hub",
+  "description": "An interactive web application to help users learn Chinese vocabulary for HSK (Hanyu Shuiping Kaoshi) tests. Users can browse vocabulary by HSK level, view detailed information about each word including pinyin, meaning, grammar, and example sentences.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
