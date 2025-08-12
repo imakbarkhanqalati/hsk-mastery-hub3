@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
           '@': path.resolve(__dirname, '.'),
         }
       },
-
+      base: '/hsk-mastery-hub-new/', // Make sure this matches your repo name
       build: {
         rollupOptions: {
           output: {

@@ -1,4 +1,12 @@
-# Logs
+git remote add origin https://github.com/imakbarkhanqalati/hsk-mastery-hub-new.git
+git branch -M main
+git push -u origin main// ...existing code...
+export default defineConfig({
+  // ...existing config...
+  base: '/hsk-mastery-hub-new/', // Add this line
+  // ...existing config...
+});
+// ...existing code...# Logs
 logs
 *.log
 npm-debug.log*
