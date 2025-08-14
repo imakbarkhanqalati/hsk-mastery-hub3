@@ -1,0 +1,16 @@
+{
+  "name": "HSK Mastery Hub",
+  "short_name": "HSK Hub",
+  "description": "A comprehensive platform for learning Chinese and preparing for HSK exams",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4a90e2",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
