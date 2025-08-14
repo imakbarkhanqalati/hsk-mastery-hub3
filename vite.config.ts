@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
           '@': path.resolve(__dirname, '.'),
         }
       },
-      base: '/hsk-mastery-hub-new/', // Make sure this matches your repo name
+      base: '/hsk-mastery-hub3/', // Base path for GitHub Pages deployment
       build: {
         rollupOptions: {
           output: {

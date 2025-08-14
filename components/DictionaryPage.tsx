@@ -46,6 +46,7 @@ const DictionaryPage: React.FC<DictionaryPageProps> = ({ onWordSelect }) => {
   // Save favorites to localStorage
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const toggleFavorite = (word: Word): void => {
+
     const newFavorites = new Set(favorites);
     const key = `${word.char}-${(word as any).hskLevel}`;
     if (newFavorites.has(key)) {
@@ -124,7 +125,7 @@ const DictionaryPage: React.FC<DictionaryPageProps> = ({ onWordSelect }) => {
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const clearSearch = () => {
+  const clearSearch = (): void => {
     setSearchTerm('');
     setSelectedLevel('all');
     setSortBy('alphabetical');

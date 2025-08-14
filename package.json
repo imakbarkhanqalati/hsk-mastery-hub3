@@ -7,11 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "gulp": "gulp",
-    "clean": "gulp clean",
-    "gulp:dev": "gulp dev",
-    "gulp:build": "gulp build"
+    "init-repo": "node scripts/init-github-repo.js"
   },
   "dependencies": {
     "@google/genai": "latest",
@@ -25,12 +23,9 @@
     "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.8",
-    "del": "^8.0.0",
     "gh-pages": "^6.3.0",
-    "gulp": "^5.0.1",
-    "gulp-cli": "^3.1.0",
     "typescript": "~5.7.2",
-    "vite": "^6.2.0",
-    "vite-plugin-gh-pages": "^1.0.1"
-  }
+    "vite": "^6.2.0"
+  },
+  "homepage": "https://imakbarkhanqalati.github.io/hsk-mastery-hub3"
 }
