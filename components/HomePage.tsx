@@ -1,7 +1,14 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { vocabData } from '../data/vocab';
 import { Word } from '../types';
-import { UserVocabProgress, speakChineseText, detectPinyinTones } from '../utils/progress';
+import {
+  UserVocabProgress,
+  DEFAULT_DAILY_GOAL,
+  getTodayStudiedWords,
+  getLastSevenDaysGoalStatus,
+  speakChineseText,
+  detectPinyinTones,
+} from '../utils/progress';
 import { DailyStreakData } from '../utils/streak';
 
 interface HomePageProps {
@@ -17,7 +24,10 @@ interface HomePageProps {
   streakData: DailyStreakData;
   onToggleBookmark?: (char: string) => void;
   onToggleMastered?: (char: string) => void;
+  onUpdateDailyGoal?: (target: number) => void;
 }
+
+const GOAL_PRESETS = [5, 10, 15, 20, 30, 50];
 
 const HSK_META: Record<number, { cefr: string; badge: string; desc: string }> = {
   1: { cefr: 'CEFR A1', badge: 'Foundation', desc: 'Everyday greetings, numbers, personal details, and essential survival phrases.' },
@@ -40,6 +50,7 @@ const HomePage: React.FC<HomePageProps> = ({
   streakData,
   onToggleBookmark,
   onToggleMastered,
+  onUpdateDailyGoal,
 }) => {
   const hskLevels = useMemo(() => Object.keys(vocabData).map(Number).sort((a, b) => a - b), []);
 
@@ -50,6 +61,14 @@ const HomePage: React.FC<HomePageProps> = ({
       ),
     []
   );
+
+  const wordByChar = useMemo(() => {
+    const map = new Map<string, Word & { hskLevel: number }>();
+    for (const w of allWords) {
+      if (!map.has(w.char)) map.set(w.char, w);
+    }
+    return map;
+  }, [allWords]);
 
   const spotlightWord = useMemo(() => {
     const today = new Date();
@@ -67,6 +86,29 @@ const HomePage: React.FC<HomePageProps> = ({
   const totalVocabCount = allWords.length;
   const masteredCount = vocabProgress.masteredWords.length;
   const bookmarkedCount = vocabProgress.bookmarkedWords.length;
+
+  const dailyGoalTarget = vocabProgress.dailyGoalTarget || DEFAULT_DAILY_GOAL;
+  const todayStudiedWords = useMemo(() => getTodayStudiedWords(vocabProgress), [vocabProgress]);
+  const todayCount = todayStudiedWords.length;
+  const goalMetToday = todayCount >= dailyGoalTarget;
+  const goalProgressPct = Math.min(100, Math.round((todayCount / dailyGoalTarget) * 100));
+  const sevenDayGoals = useMemo(() => getLastSevenDaysGoalStatus(vocabProgress), [vocabProgress]);
+
+  const [customTargetInput, setCustomTargetInput] = useState<string>(String(dailyGoalTarget));
+
+  useEffect(() => {
+    setCustomTargetInput(String(dailyGoalTarget));
+  }, [dailyGoalTarget]);
+
+  const handleCustomGoalSave = (e: React.FormEvent) => {
+    e.preventDefault();
+    const parsed = parseInt(customTargetInput, 10);
+    if (!Number.isNaN(parsed) && parsed >= 1 && parsed <= 200 && onUpdateDailyGoal) {
+      onUpdateDailyGoal(parsed);
+    } else {
+      setCustomTargetInput(String(dailyGoalTarget));
+    }
+  };
 
   return (
     <div className="homepage animate-fade-in">
@@ -237,9 +279,13 @@ const HomePage: React.FC<HomePageProps> = ({
           {/* Full-Width 4-Column Curriculum Telemetry Strip */}
           <div className="hero-kpi-strip">
             <div className="hero-kpi-item">
-              <span className="hero-kpi__label">Curated Vocabulary</span>
-              <span className="hero-kpi__value">{totalVocabCount} Words</span>
-              <span className="hero-kpi__sub">Across HSK Levels 1–6</span>
+              <span className="hero-kpi__label">Daily Study Goal</span>
+              <span className="hero-kpi__value tabular-nums">
+                {todayCount} <small>/ {dailyGoalTarget} Words</small>
+              </span>
+              <span className="hero-kpi__sub">
+                {goalMetToday ? 'Daily target completed!' : `${goalProgressPct}% of today’s word target`}
+              </span>
             </div>
             <div className="hero-kpi-item">
               <span className="hero-kpi__label">Words Mastered</span>
@@ -261,6 +307,129 @@ const HomePage: React.FC<HomePageProps> = ({
                 {streakData.currentStreak} {streakData.currentStreak === 1 ? 'Day' : 'Days'}
               </span>
               <span className="hero-kpi__sub">Personal best: {streakData.longestStreak} days</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Daily Study Goal & Progress Tracker Section */}
+      <section id="daily-goal-tracker" className="daily-goal-section">
+        <div className="container">
+          <div className="daily-goal-card">
+            <div className="daily-goal-card__left">
+              <div className="vocab-card__meta">
+                <span>Daily Study Goal Tracker</span>
+                <span aria-hidden="true">·</span>
+                <span className="tabular-nums">{todayCount} of {dailyGoalTarget} Words Today</span>
+                <span aria-hidden="true">·</span>
+                <span>{goalMetToday ? 'Goal Achieved' : 'In Progress'}</span>
+              </div>
+              <h2 className="daily-goal-card__title">
+                {goalMetToday
+                  ? `You've reached your daily target of ${dailyGoalTarget} words!`
+                  : `Learn ${Math.max(0, dailyGoalTarget - todayCount)} more ${
+                      dailyGoalTarget - todayCount === 1 ? 'word' : 'words'
+                    } to hit today's goal`}
+              </h2>
+              <p className="daily-goal-card__desc">
+                Words are automatically counted toward your daily goal whenever you inspect a character card, practice flashcards or drills, answer quiz questions, or mark a word as mastered.
+              </p>
+
+              <div className="daily-goal-card__bar-wrap">
+                <div className="daily-goal-card__bar-labels">
+                  <span>Today&apos;s Progress</span>
+                  <span className="tabular-nums">{todayCount} / {dailyGoalTarget} words ({goalProgressPct}%)</span>
+                </div>
+                <div className="level-matrix__progress-track">
+                  <div
+                    className={`level-matrix__progress-fill ${goalMetToday ? 'daily-goal-fill--complete' : ''}`}
+                    style={{ width: `${goalProgressPct}%` }}
+                  />
+                </div>
+              </div>
+
+              {todayStudiedWords.length > 0 && (
+                <div className="daily-goal-card__studied">
+                  <span className="daily-goal-card__subhead">Words Studied Today ({todayCount}):</span>
+                  <div className="daily-goal-card__word-chips">
+                    {todayStudiedWords.map(char => {
+                      const matched = wordByChar.get(char);
+                      return (
+                        <button
+                          key={char}
+                          type="button"
+                          onClick={() => matched && onWordSelect && onWordSelect(matched)}
+                          className="daily-goal-word-chip font-noto-sc"
+                          title={matched ? `${matched.char} (${matched.pinyin}) — ${matched.meaning}` : char}
+                        >
+                          <span>{char}</span>
+                          {matched && <small>{matched.pinyin}</small>}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="daily-goal-card__right">
+              <div className="daily-goal-controls-box">
+                <span className="daily-goal-card__subhead">Set Daily Word Target</span>
+                <div className="goal-popover__presets">
+                  {GOAL_PRESETS.map(preset => (
+                    <button
+                      key={preset}
+                      type="button"
+                      onClick={() => onUpdateDailyGoal && onUpdateDailyGoal(preset)}
+                      className={`goal-preset-btn tabular-nums ${
+                        dailyGoalTarget === preset ? 'goal-preset-btn--active' : ''
+                      }`}
+                    >
+                      {preset} / day
+                    </button>
+                  ))}
+                </div>
+
+                <form onSubmit={handleCustomGoalSave} className="goal-popover__custom-form">
+                  <label htmlFor="dashboard-custom-goal" className="sr-only">
+                    Custom daily word target
+                  </label>
+                  <input
+                    id="dashboard-custom-goal"
+                    type="number"
+                    min={1}
+                    max={200}
+                    value={customTargetInput}
+                    onChange={e => setCustomTargetInput(e.target.value)}
+                    className="goal-popover__input tabular-nums"
+                    placeholder="Custom (1–200)"
+                  />
+                  <button type="submit" className="button button--secondary button--sm">
+                    Update Goal
+                  </button>
+                </form>
+
+                <div className="daily-goal-week-strip">
+                  <span className="daily-goal-card__subhead">Last 7 Days Activity</span>
+                  <div className="daily-goal-week-grid">
+                    {sevenDayGoals.map(day => {
+                      const barPct = Math.min(100, Math.round((day.count / day.target) * 100));
+                      return (
+                        <div key={day.date} className={`daily-goal-day-col ${day.isToday ? 'daily-goal-day-col--today' : ''}`}>
+                          <div className="daily-goal-day-bar-track" title={`${day.date}: ${day.count}/${day.target} words`}>
+                            <div
+                              className={`daily-goal-day-bar-fill ${day.met ? 'daily-goal-day-bar-fill--met' : ''}`}
+                              style={{ height: `${Math.max(day.count > 0 ? 16 : 0, barPct)}%` }}
+                            />
+                          </div>
+                          <span className="daily-goal-day-count tabular-nums">{day.count}</span>
+                          <span className="daily-goal-day-label">{day.dayLabel}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -99,7 +99,7 @@ interface LessonsPageProps {
 const ALL_HSK_LEVELS = [1, 2, 3, 4, 5, 6] as const;
 
 const LessonsPage: React.FC<LessonsPageProps> = ({ lessons, onLessonSelect }) => {
-  const [selectedLevel, setSelectedLevel] = useState<number>(1);
+  const [selectedLevel, setSelectedLevel] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const LESSONS_PER_PAGE = 8;
 
@@ -112,7 +112,7 @@ const LessonsPage: React.FC<LessonsPageProps> = ({ lessons, onLessonSelect }) =>
   }, [lessons]);
 
   const filteredLessons = useMemo(
-    () => lessons.filter(l => l.hskLevel === selectedLevel),
+    () => (selectedLevel === 0 ? lessons : lessons.filter(l => l.hskLevel === selectedLevel)),
     [lessons, selectedLevel]
   );
 
@@ -142,6 +142,14 @@ const LessonsPage: React.FC<LessonsPageProps> = ({ lessons, onLessonSelect }) =>
             <label htmlFor="level-filter">HSK Level:</label>
             <div className="tabs-container">
               <nav className="tabs-nav" aria-label="HSK Level Tabs">
+                <button
+                  onClick={() => handleLevelSelect(0)}
+                  className={`tab-button ${selectedLevel === 0 ? 'tab-button--active' : ''}`}
+                  aria-selected={selectedLevel === 0}
+                  role="tab"
+                >
+                  All Levels ({lessons.length})
+                </button>
                 {ALL_HSK_LEVELS.map(level => {
                   const count = lessonCountsByLevel[level] || 0;
                   return (
@@ -166,7 +174,7 @@ const LessonsPage: React.FC<LessonsPageProps> = ({ lessons, onLessonSelect }) =>
             <div className="no-lessons-message">
               <h3>No lessons in HSK {selectedLevel} yet</h3>
               <p>
-                HSK {selectedLevel} textbook units will be added as you upload the corresponding curriculum materials. Select HSK 1 to study the active units from <em>Mastering Chinese: Elementary 1 (会通汉语 精编版·初级1)</em>.
+                HSK {selectedLevel} textbook units will be added as you upload the corresponding curriculum materials. Select <strong>All Levels</strong>, <strong>HSK 1</strong>, or <strong>HSK 2</strong> to study the active units from <em>Mastering Chinese (会通汉语 精编版)</em>.
               </p>
             </div>
           ) : (

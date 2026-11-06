@@ -3,6 +3,7 @@ import { vocabData } from '../data/vocab';
 import { Word } from '../types';
 import confetti from 'canvas-confetti';
 import { recordDailyPractice } from '../utils/streak';
+import { recordWordStudied } from '../utils/progress';
 
 // Enhanced shuffle algorithm
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -223,6 +224,7 @@ const QuizzesPage: React.FC = () => {
     recordDailyPractice();
 
     const currentQuestion = currentSession.questions[currentSession.currentIndex];
+    recordWordStudied(currentQuestion.word.char);
     const correct = option === currentQuestion.correctAnswer;
     const timeSpent = Date.now() - questionStartTime.getTime();
 

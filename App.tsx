@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-// Loading component
+
 const LoadingSpinner = () => (
   <div className="loading-spinner-container">
     <div className="loading-spinner"></div>
@@ -21,6 +21,8 @@ const AuthModal = lazy(() => import('./components/AuthModal'));
 const LessonsPage = lazy(() => import('./components/LessonsPage'));
 const LessonDetailPage = lazy(() => import('./components/LessonDetailPage'));
 const AboutPage = lazy(() => import('./components/AboutPage'));
+const Badges = lazy(() => import('./components/Badges'));
+
 import { lessons as lessonsData } from './data/lessons';
 import { Word } from './types';
 import { AuthModalState } from './components/AuthModal';
@@ -30,10 +32,24 @@ import {
   getVocabProgress,
   toggleBookmarkedWord,
   toggleMasteredWord,
+  recordWordStudied,
+  setDailyGoalTarget,
 } from './utils/progress';
 import './index.css';
 
-type Page = 'home' | 'learn' | 'practice' | 'quizzes' | 'dictionary' | 'studyPlan' | 'lessons' | 'lessonDetail' | 'about';
+type Page =
+  | 'home'
+  | 'learn'
+  | 'practice'
+  | 'quizzes'
+  | 'dictionary'
+  | 'studyPlan'
+  | 'lessons'
+  | 'lessonDetail'
+  | 'about'
+  | 'profile';
+
+const AUTH_STORAGE_KEY = 'hsk_hub_auth_user_v1';
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -50,7 +66,37 @@ function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [isFeatureModalOpen, setIsFeatureModalOpen] = useState(false);
   const [selectedWord, setSelectedWord] = useState<Word | null>(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      try {
+        const raw = localStorage.getItem(AUTH_STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          return Boolean(parsed.isAuthenticated);
+        }
+      } catch {
+        // ignore
+      }
+    }
+    return false;
+  });
+
+  const [userDisplayName, setUserDisplayName] = useState<string>(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      try {
+        const raw = localStorage.getItem(AUTH_STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed.displayName) return String(parsed.displayName);
+        }
+      } catch {
+        // ignore
+      }
+    }
+    return 'Akbar Qalati';
+  });
+
   const [authModalState, setAuthModalState] = useState<AuthModalState>('closed');
   const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
   const [selectedHSKLevel, setSelectedHSKLevel] = useState<number | undefined>(undefined);
@@ -67,6 +113,19 @@ function App() {
     }
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      try {
+        localStorage.setItem(
+          AUTH_STORAGE_KEY,
+          JSON.stringify({ isAuthenticated, displayName: userDisplayName })
+        );
+      } catch {
+        // ignore
+      }
+    }
+  }, [isAuthenticated, userDisplayName]);
 
   useEffect(() => {
     const handleStreakUpdated = (event: Event) => {
@@ -104,6 +163,11 @@ function App() {
     setVocabProgress(updated);
   }, []);
 
+  const handleUpdateDailyGoal = useCallback((target: number) => {
+    const updated = setDailyGoalTarget(target);
+    setVocabProgress(updated);
+  }, []);
+
   const navigateToHome = useCallback(() => {
     setCurrentPage('home');
     setSelectedHSKLevel(undefined);
@@ -115,6 +179,8 @@ function App() {
   const navigateToStudyPlan = useCallback(() => setCurrentPage('studyPlan'), []);
   const navigateToLessons = useCallback(() => setCurrentPage('lessons'), []);
   const navigateToAbout = useCallback(() => setCurrentPage('about'), []);
+  const navigateToProfile = useCallback(() => setCurrentPage('profile'), []);
+
   const navigateToLessonDetail = useCallback((lessonId: string) => {
     setSelectedLessonId(lessonId);
     setCurrentPage('lessonDetail');
@@ -143,6 +209,8 @@ function App() {
   const handleSelectWord = useCallback((word: Word) => {
     setSelectedWord(word);
     recordDailyPractice();
+    const updated = recordWordStudied(word.char);
+    setVocabProgress(updated);
   }, []);
 
   const handleCloseWordDetailModal = useCallback(() => {
@@ -152,32 +220,43 @@ function App() {
   const handleOpenSignIn = useCallback(() => setAuthModalState('signin'), []);
   const handleOpenSignUp = useCallback(() => setAuthModalState('signup'), []);
   const handleCloseAuthModal = useCallback(() => setAuthModalState('closed'), []);
-  
+
   const handleSwitchAuthMode = useCallback(() => {
-      setAuthModalState(prev => prev === 'signin' ? 'signup' : 'signin');
+    setAuthModalState(prev => (prev === 'signin' ? 'signup' : 'signin'));
   }, []);
 
-  const handleSignIn = useCallback((data: any) => {
-      console.log('Signing in with:', data);
+  const handleSignIn = useCallback(
+    (data: { email?: string; name?: string }) => {
+      if (data?.name) {
+        setUserDisplayName(data.name);
+      }
       setIsAuthenticated(true);
       handleCloseAuthModal();
-  }, [handleCloseAuthModal]);
-  
-  const handleSignUp = useCallback((data: any) => {
-      console.log('Signing up with:', data);
+    },
+    [handleCloseAuthModal]
+  );
+
+  const handleSignUp = useCallback(
+    (data: { email?: string; name?: string }) => {
+      if (data?.name) {
+        setUserDisplayName(data.name);
+      }
       setIsAuthenticated(true);
       handleCloseAuthModal();
-  }, [handleCloseAuthModal]);
+    },
+    [handleCloseAuthModal]
+  );
 
   const handleSignOut = useCallback(() => {
-      setIsAuthenticated(false);
+    setIsAuthenticated(false);
+    setCurrentPage(prev => (prev === 'profile' ? 'home' : prev));
   }, []);
 
   return (
     <div id="app-wrapper">
-      <Header 
-        theme={theme} 
-        toggleTheme={toggleTheme} 
+      <Header
+        theme={theme}
+        toggleTheme={toggleTheme}
         showFeatureModal={handleShowFeatureModal}
         currentPage={currentPage}
         navigateToHome={navigateToHome}
@@ -186,13 +265,17 @@ function App() {
         navigateToQuizzes={navigateToQuizzes}
         navigateToDictionary={navigateToDictionary}
         navigateToStudyPlan={navigateToStudyPlan}
+        navigateToLessons={navigateToLessons}
+        navigateToAbout={navigateToAbout}
+        navigateToProfile={navigateToProfile}
         isAuthenticated={isAuthenticated}
+        userDisplayName={userDisplayName}
         onSignInClick={handleOpenSignIn}
         onSignUpClick={handleOpenSignUp}
         onSignOut={handleSignOut}
-        navigateToLessons={navigateToLessons}
-        navigateToAbout={navigateToAbout}
         streakData={streakData}
+        vocabProgress={vocabProgress}
+        onUpdateDailyGoal={handleUpdateDailyGoal}
       />
       <div className="main-layout">
         <main className="main-content">
@@ -205,12 +288,15 @@ function App() {
                 navigateToQuizzes={navigateToQuizzes}
                 navigateToStudyPlan={navigateToStudyPlan}
                 navigateToDictionary={navigateToDictionary}
-                onSelectHSKLevel={(level) => { setSelectedHSKLevel(level); }}
+                onSelectHSKLevel={level => {
+                  setSelectedHSKLevel(level);
+                }}
                 onWordSelect={handleSelectWord}
                 vocabProgress={vocabProgress}
                 streakData={streakData}
                 onToggleBookmark={handleToggleBookmark}
                 onToggleMastered={handleToggleMastered}
+                onUpdateDailyGoal={handleUpdateDailyGoal}
               />
             )}
             {currentPage === 'learn' && (
@@ -234,10 +320,7 @@ function App() {
             )}
             {currentPage === 'studyPlan' && <StudyPlanPage />}
             {currentPage === 'lessons' && (
-              <LessonsPage
-                lessons={lessonsData}
-                onLessonSelect={navigateToLessonDetail}
-              />
+              <LessonsPage lessons={lessonsData} onLessonSelect={navigateToLessonDetail} />
             )}
             {currentPage === 'lessonDetail' && selectedLessonId && (
               <LessonDetailPage
@@ -251,13 +334,46 @@ function App() {
               />
             )}
             {currentPage === 'about' && <AboutPage />}
+            {currentPage === 'profile' && (
+              <Badges
+                vocabProgress={vocabProgress}
+                streakData={streakData}
+                userDisplayName={userDisplayName}
+                onUpdateDisplayName={setUserDisplayName}
+                onNavigateToHome={navigateToHome}
+                onNavigateToLearn={navigateToLearn}
+                onNavigateToLessons={navigateToLessons}
+                onNavigateToPractice={navigateToPractice}
+                onSelectHSKLevel={level => {
+                  setSelectedHSKLevel(level);
+                }}
+                onSignOut={handleSignOut}
+              />
+            )}
           </Suspense>
         </main>
       </div>
-      <Footer />
+      <Footer
+        currentPage={currentPage}
+        navigateToHome={navigateToHome}
+        navigateToLearn={navigateToLearn}
+        navigateToLessons={navigateToLessons}
+        navigateToPractice={navigateToPractice}
+        navigateToQuizzes={navigateToQuizzes}
+        navigateToDictionary={navigateToDictionary}
+        navigateToStudyPlan={navigateToStudyPlan}
+        navigateToAbout={navigateToAbout}
+        onSelectHSKLevel={level => {
+          setSelectedHSKLevel(level);
+        }}
+      />
       <Suspense fallback={<LoadingSpinner />}>
-        {isFeatureModalOpen && <FeatureModal isOpen={isFeatureModalOpen} onClose={handleCloseFeatureModal} />}
-        {selectedWord && <WordDetailModal word={selectedWord} onClose={handleCloseWordDetailModal} />}
+        {isFeatureModalOpen && (
+          <FeatureModal isOpen={isFeatureModalOpen} onClose={handleCloseFeatureModal} />
+        )}
+        {selectedWord && (
+          <WordDetailModal word={selectedWord} onClose={handleCloseWordDetailModal} />
+        )}
         {authModalState !== 'closed' && (
           <AuthModal
             state={authModalState}

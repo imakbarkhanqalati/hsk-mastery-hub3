@@ -2387,4 +2387,2427 @@ export const lessons: Lesson[] = [
       },
     ],
   },
+  // ===========================================================================
+  // UNIT 5 (HSK 2): 第4课 一共多少钱 — How Much Is It in Total?
+  // Synthesized from 4 slide decks: 第4课 他/一共多少钱（一）、（二）、（三）、（四）
+  // Mastering Chinese: Elementary 2 (会通汉语 精编版·初级2)
+  // ===========================================================================
+  {
+    id: 'lesson5',
+    title: 'Lesson 4: How Much Is It in Total?',
+    chineseTitle: '第4课 一共多少钱',
+    unitBadge: 'Mastering Chinese · Elementary 2 (会通汉语 精编版·初级2)',
+    hskLevel: 2,
+    description:
+      'Master shopping in Mandarin: asking unit and total prices, reading multi-digit RMB amounts, using specialized measure words for fruits, everyday items, and clothing, trying on sizes in a fitting room, and making polite requests.',
+    content:
+      'Unit 4 of Mastering Chinese: Elementary 2 covers bargaining and buying fruit by weight (斤), reading multi-digit RMB prices, using specialized measure words for everyday goods and clothing, trying on sizes in a fitting room, and expressing degree with 有点儿 and 很.',
+    objectives: [
+      'Pronounce the Mandarin neutral tone (轻声) accurately across all four preceding tones and distinguish contrastive minimal pairs (e.g., 东西 dōngxī vs. dōngxi).',
+      'Recognize compound ideographic characters (会意字) formed by combining visual components (休, 明, 从, 看, 分, 林).',
+      'Ask and state unit prices and total prices using 多少钱一[量], 一共多少钱, and spoken vs. written RMB units (块/毛/分 vs. 元/角/分).',
+      'Use degree adverbs 有点儿 and 很 accurately, along with apparel verbs 穿/戴 and clothing sizes (大号, 中号/M号, 小号).',
+      'Express polite tentative actions (试试 / 看一下), affirmative-negative questions (V不V / 有没有), and repetition with 再.',
+    ],
+    phoneticsAndCharacters: {
+      title: 'Section 1 · Phonetics & Chinese Characters (语音和汉字)',
+      sections: [
+        {
+          subtitle: 'The Neutral Tone (轻声) & Pitch Contours',
+          summary:
+            'In Mandarin, certain syllables lose their original lexical tone and are pronounced light and short (轻而短). Their actual pitch depends on the tone of the preceding syllable.',
+          items: [
+            {
+              label: 'After 1st Tone (55 → Low-Mid 2)',
+              examples: '妈妈 (māma) · 师傅 (shīfu) · 桌子 (zhuōzi) · 他呢 (tā ne)',
+              detail: 'After a high-level 1st tone, the neutral tone drops to a low-mid pitch.',
+            },
+            {
+              label: 'After 2nd Tone (35 → Mid 3)',
+              examples: '孩子 (háizi) · 橘子 (júzi) · 爷爷 (yéye) · 便宜 (piányi)',
+              detail: 'After a rising 2nd tone, the neutral tone settles at a comfortable mid pitch.',
+            },
+            {
+              label: 'After 3rd Tone (214 → Mid-High 4)',
+              examples: '我的 (wǒ de) · 椅子 (yǐzi) · 眼睛 (yǎnjing) · 喜欢 (xǐhuan)',
+              detail: 'The 3rd tone stays low (21) and the following neutral tone rebounds to a mid-high pitch (4).',
+            },
+            {
+              label: 'After 4th Tone (51 → Low 1)',
+              examples: '这个 (zhège) · 大夫 (dàifu) · 漂亮 (piàoliang) · 裤子 (kùzi)',
+              detail: 'After a falling 4th tone, the neutral tone continues to the lowest pitch level.',
+            },
+            {
+              label: 'Four Functional Categories of Neutral Tone',
+              examples:
+                '① Suffixes & structural particles: 孩子 (zi), 老师们 (men), 我的 (de) · ② Modal particles: 你爸爸呢 (ne), 有孩子吗 (ma), 是儿子吧 (ba) · ③ Verb reduplication: 说说 (shuo), 学学 (xue), 想想 (xiang), 试试 (shi) · ④ Meaning-distinguishing pairs: 东西 (dōngxī, east-west) vs. 东西 (dōngxi, things/stuff); 明亮 (míngliàng, bright) vs. 漂亮 (piàoliang, pretty)',
+              detail: 'In some two-syllable words, whether the second syllable is neutral or full-toned changes the word or its register.',
+            },
+          ],
+        },
+        {
+          subtitle: 'Compound Ideographic Characters (用“画儿”组合出来汉字 — 会意字)',
+          summary:
+            'Beyond single-object pictographs, Chinese combines two or more pictorial components to express a new composite action or state.',
+          items: [
+            {
+              label: '休 (xiū — to rest) & 明 (míng — bright)',
+              examples: '休 = 亻 (person) + 木 (tree) · 明 = 日 (sun) + 月 (moon)',
+              detail: 'A person leaning against a tree depicts resting (休息); the sun and moon shining together express brightness (明天, 明亮).',
+            },
+            {
+              label: '从 (cóng — from / follow) & 林 (lín — woods)',
+              examples: '从 = 人 + 人 (one person walking behind another) · 林 = 木 + 木 (two trees side by side)',
+              detail: 'Doubling a component creates a collective or relational meaning.',
+            },
+            {
+              label: '看 (kàn — to look) & 眉 (méi — eyebrow)',
+              examples: '看 = 手 (hand slanted on top) + 目 (eye below) · 眉 = hairs above 目 (eye)',
+              detail: 'Raising a hand above the eyes to gaze into the distance forms 看 (to look/watch).',
+            },
+            {
+              label: '分 (fēn — to divide / minute / cent) & 多 (duō — many)',
+              examples: '分 = 八 (split apart) + 刀 (knife) · 多 = 夕 + 夕 (two pieces stacked)',
+              detail: 'Using a knife (刀) to separate something into two parts (八) creates 分 (to divide, minute, or 1/100 of a yuan).',
+            },
+          ],
+        },
+      ],
+    },
+    dialogue: [
+      {
+        character: '金志英 (Jīn Zhìyīng)',
+        hanzi: '您好！请问西瓜多少钱？',
+        pinyin: 'Nín hǎo! Qǐngwèn xīguā duōshao qián?',
+        translation: 'Hello! Excuse me, how much is the watermelon?',
+      },
+      {
+        character: '小贩 (Xiǎofàn)',
+        hanzi: '一斤两块钱。',
+        pinyin: 'Yì jīn liǎng kuài qián.',
+        translation: 'Two kuai per jin (500 grams).',
+      },
+      {
+        character: '金志英 (Jīn Zhìyīng)',
+        hanzi: '有点儿贵。',
+        pinyin: 'Yǒudiǎnr guì.',
+        translation: "That's a little expensive.",
+      },
+      {
+        character: '小贩 (Xiǎofàn)',
+        hanzi: '我的西瓜大，两块一斤很便宜，别的地方都是两块五一斤。您要多少？',
+        pinyin:
+          'Wǒ de xīguā dà, liǎng kuài yì jīn hěn piányi, biéde dìfang dōu shì liǎng kuài wǔ yì jīn. Nín yào duōshao?',
+        translation:
+          'My watermelons are big; two kuai a jin is very cheap—other places are all 2.50 a jin. How much would you like?',
+      },
+      {
+        character: '金志英 (Jīn Zhìyīng)',
+        hanzi: '我要半个小的吧，苹果也来两斤。一共多少钱？',
+        pinyin: 'Wǒ yào bàn gè xiǎo de ba, píngguǒ yě lái liǎng jīn. Yígòng duōshao qián?',
+        translation: "I'll take half of a small one, and also get two jin of apples. How much is it in total?",
+      },
+      {
+        character: '小贩 (Xiǎofàn)',
+        hanzi: '二十四块五。',
+        pinyin: 'Èrshísì kuài wǔ.',
+        translation: 'Twenty-four kuai and fifty mao (24.50 RMB).',
+      },
+      {
+        character: '金志英 (Jīn Zhìyīng)',
+        hanzi: '我没有零钱。这是五十，您找我吧。',
+        pinyin: 'Wǒ méiyǒu língqián. Zhè shì wǔshí, nín zhǎo wǒ ba.',
+        translation: "I don't have small change. Here is fifty; please give me change.",
+      },
+    ],
+    dialogues: [
+      {
+        title: 'Dialogue 1: Buying Fruit at a Fruit Stand (买水果)',
+        context:
+          'Jin Zhiying asks a fruit vendor about the price of watermelons and apples, compares prices, and pays with a 50-yuan bill.',
+        lines: [
+          {
+            character: '金志英 (Jīn Zhìyīng)',
+            hanzi: '您好！请问西瓜多少钱？',
+            pinyin: 'Nín hǎo! Qǐngwèn xīguā duōshao qián?',
+            translation: 'Hello! Excuse me, how much is the watermelon?',
+          },
+          {
+            character: '小贩 (Xiǎofàn)',
+            hanzi: '一斤两块钱。',
+            pinyin: 'Yì jīn liǎng kuài qián.',
+            translation: 'Two kuai per jin (500 grams).',
+          },
+          {
+            character: '金志英 (Jīn Zhìyīng)',
+            hanzi: '有点儿贵。',
+            pinyin: 'Yǒudiǎnr guì.',
+            translation: "That's a little expensive.",
+          },
+          {
+            character: '小贩 (Xiǎofàn)',
+            hanzi: '我的西瓜大，两块一斤很便宜，别的地方都是两块五一斤。您要多少？',
+            pinyin:
+              'Wǒ de xīguā dà, liǎng kuài yì jīn hěn piányi, biéde dìfang dōu shì liǎng kuài wǔ yì jīn. Nín yào duōshao?',
+            translation:
+              'My watermelons are big; two kuai a jin is very cheap—other places are all 2.50 a jin. How much would you like?',
+          },
+          {
+            character: '金志英 (Jīn Zhìyīng)',
+            hanzi: '我要半个小的吧，苹果也来两斤。一共多少钱？',
+            pinyin: 'Wǒ yào bàn gè xiǎo de ba, píngguǒ yě lái liǎng jīn. Yígòng duōshao qián?',
+            translation:
+              "I'll take half of a small one, and also get two jin of apples. How much is it in total?",
+          },
+          {
+            character: '小贩 (Xiǎofàn)',
+            hanzi: '二十四块五。',
+            pinyin: 'Èrshísì kuài wǔ.',
+            translation: 'Twenty-four kuai and fifty mao (24.50 RMB).',
+          },
+          {
+            character: '金志英 (Jīn Zhìyīng)',
+            hanzi: '我没有零钱。这是五十，您找我吧。',
+            pinyin: 'Wǒ méiyǒu língqián. Zhè shì wǔshí, nín zhǎo wǒ ba.',
+            translation: "I don't have small change. Here is fifty; please give me change.",
+          },
+        ],
+      },
+      {
+        title: 'Dialogue 2: Trying On Clothes at a Boutique (买衣服)',
+        context:
+          'Lily asks a salesclerk for the price of a blue T-shirt, checks sizes in the fitting room, and politely declines a yellow alternative.',
+        lines: [
+          {
+            character: '莉莉 (Lìlì)',
+            hanzi: '请问，T恤多少钱一件？',
+            pinyin: 'Qǐngwèn, T xù duōshao qián yí jiàn?',
+            translation: 'Excuse me, how much is a T-shirt?',
+          },
+          {
+            character: '售货员 (Shòuhuòyuán)',
+            hanzi: '一百二十八一件。您想买哪件？',
+            pinyin: 'Yìbǎi èrshíbā yí jiàn. Nín xiǎng mǎi nǎ jiàn?',
+            translation: '128 RMB per piece. Which one would you like to buy?',
+          },
+          {
+            character: '莉莉 (Lìlì)',
+            hanzi: '这件蓝色的颜色好，我想试试这件。',
+            pinyin: 'Zhè jiàn lánsè de yánsè hǎo, wǒ xiǎng shìshi zhè jiàn.',
+            translation: "This blue one has a nice color; I'd like to try this one on.",
+          },
+          {
+            character: '售货员 (Shòuhuòyuán)',
+            hanzi: '您穿多大号的？',
+            pinyin: 'Nín chuān duō dà hào de?',
+            translation: 'What size do you wear?',
+          },
+          {
+            character: '莉莉 (Lìlì)',
+            hanzi: '我一般穿M号的。',
+            pinyin: 'Wǒ yìbān chuān M hào de.',
+            translation: 'I usually wear size M (medium).',
+          },
+          {
+            character: '售货员 (Shòuhuòyuán)',
+            hanzi: '您试试这件吧。试衣间在那儿。（莉莉从试衣间出来。）',
+            pinyin: 'Nín shìshi zhè jiàn ba. Shìyījiān zài nàr. (Lìlì cóng shìyījiān chūlái.)',
+            translation:
+              'Please try this one on. The fitting room is over there. (Lily comes out of the fitting room.)',
+          },
+          {
+            character: '莉莉 (Lìlì)',
+            hanzi: '有点儿大，有没有小号的？',
+            pinyin: 'Yǒudiǎnr dà, yǒu méiyǒu xiǎo hào de?',
+            translation: "It's a little big; do you have a size Small?",
+          },
+          {
+            character: '售货员 (Shòuhuòyuán)',
+            hanzi: '没有小号的，黄色的有，您再试试这件。',
+            pinyin: 'Méiyǒu xiǎo hào de, huángsè de yǒu, nín zài shìshi zhè jiàn.',
+            translation: "We don't have Small in blue, but we have it in yellow; please try this one too.",
+          },
+          {
+            character: '莉莉 (Lìlì)',
+            hanzi: '不好意思，我不喜欢黄色，我再看一下吧。',
+            pinyin: 'Bù hǎoyìsi, wǒ bù xǐhuan huángsè, wǒ zài kàn yíxià ba.',
+            translation: "Sorry, I don't like yellow. Let me look around a bit more.",
+          },
+        ],
+      },
+    ],
+    readingPassage: {
+      title: 'Reading & Integrated Expression: Lily’s Supermarket Bargains & Wardrobe (莉莉买东西)',
+      paragraphs: [
+        {
+          hanzi:
+            '今天超市一共有五种便宜的东西：卫生纸二十八元一包，笔五块五一支，酸奶三十五元一盒，苹果三块五一斤，帽子三十八元一顶。酸奶和苹果一般都有点儿贵，今天都很便宜，因为酸奶买一大盒送一小盒，苹果买一斤再送一斤。莉莉一共买了十支笔、两斤苹果（一共花了三块五）。她看见帽子，很想买。买不买呢？她想了一下，都买了，一共花了一百五十九块五。',
+          pinyin:
+            'Jīntiān chāoshì yígòng yǒu wǔ zhǒng piányi de dōngxi: wèishēngzhǐ èrshíbā yuán yì bāo, bǐ wǔ kuài wǔ yì zhī, suānnǎi sānshíwǔ yuán yì hé, píngguǒ sān kuài wǔ yì jīn, màozi sānshíbā yuán yì dǐng. Suānnǎi hé píngguǒ yìbān dōu yǒudiǎnr guì, jīntiān dōu hěn piányi, yīnwèi suānnǎi mǎi yí dà hé sòng yì xiǎo hé, píngguǒ mǎi yì jīn zài sòng yì jīn. Lìlì yígòng mǎi le shí zhī bǐ, liǎng jīn píngguǒ (yígòng huā le sān kuài wǔ). Tā kànjiàn màozi, hěn xiǎng mǎi. Mǎi bu mǎi ne? Tā xiǎng le yíxià, dōu mǎi le, yígòng huā le yìbǎi wǔshíjiǔ kuài wǔ.',
+          translation:
+            'Today the supermarket has five kinds of discounted items in total: toilet paper at 28 yuan a pack, pens at 5.50 kuai each, yogurt at 35 yuan a box, apples at 3.50 kuai a jin, and hats at 38 yuan each. Yogurt and apples are usually a bit expensive, but today they are both very cheap because buying one large box of yogurt gets you one small box free, and buying one jin of apples gets you another jin free. Lily bought ten pens and two jin of apples (spending 3.50 kuai on the apples). When she saw the hats, she really wanted to buy them. Should she buy them or not? She thought for a moment, bought everything, and spent 159.50 kuai in total.',
+        },
+        {
+          hanzi:
+            '莉莉有八件T恤，十二条裙子，十条裤子，六个包，五顶帽子，十双鞋……今天她还说自己的衣服有点儿少，还想再买一条裙子。我觉得莉莉的衣服很多，一共几十件了。可是莉莉说：“女人一般都想再买一件衣服。”你觉得她这样对不对？',
+          pinyin:
+            'Lìlì yǒu bā jiàn T xù, shí’èr tiáo qúnzi, shí tiáo kùzi, liù gè bāo, wǔ dǐng màozi, shí shuāng xié... Jīntiān tā hái shuō zìjǐ de yīfu yǒudiǎnr shǎo, hái xiǎng zài mǎi yì tiáo qúnzi. Wǒ juéde Lìlì de yīfu hěn duō, yígòng jǐ shí jiàn le. Kěshì Lìlì shuō: “Nǚrén yìbān dōu xiǎng zài mǎi yí jiàn yīfu.” Nǐ juéde tā zhèyàng duì bu duì?',
+          translation:
+            'Lily has eight T-shirts, twelve skirts, ten pairs of pants, six bags, five hats, and ten pairs of shoes... Today she still says she has a bit too few clothes and wants to buy one more skirt. I think Lily has a lot of clothes—dozens of pieces in total. Yet Lily says: "Women generally always want to buy one more piece of clothing." Do you think she is right or not?',
+        },
+      ],
+    },
+    vocabularyExplanation: [
+      {
+        hanzi: '请问',
+        pinyin: 'qǐngwèn',
+        english: 'excuse me, may I ask (polite opener)',
+        exampleHanzi: '您好！请问西瓜多少钱？',
+        examplePinyin: 'Nín hǎo! Qǐngwèn xīguā duōshao qián?',
+        exampleTranslation: 'Hello! Excuse me, how much is the watermelon?',
+      },
+      {
+        hanzi: '西瓜',
+        pinyin: 'xīguā',
+        english: 'watermelon',
+        exampleHanzi: '夏天我们喜欢吃西瓜。',
+        examplePinyin: 'Xiàtiān wǒmen xǐhuan chī xīguā.',
+        exampleTranslation: 'In summer we like to eat watermelon.',
+      },
+      {
+        hanzi: '多少钱',
+        pinyin: 'duōshao qián',
+        english: 'how much money / what price',
+        exampleHanzi: '请问，T恤多少钱一件？',
+        examplePinyin: 'Qǐngwèn, T xù duōshao qián yí jiàn?',
+        exampleTranslation: 'Excuse me, how much is a T-shirt?',
+      },
+      {
+        hanzi: '斤',
+        pinyin: 'jīn',
+        english: 'jin (Chinese weight unit = 500 grams)',
+        exampleHanzi: '苹果三块五一斤。',
+        examplePinyin: 'Píngguǒ sān kuài wǔ yì jīn.',
+        exampleTranslation: 'Apples are 3.50 kuai per jin (500g).',
+      },
+      {
+        hanzi: '块',
+        pinyin: 'kuài',
+        english: 'kuai (spoken unit for RMB yuan); piece / chunk',
+        exampleHanzi: '一斤两块钱。',
+        examplePinyin: 'Yì jīn liǎng kuài qián.',
+        exampleTranslation: 'Two kuai per jin.',
+      },
+      {
+        hanzi: '有点儿',
+        pinyin: 'yǒudiǎnr',
+        english: 'a little / somewhat (used before undesirable adjectives)',
+        exampleHanzi: '这件衣服有点儿大，有没有小号的？',
+        examplePinyin: 'Zhè jiàn yīfu yǒudiǎnr dà, yǒu méiyǒu xiǎo hào de?',
+        exampleTranslation: 'This piece of clothing is a bit big; do you have a small size?',
+      },
+      {
+        hanzi: '贵',
+        pinyin: 'guì',
+        english: 'expensive',
+        exampleHanzi: '这个包有点儿贵。',
+        examplePinyin: 'Zhège bāo yǒudiǎnr guì.',
+        exampleTranslation: 'This bag is a little expensive.',
+      },
+      {
+        hanzi: '便宜',
+        pinyin: 'piányi',
+        english: 'cheap / inexpensive',
+        exampleHanzi: '两块一斤很便宜。',
+        examplePinyin: 'Liǎng kuài yì jīn hěn piányi.',
+        exampleTranslation: 'Two kuai per jin is very cheap.',
+      },
+      {
+        hanzi: '别的',
+        pinyin: 'biéde',
+        english: 'other / another',
+        exampleHanzi: '别的地方都是两块五一斤。',
+        examplePinyin: 'Biéde dìfang dōu shì liǎng kuài wǔ yì jīn.',
+        exampleTranslation: 'Other places are all 2.50 kuai per jin.',
+      },
+      {
+        hanzi: '地方',
+        pinyin: 'dìfang',
+        english: 'place / location',
+        exampleHanzi: '这个地方很大，也很漂亮。',
+        examplePinyin: 'Zhège dìfang hěn dà, yě hěn piàoliang.',
+        exampleTranslation: 'This place is very big and also very pretty.',
+      },
+      {
+        hanzi: '要',
+        pinyin: 'yào',
+        english: 'to want / would like (to buy or order)',
+        exampleHanzi: '我要半个小的西瓜。',
+        examplePinyin: 'Wǒ yào bàn gè xiǎo de xīguā.',
+        exampleTranslation: 'I would like half of a small watermelon.',
+      },
+      {
+        hanzi: '苹果',
+        pinyin: 'píngguǒ',
+        english: 'apple',
+        exampleHanzi: '苹果也来两斤。',
+        examplePinyin: 'Píngguǒ yě lái liǎng jīn.',
+        exampleTranslation: 'Also give me two jin of apples.',
+      },
+      {
+        hanzi: '来',
+        pinyin: 'lái',
+        english: 'to bring / to get (used when ordering food or buying goods)',
+        exampleHanzi: '再来两斤橘子吧。',
+        examplePinyin: 'Zài lái liǎng jīn júzi ba.',
+        exampleTranslation: "Let's also get two more jin of tangerines.",
+      },
+      {
+        hanzi: '一共',
+        pinyin: 'yígòng',
+        english: 'altogether / in total',
+        exampleHanzi: '一共二十四块五。',
+        examplePinyin: 'Yígòng èrshísì kuài wǔ.',
+        exampleTranslation: 'It is twenty-four kuai fifty in total.',
+      },
+      {
+        hanzi: '零钱',
+        pinyin: 'língqián',
+        english: 'small change / coins and small bills',
+        exampleHanzi: '不好意思，我没有零钱。',
+        examplePinyin: 'Bù hǎoyìsi, wǒ méiyǒu língqián.',
+        exampleTranslation: "Sorry, I don't have small change.",
+      },
+      {
+        hanzi: '找',
+        pinyin: 'zhǎo',
+        english: 'to give change; to look for',
+        exampleHanzi: '这是五十，您找我吧。',
+        examplePinyin: 'Zhè shì wǔshí, nín zhǎo wǒ ba.',
+        exampleTranslation: 'Here is fifty; please give me change.',
+      },
+      {
+        hanzi: '件',
+        pinyin: 'jiàn',
+        english: 'measure word for tops, shirts, coats, and matters',
+        exampleHanzi: '我想买这件T恤。',
+        examplePinyin: 'Wǒ xiǎng mǎi zhè jiàn T xù.',
+        exampleTranslation: 'I would like to buy this T-shirt.',
+      },
+      {
+        hanzi: '颜色',
+        pinyin: 'yánsè',
+        english: 'color',
+        exampleHanzi: '这件蓝色的颜色很好看。',
+        examplePinyin: 'Zhè jiàn lánsè de yánsè hěn hǎokàn.',
+        exampleTranslation: 'The color of this blue one is very nice.',
+      },
+      {
+        hanzi: '蓝色',
+        pinyin: 'lánsè',
+        english: 'blue (color)',
+        exampleHanzi: '我喜欢蓝色的衣服。',
+        examplePinyin: 'Wǒ xǐhuan lánsè de yīfu.',
+        exampleTranslation: 'I like blue clothes.',
+      },
+      {
+        hanzi: '黄色',
+        pinyin: 'huángsè',
+        english: 'yellow (color)',
+        exampleHanzi: '我不喜欢黄色，我喜欢白色。',
+        examplePinyin: 'Wǒ bù xǐhuan huángsè, wǒ xǐhuan báisè.',
+        exampleTranslation: "I don't like yellow; I like white.",
+      },
+      {
+        hanzi: '试',
+        pinyin: 'shì',
+        english: 'to try / to try on',
+        exampleHanzi: '我想试试这件衣服。',
+        examplePinyin: 'Wǒ xiǎng shìshi zhè jiàn yīfu.',
+        exampleTranslation: 'I would like to try on this piece of clothing.',
+      },
+      {
+        hanzi: '穿',
+        pinyin: 'chuān',
+        english: 'to wear / to put on (clothes, pants, skirts, shoes)',
+        exampleHanzi: '您穿多大号的？',
+        examplePinyin: 'Nín chuān duō dà hào de?',
+        exampleTranslation: 'What size do you wear?',
+      },
+      {
+        hanzi: '号',
+        pinyin: 'hào',
+        english: 'size (of clothing/shoes); number / date',
+        exampleHanzi: '我一般穿中号（M号）的。',
+        examplePinyin: 'Wǒ yìbān chuān zhōnghào (M hào) de.',
+        exampleTranslation: 'I usually wear size Medium.',
+      },
+      {
+        hanzi: '一般',
+        pinyin: 'yìbān',
+        english: 'generally / usually',
+        exampleHanzi: '女人一般都想再买一件衣服。',
+        examplePinyin: 'Nǚrén yìbān dōu xiǎng zài mǎi yí jiàn yīfu.',
+        exampleTranslation: 'Women generally always want to buy one more piece of clothing.',
+      },
+      {
+        hanzi: '试衣间',
+        pinyin: 'shìyījiān',
+        english: 'fitting room',
+        exampleHanzi: '试衣间在那儿，您试试吧。',
+        examplePinyin: 'Shìyījiān zài nàr, nín shìshi ba.',
+        exampleTranslation: 'The fitting room is over there; please try it on.',
+      },
+      {
+        hanzi: '从',
+        pinyin: 'cóng',
+        english: 'from (a place or time)',
+        exampleHanzi: '莉莉从试衣间出来。',
+        examplePinyin: 'Lìlì cóng shìyījiān chūlái.',
+        exampleTranslation: 'Lily comes out from the fitting room.',
+      },
+      {
+        hanzi: '再',
+        pinyin: 'zài',
+        english: 'again / one more / further (for future or uncompleted actions)',
+        exampleHanzi: '您再试试这件吧。',
+        examplePinyin: 'Nín zài shìshi zhè jiàn ba.',
+        exampleTranslation: 'Please try this one on as well.',
+      },
+      {
+        hanzi: '不好意思',
+        pinyin: 'bù hǎoyìsi',
+        english: 'excuse me / sorry (for a minor inconvenience or polite refusal)',
+        exampleHanzi: '不好意思，我再看一下吧。',
+        examplePinyin: 'Bù hǎoyìsi, wǒ zài kàn yíxià ba.',
+        exampleTranslation: 'Sorry, let me look around a bit more.',
+      },
+      {
+        hanzi: '条',
+        pinyin: 'tiáo',
+        english: 'measure word for long/slender items (pants, skirts, scarves, fish)',
+        exampleHanzi: '莉莉有十二条裙子，十条裤子。',
+        examplePinyin: 'Lìlì yǒu shí’èr tiáo qúnzi, shí tiáo kùzi.',
+        exampleTranslation: 'Lily has twelve skirts and ten pairs of pants.',
+      },
+      {
+        hanzi: '顶',
+        pinyin: 'dǐng',
+        english: 'measure word for hats and caps',
+        exampleHanzi: '这顶帽子三十八元。',
+        examplePinyin: 'Zhè dǐng màozi sānshíbā yuán.',
+        exampleTranslation: 'This hat is 38 yuan.',
+      },
+      {
+        hanzi: '双',
+        pinyin: 'shuāng',
+        english: 'pair (measure word for shoes, socks, chopsticks)',
+        exampleHanzi: '她买了两双鞋。',
+        examplePinyin: 'Tā mǎi le liǎng shuāng xié.',
+        exampleTranslation: 'She bought two pairs of shoes.',
+      },
+      {
+        hanzi: '送',
+        pinyin: 'sòng',
+        english: 'to give free of charge / to gift; to see off',
+        exampleHanzi: '苹果买一斤再送一斤。',
+        examplePinyin: 'Píngguǒ mǎi yì jīn zài sòng yì jīn.',
+        exampleTranslation: 'Buy one jin of apples and get another jin free.',
+      },
+      {
+        hanzi: '花',
+        pinyin: 'huā',
+        english: 'to spend (money or time); flower',
+        exampleHanzi: '她一共花了一百五十九块五。',
+        examplePinyin: 'Tā yígòng huā le yìbǎi wǔshíjiǔ kuài wǔ.',
+        exampleTranslation: 'She spent 159.50 kuai in total.',
+      },
+    ],
+    grammarPoint: 'RMB Currency Units, Asking Prices (多少钱 / 一共), Degree Adverbs (有点儿 vs. 很) & Apparel Measure Words',
+    structure: '[Item] + 多少钱一[量]？ | 一共 + 数量 | 有点儿 / 很 + Adj | 穿 / 戴 + 数量 + 服饰',
+    explanation:
+      'Unit 4 introduces spoken vs. written RMB units (块/毛/分 vs. 元/角/分), unit and total price inquiries, the contrast between 有点儿 (undesirable slight degree) and 很, specialized classifiers for clothing (件, 条, 双, 顶), and tentative verb reduplication (试试, 看一下).',
+    examples: [
+      {
+        hanzi: '我要半个小的吧，苹果也来两斤。一共多少钱？',
+        pinyin: 'Wǒ yào bàn gè xiǎo de ba, píngguǒ yě lái liǎng jīn. Yígòng duōshao qián?',
+        translation: "I'll take half of a small one, and also get two jin of apples. How much is it in total?",
+      },
+      {
+        hanzi: '有点儿大，有没有小号的？',
+        pinyin: 'Yǒudiǎnr dà, yǒu méiyǒu xiǎo hào de?',
+        translation: "It's a little big; do you have a size Small?",
+      },
+    ],
+    grammarNotes: [
+      {
+        title: 'RMB Currency Units & Reading Multi-Digit Numbers/Prices',
+        structure: 'Written: 元 (yuán) · 角 (jiǎo) · 分 (fēn)  |  Spoken: 块 (kuài) · 毛 (máo) · 分 (fēn) (+ 钱)',
+        explanation:
+          'In price tags and formal writing, RMB uses 元, 角 (1/10 yuan), and 分 (1/100 yuan). In everyday speech, people use 块, 毛, and 分. When a price has a subunit right after a main unit, the final unit word can be omitted (e.g., ¥24.50 → 二十四块五 [毛钱]). However, if a zero placeholder (零) intervenes, the final unit cannot be dropped (e.g., ¥2.05 → 两块零五分). For large numbers (百 hundred, 千 thousand, 万 ten-thousand): ① Read 2 as 两 before 千/万 (and usually 百): 两千四百九十八 (2,498). ② Pronounce interior zeros once as 零: 二百零八 (208), 一千零六 (1,006). ③ In spoken shorthand, the final trailing unit can drop when there is no zero: 一百二 (120), 一千六 (1,600).',
+        examples: [
+          {
+            hanzi: '二十四块五（毛钱） / 两块零五分',
+            pinyin: 'èrshísì kuài wǔ (máo qián) / liǎng kuài líng wǔ fēn',
+            translation: '¥24.50 (trailing 毛 omitted in speech) / ¥2.05 (with 零, final 分 must be kept)',
+          },
+          {
+            hanzi: '两万三千六百九十五 / 一千零六',
+            pinyin: 'liǎng wàn sānqiān liùbǎi jiǔshíwǔ / yìqiān líng liù',
+            translation: '23,695 (Chinese groups large numbers by 万 = 10,000) / 1,006',
+          },
+        ],
+      },
+      {
+        title: 'Asking Unit Prices vs. Stating Totals with 一共 (yígòng)',
+        structure: '[Item] + 多少钱 (+ 一 + Measure Word)？  |  一共 + Number + Measure Word (+ Noun)',
+        explanation:
+          'To ask the price per unit, say “[Item] 多少钱一[量]？” (e.g., T恤多少钱一件？) or reply with “一斤两块钱 / 两块钱一斤”. To sum up a total quantity or cost, place 一共 before the number-measure phrase: 一共二十四块五. Note: When the total is a single-digit number (1–9), a measure word or currency unit is mandatory—say 一共五块钱 or 一共五个, never *一共五.',
+        examples: [
+          {
+            hanzi: '请问，T恤多少钱一件？——一百二十八一件。',
+            pinyin: 'Qǐngwèn, T xù duōshao qián yí jiàn? — Yìbǎi èrshíbā yí jiàn.',
+            translation: 'Excuse me, how much is a T-shirt? — 128 RMB per piece.',
+          },
+          {
+            hanzi: '我要半个小的西瓜，苹果也来两斤。一共多少钱？',
+            pinyin: 'Wǒ yào bàn gè xiǎo de xīguā, píngguǒ yě lái liǎng jīn. Yígòng duōshao qián?',
+            translation: "I'll take half of a small watermelon, and two jin of apples. How much is it in total?",
+          },
+        ],
+      },
+      {
+        title: 'Degree Adverbs: 有点儿 (yǒudiǎnr) vs. 很 (hěn)',
+        structure: '有点儿 + Adj / V[心理]  vs.  很 + Adj / V[心理]',
+        explanation:
+          'Both 有点儿 and 很 precede adjectives or psychological verbs (such as 想, 喜欢, 高兴), but they differ in nuance: 有点儿 ("a little / somewhat") typically modifies adjectives representing an undesirable or non-ideal state (有点儿贵 a bit too expensive, 有点儿大 a bit too big, 有点儿不高兴 a bit unhappy). 很 ("very") expresses a neutral or high degree for any adjective or mental verb (很便宜, 很想买).',
+        examples: [
+          {
+            hanzi: '这件衣服有点儿大，那件很合适。',
+            pinyin: 'Zhè jiàn yīfu yǒudiǎnr dà, nà jiàn hěn héshì.',
+            translation: 'This piece of clothing is a little too big; that one fits very well.',
+          },
+          {
+            hanzi: '酸奶和苹果一般都有点儿贵，今天都很便宜。',
+            pinyin: 'Suānnǎi hé píngguǒ yìbān dōu yǒudiǎnr guì, jīntiān dōu hěn piányi.',
+            translation: 'Yogurt and apples are usually a bit expensive, but today both are very cheap.',
+          },
+        ],
+      },
+      {
+        title: 'Specialized Measure Words & Wearing Verbs: 穿 (chuān) vs. 戴 (dài)',
+        structure: '穿 + 件 (tops) / 条 (pants/skirts) / 双 (shoes/socks)  |  戴 + 顶 (hats) / 条 (scarves) / 副 (gloves/glasses)',
+        explanation:
+          'Mandarin pairs nouns with specific classifiers by shape, container, or garment type: ① By shape: 张 (flat surfaces: 桌子, 床, 纸), 本 (bound books: 书, 词典), 支 (slender rods: 笔). ② By portion/container: 片 (flat slice: 面包), 块儿 (chunk: 蛋糕), 瓶 (bottle: 水), 杯 (cup: 咖啡, 茶), 盒 (box: 酸奶), 包 (pack: 卫生纸). ③ For clothing and accessories: use 穿 (to wear on the torso/legs/feet) with 件 (T恤, 大衣), 条 (裤子, 裙子), 双 (鞋, 袜子); use 戴 (to wear on the head, neck, or hands) with 顶 (帽子), 条 (围巾), 副 (手套, 眼镜).',
+        examples: [
+          {
+            hanzi: '莉莉穿一件蓝色的T恤、一条白裙子和一双黑鞋，还戴一顶黄帽子。',
+            pinyin: 'Lìlì chuān yí jiàn lánsè de T xù, yì tiáo bái qúnzi hé yì shuāng hēi xié, hái dài yì dǐng huáng màozi.',
+            translation: 'Lily wears a blue T-shirt, a white skirt, and a pair of black shoes, and also wears a yellow hat.',
+          },
+        ],
+      },
+      {
+        title: 'Tentative Reduplication (VV / V一下), Affirmative-Negative Questions & 再 (zài)',
+        structure: '想 + VV / V一下  |  V/Adj + 不/没 + V/Adj？  |  再 + V (+ 数量)',
+        explanation:
+          '① Reduplicating an action verb (试试, 看看, 想想) or adding 一下 (看一下, 想一下) makes the action brief, casual, and polite. ② Affirmative-negative questions juxtapose the affirmative and negative forms of the verb or adjective: 买不买？ (Will you buy it or not?), 对不对？ (Is it right?), 有没有小号的？ (Do you have a small size?). ③ The adverb 再 precedes a verb to express repeating an action or adding more to an existing quantity (再试试 try another one, 再买一条裙子 buy one more skirt).',
+        examples: [
+          {
+            hanzi: '这件蓝色的颜色好，我想试试这件。',
+            pinyin: 'Zhè jiàn lánsè de yánsè hǎo, wǒ xiǎng shìshi zhè jiàn.',
+            translation: "This blue one has a nice color; I'd like to try this one on.",
+          },
+          {
+            hanzi: '有点儿大，有没有小号的？——没有，您再试试这件。',
+            pinyin: 'Yǒudiǎnr dà, yǒu méiyǒu xiǎo hào de? — Méiyǒu, nín zài shìshi zhè jiàn.',
+            translation: "It's a bit big; do you have a size Small? — No, please try this other one.",
+          },
+        ],
+      },
+    ],
+    exercises: [
+      {
+        question: 'In Dialogue 1, how much does Jin Zhiying pay in total for half a small watermelon and two jin of apples?',
+        options: [
+          '两块钱 (2.00 RMB)',
+          '两块五 (2.50 RMB)',
+          '二十四块五 (24.50 RMB)',
+          '五十块 (50.00 RMB)',
+        ],
+        answerIndex: 2,
+        explanation:
+          'When Jin Zhiying asks “一共多少钱？”, the fruit vendor replies “二十四块五” (24.50 RMB), and she hands him a 50-yuan bill for change.',
+      },
+      {
+        question: 'Which sentence uses the degree adverb 有点儿 (yǒudiǎnr) correctly?',
+        options: [
+          '这件T恤有点儿大，有没有小号的？',
+          '这件T恤大有点儿，有没有小号的？',
+          '两块一斤有点儿很便宜。',
+          '我有点儿穿M号的衣服。',
+        ],
+        answerIndex: 0,
+        explanation:
+          '有点儿 is placed directly before an adjective (usually expressing a slight undesirable quality, such as 有点儿大 "a little too big" or 有点儿贵 "a little too expensive").',
+      },
+      {
+        question: 'Choose the correct verb and measure word pair to complete: “她冬天喜欢________一________红帽子。”',
+        promptHanzi: '她冬天喜欢________一________红帽子。',
+        promptPinyin: 'Tā dōngtiān xǐhuan ________ yì ________ hóng màozi.',
+        options: [
+          '戴 …… 顶 (dài ... dǐng)',
+          '穿 …… 件 (chuān ... jiàn)',
+          '穿 …… 条 (chuān ... tiáo)',
+          '戴 …… 双 (dài ... shuāng)',
+        ],
+        answerIndex: 0,
+        explanation:
+          'Hats and accessories worn on the head take the verb 戴 (dài) and the measure word 顶 (dǐng): 戴一顶帽子.',
+      },
+      {
+        question: 'How is the price ¥2.05 read aloud in spoken Mandarin?',
+        options: [
+          '两块五 (liǎng kuài wǔ)',
+          '两块零五分 (liǎng kuài líng wǔ fēn)',
+          '二块零五 (èr kuài líng wǔ)',
+          '两十零五分 (liǎng shí líng wǔ fēn)',
+        ],
+        answerIndex: 1,
+        explanation:
+          'Because there is a zero in the 角/毛 place, 零 must be pronounced and the final unit 分 cannot be omitted: 两块零五分 (whereas 两块五 means ¥2.50).',
+      },
+      {
+        question: 'In the Reading Passage, why does Lily buy ten pens, two jin of apples, and a hat at the supermarket?',
+        options: [
+          'Because the supermarket is running promotions (such as buy-one-jin-get-one-jin-free on apples).',
+          'Because she has no clothes or shoes at home.',
+          'Because her teacher asked her to buy twenty packs of toilet paper.',
+          'Because yellow hats are free on Sundays.',
+        ],
+        answerIndex: 0,
+        explanation:
+          'The supermarket has five discounted items on promotion (苹果买一斤再送一斤, 酸奶买一大盒送一小盒), so Lily stocks up and spends 159.50 RMB in total.',
+      },
+    ],
+  },
+
+  // ===========================================================================
+  // UNIT 6 (HSK 2): 第5课 你去那儿干什么 — What Are You Going There to Do?
+  // Synthesized from 4 slide decks: 第5课 你去那儿干什么（一）、（二）、（三）、（四）
+  // Mastering Chinese: Elementary 2 (会通汉语 精编版·初级2)
+  // ===========================================================================
+  {
+    id: 'lesson6',
+    title: 'Lesson 5: What Are You Going There to Do?',
+    chineseTitle: '第5课 你去那儿干什么',
+    unitBadge: 'Mastering Chinese · Elementary 2 (会通汉语 精编版·初级2)',
+    hskLevel: 2,
+    description:
+      'Describe ongoing actions, future plans, and completed past events: phone conversations, planning a birthday celebration, practicing Tai Chi, picking up friends at the airport, and distinguishing action measure words (次, 遍, 趟).',
+    content:
+      'Unit 5 of Mastering Chinese: Elementary 2 covers phone etiquette, ongoing actions with 正在/在, future plans with 打算, purpose serial verbs with 来/去, completed actions with 了, past negation with 没, and the action measure words 次, 遍, and 趟.',
+    objectives: [
+      'Master Mandarin Erhua retroflexion (儿化音 -r) and classify Chinese characters by structural configuration (独体字 vs. 上下/左右/包围合体字).',
+      'Express actions currently in progress using 正在 / 在 + V (+ N) and temporal clauses with ……的时候.',
+      'State future plans with 打算 + V and purpose of movement with serial verb constructions 来/去 (+ Place) + V.',
+      'Narrate completed actions with V + 了 (+ 数量 + N), new situations with sentence-final 了, and negate past vs. habitual actions using 没 vs. 不.',
+      'Distinguish the three action measure words 次 (occurrence), 遍 (complete start-to-finish process), and 趟 (round-trip journey).',
+    ],
+    phoneticsAndCharacters: {
+      title: 'Section 1 · Phonetics & Chinese Characters (语音和汉字)',
+      sections: [
+        {
+          subtitle: 'Retroflex Final er & Erhua Suffixation (儿化音)',
+          summary:
+            'The retroflex vowel er appears both as a standalone syllable (儿 ér, 耳 ěr, 二 èr) and as a retroflex suffix (-r) fused onto the final of the preceding syllable into a single phonetic syllable.',
+          items: [
+            {
+              label: 'Standalone Retroflex Syllable er',
+              examples: '儿子 (érzi) · 耳朵 (ěrduo) · 二十 (èrshí) · 二百 (èrbǎi)',
+              detail: 'Pronounce the vowel while curling the tip of the tongue upward toward the hard palate without touching it.',
+            },
+            {
+              label: 'Common Everyday Erhua Words',
+              examples:
+                '小孩儿 (xiǎoháir) · 哪儿 (nǎr) · 这儿 (zhèr) · 事儿 (shìr) · 玩儿 (wánr) · 没空儿 (méikòngr) · 画儿 (huàr)',
+              detail: 'In Pinyin, Erhua is written by adding a single letter "r" to the end of the base syllable (never as a separate "er").',
+            },
+            {
+              label: 'Quantity, Time & Lifestyle Erhua Expressions',
+              examples:
+                '有点儿 (yǒudiǎnr) · 一点儿 (yìdiǎnr) · 一块儿 (yíkuàir, together) · 一会儿 (yíhuìr, a moment) · 饭馆儿 (fànguǎnr) · 口味儿 (kǒuwèir) · 照片儿 (zhàopiānr)',
+              detail: 'Erhua often adds a natural, colloquial warmth or distinguishes nouns from verbs/adjectives (e.g., 画 huà to draw vs. 画儿 huàr painting/picture).',
+            },
+          ],
+        },
+        {
+          subtitle: 'Chinese Character Structural Configurations (汉字的结构)',
+          summary:
+            'Every Chinese character fits into a balanced square frame, either as a single-component character (独体字) or a multi-component compound character (合体字).',
+          items: [
+            {
+              label: 'Single-Component Characters (独体字)',
+              examples: '人 · 女 · 三 · 大 · 中 · 生 · 小 · 水',
+              detail: 'Formed as a single inseparable graphic unit; many also serve as building blocks inside compound characters.',
+            },
+            {
+              label: 'Top-Bottom Structure (上下结构)',
+              examples: '早 · 多 · 家 · 笔 · 公 · 贵 · 学 · 男 · 岁',
+              detail: 'Components stack vertically within the square frame.',
+            },
+            {
+              label: 'Left-Right Structure (左右结构)',
+              examples: '朋 · 语 · 姐 · 都 · 很 · 请 · 好 · 新 · 汉 · 师',
+              detail: 'The most frequent structural pattern in Chinese, often pairing a semantic radical on the left with a phonetic component on the right.',
+            },
+            {
+              label: 'Enclosure Structure (包围结构) & Look-Alike Contrasts',
+              examples:
+                'Enclosure: 国 (full) · 同 / 问 (three-sided) · 起 / 这 (bottom-left) · 床 / 老 / 友 (top-left)  |  Contrast pairs: 朋 vs. 明 · 周 vs. 同 · 大 vs. 太 · 庆 vs. 床 · 这 vs. 还',
+              detail: 'Pay close attention to the enclosing radical (囗, 门, 辶, 广) and small distinguishing strokes.',
+            },
+          ],
+        },
+      ],
+    },
+    dialogue: [
+      {
+        character: '马克 (Mǎkè)',
+        hanzi: '喂，杰希，是我，马克。',
+        pinyin: 'Wèi, Jiéxī, shì wǒ, Mǎkè.',
+        translation: 'Hello, Jessie, it’s me, Mark.',
+      },
+      {
+        character: '杰希 (Jiéxī)',
+        hanzi: '马克啊，我正在等你的电话。',
+        pinyin: 'Mǎkè a, wǒ zhèngzài děng nǐ de diànhuà.',
+        translation: 'Oh, Mark! I am waiting for your call right now.',
+      },
+      {
+        character: '马克 (Mǎkè)',
+        hanzi: '不好意思，刚才你给我打电话的时候，我正在洗澡。有什么事儿吗？',
+        pinyin: 'Bù hǎoyìsi, gāngcái nǐ gěi wǒ dǎ diànhuà de shíhou, wǒ zhèngzài xǐzǎo. Yǒu shénme shìr ma?',
+        translation: 'Sorry, just now when you called me, I was taking a shower. Is something up?',
+      },
+      {
+        character: '杰希 (Jiéxī)',
+        hanzi: '下周六是莉莉的生日，我们打算去饭店吃饭，一起给她过生日，你去吗？',
+        pinyin:
+          'Xià zhōuliù shì Lìlì de shēngrì, wǒmen dǎsuàn qù fàndiàn chīfàn, yìqǐ gěi tā guò shēngrì, nǐ qù ma?',
+        translation:
+          'Next Saturday is Lily’s birthday. We plan to go to a restaurant for a meal and celebrate her birthday together—are you going?',
+      },
+      {
+        character: '马克 (Mǎkè)',
+        hanzi: '当然去。还有谁啊？',
+        pinyin: 'Dāngrán qù. Hái yǒu shéi a?',
+        translation: 'Of course I’m going. Who else is coming?',
+      },
+      {
+        character: '杰希 (Jiéxī)',
+        hanzi: '平田、朱迪、金志英，他们都已经知道了，还有阿里，我还没问他。',
+        pinyin: 'Píngtián, Zhūdí, Jīn Zhìyīng, tāmen dōu yǐjīng zhīdào le, hái yǒu Ālǐ, wǒ hái méi wèn tā.',
+        translation: 'Hirata, Judy, and Jin Zhiying all already know; there’s also Ali—I haven’t asked him yet.',
+      },
+      {
+        character: '马克 (Mǎkè)',
+        hanzi: '没事儿，明天下午我和阿里去看电影，我告诉他。',
+        pinyin: 'Méi shìr, míngtiān xiàwǔ wǒ hé Ālǐ qù kàn diànyǐng, wǒ gàosu tā.',
+        translation: 'No problem—tomorrow afternoon Ali and I are going to watch a movie, so I’ll tell him.',
+      },
+      {
+        character: '杰希 (Jiéxī)',
+        hanzi: '好的，下周六见！',
+        pinyin: 'Hǎo de, xià zhōuliù jiàn!',
+        translation: 'Great, see you next Saturday!',
+      },
+    ],
+    dialogues: [
+      {
+        title: 'Dialogue 1: Planning Lily’s Birthday Over the Phone (打电话约过生日)',
+        context:
+          'Mark returns Jessie’s phone call after taking a shower. Jessie invites him to Lily’s birthday dinner next Saturday.',
+        lines: [
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '喂，杰希，是我，马克。',
+            pinyin: 'Wèi, Jiéxī, shì wǒ, Mǎkè.',
+            translation: 'Hello, Jessie, it’s me, Mark.',
+          },
+          {
+            character: '杰希 (Jiéxī)',
+            hanzi: '马克啊，我正在等你的电话。',
+            pinyin: 'Mǎkè a, wǒ zhèngzài děng nǐ de diànhuà.',
+            translation: 'Oh, Mark! I am waiting for your call right now.',
+          },
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '不好意思，刚才你给我打电话的时候，我正在洗澡。有什么事儿吗？',
+            pinyin:
+              'Bù hǎoyìsi, gāngcái nǐ gěi wǒ dǎ diànhuà de shíhou, wǒ zhèngzài xǐzǎo. Yǒu shénme shìr ma?',
+            translation: 'Sorry, just now when you called me, I was taking a shower. Is something up?',
+          },
+          {
+            character: '杰希 (Jiéxī)',
+            hanzi: '下周六是莉莉的生日，我们打算去饭店吃饭，一起给她过生日，你去吗？',
+            pinyin:
+              'Xià zhōuliù shì Lìlì de shēngrì, wǒmen dǎsuàn qù fàndiàn chīfàn, yìqǐ gěi tā guò shēngrì, nǐ qù ma?',
+            translation:
+              'Next Saturday is Lily’s birthday. We plan to go to a restaurant for a meal and celebrate her birthday together—are you going?',
+          },
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '当然去。还有谁啊？',
+            pinyin: 'Dāngrán qù. Hái yǒu shéi a?',
+            translation: 'Of course I’m going. Who else is coming?',
+          },
+          {
+            character: '杰希 (Jiéxī)',
+            hanzi: '平田、朱迪、金志英，他们都已经知道了，还有阿里，我还没问他。',
+            pinyin:
+              'Píngtián, Zhūdí, Jīn Zhìyīng, tāmen dōu yǐjīng zhīdào le, hái yǒu Ālǐ, wǒ hái méi wèn tā.',
+            translation:
+              'Hirata, Judy, and Jin Zhiying all already know; there’s also Ali—I haven’t asked him yet.',
+          },
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '没事儿，明天下午我和阿里去看电影，我告诉他。',
+            pinyin: 'Méi shìr, míngtiān xiàwǔ wǒ hé Ālǐ qù kàn diànyǐng, wǒ gàosu tā.',
+            translation: 'No problem—tomorrow afternoon Ali and I are going to watch a movie, so I’ll tell him.',
+          },
+          {
+            character: '杰希 (Jiéxī)',
+            hanzi: '好的，下周六见！',
+            pinyin: 'Hǎo de, xià zhōuliù jiàn!',
+            translation: 'Great, see you next Saturday!',
+          },
+        ],
+      },
+      {
+        title: 'Dialogue 2: Practicing Tai Chi & Picking Up a Friend at the Airport (学太极拳与去机场接朋友)',
+        context:
+          'Jessie and Mark catch up on what they did yesterday: Mark practiced Tai Chi with Ali, while Jessie went to the airport to pick up a visiting friend.',
+        lines: [
+          {
+            character: '杰希 (Jiéxī)',
+            hanzi: '昨天你去打球了吗？我有事儿，没去。',
+            pinyin: 'Zuótiān nǐ qù dǎ qiú le ma? Wǒ yǒu shìr, méi qù.',
+            translation: 'Did you go play ball yesterday? I had something to do, so I didn’t go.',
+          },
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '我也没去，我和阿里去学太极拳了。',
+            pinyin: 'Wǒ yě méi qù, wǒ hé Ālǐ qù xué tàijíquán le.',
+            translation: 'I didn’t go either; Ali and I went to learn Tai Chi.',
+          },
+          {
+            character: '杰希 (Jiéxī)',
+            hanzi: '太极拳是什么？',
+            pinyin: 'Tàijíquán shì shénme?',
+            translation: 'What is Tai Chi?',
+          },
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '来，我打一遍，你看看。（马克打了一遍太极拳。）',
+            pinyin: 'Lái, wǒ dǎ yí biàn, nǐ kànkan. (Mǎkè dǎ le yí biàn tàijíquán.)',
+            translation: 'Come, I’ll perform the routine once from start to finish—take a look. (Mark performs Tai Chi once.)',
+          },
+          {
+            character: '杰希 (Jiéxī)',
+            hanzi: '啊，很帅啊！我也想学。',
+            pinyin: 'A, hěn shuài a! Wǒ yě xiǎng xué.',
+            translation: 'Oh, that’s really cool! I want to learn too.',
+          },
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '没问题，我们学了两次，下次一起去！你呢？昨天干什么了？',
+            pinyin: 'Méi wèntí, wǒmen xué le liǎng cì, xià cì yìqǐ qù! Nǐ ne? Zuótiān gàn shénme le?',
+            translation:
+              'No problem! We’ve had two sessions so far—next time let’s go together! What about you? What did you do yesterday?',
+          },
+          {
+            character: '杰希 (Jiéxī)',
+            hanzi: '我去机场接朋友了，他放假来看我，我们玩儿了一天。',
+            pinyin: 'Wǒ qù jīchǎng jiē péngyou le, tā fàngjià lái kàn wǒ, wǒmen wánr le yì tiān.',
+            translation:
+              'I went to the airport to pick up a friend. He is on vacation and came to visit me, so we hung out for a whole day.',
+          },
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '玩儿什么了？',
+            pinyin: 'Wánr shénme le?',
+            translation: 'What did you do for fun?',
+          },
+          {
+            character: '杰希 (Jiéxī)',
+            hanzi: '我们去食堂吃了饺子，还去看了电影，对，还去了一趟商店。',
+            pinyin: 'Wǒmen qù shítáng chī le jiǎozi, hái qù kàn le diànyǐng, duì, hái qù le yí tàng shāngdiàn.',
+            translation:
+              'We went to the dining hall to eat dumplings, also went to watch a movie, and oh right—we also made a trip to the store.',
+          },
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '买什么好东西了？',
+            pinyin: 'Mǎi shénme hǎo dōngxi le?',
+            translation: 'What good stuff did you buy?',
+          },
+          {
+            character: '杰希 (Jiéxī)',
+            hanzi: '我买了三件衣服，他给他父母买了一些中国的茶。',
+            pinyin: 'Wǒ mǎi le sān jiàn yīfu, tā gěi tā fùmǔ mǎi le yìxiē Zhōngguó de chá.',
+            translation: 'I bought three pieces of clothing, and he bought some Chinese tea for his parents.',
+          },
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '很开心吧？',
+            pinyin: 'Hěn kāixīn ba?',
+            translation: 'You must have been very happy, right?',
+          },
+          {
+            character: '杰希 (Jiéxī)',
+            hanzi: '非常开心！',
+            pinyin: 'Fēicháng kāixīn!',
+            translation: 'Extremely happy!',
+          },
+        ],
+      },
+    ],
+    readingPassage: {
+      title: 'Reading & Integrated Expression: Lily’s Birthday Surprise (我的生日)',
+      paragraphs: [
+        {
+          hanzi:
+            '今天是我的生日，中午，同学们来给我过生日，阿里没来。他姐姐来中国看他，他去接姐姐了。我们去了饭店，吃了很多好吃的中国菜。下午我们去了超市，买了一些好吃的、好喝的东西，大家一起来我家玩儿。',
+          pinyin:
+            'Jīntiān shì wǒ de shēngrì, zhōngwǔ, tóngxuémen lái gěi wǒ guò shēngrì, Ālǐ méi lái. Tā jiějie lái Zhōngguó kàn tā, tā qù jiē jiějie le. Wǒmen qù le fàndiàn, chī le hěn duō hǎochī de Zhōngguó cài. Xiàwǔ wǒmen qù le chāoshì, mǎi le yìxiē hǎochī de, hǎohē de dōngxi, dàjiā yìqǐ lái wǒ jiā wánr.',
+          translation:
+            'Today is my birthday. At noon, my classmates came to celebrate my birthday with me, though Ali didn’t come. His older sister came to China to visit him, so he went to pick her up. We went to a restaurant and ate lots of delicious Chinese dishes. In the afternoon we went to the supermarket, bought some tasty food and drinks, and everyone came to my home to hang out together.',
+        },
+        {
+          hanzi:
+            '晚上八点，一个同学给我打电话，他说：“你们还没吃生日蛋糕吧？开门！”啊！阿里也来了！他买了一个蛋糕，祝我生日快乐。这个生日我太开心了！谢谢我的同学们！',
+          pinyin:
+            'Wǎnshang bā diǎn, yí gè tóngxué gěi wǒ dǎ diànhuà, tā shuō: “Nǐmen hái méi chī shēngrì dàngāo ba? Kāimén!” A! Ālǐ yě lái le! Tā mǎi le yí gè dàngāo, zhù wǒ shēngrì kuàilè. Zhège shēngrì wǒ tài kāixīn le! Xièxie wǒ de tóngxuémen!',
+          translation:
+            'At eight o’clock in the evening, a classmate called me and said: "You haven’t eaten birthday cake yet, right? Open the door!" Ah! Ali came too! He bought a cake and wished me a happy birthday. I am so happy on this birthday! Thank you to my classmates!',
+        },
+      ],
+    },
+    vocabularyExplanation: [
+      {
+        hanzi: '喂',
+        pinyin: 'wèi',
+        english: 'hello (interjection used when answering the phone)',
+        exampleHanzi: '喂，杰希，是我，马克。',
+        examplePinyin: 'Wèi, Jiéxī, shì wǒ, Mǎkè.',
+        exampleTranslation: 'Hello, Jessie, it’s me, Mark.',
+      },
+      {
+        hanzi: '正在',
+        pinyin: 'zhèngzài',
+        english: 'right in the middle of / currently (doing an action)',
+        exampleHanzi: '我正在等你的电话。',
+        examplePinyin: 'Wǒ zhèngzài děng nǐ de diànhuà.',
+        exampleTranslation: 'I am right now waiting for your phone call.',
+      },
+      {
+        hanzi: '等',
+        pinyin: 'děng',
+        english: 'to wait (for)',
+        exampleHanzi: '请等一下，他马上来。',
+        examplePinyin: 'Qǐng děng yíxià, tā mǎshàng lái.',
+        exampleTranslation: 'Please wait a moment; he is coming right away.',
+      },
+      {
+        hanzi: '刚才',
+        pinyin: 'gāngcái',
+        english: 'just now (a short while ago)',
+        exampleHanzi: '刚才你给我打电话的时候，我正在洗澡。',
+        examplePinyin: 'Gāngcái nǐ gěi wǒ dǎ diànhuà de shíhou, wǒ zhèngzài xǐzǎo.',
+        exampleTranslation: 'Just now when you called me, I was taking a shower.',
+      },
+      {
+        hanzi: '打电话',
+        pinyin: 'dǎ diànhuà',
+        english: 'to make a phone call',
+        exampleHanzi: '晚上八点，一个同学给我打电话。',
+        examplePinyin: 'Wǎnshang bā diǎn, yí gè tóngxué gěi wǒ dǎ diànhuà.',
+        exampleTranslation: 'At eight in the evening, a classmate called me.',
+      },
+      {
+        hanzi: '的时候',
+        pinyin: 'de shíhou',
+        english: 'when / at the time of...',
+        exampleHanzi: '吃饭的时候，我们一起聊天儿。',
+        examplePinyin: 'Chīfàn de shíhou, wǒmen yìqǐ liáotiānr.',
+        exampleTranslation: 'While eating, we chat together.',
+      },
+      {
+        hanzi: '洗澡',
+        pinyin: 'xǐzǎo',
+        english: 'to take a bath or shower',
+        exampleHanzi: '他每天晚上十点洗澡。',
+        examplePinyin: 'Tā měitiān wǎnshang shí diǎn xǐzǎo.',
+        exampleTranslation: 'He takes a shower at ten every night.',
+      },
+      {
+        hanzi: '事儿',
+        pinyin: 'shìr',
+        english: 'matter / business / thing to do (with Erhua)',
+        exampleHanzi: '有什么事儿吗？——没事儿。',
+        examplePinyin: 'Yǒu shénme shìr ma? — Méi shìr.',
+        exampleTranslation: 'Is something up? — Nothing much / No problem.',
+      },
+      {
+        hanzi: '打算',
+        pinyin: 'dǎsuàn',
+        english: 'to plan / to intend',
+        exampleHanzi: '我们打算去饭店吃饭。',
+        examplePinyin: 'Wǒmen dǎsuàn qù fàndiàn chīfàn.',
+        exampleTranslation: 'We plan to go to a restaurant to eat.',
+      },
+      {
+        hanzi: '饭店',
+        pinyin: 'fàndiàn',
+        english: 'restaurant / hotel',
+        exampleHanzi: '这家饭店的中国菜很好吃。',
+        examplePinyin: 'Zhè jiā fàndiàn de Zhōngguó cài hěn hǎochī.',
+        exampleTranslation: 'The Chinese food at this restaurant is delicious.',
+      },
+      {
+        hanzi: '过',
+        pinyin: 'guò',
+        english: 'to celebrate (a birthday or festival); to spend (time)',
+        exampleHanzi: '我们一起给莉莉过生日。',
+        examplePinyin: 'Wǒmen yìqǐ gěi Lìlì guò shēngrì.',
+        exampleTranslation: 'We celebrate Lily’s birthday together.',
+      },
+      {
+        hanzi: '当然',
+        pinyin: 'dāngrán',
+        english: 'of course / certainly',
+        exampleHanzi: '你去吗？——当然去！',
+        examplePinyin: 'Nǐ qù ma? — Dāngrán qù!',
+        exampleTranslation: 'Are you going? — Of course I’m going!',
+      },
+      {
+        hanzi: '已经',
+        pinyin: 'yǐjīng',
+        english: 'already',
+        exampleHanzi: '他们都已经知道了。',
+        examplePinyin: 'Tāmen dōu yǐjīng zhīdào le.',
+        exampleTranslation: 'They all already know.',
+      },
+      {
+        hanzi: '知道',
+        pinyin: 'zhīdào',
+        english: 'to know / to be aware of',
+        exampleHanzi: '你知道他的电话号码吗？',
+        examplePinyin: 'Nǐ zhīdào tā de diànhuà hàomǎ ma?',
+        exampleTranslation: 'Do you know his phone number?',
+      },
+      {
+        hanzi: '告诉',
+        pinyin: 'gàosu',
+        english: 'to tell / to inform',
+        exampleHanzi: '明天我和阿里去看电影，我告诉他。',
+        examplePinyin: 'Míngtiān wǒ hé Ālǐ qù kàn diànyǐng, wǒ gàosu tā.',
+        exampleTranslation: 'Tomorrow Ali and I are going to watch a movie; I will tell him.',
+      },
+      {
+        hanzi: '太极拳',
+        pinyin: 'tàijíquán',
+        english: 'Tai Chi (traditional Chinese martial art)',
+        exampleHanzi: '我和阿里去学太极拳了。',
+        examplePinyin: 'Wǒ hé Ālǐ qù xué tàijíquán le.',
+        exampleTranslation: 'Ali and I went to learn Tai Chi.',
+      },
+      {
+        hanzi: '遍',
+        pinyin: 'biàn',
+        english: 'time / once through (action measure word for a complete start-to-finish process)',
+        exampleHanzi: '来，我打一遍太极拳，你看看。',
+        examplePinyin: 'Lái, wǒ dǎ yí biàn tàijíquán, nǐ kànkan.',
+        exampleTranslation: 'Come, I’ll perform the Tai Chi routine once through—take a look.',
+      },
+      {
+        hanzi: '帅',
+        pinyin: 'shuài',
+        english: 'handsome / cool / dashing',
+        exampleHanzi: '你打太极拳很帅啊！',
+        examplePinyin: 'Nǐ dǎ tàijíquán hěn shuài a!',
+        exampleTranslation: 'You look so cool doing Tai Chi!',
+      },
+      {
+        hanzi: '次',
+        pinyin: 'cì',
+        english: 'time / occurrence (action measure word for frequency)',
+        exampleHanzi: '我们学了两次，下次一起去！',
+        examplePinyin: 'Wǒmen xué le liǎng cì, xià cì yìqǐ qù!',
+        exampleTranslation: 'We have learned twice; let’s go together next time!',
+      },
+      {
+        hanzi: '干',
+        pinyin: 'gàn',
+        english: 'to do (colloquial equivalent of 做)',
+        exampleHanzi: '你昨天干什么了？',
+        examplePinyin: 'Nǐ zuótiān gàn shénme le?',
+        exampleTranslation: 'What did you do yesterday?',
+      },
+      {
+        hanzi: '机场',
+        pinyin: 'jīchǎng',
+        english: 'airport',
+        exampleHanzi: '我去机场接朋友了。',
+        examplePinyin: 'Wǒ qù jīchǎng jiē péngyou le.',
+        exampleTranslation: 'I went to the airport to pick up a friend.',
+      },
+      {
+        hanzi: '接',
+        pinyin: 'jiē',
+        english: 'to pick up / meet someone; to answer (a phone call)',
+        exampleHanzi: '他姐姐来中国看他，他去接姐姐了。',
+        examplePinyin: 'Tā jiějie lái Zhōngguó kàn tā, tā qù jiē jiějie le.',
+        exampleTranslation: 'His older sister came to China to see him, so he went to pick her up.',
+      },
+      {
+        hanzi: '放假',
+        pinyin: 'fàngjià',
+        english: 'to have a holiday / be on vacation',
+        exampleHanzi: '他放假来看我，我们玩儿了一天。',
+        examplePinyin: 'Tā fàngjià lái kàn wǒ, wǒmen wánr le yì tiān.',
+        exampleTranslation: 'He was on vacation and came to visit me; we hung out for a whole day.',
+      },
+      {
+        hanzi: '趟',
+        pinyin: 'tàng',
+        english: 'trip (action measure word for a round-trip journey)',
+        exampleHanzi: '我们还去了一趟商店。',
+        examplePinyin: 'Wǒmen hái qù le yí tàng shāngdiàn.',
+        exampleTranslation: 'We also made a trip to the store.',
+      },
+      {
+        hanzi: '父母',
+        pinyin: 'fùmǔ',
+        english: 'parents (father and mother)',
+        exampleHanzi: '他给他父母买了一些中国的茶。',
+        examplePinyin: 'Tā gěi tā fùmǔ mǎi le yìxiē Zhōngguó de chá.',
+        exampleTranslation: 'He bought some Chinese tea for his parents.',
+      },
+      {
+        hanzi: '开心',
+        pinyin: 'kāixīn',
+        english: 'happy / joyful',
+        exampleHanzi: '这个生日我太开心了！',
+        examplePinyin: 'Zhège shēngrì wǒ tài kāixīn le!',
+        exampleTranslation: 'I am so happy on this birthday!',
+      },
+      {
+        hanzi: '非常',
+        pinyin: 'fēicháng',
+        english: 'extremely / very much',
+        exampleHanzi: '昨天我们玩儿得非常开心！',
+        examplePinyin: 'Zuótiān wǒmen wánr de fēicháng kāixīn!',
+        exampleTranslation: 'Yesterday we had an extremely happy time!',
+      },
+    ],
+    grammarPoint: 'Ongoing Actions (正在), Future Plans (打算 / 去+Place+V), Completed Actions (了 vs. 没) & Action Classifiers (次/遍/趟)',
+    structure: '正在 / 在 + V | 打算 + V | 来/去 + Place + V | V + 了 + 数量 (次/遍/趟) | 没 + V',
+    explanation:
+      'Unit 5 contrasts actions in progress (正在 + V), future intentions (打算 + V and purpose serial verbs 来/去 + Place + V), and completed actions (V + 了 vs. negative 没 + V), along with the three action measure words 次, 遍, and 趟.',
+    examples: [
+      {
+        hanzi: '刚才你给我打电话的时候，我正在洗澡。',
+        pinyin: 'Gāngcái nǐ gěi wǒ dǎ diànhuà de shíhou, wǒ zhèngzài xǐzǎo.',
+        translation: 'Just now when you called me, I was taking a shower.',
+      },
+      {
+        hanzi: '我们去食堂吃了饺子，还去了一趟商店。',
+        pinyin: 'Wǒmen qù shítáng chī le jiǎozi, hái qù le yí tàng shāngdiàn.',
+        translation: 'We went to the dining hall to eat dumplings, and also made a trip to the store.',
+      },
+    ],
+    grammarNotes: [
+      {
+        title: 'Ongoing Action: S + 正在 / 在 + V (+ N) & Temporal ……的时候',
+        structure: 'Subject + 正在 / 在 + Verb (+ Object)  |  [Clause / Time] + 的时候',
+        explanation:
+          'To express that an action is in progress at a specific moment (present or past), place 正在 (or 在) before the verb. 正在 emphasizes the exact moment an action is happening (often paired with a time clause ending in ……的时候 "when..."), whereas 在 can also describe an activity sustained over a broader period (e.g., 我一天都在学习).',
+        examples: [
+          {
+            hanzi: '刚才你给我打电话的时候，我正在洗澡。',
+            pinyin: 'Gāngcái nǐ gěi wǒ dǎ diànhuà de shíhou, wǒ zhèngzài xǐzǎo.',
+            translation: 'Just now when you called me, I was taking a shower.',
+          },
+          {
+            hanzi: '马克，我正在等你的电话。',
+            pinyin: 'Mǎkè, wǒ zhèngzài děng nǐ de diànhuà.',
+            translation: 'Mark, I am waiting for your phone call right now.',
+          },
+        ],
+      },
+      {
+        title: 'Future Plans with 打算 (dǎsuàn) & Purpose Serial Verbs: 来/去 (+ Place) + V',
+        structure: 'Subject + 打算 + [Time] + Verb (+ Object)  |  来 / 去 (+ Place) + Verb (+ Object)',
+        explanation:
+          'Use 打算 ("to plan/intend to") before a verb phrase to state a future plan. When describing going or coming somewhere in order to do something, Mandarin chains the motion verb (来 or 去 + destination) directly before the purpose action verb without any preposition: 去饭店吃饭 (go to a restaurant to eat), 去银行取钱 (go to the bank to withdraw money), 去图书馆借书 (go to the library to borrow books), 来中国看他 (come to China to visit him).',
+        examples: [
+          {
+            hanzi: '下周六我们打算去饭店吃饭，一起给她过生日。',
+            pinyin: 'Xià zhōuliù wǒmen dǎsuàn qù fàndiàn chīfàn, yìqǐ gěi tā guò shēngrì.',
+            translation: 'Next Saturday we plan to go to a restaurant to eat and celebrate her birthday together.',
+          },
+          {
+            hanzi: '我去机场接朋友了，他放假来看我。',
+            pinyin: 'Wǒ qù jīchǎng jiē péngyou le, tā fàngjià lái kàn wǒ.',
+            translation: 'I went to the airport to pick up a friend; he is on vacation and came to visit me.',
+          },
+        ],
+      },
+      {
+        title: 'Change of State ([句] + 了), 已经……了, and Completed Action (V + 了)',
+        structure: '[Sentence] + 了 (New State)  |  已经 + V + 了  |  Subject + V + 了 (+ 数量 + Object)',
+        explanation:
+          'Mandarin uses 了 in two key positions: ① Sentence-final 了 marks a new situation, change of state, or newly realized fact (今天这件衣服降价了 "Today this clothing dropped in price"; 他们都已经知道了 "They all already know"). ② Verb-suffix 了 (placed right after the verb, before a quantified object) marks the completion of a specific action: 我买了三件衣服 (I bought three pieces of clothing), 我们去食堂吃了饺子 (We went to the dining hall and ate dumplings).',
+        examples: [
+          {
+            hanzi: '平田、朱迪、金志英，他们都已经知道了。',
+            pinyin: 'Píngtián, Zhūdí, Jīn Zhìyīng, tāmen dōu yǐjīng zhīdào le.',
+            translation: 'Hirata, Judy, and Jin Zhiying all already know.',
+          },
+          {
+            hanzi: '我买了三件衣服，他给他父母买了一些中国的茶。',
+            pinyin: 'Wǒ mǎi le sān jiàn yīfu, tā gěi tā fùmǔ mǎi le yìxiē Zhōngguó de chá.',
+            translation: 'I bought three pieces of clothing, and he bought some Chinese tea for his parents.',
+          },
+        ],
+      },
+      {
+        title: 'Negating Past vs. Habitual/Future Actions: 没 (méi) vs. 不 (bù)',
+        structure: '没 + Verb (Past/Uncompleted — drop 了!)  vs.  不 + Verb / Adj (Habitual, Future, or Mental State)',
+        explanation:
+          'To state that an action did NOT happen in the past (or has not happened yet with 还没), use 没(有) + Verb and remove 了 and specific quantities (e.g., 昨天我没去商店, never *我没去一趟商店了). Use 不 to negate present/future intentions (明天我不去吃饭了), habitual preferences (我不喜欢喝酸奶), or adjectives (今天苹果不贵).',
+        examples: [
+          {
+            hanzi: '昨天你去打球了吗？——我有事儿，没去。',
+            pinyin: 'Zuótiān nǐ qù dǎ qiú le ma? — Wǒ yǒu shìr, méi qù.',
+            translation: 'Did you go play ball yesterday? — I had something to do, so I didn’t go.',
+          },
+          {
+            hanzi: '还有阿里，我还没问他。',
+            pinyin: 'Hái yǒu Ālǐ, wǒ hái méi wèn tā.',
+            translation: 'There is also Ali; I haven’t asked him yet.',
+          },
+        ],
+      },
+      {
+        title: 'Action Measure Words: 次 (cì) vs. 遍 (biàn) vs. 趟 (tàng)',
+        structure: 'Verb + 了 + Number + 次 / 遍 / 趟 (+ Noun)',
+        explanation:
+          'When counting how many times an action takes place, place the number + action measure word after V + 了: ① 次 (cì) counts simple occurrences or sessions (我们学了两次 "We learned twice"). ② 遍 (biàn) emphasizes completing the entire process from beginning to end (我打一遍太极拳 "I perform the whole Tai Chi routine once through"; 这本书我看了三遍 "I read this book through three times"). ③ 趟 (tàng) counts a round-trip journey to a destination (去了一趟商店 "made a trip to the store"; 去了一趟机场 "made a trip to the airport").',
+        examples: [
+          {
+            hanzi: '来，我打一遍，你看看。我们学了两次，下次一起去！',
+            pinyin: 'Lái, wǒ dǎ yí biàn, nǐ kànkan. Wǒmen xué le liǎng cì, xià cì yìqǐ qù!',
+            translation: 'Come, I’ll perform it once through, take a look. We’ve had two sessions—next time let’s go together!',
+          },
+          {
+            hanzi: '我们去食堂吃了饺子，还去了一趟商店。',
+            pinyin: 'Wǒmen qù shítáng chī le jiǎozi, hái qù le yí tàng shāngdiàn.',
+            translation: 'We went to the dining hall to eat dumplings, and also made a trip to the store.',
+          },
+        ],
+      },
+    ],
+    exercises: [
+      {
+        question: 'In Dialogue 1, why didn’t Mark answer when Jessie first called him?',
+        options: [
+          'He was taking a shower (正在洗澡).',
+          'He was at the airport picking up a friend (去机场接朋友).',
+          'He was practicing Tai Chi with Ali (学太极拳).',
+          'He was buying a birthday cake at the supermarket (买生日蛋糕).',
+        ],
+        answerIndex: 0,
+        explanation:
+          'Mark explains: “不好意思，刚才你给我打电话的时候，我正在洗澡。” (Sorry, just now when you called me, I was taking a shower.)',
+      },
+      {
+        question: 'Choose the best action measure word to complete: “这套太极拳我从头到尾打了一________，昨天还去了一________机场。”',
+        promptHanzi: '这套太极拳我打了一________，昨天还去了一________机场。',
+        promptPinyin: 'Zhè tào tàijíquán wǒ dǎ le yí ________, zuótiān hái qù le yí ________ jīchǎng.',
+        options: [
+          '遍 …… 趟 (biàn ... tàng)',
+          '趟 …… 遍 (tàng ... biàn)',
+          '件 …… 条 (jiàn ... tiáo)',
+          '斤 …… 双 (jīn ... shuāng)',
+        ],
+        answerIndex: 0,
+        explanation:
+          '遍 (biàn) measures an action performed completely from start to finish (打了一遍太极拳), while 趟 (tàng) measures a round-trip journey to a place (去了一趟机场).',
+      },
+      {
+        question: 'Which sentence correctly negates the past action “我昨天去商店了”?',
+        options: [
+          '我昨天没去商店。',
+          '我昨天不去了商店。',
+          '我昨天没去商店了。',
+          '我昨天不去一趟商店了。',
+        ],
+        answerIndex: 0,
+        explanation:
+          'Past actions are negated with 没(有) + Verb, and the completion particle 了 must be dropped: 我昨天没去商店。',
+      },
+      {
+        question: 'In the Reading Passage, why didn’t Ali join Lily’s birthday lunch at noon, and what did he do at 8:00 PM?',
+        options: [
+          'He went to pick up his older sister who came to China to visit him, and at 8:00 PM he surprised Lily at her door with a birthday cake.',
+          'He forgot her birthday completely and stayed at the library all night.',
+          'He had to work at the dining hall and sent a text message the next morning.',
+          'He went to watch a movie with Mark and bought three shirts.',
+        ],
+        answerIndex: 0,
+        explanation:
+          'At noon Ali went to pick up his sister (他姐姐来中国看他，他去接姐姐了), and at 8:00 PM he arrived at Lily’s home with a birthday cake (他买了一个蛋糕，祝我生日快乐).',
+      },
+    ],
+  },
+
+  // ===========================================================================
+  // UNIT 7 (HSK 2): 第6课 再点一个素的吧 — Let's Order Another Vegetarian Dish
+  // Synthesized from 4 slide decks: 第6课 再点一个素的吧（一）、（二）、（三）、（四）
+  // Mastering Chinese: Elementary 2 (会通汉语 精编版·初级2)
+  // ===========================================================================
+  {
+    id: 'lesson7',
+    title: "Lesson 6: Let's Order Another Vegetarian Dish",
+    chineseTitle: '第6课 再点一个素的吧',
+    unitBadge: 'Mastering Chinese · Elementary 2 (会通汉语 精编版·初级2)',
+    hskLevel: 2,
+    description:
+      'Order dishes and staple foods at a Chinese restaurant: discuss flavors (spicy, sweet-and-sour, vegetarian vs. meat), state dietary restrictions, use nominalized “的” phrases, and compare dishes with 比, 没有, and 最.',
+    content:
+      'Unit 6 of Mastering Chinese: Elementary 2 covers ordering Chinese dishes and staple foods, describing flavors, stating dietary restrictions with 别 + V, using nominalized “的” phrases, acquired skill 会 + V, softened negation 不太, and comparisons with 比, 没有, and 最.',
+    objectives: [
+      'Recite classic five-character Tang and Song poems (李白《静夜思》, 邵雍《山村咏怀》) with natural rhythm and tone.',
+      'Identify semantic radicals in Chinese characters (亻, 饣, 口, 氵, 讠, 忄) and connect them to meaning categories (food, speech, water, emotion).',
+      'Order dishes, staples (面条儿, 饺子 by 两), and drinks while specifying dietary restrictions with 别 + V (别放香菜).',
+      'Use nominalized “的”-phrases (素的, 辣的, 不吃的), acquired skill 会 + V, and softened negation 不太 + Adj/V.',
+      'Compare items accurately using A 比 B + Adj, B 没有 A + Adj, and the superlative 最 + Adj/V.',
+    ],
+    phoneticsAndCharacters: {
+      title: 'Section 1 · Classical Poetry Recitation & Semantic Radicals (古诗朗读与汉字的部首)',
+      sections: [
+        {
+          subtitle: 'Classical Chinese Poetry Recitation (古诗朗读)',
+          summary:
+            'Reciting classical five-character quatrains (五言绝句) trains tonal contrast, pause rhythm (2-3 cadence), and cultural literacy.',
+          items: [
+            {
+              label: '《静夜思》 Thoughts on a Quiet Night — 李白 (Lǐ Bái, Tang Dynasty)',
+              examples:
+                '床前明月光 (Chuáng qián míngyuè guāng)，疑是地上霜 (yí shì dìshang shuāng)。举头望明月 (Jǔtóu wàng míngyuè)，低头思故乡 (dītóu sī gùxiāng)。',
+              detail: 'Bright moonlight before my bed / I suspect it is frost on the ground. / Raising my head, I gaze at the bright moon; / Lowering my head, I think of my homeland.',
+            },
+            {
+              label: '《山村咏怀》 Ode to a Mountain Village — 邵雍 (Shào Yōng, Song Dynasty)',
+              examples:
+                '一去二三里 (Yí qù èr sān lǐ)，烟村四五家 (yāncūn sì wǔ jiā)。亭台六七座 (Tíngtái liù qī zuò)，八九十枝花 (bā jiǔ shí zhī huā)。',
+              detail: 'Weaves all ten numerals (一 through 十) into a serene landscape painting of a misty village, pavilions, and blossoms.',
+            },
+          ],
+        },
+        {
+          subtitle: 'Semantic Radicals of Chinese Characters (汉字的部首)',
+          summary:
+            'Most compound characters contain a semantic radical (部首) that signals the broad category of meaning. Recognizing radicals dramatically accelerates vocabulary acquisition.',
+          items: [
+            {
+              label: '食字旁 (饣) — Food, Meals & Hunger',
+              examples: '饭 (fàn, meal/rice) · 饮 (yǐn, drink) · 饿 (è, hungry) · 饺 (jiǎo, dumpling) · 馆 (guǎn, restaurant)',
+              detail: 'Derived from 食 (to eat/food); characters with 饣 almost always relate to food, dining, or nourishment.',
+            },
+            {
+              label: '口字旁 (口) & 言字旁 (讠) — Mouth, Taste & Speech',
+              examples:
+                '口: 吃 (chī, eat) · 叫 (jiào, call) · 味 (wèi, flavor) · 喝 (hē, drink)  |  讠: 说 (shuō, speak) · 请 (qǐng, please/invite) · 话 (huà, speech/words) · 语 (yǔ, language)',
+              detail: '口 relates to actions of the mouth and taste; 讠 (from 言) relates to language and communication.',
+            },
+            {
+              label: '三点水 (氵) — Water, Liquids & Soup',
+              examples: '洗 (xǐ, wash) · 泳 (yǒng, swim) · 汤 (tāng, soup) · 汉 (hàn) · 汽 (qì, steam)',
+              detail: 'Derived from 水 (water); appears in characters involving liquids, washing, or beverages.',
+            },
+            {
+              label: '单立人 (亻) & 竖心旁 (忄) — People & Mental/Emotional States',
+              examples:
+                '亻 (from 人): 他 (he) · 体 (body) · 健 (healthy) · 休 (rest)  |  忄 (from 心): 快 (fast/happy) · 忙 (busy) · 懂 (understand)',
+              detail: '亻 points to human beings and bodily states; 忄 points to feelings, temperament, and cognition.',
+            },
+          ],
+        },
+      ],
+    },
+    dialogue: [
+      {
+        character: '服务员 (Fúwùyuán)',
+        hanzi: '几位要点什么菜？',
+        pinyin: 'Jǐ wèi yào diǎn shénme cài?',
+        translation: 'What dishes would you all like to order?',
+      },
+      {
+        character: '阿里 (Ālǐ)',
+        hanzi: '请问什么菜点的人多？',
+        pinyin: 'Qǐngwèn shénme cài diǎn de rén duō?',
+        translation: 'Excuse me, which dishes do people order the most?',
+      },
+      {
+        character: '服务员 (Fúwùyuán)',
+        hanzi: '西红柿炒鸡蛋和鱼香肉丝，留学生一般都喜欢吃。',
+        pinyin: 'Xīhóngshì chǎo jīdàn hé yúxiāng ròusī, liúxuéshēng yìbān dōu xǐhuan chī.',
+        translation:
+          'Scrambled eggs with tomatoes and Yu-Shiang shredded pork—international students generally love eating them.',
+      },
+      {
+        character: '马克 (Mǎkè)',
+        hanzi: '西红柿炒鸡蛋我知道，太好吃了，我喜欢。鱼香肉丝是什么味道的？',
+        pinyin: 'Xīhóngshì chǎo jīdàn wǒ zhīdào, tài hǎochī le, wǒ xǐhuan. Yúxiāng ròusī shì shénme wèidào de?',
+        translation:
+          'I know scrambled eggs with tomatoes—it’s so delicious, I like it. What flavor is Yu-Shiang shredded pork?',
+      },
+      {
+        character: '服务员 (Fúwùyuán)',
+        hanzi: '辣的，里面有肉，很好吃。',
+        pinyin: 'Là de, lǐmiàn yǒu ròu, hěn hǎochī.',
+        translation: 'It’s spicy, has meat inside, and is very delicious.',
+      },
+      {
+        character: '阿里 (Ālǐ)',
+        hanzi: '我爱吃辣的，也爱吃肉，咱们尝尝，好不好？',
+        pinyin: 'Wǒ ài chī là de, yě ài chī ròu, zánmen chángchang, hǎo bu hǎo?',
+        translation: 'I love eating spicy food and I love meat too—let’s try it, okay?',
+      },
+      {
+        character: '马克 (Mǎkè)',
+        hanzi: '好啊。三个人，两个菜太少了。金志英，你也点一个吧。',
+        pinyin: 'Hǎo a. Sān gè rén, liǎng gè cài tài shǎo le. Jīn Zhìyīng, nǐ yě diǎn yí gè ba.',
+        translation: 'Sure! For three people, two dishes are too few. Jin Zhiying, why don’t you order one too?',
+      },
+      {
+        character: '金志英 (Jīn Zhìyīng)',
+        hanzi: '我再点一个素的，要一个炒荷兰豆，好吗？',
+        pinyin: 'Wǒ zài diǎn yí gè sù de, yào yí gè chǎo hélándòu, hǎo ma?',
+        translation: 'I’ll order one more vegetarian dish—how about stir-fried snow peas?',
+      },
+      {
+        character: '马克 (Mǎkè)',
+        hanzi: '好啊，这个菜我也爱吃。',
+        pinyin: 'Hǎo a, zhège cài wǒ yě ài chī.',
+        translation: 'Great, I love eating that dish too.',
+      },
+      {
+        character: '服务员 (Fúwùyuán)',
+        hanzi: '几位有什么不吃的？',
+        pinyin: 'Jǐ wèi yǒu shénme bù chī de?',
+        translation: 'Is there anything you don’t eat?',
+      },
+      {
+        character: '金志英 (Jīn Zhìyīng)',
+        hanzi: '别放香菜，我不吃香菜。',
+        pinyin: 'Bié fàng xiāngcài, wǒ bù chī xiāngcài.',
+        translation: 'Don’t put cilantro in; I don’t eat cilantro.',
+      },
+      {
+        character: '马克、阿里 (Mǎkè, Ālǐ)',
+        hanzi: '我们没有不喜欢吃的。',
+        pinyin: 'Wǒmen méiyǒu bù xǐhuan chī de.',
+        translation: 'There’s nothing we don’t like to eat.',
+      },
+    ],
+    dialogues: [
+      {
+        title: 'Dialogue 1: Ordering Dishes & Specifying Flavors (点菜)',
+        context:
+          'Ali, Mark, and Jin Zhiying ask the waiter for popular dish recommendations, balance meat and vegetarian dishes, and request no cilantro.',
+        lines: [
+          {
+            character: '服务员 (Fúwùyuán)',
+            hanzi: '几位要点什么菜？',
+            pinyin: 'Jǐ wèi yào diǎn shénme cài?',
+            translation: 'What dishes would you all like to order?',
+          },
+          {
+            character: '阿里 (Ālǐ)',
+            hanzi: '请问什么菜点的人多？',
+            pinyin: 'Qǐngwèn shénme cài diǎn de rén duō?',
+            translation: 'Excuse me, which dishes do people order the most?',
+          },
+          {
+            character: '服务员 (Fúwùyuán)',
+            hanzi: '西红柿炒鸡蛋和鱼香肉丝，留学生一般都喜欢吃。',
+            pinyin: 'Xīhóngshì chǎo jīdàn hé yúxiāng ròusī, liúxuéshēng yìbān dōu xǐhuan chī.',
+            translation:
+              'Scrambled eggs with tomatoes and Yu-Shiang shredded pork—international students generally love eating them.',
+          },
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '西红柿炒鸡蛋我知道，太好吃了，我喜欢。鱼香肉丝是什么味道的？',
+            pinyin:
+              'Xīhóngshì chǎo jīdàn wǒ zhīdào, tài hǎochī le, wǒ xǐhuan. Yúxiāng ròusī shì shénme wèidào de?',
+            translation:
+              'I know scrambled eggs with tomatoes—it’s so delicious, I like it. What flavor is Yu-Shiang shredded pork?',
+          },
+          {
+            character: '服务员 (Fúwùyuán)',
+            hanzi: '辣的，里面有肉，很好吃。',
+            pinyin: 'Là de, lǐmiàn yǒu ròu, hěn hǎochī.',
+            translation: 'It’s spicy, has meat inside, and is very delicious.',
+          },
+          {
+            character: '阿里 (Ālǐ)',
+            hanzi: '我爱吃辣的，也爱吃肉，咱们尝尝，好不好？',
+            pinyin: 'Wǒ ài chī là de, yě ài chī ròu, zánmen chángchang, hǎo bu hǎo?',
+            translation: 'I love eating spicy food and I love meat too—let’s try it, okay?',
+          },
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '好啊。三个人，两个菜太少了。金志英，你也点一个吧。',
+            pinyin: 'Hǎo a. Sān gè rén, liǎng gè cài tài shǎo le. Jīn Zhìyīng, nǐ yě diǎn yí gè ba.',
+            translation:
+              'Sure! For three people, two dishes are too few. Jin Zhiying, why don’t you order one too?',
+          },
+          {
+            character: '金志英 (Jīn Zhìyīng)',
+            hanzi: '我再点一个素的，要一个炒荷兰豆，好吗？',
+            pinyin: 'Wǒ zài diǎn yí gè sù de, yào yí gè chǎo hélándòu, hǎo ma?',
+            translation: 'I’ll order one more vegetarian dish—how about stir-fried snow peas?',
+          },
+          {
+            character: '马克 (Mǎkè)',
+            hanzi: '好啊，这个菜我也爱吃。',
+            pinyin: 'Hǎo a, zhège cài wǒ yě ài chī.',
+            translation: 'Great, I love eating that dish too.',
+          },
+          {
+            character: '服务员 (Fúwùyuán)',
+            hanzi: '几位有什么不吃的？',
+            pinyin: 'Jǐ wèi yǒu shénme bù chī de?',
+            translation: 'Is there anything you don’t eat?',
+          },
+          {
+            character: '金志英 (Jīn Zhìyīng)',
+            hanzi: '别放香菜，我不吃香菜。',
+            pinyin: 'Bié fàng xiāngcài, wǒ bù chī xiāngcài.',
+            translation: 'Don’t put cilantro in; I don’t eat cilantro.',
+          },
+          {
+            character: '马克、阿里 (Mǎkè, Ālǐ)',
+            hanzi: '我们没有不喜欢吃的。',
+            pinyin: 'Wǒmen méiyǒu bù xǐhuan chī de.',
+            translation: 'There’s nothing we don’t like to eat.',
+          },
+        ],
+      },
+      {
+        title: 'Dialogue 2: Ordering Staples, Soup & Comparing Dishes (点主食与比较味道)',
+        context:
+          'Hirata and Judy order noodles and dumplings, choose dumpling soup over soft drinks for health, and compare the taste of noodles and dumplings.',
+        lines: [
+          {
+            character: '服务员 (Fúwùyuán)',
+            hanzi: '两位要什么主食？',
+            pinyin: 'Liǎng wèi yào shénme zhǔshí?',
+            translation: 'What staple food would the two of you like?',
+          },
+          {
+            character: '平田 (Píngtián)',
+            hanzi: '我要一碗面条儿。',
+            pinyin: 'Wǒ yào yì wǎn miàntiáor.',
+            translation: 'I would like a bowl of noodles.',
+          },
+          {
+            character: '朱迪 (Zhūdí)',
+            hanzi: '我不太会用筷子，要饺子吧。',
+            pinyin: 'Wǒ bú tài huì yòng kuàizi, yào jiǎozi ba.',
+            translation: 'I’m not very good at using chopsticks; I’ll have dumplings.',
+          },
+          {
+            character: '服务员 (Fúwùyuán)',
+            hanzi: '您要几两？',
+            pinyin: 'Nín yào jǐ liǎng?',
+            translation: 'How many liang (50g units) would you like?',
+          },
+          {
+            character: '朱迪 (Zhūdí)',
+            hanzi: '我不太饿，要二两吧。',
+            pinyin: 'Wǒ bú tài è, yào èr liǎng ba.',
+            translation: 'I’m not very hungry; I’ll take two liang (100g).',
+          },
+          {
+            character: '服务员 (Fúwùyuán)',
+            hanzi: '两位喝什么？汤还是饮料？',
+            pinyin: 'Liǎng wèi hē shénme? Tāng háishi yǐnliào?',
+            translation: 'What would you two like to drink? Soup or beverages?',
+          },
+          {
+            character: '平田 (Píngtián)',
+            hanzi: '喝饺子汤吧，汤比饮料健康。（吃饭的时候）',
+            pinyin: 'Hē jiǎozi tāng ba, tāng bǐ yǐnliào jiànkāng. (Chīfàn de shíhou)',
+            translation: 'Let’s drink dumpling soup; soup is healthier than beverages. (While eating)',
+          },
+          {
+            character: '平田 (Píngtián)',
+            hanzi: '饺子味道怎么样？',
+            pinyin: 'Jiǎozi wèidào zěnmeyàng?',
+            translation: 'How do the dumplings taste?',
+          },
+          {
+            character: '朱迪 (Zhūdí)',
+            hanzi: '味道很好，你来一个尝尝。',
+            pinyin: 'Wèidào hěn hǎo, nǐ lái yí gè chángchang.',
+            translation: 'They taste great—have one and try it!',
+          },
+          {
+            character: '平田 (Píngtián)',
+            hanzi: '啊，面条儿没有饺子好吃。',
+            pinyin: 'A, miàntiáor méiyǒu jiǎozi hǎochī.',
+            translation: 'Oh, the noodles aren’t as delicious as the dumplings!',
+          },
+          {
+            character: '朱迪 (Zhūdí)',
+            hanzi: '是啊，我觉得饺子最好吃了。',
+            pinyin: 'Shì a, wǒ juéde jiǎozi zuì hǎochī le.',
+            translation: 'Indeed, I think dumplings are the most delicious!',
+          },
+        ],
+      },
+    ],
+    readingPassage: {
+      title: 'Reading & Integrated Expression: Curious Dish Names & Becoming a Pro at Ordering (点中国菜)',
+      paragraphs: [
+        {
+          hanzi:
+            '中国菜的名字也太有意思了：日本豆腐不是日本的豆腐，炒荷兰豆不来自荷兰，鱼香肉丝里面没有鱼肉！留学生一般喜欢吃辣的菜，觉得辣的比不辣的香；我最喜欢吃糖醋的，比如糖醋鱼、糖醋肉。',
+          pinyin:
+            'Zhōngguó cài de míngzi yě tài yǒu yìsi le: Rìběn dòufu bú shì Rìběn de dòufu, chǎo hélándòu bù láizì Hélán, yúxiāng ròusī lǐmiàn méiyǒu yúròu! Liúxuéshēng yìbān xǐhuan chī là de cài, juéde là de bǐ bú là de xiāng; wǒ zuì xǐhuan chī tángcù de, bǐrú tángcùyú, tángcùròu.',
+          translation:
+            'The names of Chinese dishes are so interesting: "Japanese tofu" isn’t tofu from Japan, stir-fried "Holland peas" (snow peas) don’t come from the Netherlands, and "fish-fragrant shredded pork" has no fish in it! International students generally like eating spicy dishes and feel spicy food is more fragrant than non-spicy food; I like sweet-and-sour dishes best, such as sweet-and-sour fish and sweet-and-sour pork.',
+        },
+        {
+          hanzi:
+            '中国菜很好吃，我喜欢吃中国菜，可是点菜不太容易。我来中国一年了，现在有点儿会点菜了。饭馆儿的菜单上一般都有菜的名字和图片，我觉得看图比看字简单。我点菜的时候还喜欢问服务员：“哪个菜最好吃？”“这个是什么味道的？”如果是和朋友一起吃饭，我还会问朋友：“不吃什么？”“吃糖醋鱼、糖醋肉好不好？”现在，我知道很多中国菜，朋友们都说我太会点菜了！',
+          pinyin:
+            'Zhōngguó cài hěn hǎochī, wǒ xǐhuan chī Zhōngguó cài, kěshì diǎncài bú tài róngyì. Wǒ lái Zhōngguó yì nián le, xiànzài yǒudiǎnr huì diǎncài le. Fànguǎnr de càidān shang yìbān dōu yǒu cài de míngzi hé túpiàn, wǒ juéde kàn tú bǐ kàn zì jiǎndān. Wǒ diǎncài de shíhou hái xǐhuan wèn fúwùyuán: “Nǎge cài zuì hǎochī?” “Zhège shì shénme wèidào de?” Rúguǒ shì hé péngyou yìqǐ chīfàn, wǒ hái huì wèn péngyou: “Bù chī shénme?” “Chī tángcùyú, tángcùròu hǎo bu hǎo?” Xiànzài, wǒ zhīdào hěn duō Zhōngguó cài, péngyoumen dōu shuō wǒ tài huì diǎncài le!',
+          translation:
+            'Chinese food is delicious and I love eating it, but ordering dishes is not very easy. I have been in China for a year now and have learned a bit how to order. Restaurant menus generally have dish names and pictures; I find looking at pictures simpler than reading characters. When ordering, I also like to ask the waiter: "Which dish is the most delicious?" and "What flavor is this?" If I’m eating with friends, I also ask them: "What don’t you eat?" and "How about having sweet-and-sour fish and sweet-and-sour pork?" Now I know many Chinese dishes, and my friends all say I’m so good at ordering!',
+        },
+      ],
+    },
+    vocabularyExplanation: [
+      {
+        hanzi: '服务员',
+        pinyin: 'fúwùyuán',
+        english: 'waiter / waitress / attendant',
+        exampleHanzi: '我点菜的时候喜欢问服务员：“哪个菜最好吃？”',
+        examplePinyin: 'Wǒ diǎncài de shíhou xǐhuan wèn fúwùyuán: “Nǎge cài zuì hǎochī?”',
+        exampleTranslation: 'When ordering, I like to ask the waiter: "Which dish is the most delicious?"',
+      },
+      {
+        hanzi: '位',
+        pinyin: 'wèi',
+        english: 'polite measure word for people (customers, guests, teachers)',
+        exampleHanzi: '几位要点什么菜？',
+        examplePinyin: 'Jǐ wèi yào diǎn shénme cài?',
+        exampleTranslation: 'What dishes would you all like to order?',
+      },
+      {
+        hanzi: '点',
+        pinyin: 'diǎn',
+        english: 'to order (food/dishes); o’clock',
+        exampleHanzi: '金志英，你也点一个菜吧。',
+        examplePinyin: 'Jīn Zhìyīng, nǐ yě diǎn yí gè cài ba.',
+        exampleTranslation: 'Jin Zhiying, why don’t you order a dish too?',
+      },
+      {
+        hanzi: '西红柿炒鸡蛋',
+        pinyin: 'xīhóngshì chǎo jīdàn',
+        english: 'scrambled eggs with tomatoes (classic Chinese home-style dish)',
+        exampleHanzi: '西红柿炒鸡蛋太好吃了，我喜欢。',
+        examplePinyin: 'Xīhóngshì chǎo jīdàn tài hǎochī le, wǒ xǐhuan.',
+        exampleTranslation: 'Scrambled eggs with tomatoes is so delicious; I like it.',
+      },
+      {
+        hanzi: '鱼香肉丝',
+        pinyin: 'yúxiāng ròusī',
+        english: 'Yu-Shiang shredded pork (spicy garlic-sweet-sour pork strips)',
+        exampleHanzi: '鱼香肉丝里面没有鱼肉！',
+        examplePinyin: 'Yúxiāng ròusī lǐmiàn méiyǒu yúròu!',
+        exampleTranslation: 'There is no fish meat inside Yu-Shiang shredded pork!',
+      },
+      {
+        hanzi: '味道',
+        pinyin: 'wèidào',
+        english: 'flavor / taste',
+        exampleHanzi: '鱼香肉丝是什么味道的？',
+        examplePinyin: 'Yúxiāng ròusī shì shénme wèidào de?',
+        exampleTranslation: 'What flavor is Yu-Shiang shredded pork?',
+      },
+      {
+        hanzi: '辣',
+        pinyin: 'là',
+        english: 'spicy / hot (in flavor)',
+        exampleHanzi: '我爱吃辣的，觉得辣的比不辣的香。',
+        examplePinyin: 'Wǒ ài chī là de, juéde là de bǐ bú là de xiāng.',
+        exampleTranslation: 'I love eating spicy food and think spicy food is more fragrant than non-spicy food.',
+      },
+      {
+        hanzi: '肉',
+        pinyin: 'ròu',
+        english: 'meat / pork',
+        exampleHanzi: '这个菜里面有肉，很好吃。',
+        examplePinyin: 'Zhège cài lǐmiàn yǒu ròu, hěn hǎochī.',
+        exampleTranslation: 'This dish has meat inside and is very delicious.',
+      },
+      {
+        hanzi: '爱',
+        pinyin: 'ài',
+        english: 'to love / to be fond of (doing or eating something)',
+        exampleHanzi: '这个菜我也爱吃。',
+        examplePinyin: 'Zhège cài wǒ yě ài chī.',
+        exampleTranslation: 'I love eating this dish too.',
+      },
+      {
+        hanzi: '咱们',
+        pinyin: 'zánmen',
+        english: 'we / us (inclusive of both speaker and listener)',
+        exampleHanzi: '咱们尝尝，好不好？',
+        examplePinyin: 'Zánmen chángchang, hǎo bu hǎo?',
+        exampleTranslation: 'Let’s try it, okay?',
+      },
+      {
+        hanzi: '尝',
+        pinyin: 'cháng',
+        english: 'to taste / to try (food or drink)',
+        exampleHanzi: '饺子味道很好，你来一个尝尝。',
+        examplePinyin: 'Jiǎozi wèidào hěn hǎo, nǐ lái yí gè chángchang.',
+        exampleTranslation: 'The dumplings taste great—have one and try it.',
+      },
+      {
+        hanzi: '素',
+        pinyin: 'sù',
+        english: 'vegetarian / vegetable-based (opposite of 荤/肉)',
+        exampleHanzi: '我再点一个素的，要一个炒荷兰豆。',
+        examplePinyin: 'Wǒ zài diǎn yí gè sù de, yào yí gè chǎo hélándòu.',
+        exampleTranslation: 'I’ll order one more vegetarian dish—stir-fried snow peas.',
+      },
+      {
+        hanzi: '别',
+        pinyin: 'bié',
+        english: 'do not / don’t (imperative negative = 不要)',
+        exampleHanzi: '别放香菜，我不吃香菜。',
+        examplePinyin: 'Bié fàng xiāngcài, wǒ bù chī xiāngcài.',
+        exampleTranslation: 'Don’t put cilantro in; I don’t eat cilantro.',
+      },
+      {
+        hanzi: '放',
+        pinyin: 'fàng',
+        english: 'to put / to add (seasoning or ingredients)',
+        exampleHanzi: '面条儿里别放辣椒。',
+        examplePinyin: 'Miàntiáor lǐ bié fàng làjiāo.',
+        exampleTranslation: 'Don’t put chili peppers in the noodles.',
+      },
+      {
+        hanzi: '香菜',
+        pinyin: 'xiāngcài',
+        english: 'cilantro / coriander',
+        exampleHanzi: '很多人不吃香菜。',
+        examplePinyin: 'Hěn duō rén bù chī xiāngcài.',
+        exampleTranslation: 'Many people do not eat cilantro.',
+      },
+      {
+        hanzi: '主食',
+        pinyin: 'zhǔshí',
+        english: 'staple food (rice, noodles, dumplings, steamed buns)',
+        exampleHanzi: '两位要什么主食？',
+        examplePinyin: 'Liǎng wèi yào shénme zhǔshí?',
+        exampleTranslation: 'What staple food would the two of you like?',
+      },
+      {
+        hanzi: '碗',
+        pinyin: 'wǎn',
+        english: 'bowl (noun & measure word)',
+        exampleHanzi: '我要一碗面条儿。',
+        examplePinyin: 'Wǒ yào yì wǎn miàntiáor.',
+        exampleTranslation: 'I would like a bowl of noodles.',
+      },
+      {
+        hanzi: '面条儿',
+        pinyin: 'miàntiáor',
+        english: 'noodles',
+        exampleHanzi: '面条儿没有饺子好吃。',
+        examplePinyin: 'Miàntiáor méiyǒu jiǎozi hǎochī.',
+        exampleTranslation: 'Noodles are not as delicious as dumplings.',
+      },
+      {
+        hanzi: '会',
+        pinyin: 'huì',
+        english: 'can / know how to (an acquired skill learned through practice)',
+        exampleHanzi: '我不太会用筷子，要饺子吧。',
+        examplePinyin: 'Wǒ bú tài huì yòng kuàizi, yào jiǎozi ba.',
+        exampleTranslation: 'I’m not very good at using chopsticks; I’ll have dumplings.',
+      },
+      {
+        hanzi: '用',
+        pinyin: 'yòng',
+        english: 'to use',
+        exampleHanzi: '中国人吃饭一般用筷子。',
+        examplePinyin: 'Zhōngguórén chīfàn yìbān yòng kuàizi.',
+        exampleTranslation: 'Chinese people generally use chopsticks when eating.',
+      },
+      {
+        hanzi: '筷子',
+        pinyin: 'kuàizi',
+        english: 'chopsticks',
+        exampleHanzi: '这双筷子很好用。',
+        examplePinyin: 'Zhè shuāng kuàizi hěn hǎoyòng.',
+        exampleTranslation: 'This pair of chopsticks is very easy to use.',
+      },
+      {
+        hanzi: '两',
+        pinyin: 'liǎng',
+        english: 'liang (weight unit = 50 grams, 1/10 of a jin; used for ordering dumplings/rice)',
+        exampleHanzi: '我不太饿，要二两饺子吧。',
+        examplePinyin: 'Wǒ bú tài è, yào èr liǎng jiǎozi ba.',
+        exampleTranslation: 'I’m not very hungry; I’ll have two liang (100g) of dumplings.',
+      },
+      {
+        hanzi: '饿',
+        pinyin: 'è',
+        english: 'hungry',
+        exampleHanzi: '你饿不饿？我们去吃饭吧。',
+        examplePinyin: 'Nǐ è bu è? Wǒmen qù chīfàn ba.',
+        exampleTranslation: 'Are you hungry? Let’s go eat.',
+      },
+      {
+        hanzi: '汤',
+        pinyin: 'tāng',
+        english: 'soup / broth',
+        exampleHanzi: '喝饺子汤吧，汤比饮料健康。',
+        examplePinyin: 'Hē jiǎozi tāng ba, tāng bǐ yǐnliào jiànkāng.',
+        exampleTranslation: 'Let’s drink dumpling soup; soup is healthier than soft drinks.',
+      },
+      {
+        hanzi: '饮料',
+        pinyin: 'yǐnliào',
+        english: 'beverage / soft drink',
+        exampleHanzi: '两位喝什么？汤还是饮料？',
+        examplePinyin: 'Liǎng wèi hē shénme? Tāng háishi yǐnliào?',
+        exampleTranslation: 'What would you two like to drink? Soup or beverages?',
+      },
+      {
+        hanzi: '比',
+        pinyin: 'bǐ',
+        english: 'than (preposition used in comparative sentences)',
+        exampleHanzi: '我觉得看图比看字简单。',
+        examplePinyin: 'Wǒ juéde kàn tú bǐ kàn zì jiǎndān.',
+        exampleTranslation: 'I think looking at pictures is simpler than reading characters.',
+      },
+      {
+        hanzi: '健康',
+        pinyin: 'jiànkāng',
+        english: 'healthy / health',
+        exampleHanzi: '多吃蔬菜和水果很健康。',
+        examplePinyin: 'Duō chī shūcài hé shuǐguǒ hěn jiànkāng.',
+        exampleTranslation: 'Eating more vegetables and fruit is very healthy.',
+      },
+      {
+        hanzi: '最',
+        pinyin: 'zuì',
+        english: 'most / -est (superlative adverb)',
+        exampleHanzi: '我觉得饺子最好吃了。',
+        examplePinyin: 'Wǒ juéde jiǎozi zuì hǎochī le.',
+        exampleTranslation: 'I think dumplings are the most delicious.',
+      },
+      {
+        hanzi: '菜单',
+        pinyin: 'càidān',
+        english: 'menu',
+        exampleHanzi: '饭馆儿的菜单上一般都有菜的名字和图片。',
+        examplePinyin: 'Fànguǎnr de càidān shang yìbān dōu yǒu cài de míngzi hé túpiàn.',
+        exampleTranslation: 'Restaurant menus generally have the names and pictures of the dishes.',
+      },
+    ],
+    grammarPoint: 'Nominalized “的”-Phrases, Imperative 别 + V, Acquired Skill 会 + V, and Comparisons (比 / 没有 / 最)',
+    structure: '[Adj/V] + 的 | 别 + V | (不太) 会 + V | A 比 B + Adj | B 没有 A + Adj | 最 + Adj/V',
+    explanation:
+      'Unit 6 introduces nominalized “的” phrases (素的, 辣的, 不吃的), negative imperatives with 别, acquired skills with 会, softened negation with 不太, comparative sentences with 比 and 没有, and superlatives with 最.',
+    examples: [
+      {
+        hanzi: '喝饺子汤吧，汤比饮料健康。',
+        pinyin: 'Hē jiǎozi tāng ba, tāng bǐ yǐnliào jiànkāng.',
+        translation: 'Let’s drink dumpling soup; soup is healthier than beverages.',
+      },
+      {
+        hanzi: '面条儿没有饺子好吃。我觉得饺子最好吃了。',
+        pinyin: 'Miàntiáor méiyǒu jiǎozi hǎochī. Wǒ juéde jiǎozi zuì hǎochī le.',
+        translation: 'Noodles aren’t as delicious as dumplings. I think dumplings are the most delicious!',
+      },
+    ],
+    grammarNotes: [
+      {
+        title: 'Nominalized “的”字短语 (de-Phrases) & Dietary Restrictions with 别 + V',
+        structure: '[Noun / Pronoun / Adj / Verb] + 的  =  Noun Phrase  |  别 + Verb (+ Object)',
+        explanation:
+          'Attaching 的 to an adjective, noun, pronoun, or verb phrase creates a self-standing noun phrase (“的”字短语) when the head noun is clear from context: 素的 (a vegetarian dish), 辣的 (spicy food), 不吃的 (things one doesn’t eat), 糖醋的 (sweet-and-sour ones), 蓝色的 (the blue one). To ask someone not to do something (such as omitting an ingredient), use the negative imperative 别 + Verb: 别放香菜 (Don’t put cilantro in).',
+        examples: [
+          {
+            hanzi: '我爱吃辣的，她再点一个素的。',
+            pinyin: 'Wǒ ài chī là de, tā zài diǎn yí gè sù de.',
+            translation: 'I love eating spicy food, and she is ordering one more vegetarian dish.',
+          },
+          {
+            hanzi: '几位有什么不吃的？——别放香菜，我不吃香菜。',
+            pinyin: 'Jǐ wèi yǒu shénme bù chī de? — Bié fàng xiāngcài, wǒ bù chī xiāngcài.',
+            translation: 'Is there anything you don’t eat? — Don’t put cilantro in; I don’t eat cilantro.',
+          },
+        ],
+      },
+      {
+        title: 'Consultative Suggestions (……，好吗 / 好不好？) & Exclamations (太 + Adj + 了)',
+        structure: '[Proposal]，好吗 / 好不好？  |  太 + Adjective / V[心理] + 了！',
+        explanation:
+          '① Adding “……，好吗？” or “……，好不好？” at the end of a suggestion solicits the listener’s agreement politely (咱们尝尝，好不好？ / 要一个炒荷兰豆，好吗？). ② The frame 太 + Adj + 了 expresses strong emotion—either high praise/delight (太好吃了！ "So delicious!", 太有意思了！ "So interesting!") or dissatisfaction with an excess (三个人，两个菜太少了 "For three people, two dishes are too few").',
+        examples: [
+          {
+            hanzi: '我再点一个素的，要一个炒荷兰豆，好吗？',
+            pinyin: 'Wǒ zài diǎn yí gè sù de, yào yí gè chǎo hélándòu, hǎo ma?',
+            translation: 'I’ll order one more vegetarian dish—how about stir-fried snow peas?',
+          },
+          {
+            hanzi: '西红柿炒鸡蛋我知道，太好吃了！',
+            pinyin: 'Xīhóngshì chǎo jīdàn wǒ zhīdào, tài hǎochī le!',
+            translation: 'I know scrambled eggs with tomatoes—it’s so delicious!',
+          },
+        ],
+      },
+      {
+        title: 'Acquired Skill 会 (huì) & Softened Negation 不太 (bú tài)',
+        structure: 'Subject + (不太 / 很) + 会 + Verb (+ Object)  |  不太 + Adjective / V[心理]',
+        explanation:
+          '① Modal verb 会 before an action verb means knowing how to do something through learning or practice (会用筷子 know how to use chopsticks, 会点菜 know how to order dishes, 会说汉语 know how to speak Chinese). Unlike English, 会 can be modified by degree adverbs (很会点菜, 太会点菜了, 有点儿会点菜了). ② 不太 + Adj/V softens a negation to "not very / not particularly" (我不太饿 "I’m not very hungry", 我不太会用筷子 "I’m not very good at using chopsticks", 点菜不太容易 "Ordering dishes is not very easy").',
+        examples: [
+          {
+            hanzi: '我不太会用筷子，要饺子吧。我不太饿，要二两吧。',
+            pinyin: 'Wǒ bú tài huì yòng kuàizi, yào jiǎozi ba. Wǒ bú tài è, yào èr liǎng ba.',
+            translation: 'I’m not very good at using chopsticks; I’ll have dumplings. I’m not very hungry; I’ll take two liang.',
+          },
+          {
+            hanzi: '现在，朋友们都说我太会点菜了！',
+            pinyin: 'Xiànzài, péngyoumen dōu shuō wǒ tài huì diǎncài le!',
+            translation: 'Now my friends all say I am so good at ordering dishes!',
+          },
+        ],
+      },
+      {
+        title: 'Comparisons with 比 (bǐ), Inferior Comparisons with 没有, and Superlative 最 (zuì)',
+        structure: 'A + 比 + B + Adjective  |  B + 没(有) + A + Adjective  |  最 + Adjective / V[心理]',
+        explanation:
+          '① To state that A has a higher degree of a quality than B, use A 比 B + Adj: 汤比饮料健康 (Soup is healthier than soft drinks), 看图比看字简单 (Looking at pictures is simpler than reading characters). CRITICAL RULE: Never put degree adverbs (很, 太, 非常) or negators (不) before the adjective in a 比 sentence (*汤比饮料很健康 is ungrammatical). ② To negate a comparison or say B is NOT as [Adj] as A, use B 没有 A + Adj: 面条儿没有饺子好吃 (Noodles are not as delicious as dumplings). ③ Use 最 ("most / -est") before an adjective or psychological verb to express the superlative: 饺子最好吃了 (Dumplings are the most delicious), 我最喜欢吃糖醋的 (I like eating sweet-and-sour food best).',
+        examples: [
+          {
+            hanzi: '喝饺子汤吧，汤比饮料健康。',
+            pinyin: 'Hē jiǎozi tāng ba, tāng bǐ yǐnliào jiànkāng.',
+            translation: 'Let’s drink dumpling soup; soup is healthier than beverages.',
+          },
+          {
+            hanzi: '啊，面条儿没有饺子好吃。——是啊，我觉得饺子最好吃了。',
+            pinyin: 'A, miàntiáor méiyǒu jiǎozi hǎochī. — Shì a, wǒ juéde jiǎozi zuì hǎochī le.',
+            translation: 'Oh, the noodles aren’t as delicious as the dumplings. — Indeed, I think dumplings are the most delicious!',
+          },
+        ],
+      },
+    ],
+    exercises: [
+      {
+        question: 'In Dialogue 1, what three dishes do Ali, Mark, and Jin Zhiying end up ordering, and what special request does Jin Zhiying make?',
+        options: [
+          '西红柿炒鸡蛋, 鱼香肉丝, and 炒荷兰豆 — and she asks the waiter not to put cilantro in (别放香菜).',
+          '日本豆腐, 糖醋鱼, and 饺子 — and she asks for extra chili peppers.',
+          'Three bowls of noodles and three bottles of soda.',
+          'Only vegetarian dishes because nobody in the group eats meat.',
+        ],
+        answerIndex: 0,
+        explanation:
+          'They order 西红柿炒鸡蛋, 鱼香肉丝 (spicy with pork), and a vegetarian dish 炒荷兰豆, and Jin Zhiying says “别放香菜，我不吃香菜.”',
+      },
+      {
+        question: 'Which comparative sentence is grammatically CORRECT in Mandarin?',
+        options: [
+          '汤比饮料健康。 (Tāng bǐ yǐnliào jiànkāng.)',
+          '汤比饮料很健康。 (Tāng bǐ yǐnliào hěn jiànkāng.)',
+          '汤比饮料太健康了。 (Tāng bǐ yǐnliào tài jiànkāng le.)',
+          '面条儿比饺子不好吃。 (Miàntiáor bǐ jiǎozi bù hǎochī.)',
+        ],
+        answerIndex: 0,
+        explanation:
+          'In an “A 比 B + Adjective” comparative sentence, the adjective cannot be modified by degree adverbs like 很, 太, or 非常, nor negated with 不 (to say "not as delicious as", use 面条儿没有饺子好吃).',
+      },
+      {
+        question: 'In Dialogue 2, why does Judy order “二两饺子” (two liang of dumplings)?',
+        options: [
+          'Because she isn’t very good at using chopsticks (不太会用筷子) and isn’t very hungry (不太饿).',
+          'Because the restaurant ran out of noodles and rice.',
+          'Because two liang of dumplings equals two kilograms.',
+          'Because Hirata told her dumplings are cheaper than soup.',
+        ],
+        answerIndex: 0,
+        explanation:
+          'Judy says: “我不太会用筷子，要饺子吧” and when asked how many liang, she replies: “我不太饿，要二两吧.”',
+      },
+      {
+        question: 'According to the Reading Passage, what is surprising about the dish “鱼香肉丝” (Yu-Shiang shredded pork)?',
+        options: [
+          'Even though its name contains the character 鱼 (fish), there is no fish meat inside it (里面没有鱼肉).',
+          'It is imported directly from the Netherlands (荷兰).',
+          'It is a sweet dessert made only from tofu and apples.',
+          'International students never order it because it has no flavor.',
+        ],
+        answerIndex: 0,
+        explanation:
+          'The passage notes: “日本豆腐不是日本的豆腐，炒荷兰豆不来自荷兰，鱼香肉丝里面没有鱼肉！” (Yu-Shiang pork is seasoned with the traditional Sichuan aromatics used for cooking fish, but contains pork strips, not fish.)',
+      },
+      {
+        question: 'Which radical (部首) appears in the characters 饭, 饮, 饿, and 饺, and what meaning category does it indicate?',
+        options: [
+          '食字旁 (饣) — related to food, meals, and eating/drinking',
+          '三点水 (氵) — related to water and rivers',
+          '言字旁 (讠) — related to speech and language',
+          '竖心旁 (忄) — related to emotions and the heart',
+        ],
+        answerIndex: 0,
+        explanation:
+          'The radical 饣 (食字旁, derived from 食 "food/eat") appears on the left of 饭 (meal), 饮 (drink), 饿 (hungry), and 饺 (dumpling).',
+      },
+    ],
+  },
+
+  // ===========================================================================
+  // UNIT 8 (HSK 2): 文化读本2 去朋友家带什么礼物好 — Gift-Giving Etiquette in China
+  // Synthesized from slide deck: 文化读本2.pdf
+  // Mastering Chinese: Elementary 2 (会通汉语 精编版·初级2)
+  // ===========================================================================
+  {
+    id: 'lesson8',
+    title: "Cultural Reader 2: What Gift Should You Bring to a Friend's Home?",
+    chineseTitle: '文化读本2：去朋友家带什么礼物好',
+    unitBadge: 'Mastering Chinese · Elementary 2 · Cultural Reader (文化读本2)',
+    hskLevel: 2,
+    description:
+      'Explore Chinese gift-giving etiquette when visiting a friend’s home: auspicious fruit homophones (apples for peace, tangerines for good fortune), why pears are avoided, seasonal fruits, and flower color taboos.',
+    content:
+      'Cultural Reader 2 of Mastering Chinese: Elementary 2 explains the social customs and homophonic symbolism behind choosing fruits and flowers when visiting a friend’s home in China.',
+    objectives: [
+      'Understand why bringing a small gift (带点儿礼物) is customary when visiting a friend’s home in China.',
+      'Explain the auspicious phonetic symbolism of apples (苹果 → 平安 peace/safety) and tangerines (橘子 → 吉利 good luck).',
+      'Identify why pears (梨 = 离 separation) and white or yellow chrysanthemums (菊花, associated with tomb-sweeping 扫墓) are avoided as housewarming or visiting gifts.',
+      'Apply comparative and superlative structures (最重要的就是送吉利，吉利的都比不吉利的好) in cultural discussions.',
+    ],
+    dialogue: [
+      {
+        character: '文化导读 · 第一段 (Part 1: Auspicious Fruits)',
+        hanzi:
+          '去朋友家一般都要带点儿礼物，很多人喜欢带香蕉、苹果、橘子等水果。因为香蕉很好吃，也不贵；苹果有“平安”的意思；橘子有“吉利”的意思。',
+        pinyin:
+          'Qù péngyou jiā yìbān dōu yào dài diǎnr lǐwù, hěn duō rén xǐhuan dài xiāngjiāo, píngguǒ, júzi děng shuǐguǒ. Yīnwèi xiāngjiāo hěn hǎochī, yě bú guì; píngguǒ yǒu “píng’ān” de yìsi; júzi yǒu “jílì” de yìsi.',
+        translation:
+          'When visiting a friend’s home, people generally bring a small gift, and many like to bring fruits such as bananas, apples, and tangerines. That is because bananas are delicious and inexpensive; apples carry the meaning of "peace and safety" (píng’ān); and tangerines carry the meaning of "good fortune and auspiciousness" (jílì).',
+      },
+      {
+        character: '文化导读 · 第二段 (Part 2: Why Pears Are Avoided & Seasonal Fruits)',
+        hanzi:
+          '带梨就不好，因为“梨”和“离”发音一样，不吉利。带应季水果也不错，夏天带一个西瓜去朋友家，大家一起吃很开心。',
+        pinyin:
+          'Dài lí jiù bù hǎo, yīnwèi “lí” hé “lí” fāyīn yíyàng, bù jílì. Dài yìngjì shuǐguǒ yě búcuò, xiàtiān dài yí gè xīguā qù péngyou jiā, dàjiā yìqǐ chī hěn kāixīn.',
+        translation:
+          'Bringing pears, however, is not good, because "pear" (lí, 梨) has the exact same pronunciation as "separation" (lí, 离), which is inauspicious. Bringing seasonal fruit is also a great choice—bringing a watermelon to a friend’s house in summer for everyone to eat together is very joyful.',
+      },
+      {
+        character: '文化导读 · 第三段 (Part 3: Flower Etiquette & Taboos)',
+        hanzi:
+          '有人还喜欢带花儿去朋友家。带花儿也很不错，可是要注意花儿的颜色和意思。在中国，不能送白色的花儿，最好也不送菊花，特别是白色和黄色的菊花，这两种一般都是扫墓时会带的花儿。',
+        pinyin:
+          'Yǒu rén hái xǐhuan dài huār qù péngyou jiā. Dài huār yě hěn búcuò, kěshì yào zhùyì huār de yánsè hé yìsi. Zài Zhōngguó, bù néng sòng báisè de huār, zuìhǎo yě bú sòng júhuā, tèbié shì báisè hé huángsè de júhuā, zhè liǎng zhǒng yìbān dōu shì sǎomù shí huì dài de huār.',
+        translation:
+          'Some people also like to bring flowers to a friend’s home. Bringing flowers is very nice too, but you must pay attention to the colors and meanings of the flowers. In China, you must not give white flowers, and it is best not to give chrysanthemums either—especially white and yellow chrysanthemums, as those two kinds are generally brought when sweeping tombs to mourn the deceased.',
+      },
+      {
+        character: '文化导读 · 第四段 (Part 4: The Core Principle of Chinese Gift-Giving)',
+        hanzi: '在中国，送礼物最重要的就是送吉利，吉利的都比不吉利的好，你明白了吗？',
+        pinyin:
+          'Zài Zhōngguó, sòng lǐwù zuì zhòngyào de jiùshì sòng jílì, jílì de dōu bǐ bù jílì de hǎo, nǐ míngbai le ma?',
+        translation:
+          'In China, the most important thing when giving gifts is to give auspiciousness—anything auspicious is better than something inauspicious. Have you understood?',
+      },
+    ],
+    dialogues: [
+      {
+        title: 'Cultural Reading: What Gift Should You Bring to a Friend’s Home? (去朋友家带什么礼物好)',
+        context:
+          'A cultural guide to the symbolism of fruits and flowers when visiting friends in China, highlighting homophonic wordplay and social taboos.',
+        lines: [
+          {
+            character: '第一段 · 水果与谐音 (Fruits & Auspicious Meanings)',
+            hanzi:
+              '去朋友家一般都要带点儿礼物，很多人喜欢带香蕉、苹果、橘子等水果。因为香蕉很好吃，也不贵；苹果有“平安”的意思；橘子有“吉利”的意思。',
+            pinyin:
+              'Qù péngyou jiā yìbān dōu yào dài diǎnr lǐwù, hěn duō rén xǐhuan dài xiāngjiāo, píngguǒ, júzi děng shuǐguǒ. Yīnwèi xiāngjiāo hěn hǎochī, yě bú guì; píngguǒ yǒu “píng’ān” de yìsi; júzi yǒu “jílì” de yìsi.',
+            translation:
+              'When visiting a friend’s home, people generally bring a small gift, and many like to bring fruits such as bananas, apples, and tangerines. That is because bananas are delicious and inexpensive; apples carry the meaning of "peace and safety" (píng’ān); and tangerines carry the meaning of "good fortune" (jílì).',
+          },
+          {
+            character: '第二段 · 为什么不送梨与应季水果 (Pears vs. Seasonal Fruit)',
+            hanzi:
+              '带梨就不好，因为“梨”和“离”发音一样，不吉利。带应季水果也不错，夏天带一个西瓜去朋友家，大家一起吃很开心。',
+            pinyin:
+              'Dài lí jiù bù hǎo, yīnwèi “lí” hé “lí” fāyīn yíyàng, bù jílì. Dài yìngjì shuǐguǒ yě búcuò, xiàtiān dài yí gè xīguā qù péngyou jiā, dàjiā yìqǐ chī hěn kāixīn.',
+            translation:
+              'Bringing pears, however, is not good, because "pear" (lí, 梨) has the same pronunciation as "separation" (lí, 离), which is inauspicious. Bringing seasonal fruit is also nice—bringing a watermelon to a friend’s house in summer for everyone to eat together is very joyful.',
+          },
+          {
+            character: '第三段 · 送花儿的讲究 (Flower Colors & Taboos)',
+            hanzi:
+              '有人还喜欢带花儿去朋友家。带花儿也很不错，可是要注意花儿的颜色和意思。在中国，不能送白色的花儿，最好也不送菊花，特别是白色和黄色的菊花，这两种一般都是扫墓时会带的花儿。',
+            pinyin:
+              'Yǒu rén hái xǐhuan dài huār qù péngyou jiā. Dài huār yě hěn búcuò, kěshì yào zhùyì huār de yánsè hé yìsi. Zài Zhōngguó, bù néng sòng báisè de huār, zuìhǎo yě bú sòng júhuā, tèbié shì báisè hé huángsè de júhuā, zhè liǎng zhǒng yìbān dōu shì sǎomù shí huì dài de huār.',
+            translation:
+              'Some people also like to bring flowers to a friend’s home. Bringing flowers is nice too, but you must pay attention to the colors and meanings of the flowers. In China, you cannot give white flowers, and it is best not to give chrysanthemums—especially white and yellow chrysanthemums, which are generally brought when sweeping tombs.',
+          },
+          {
+            character: '第四段 · 送礼的核心原则 (The Golden Rule: Auspiciousness)',
+            hanzi: '在中国，送礼物最重要的就是送吉利，吉利的都比不吉利的好，你明白了吗？',
+            pinyin:
+              'Zài Zhōngguó, sòng lǐwù zuì zhòngyào de jiùshì sòng jílì, jílì de dōu bǐ bù jílì de hǎo, nǐ míngbai le ma?',
+            translation:
+              'In China, the most important thing when giving gifts is to give good fortune—anything auspicious is better than something inauspicious. Have you understood?',
+          },
+        ],
+      },
+    ],
+    vocabularyExplanation: [
+      {
+        hanzi: '带',
+        pinyin: 'dài',
+        english: 'to bring / to carry / to take along',
+        exampleHanzi: '去朋友家一般都要带点儿礼物。',
+        examplePinyin: 'Qù péngyou jiā yìbān dōu yào dài diǎnr lǐwù.',
+        exampleTranslation: 'When going to a friend’s house, people generally bring a small gift.',
+      },
+      {
+        hanzi: '礼物',
+        pinyin: 'lǐwù',
+        english: 'gift / present',
+        exampleHanzi: '去朋友家带什么礼物好？',
+        examplePinyin: 'Qù péngyou jiā dài shénme lǐwù hǎo?',
+        exampleTranslation: 'What is a good gift to bring when visiting a friend’s home?',
+      },
+      {
+        hanzi: '香蕉',
+        pinyin: 'xiāngjiāo',
+        english: 'banana',
+        exampleHanzi: '香蕉很好吃，也不贵。',
+        examplePinyin: 'Xiāngjiāo hěn hǎochī, yě bú guì.',
+        exampleTranslation: 'Bananas are delicious and not expensive.',
+      },
+      {
+        hanzi: '橘子',
+        pinyin: 'júzi',
+        english: 'tangerine / mandarin orange',
+        exampleHanzi: '橘子有“吉利”的意思。',
+        examplePinyin: 'Júzi yǒu “jílì” de yìsi.',
+        exampleTranslation: 'Tangerines carry the meaning of "good fortune / auspiciousness."',
+      },
+      {
+        hanzi: '平安',
+        pinyin: 'píng’ān',
+        english: 'safe and sound / peaceful',
+        exampleHanzi: '苹果的“苹”和“平安”的“平”发音一样。',
+        examplePinyin: 'Píngguǒ de “píng” hé “píng’ān” de “píng” fāyīn yíyàng.',
+        exampleTranslation: 'The "píng" in apple has the same pronunciation as the "píng" in peace/safety.',
+      },
+      {
+        hanzi: '意思',
+        pinyin: 'yìsi',
+        english: 'meaning / significance',
+        exampleHanzi: '要注意花儿的颜色和意思。',
+        examplePinyin: 'Yào zhùyì huār de yánsè hé yìsi.',
+        exampleTranslation: 'You should pay attention to the color and meaning of the flowers.',
+      },
+      {
+        hanzi: '吉利',
+        pinyin: 'jílì',
+        english: 'auspicious / lucky / propitious',
+        exampleHanzi: '在中国，送礼物最重要的就是送吉利。',
+        examplePinyin: 'Zài Zhōngguó, sòng lǐwù zuì zhòngyào de jiùshì sòng jílì.',
+        exampleTranslation: 'In China, the most important thing when giving a gift is to convey good fortune.',
+      },
+      {
+        hanzi: '梨',
+        pinyin: 'lí',
+        english: 'pear',
+        exampleHanzi: '带梨就不好，因为“梨”和“离”发音一样。',
+        examplePinyin: 'Dài lí jiù bù hǎo, yīnwèi “lí” hé “lí” fāyīn yíyàng.',
+        exampleTranslation: 'Bringing pears is not good because "pear" and "separation" sound the same.',
+      },
+      {
+        hanzi: '发音',
+        pinyin: 'fāyīn',
+        english: 'pronunciation',
+        exampleHanzi: '这两个汉字的发音一样。',
+        examplePinyin: 'Zhè liǎng gè hànzì de fāyīn yíyàng.',
+        exampleTranslation: 'The pronunciation of these two Chinese characters is the same.',
+      },
+      {
+        hanzi: '应季',
+        pinyin: 'yìngjì',
+        english: 'in season / seasonal (of fruits and vegetables)',
+        exampleHanzi: '带应季水果去朋友家也很不错。',
+        examplePinyin: 'Dài yìngjì shuǐguǒ qù péngyou jiā yě hěn búcuò.',
+        exampleTranslation: 'Bringing seasonal fruit to a friend’s house is also great.',
+      },
+      {
+        hanzi: '注意',
+        pinyin: 'zhùyì',
+        english: 'to pay attention to / to mind',
+        exampleHanzi: '送花儿的时候要注意颜色。',
+        examplePinyin: 'Sòng huār de shíhou yào zhùyì yánsè.',
+        exampleTranslation: 'When giving flowers, you must pay attention to the color.',
+      },
+      {
+        hanzi: '菊花',
+        pinyin: 'júhuā',
+        english: 'chrysanthemum',
+        exampleHanzi: '白色和黄色的菊花一般都是扫墓时会带的花儿。',
+        examplePinyin: 'Báisè hé huángsè de júhuā yìbān dōu shì sǎomù shí huì dài de huār.',
+        exampleTranslation: 'White and yellow chrysanthemums are generally flowers brought when sweeping tombs.',
+      },
+      {
+        hanzi: '特别',
+        pinyin: 'tèbié',
+        english: 'especially / in particular; special',
+        exampleHanzi: '最好不送菊花，特别是白色和黄色的菊花。',
+        examplePinyin: 'Zuìhǎo bú sòng júhuā, tèbié shì báisè hé huángsè de júhuā.',
+        exampleTranslation: 'It is best not to give chrysanthemums, especially white and yellow ones.',
+      },
+      {
+        hanzi: '明白',
+        pinyin: 'míngbai',
+        english: 'to understand / clear',
+        exampleHanzi: '吉利的都比不吉利的好，你明白了吗？',
+        examplePinyin: 'Jílì de dōu bǐ bù jílì de hǎo, nǐ míngbai le ma?',
+        exampleTranslation: 'Auspicious gifts are always better than inauspicious ones—do you understand now?',
+      },
+    ],
+    grammarPoint: 'Homophonic Symbolism (有……的意思 / 发音一样) & Cultural Advice (不能 / 最好不)',
+    structure: 'X 有 “Y” 的意思 | A 和 B 发音一样 | 不能 + V | 最好 (不) + V',
+    explanation:
+      'Cultural Reader 2 illustrates how homophones shape Chinese gift-giving etiquette (苹果 → 平安, 橘子 → 吉利, 梨 = 离) and how to express cultural taboos and polite advice using 不能 and 最好(不).',
+    examples: [
+      {
+        hanzi: '苹果有“平安”的意思；橘子有“吉利”的意思。',
+        pinyin: 'Píngguǒ yǒu “píng’ān” de yìsi; júzi yǒu “jílì” de yìsi.',
+        translation: 'Apples carry the meaning of "peace and safety"; tangerines carry the meaning of "good fortune."',
+      },
+      {
+        hanzi: '在中国，送礼物最重要的就是送吉利，吉利的都比不吉利的好。',
+        pinyin: 'Zài Zhōngguó, sòng lǐwù zuì zhòngyào de jiùshì sòng jílì, jílì de dōu bǐ bù jílì de hǎo.',
+        translation: 'In China, the most important thing when giving gifts is to give good fortune—anything auspicious is better than something inauspicious.',
+      },
+    ],
+    grammarNotes: [
+      {
+        title: 'Homophonic Symbolism in Chinese Culture: X 有 “Y” 的意思 / 发音一样',
+        structure: '[Object] + 有 “[Auspicious Concept]” 的意思  |  A 和 B 发音一样',
+        explanation:
+          'Chinese gift culture places great weight on homophones (谐音 xiéyīn—words that share the same or similar pronunciation). Apples (苹果 píngguǒ) echo 平安 (píng’ān, peace and safety), and tangerines (橘子 júzi) echo 吉利 (jílì, good luck). Conversely, pears (梨 lí) are avoided as gifts between friends or family—especially when visiting patients or newlyweds—because 梨 is a homophone of 离 (lí, to part or separate).',
+        examples: [
+          {
+            hanzi: '苹果有“平安”的意思；橘子有“吉利”的意思。',
+            pinyin: 'Píngguǒ yǒu “píng’ān” de yìsi; júzi yǒu “jílì” de yìsi.',
+            translation: 'Apples carry the meaning of "peace and safety"; tangerines carry the meaning of "good fortune."',
+          },
+          {
+            hanzi: '带梨就不好，因为“梨”和“离”发音一样，不吉利。',
+            pinyin: 'Dài lí jiù bù hǎo, yīnwèi “lí” hé “lí” fāyīn yíyàng, bù jílì.',
+            translation: 'Bringing pears is not good, because "pear" and "separation" have the same pronunciation, which is inauspicious.',
+          },
+        ],
+      },
+      {
+        title: 'Giving Advice & Warnings: 不能 + V and 最好 (不) + V',
+        structure: '不能 + Verb (must not / cannot)  |  最好 (不) + Verb (had better [not])',
+        explanation:
+          'When explaining cultural taboos or polite etiquette, 不能 + Verb states a strong social prohibition ("must not / cannot do"), whereas 最好 + (不) + Verb gives tactful advice ("it is best [not] to... / you had better [not]...").',
+        examples: [
+          {
+            hanzi: '在中国，不能送白色的花儿，最好也不送菊花。',
+            pinyin: 'Zài Zhōngguó, bù néng sòng báisè de huār, zuìhǎo yě bú sòng júhuā.',
+            translation: 'In China, you must not give white flowers, and it is best not to give chrysanthemums either.',
+          },
+        ],
+      },
+    ],
+    exercises: [
+      {
+        question: 'Why are apples (苹果) and tangerines (橘子) popular gifts when visiting a friend’s home in China?',
+        options: [
+          'Because 苹果 sounds like 平安 (peace and safety) and 橘子 sounds like 吉利 (good fortune).',
+          'Because they are the only fruits sold in Chinese supermarkets.',
+          'Because they are used exclusively for tomb-sweeping on Qingming Festival.',
+          'Because they are sour and spicy.',
+        ],
+        answerIndex: 0,
+        explanation:
+          'The passage explains: “苹果有‘平安’的意思；橘子有‘吉利’的意思。” Their names echo auspicious blessings.',
+      },
+      {
+        question: 'Why is bringing pears (梨 lí) to a friend’s house considered inauspicious in Chinese culture?',
+        options: [
+          'Because “梨” (lí, pear) has the exact same pronunciation as “离” (lí, separation).',
+          'Because pears are too expensive in winter.',
+          'Because pears are white on the inside.',
+          'Because pears cannot be shared with friends.',
+        ],
+        answerIndex: 0,
+        explanation:
+          '“带梨就不好，因为‘梨’和‘离’发音一样，不吉利。” Sharing or gifting pears evokes parting/separation (分梨 = 分离).',
+      },
+      {
+        question: 'Which flowers should you AVOID giving when visiting a friend’s home in China, and why?',
+        options: [
+          'White flowers and white or yellow chrysanthemums (菊花), because they are traditionally used for tomb-sweeping (扫墓).',
+          'Red roses, because red is an unlucky color in China.',
+          'All flowers, because Chinese people never give flowers as gifts.',
+          'Pink flowers, because they are only for restaurants.',
+        ],
+        answerIndex: 0,
+        explanation:
+          'The passage notes: “在中国，不能送白色的花儿，最好也不送菊花，特别是白色和黄色的菊花，这两种一般都是扫墓时会带的花儿。”',
+      },
+      {
+        question: 'Complete the summary sentence from Cultural Reader 2: “在中国，送礼物最重要的就是送________，吉利的都________不吉利的好。”',
+        promptHanzi: '在中国，送礼物最重要的就是送________，吉利的都________不吉利的好。',
+        promptPinyin: 'Zài Zhōngguó, sòng lǐwù zuì zhòngyào de jiùshì sòng ________, jílì de dōu ________ bù jílì de hǎo.',
+        options: [
+          '吉利 …… 比 (jílì ... bǐ)',
+          '便宜 …… 没有 (piányi ... méiyǒu)',
+          '菊花 …… 很 (júhuā ... hěn)',
+          '零钱 …… 太 (língqián ... tài)',
+        ],
+        answerIndex: 0,
+        explanation:
+          'The passage concludes: “在中国，送礼物最重要的就是送吉利，吉利的都比不吉利的好，你明白了吗？”',
+      },
+    ],
+  },
 ];

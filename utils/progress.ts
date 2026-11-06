@@ -1,3 +1,5 @@
+import { getLocalDateString } from './streak';
+
 export interface UserVocabProgress {
   masteredWords: string[]; // array of word chars
   bookmarkedWords: string[]; // array of word chars
@@ -7,15 +9,20 @@ export interface UserVocabProgress {
     score: number;
     total: number;
   }[];
+  dailyGoalTarget: number; // target number of words to learn per day
+  dailyStudiedByDate: Record<string, string[]>; // YYYY-MM-DD -> unique word chars studied that day
 }
 
 const PROGRESS_STORAGE_KEY = 'hsk-vocab-progress';
+export const DEFAULT_DAILY_GOAL = 10;
 
 export const getVocabProgress = (): UserVocabProgress => {
   const defaultProgress: UserVocabProgress = {
     masteredWords: [],
     bookmarkedWords: [],
     quizHistory: [],
+    dailyGoalTarget: DEFAULT_DAILY_GOAL,
+    dailyStudiedByDate: {},
   };
 
   if (typeof window === 'undefined' || !window.localStorage) {
@@ -26,10 +33,24 @@ export const getVocabProgress = (): UserVocabProgress => {
     const raw = localStorage.getItem(PROGRESS_STORAGE_KEY);
     if (!raw) return defaultProgress;
     const parsed = JSON.parse(raw) as Partial<UserVocabProgress>;
+    const rawTarget = typeof parsed.dailyGoalTarget === 'number' ? parsed.dailyGoalTarget : DEFAULT_DAILY_GOAL;
+    const clampedTarget = Math.max(1, Math.min(200, Math.round(rawTarget)));
+
+    const studiedByDate: Record<string, string[]> = {};
+    if (parsed.dailyStudiedByDate && typeof parsed.dailyStudiedByDate === 'object') {
+      for (const [k, v] of Object.entries(parsed.dailyStudiedByDate)) {
+        if (Array.isArray(v)) {
+          studiedByDate[k] = v.filter((item): item is string => typeof item === 'string');
+        }
+      }
+    }
+
     return {
       masteredWords: Array.isArray(parsed.masteredWords) ? parsed.masteredWords : [],
       bookmarkedWords: Array.isArray(parsed.bookmarkedWords) ? parsed.bookmarkedWords : [],
       quizHistory: Array.isArray(parsed.quizHistory) ? parsed.quizHistory : [],
+      dailyGoalTarget: clampedTarget,
+      dailyStudiedByDate: studiedByDate,
     };
   } catch (err) {
     console.error('Failed to read vocab progress:', err);
@@ -48,14 +69,95 @@ const saveVocabProgress = (progress: UserVocabProgress) => {
   }
 };
 
+export const setDailyGoalTarget = (target: number): UserVocabProgress => {
+  const current = getVocabProgress();
+  const clamped = Math.max(1, Math.min(200, Math.round(Number(target) || DEFAULT_DAILY_GOAL)));
+  const updated: UserVocabProgress = {
+    ...current,
+    dailyGoalTarget: clamped,
+  };
+  saveVocabProgress(updated);
+  return updated;
+};
+
+export const recordWordStudied = (char: string): UserVocabProgress => {
+  const cleanChar = char.trim();
+  const current = getVocabProgress();
+  if (!cleanChar) return current;
+
+  const today = getLocalDateString();
+  const existingToday = current.dailyStudiedByDate[today] || [];
+  if (existingToday.includes(cleanChar)) {
+    return current;
+  }
+
+  const nextByDate: Record<string, string[]> = {
+    ...current.dailyStudiedByDate,
+    [today]: [...existingToday, cleanChar],
+  };
+
+  const updated: UserVocabProgress = {
+    ...current,
+    dailyStudiedByDate: nextByDate,
+  };
+  saveVocabProgress(updated);
+  return updated;
+};
+
+export const getTodayStudiedWords = (progress: UserVocabProgress = getVocabProgress()): string[] => {
+  const today = getLocalDateString();
+  return progress.dailyStudiedByDate[today] || [];
+};
+
+export const getLastSevenDaysGoalStatus = (
+  progress: UserVocabProgress = getVocabProgress()
+): {
+  date: string;
+  dayLabel: string;
+  count: number;
+  target: number;
+  met: boolean;
+  isToday: boolean;
+}[] => {
+  const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  const todayStr = getLocalDateString();
+  const target = progress.dailyGoalTarget || DEFAULT_DAILY_GOAL;
+  const result = [];
+
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    const dateStr = getLocalDateString(d);
+    const count = (progress.dailyStudiedByDate[dateStr] || []).length;
+    result.push({
+      date: dateStr,
+      dayLabel: days[d.getDay()],
+      count,
+      target,
+      met: count >= target,
+      isToday: dateStr === todayStr,
+    });
+  }
+
+  return result;
+};
+
 export const toggleMasteredWord = (char: string): UserVocabProgress => {
   const current = getVocabProgress();
   const exists = current.masteredWords.includes(char);
+  const today = getLocalDateString();
+  const existingToday = current.dailyStudiedByDate[today] || [];
+  const nextToday = !exists && !existingToday.includes(char) ? [...existingToday, char] : existingToday;
+
   const updated: UserVocabProgress = {
     ...current,
     masteredWords: exists
       ? current.masteredWords.filter(c => c !== char)
       : [...current.masteredWords, char],
+    dailyStudiedByDate: {
+      ...current.dailyStudiedByDate,
+      [today]: nextToday,
+    },
   };
   saveVocabProgress(updated);
   return updated;
@@ -63,10 +165,20 @@ export const toggleMasteredWord = (char: string): UserVocabProgress => {
 
 export const markWordMastered = (char: string): UserVocabProgress => {
   const current = getVocabProgress();
-  if (current.masteredWords.includes(char)) return current;
+  const today = getLocalDateString();
+  const existingToday = current.dailyStudiedByDate[today] || [];
+  const nextToday = existingToday.includes(char) ? existingToday : [...existingToday, char];
+  const nextMastered = current.masteredWords.includes(char)
+    ? current.masteredWords
+    : [...current.masteredWords, char];
+
   const updated: UserVocabProgress = {
     ...current,
-    masteredWords: [...current.masteredWords, char],
+    masteredWords: nextMastered,
+    dailyStudiedByDate: {
+      ...current.dailyStudiedByDate,
+      [today]: nextToday,
+    },
   };
   saveVocabProgress(updated);
   return updated;

@@ -3,6 +3,7 @@ import { vocabData } from '../data/vocab';
 import { Word } from '../types';
 import confetti from 'canvas-confetti';
 import { recordDailyPractice } from '../utils/streak';
+import { recordWordStudied } from '../utils/progress';
 
 // Enhanced shuffle algorithm with better randomization
 const shuffleArray = (array: Word[]): Word[] => {
@@ -123,6 +124,7 @@ const PracticePage: React.FC = () => {
     if (!currentSession || !currentWord) return;
 
     recordDailyPractice();
+    recordWordStudied(currentWord.char);
 
     const newStats = { ...sessionStats };
     newStats.totalAnswered++;
