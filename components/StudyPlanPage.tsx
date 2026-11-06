@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { vocabData } from '../data/vocab';
-import { GoogleGenAI, Type } from '@google/genai';
 
 interface StudyTask {
   time: string;
@@ -36,78 +35,32 @@ const StudyPlanPage: React.FC = () => {
     setPlan(null);
 
     try {
-      if (!process.env.GEMINI_API_KEY) {
-        throw new Error("API key is missing. Please set up the GEMINI_API_KEY environment variable.");
-      }
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-
-      const wordsForLevel = vocabData[level] || [];
-      const wordList = wordsForLevel.map(w => `${w.char} (${w.pinyin}): ${w.meaning}`).join(', ');
-
-      const prompt = `
-        You are an expert language learning coach specializing in HSK preparation.
-        A student wants to study for HSK Level ${level}.
-        Their goal is to study ${daysPerWeek} days a week, for ${minutesPerDay} minutes each day.
-
-        Here is a sample of the vocabulary list for HSK Level ${level}: ${wordList}.
-
-        Create a structured, 1-week study plan for them. The plan should be diverse and cover different skills: vocabulary learning, grammar points, and simple practice exercises.
-        
-        Return the plan as a JSON object that adheres to the provided schema. The plan should contain a "weekly_plan" array, with one object for each of the ${daysPerWeek} study days. Each day should have a clear focus and a breakdown of tasks that fit within the ${minutesPerDay}-minute timeframe.
-      `;
-      
-      const responseSchema = {
-          type: Type.OBJECT,
-          properties: {
-              weekly_plan: {
-                  type: Type.ARRAY,
-                  description: "An array representing the study plan for the week.",
-                  items: {
-                      type: Type.OBJECT,
-                      properties: {
-                          day: { type: Type.STRING, description: "The study day (e.g., 'Day 1', 'Day 2')." },
-                          focus: { type: Type.STRING, description: "The main focus for the day's session." },
-                          tasks: {
-                              type: Type.ARRAY,
-                              description: "A list of tasks for the study session.",
-                              items: {
-                                  type: Type.OBJECT,
-                                  properties: {
-                                      time: { type: Type.STRING, description: "Estimated time for the task (e.g., '10 mins')." },
-                                      task: { type: Type.STRING, description: "The name of the task (e.g., 'New Vocabulary')." },
-                                      details: { type: Type.STRING, description: "Specific instructions for the task." },
-                                  },
-                                   required: ["time", "task", "details"]
-                              }
-                          }
-                      },
-                      required: ["day", "focus", "tasks"]
-                  }
-              }
-          },
-          required: ["weekly_plan"]
-      };
-
-      const result = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
-        contents: prompt,
-        config: {
-          responseMimeType: "application/json",
-          responseSchema: responseSchema,
+      const response = await fetch('/api/study-plan', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+          level,
+          daysPerWeek,
+          minutesPerDay,
+        }),
       });
-      const response = result as any;
-      const text = response.response.text();
-      if (text) {
-        const parsedPlan: StudyPlan = JSON.parse(text);
-        setPlan(parsedPlan);
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to generate study plan.');
+      }
+
+      if (data && data.weekly_plan) {
+        setPlan(data);
+        setActiveTab('preview');
       } else {
         setError('Failed to generate a valid study plan. The response was empty.');
       }
-
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
-      setError("Failed to generate study plan. Please ensure your API key is configured correctly and try again.");
+      setError(e?.message || 'Failed to generate study plan. Please check your API key in Settings > Secrets and try again.');
     } finally {
       setIsLoading(false);
     }

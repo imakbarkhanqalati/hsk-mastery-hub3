@@ -1,7 +1,8 @@
-import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { vocabData } from '../data/vocab';
 import { Word } from '../types';
 import confetti from 'canvas-confetti';
+import { recordDailyPractice } from '../utils/streak';
 
 // Enhanced shuffle algorithm
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -190,7 +191,7 @@ const QuizzesPage: React.FC = () => {
   const startQuiz = useCallback((level: number) => {
     const questions = generateQuizQuestions(level);
     if (questions.length === 0) {
-      alert("Not enough words for a quiz at this level.");
+      console.warn("Not enough words for a quiz at this level.");
       return;
     }
 
@@ -218,6 +219,8 @@ const QuizzesPage: React.FC = () => {
   // Handle answer selection
   const handleAnswerSelect = useCallback((option: string) => {
     if (selectedAnswer || !currentSession) return;
+
+    recordDailyPractice();
 
     const currentQuestion = currentSession.questions[currentSession.currentIndex];
     const correct = option === currentQuestion.correctAnswer;
@@ -506,7 +509,7 @@ const QuizzesPage: React.FC = () => {
   const renderResults = () => {
     if (!currentSession) return null;
 
-    const { score, totalQuestions, userAnswers, startTime } = currentSession;
+    const { score, totalQuestions, startTime } = currentSession;
     const percentage = Math.round((score / totalQuestions) * 100);
     const timeSpent = Date.now() - startTime.getTime();
     const averageTime = Math.round(timeSpent / totalQuestions / 1000);

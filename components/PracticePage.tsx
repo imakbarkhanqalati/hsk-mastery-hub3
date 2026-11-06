@@ -2,6 +2,7 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { vocabData } from '../data/vocab';
 import { Word } from '../types';
 import confetti from 'canvas-confetti';
+import { recordDailyPractice } from '../utils/streak';
 
 // Enhanced shuffle algorithm with better randomization
 const shuffleArray = (array: Word[]): Word[] => {
@@ -120,6 +121,8 @@ const PracticePage: React.FC = () => {
   // Handle answer submission
   const handleAnswer = useCallback((isCorrect: boolean) => {
     if (!currentSession || !currentWord) return;
+
+    recordDailyPractice();
 
     const newStats = { ...sessionStats };
     newStats.totalAnswered++;

@@ -24,6 +24,13 @@ const AboutPage = lazy(() => import('./components/AboutPage'));
 import { lessons as lessonsData } from './data/lessons';
 import { Word } from './types';
 import { AuthModalState } from './components/AuthModal';
+import { DailyStreakData, getStreakData, recordDailyPractice } from './utils/streak';
+import {
+  UserVocabProgress,
+  getVocabProgress,
+  toggleBookmarkedWord,
+  toggleMasteredWord,
+} from './utils/progress';
 import './index.css';
 
 type Page = 'home' | 'learn' | 'practice' | 'quizzes' | 'dictionary' | 'studyPlan' | 'lessons' | 'lessonDetail' | 'about';
@@ -47,15 +54,55 @@ function App() {
   const [authModalState, setAuthModalState] = useState<AuthModalState>('closed');
   const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
   const [selectedHSKLevel, setSelectedHSKLevel] = useState<number | undefined>(undefined);
+  const [streakData, setStreakData] = useState<DailyStreakData>(() => getStreakData());
+  const [vocabProgress, setVocabProgress] = useState<UserVocabProgress>(() => getVocabProgress());
 
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
+      document.body.className = 'dark';
     } else {
       document.documentElement.classList.remove('dark');
+      document.body.className = 'light';
     }
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    const handleStreakUpdated = (event: Event) => {
+      const customEvent = event as CustomEvent<DailyStreakData>;
+      if (customEvent.detail) {
+        setStreakData(customEvent.detail);
+      } else {
+        setStreakData(getStreakData());
+      }
+    };
+    const handleProgressUpdated = (event: Event) => {
+      const customEvent = event as CustomEvent<UserVocabProgress>;
+      if (customEvent.detail) {
+        setVocabProgress(customEvent.detail);
+      } else {
+        setVocabProgress(getVocabProgress());
+      }
+    };
+    window.addEventListener('streak-updated', handleStreakUpdated);
+    window.addEventListener('vocab-progress-updated', handleProgressUpdated);
+    return () => {
+      window.removeEventListener('streak-updated', handleStreakUpdated);
+      window.removeEventListener('vocab-progress-updated', handleProgressUpdated);
+    };
+  }, []);
+
+  const handleToggleMastered = useCallback((char: string) => {
+    const updated = toggleMasteredWord(char);
+    setVocabProgress(updated);
+    recordDailyPractice();
+  }, []);
+
+  const handleToggleBookmark = useCallback((char: string) => {
+    const updated = toggleBookmarkedWord(char);
+    setVocabProgress(updated);
+  }, []);
 
   const navigateToHome = useCallback(() => {
     setCurrentPage('home');
@@ -71,6 +118,7 @@ function App() {
   const navigateToLessonDetail = useCallback((lessonId: string) => {
     setSelectedLessonId(lessonId);
     setCurrentPage('lessonDetail');
+    recordDailyPractice();
   }, []);
   const handleBackToLessons = useCallback(() => {
     setCurrentPage('lessons');
@@ -94,13 +142,13 @@ function App() {
 
   const handleSelectWord = useCallback((word: Word) => {
     setSelectedWord(word);
+    recordDailyPractice();
   }, []);
 
   const handleCloseWordDetailModal = useCallback(() => {
     setSelectedWord(null);
   }, []);
 
-  // --- Auth Handlers ---
   const handleOpenSignIn = useCallback(() => setAuthModalState('signin'), []);
   const handleOpenSignUp = useCallback(() => setAuthModalState('signup'), []);
   const handleCloseAuthModal = useCallback(() => setAuthModalState('closed'), []);
@@ -110,13 +158,13 @@ function App() {
   }, []);
 
   const handleSignIn = useCallback((data: any) => {
-      console.log('Signing in with:', data); // Placeholder for auth logic
+      console.log('Signing in with:', data);
       setIsAuthenticated(true);
       handleCloseAuthModal();
   }, [handleCloseAuthModal]);
   
   const handleSignUp = useCallback((data: any) => {
-      console.log('Signing up with:', data); // Placeholder for auth logic
+      console.log('Signing up with:', data);
       setIsAuthenticated(true);
       handleCloseAuthModal();
   }, [handleCloseAuthModal]);
@@ -144,23 +192,46 @@ function App() {
         onSignOut={handleSignOut}
         navigateToLessons={navigateToLessons}
         navigateToAbout={navigateToAbout}
+        streakData={streakData}
       />
       <div className="main-layout">
-        {/* Left Sidebar for future use */}
-        <aside className="sidebar left-sidebar">
-          <div className="sidebar-content">
-            <div className="ad-space-placeholder">
-              Ad Space (Coming Soon)
-            </div>
-          </div>
-        </aside>
         <main className="main-content">
           <Suspense fallback={<LoadingSpinner />}>
-            {currentPage === 'home' && <HomePage onGetStartedClick={handleOpenSignUp} navigateToLearn={navigateToLearn} onSelectHSKLevel={(level) => { setSelectedHSKLevel(level); }} />}
-            {currentPage === 'learn' && <MainContent onWordSelect={handleSelectWord} initialHSKLevel={selectedHSKLevel} />}
+            {currentPage === 'home' && (
+              <HomePage
+                onGetStartedClick={handleOpenSignUp}
+                navigateToLearn={navigateToLearn}
+                navigateToPractice={navigateToPractice}
+                navigateToQuizzes={navigateToQuizzes}
+                navigateToStudyPlan={navigateToStudyPlan}
+                navigateToDictionary={navigateToDictionary}
+                onSelectHSKLevel={(level) => { setSelectedHSKLevel(level); }}
+                onWordSelect={handleSelectWord}
+                vocabProgress={vocabProgress}
+                streakData={streakData}
+                onToggleBookmark={handleToggleBookmark}
+                onToggleMastered={handleToggleMastered}
+              />
+            )}
+            {currentPage === 'learn' && (
+              <MainContent
+                onWordSelect={handleSelectWord}
+                initialHSKLevel={selectedHSKLevel}
+                vocabProgress={vocabProgress}
+                onToggleMastered={handleToggleMastered}
+                onToggleBookmark={handleToggleBookmark}
+              />
+            )}
             {currentPage === 'practice' && <PracticePage />}
             {currentPage === 'quizzes' && <QuizzesPage />}
-            {currentPage === 'dictionary' && <DictionaryPage onWordSelect={handleSelectWord} />}
+            {currentPage === 'dictionary' && (
+              <DictionaryPage
+                onWordSelect={handleSelectWord}
+                vocabProgress={vocabProgress}
+                onToggleMastered={handleToggleMastered}
+                onToggleBookmark={handleToggleBookmark}
+              />
+            )}
             {currentPage === 'studyPlan' && <StudyPlanPage />}
             {currentPage === 'lessons' && (
               <LessonsPage
@@ -172,19 +243,16 @@ function App() {
               <LessonDetailPage
                 lesson={lessonsData.find(l => l.id === selectedLessonId)!}
                 onBack={handleBackToLessons}
+                onWordSelect={handleSelectWord}
+                vocabProgress={vocabProgress}
+                onToggleMastered={handleToggleMastered}
+                onToggleBookmark={handleToggleBookmark}
+                onSelectLesson={navigateToLessonDetail}
               />
             )}
             {currentPage === 'about' && <AboutPage />}
           </Suspense>
         </main>
-        {/* Sidebar for future ads */}
-        <aside className="sidebar right-sidebar">
-          <div className="sidebar-content">
-            <div className="ad-space-placeholder">
-              Ad Space (Coming Soon)
-            </div>
-          </div>
-        </aside>
       </div>
       <Footer />
       <Suspense fallback={<LoadingSpinner />}>

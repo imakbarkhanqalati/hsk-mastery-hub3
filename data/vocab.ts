@@ -1,4 +1,5 @@
 import { Word } from '../types';
+import { hsk6Words } from './hsk6Part2';
 
 export const vocabData: { [key: number]: Word[] } = {
     1: [
@@ -302,7 +303,7 @@ export const vocabData: { [key: number]: Word[] } = {
         { char: '阴', pinyin: 'yīn', meaning: 'cloudy', grammar: 'Adjective. Used for weather.', examples: [{ sentence: '明天可能是阴天。', translation: 'It might be cloudy tomorrow.' }] },
         { char: '错', pinyin: 'cuò', meaning: 'wrong', grammar: 'Adjective.', examples: [{ sentence: '对不起，我错了。', translation: 'Sorry, I was wrong.' }] },
         { char: '快乐', pinyin: 'kuàilè', meaning: 'happy', grammar: 'Adjective.', examples: [{ sentence: '祝你生日快乐！', translation: 'Happy birthday to you!' }] },
-        { char: '对', pinyin: 'duì', meaning: 'to', grammar: 'Preposition. Indicates the object of an action or attitude.', examples: [{ sentence: '他对我说…', translation: 'He said to me...' }] },
+        { char: '对(介词)', pinyin: 'duì', meaning: 'to', grammar: 'Preposition. Indicates the object of an action or attitude.', examples: [{ sentence: '他对我说…', translation: 'He said to me...' }] },
         { char: '对', pinyin: 'duì', meaning: 'right', grammar: 'Adjective.', examples: [{ sentence: '你说得对。', translation: 'What you said is right.' }] }
     ],
     3: [
@@ -394,18 +395,19 @@ export const vocabData: { [key: number]: Word[] } = {
                 { char: '关心', pinyin: 'guānxīn', meaning: 'to care about', grammar: 'Verb.', examples: [{ sentence: '谢谢你的关心。', translation: 'Thank you for your concern.' }] },
                 { char: '关于', pinyin: 'guānyú', meaning: 'about, regarding', grammar: 'Preposition.', examples: [{ sentence: '关于这个问题，我们明天再讨论。', translation: 'Regarding this issue, we will discuss it again tomorrow.' }] },
                 { char: '国家', pinyin: 'guójiā', meaning: 'country', grammar: 'Noun.', examples: [{ sentence: '中国是一个美丽的国家。', translation: 'China is a beautiful country.' }] },
-                { char: '过', pinyin: 'guò', meaning: 'to pass, to celebrate', grammar: 'Verb.', examples: [{ sentence: '我们怎么过周末？', translation: 'How should we spend the weekend?' }] },
+                { char: '过(动词)', pinyin: 'guò', meaning: 'to pass, to celebrate', grammar: 'Verb.', examples: [{ sentence: '我们怎么过周末？', translation: 'How should we spend the weekend?' }] },
                 { char: '过去', pinyin: 'guòqù', meaning: 'past', grammar: 'Noun.', examples: [{ sentence: '别想过去了。', translation: 'Don\'t think about the past.' }] },
                 { char: '还是', pinyin: 'háishi', meaning: 'or (in a question), still', grammar: 'Conjunction/Adverb.', examples: [{ sentence: '你喝茶还是喝咖啡？', translation: 'Do you drink tea or coffee?' }, { sentence: '我还是觉得这个好。', translation: 'I still think this one is good.' }] },
                 { char: '害怕', pinyin: 'hàipà', meaning: 'to be afraid', grammar: 'Verb.', examples: [{ sentence: '我害怕一个人在家。', translation: 'I\'m afraid of being home alone.' }] },
                 { char: '黑板', pinyin: 'hēibǎn', meaning: 'blackboard', grammar: 'Noun.', examples: [{ sentence: '老师在黑板上写字。', translation: 'The teacher is writing on the blackboard.' }] },
                 { char: '后来', pinyin: 'hòulái', meaning: 'later, afterwards', grammar: 'Noun (Time word). Refers to a time in the past.', examples: [{ sentence: '我们先吃饭，后来去看了电影。', translation: 'We ate first, and later went to see a movie.' }] },
                 { char: '护照', pinyin: 'hùzhào', meaning: 'passport', grammar: 'Noun.', examples: [{ sentence: '出国需要带护照。', translation: 'You need to bring your passport when going abroad.' }] },
-                { char: '花', pinyin: 'huā', meaning: 'flower, to spend', grammar: 'Noun/Verb.', examples: [{ sentence: '这朵花很香。', translation: 'This flower smells great.' }, { sentence: '我花了很多钱。', translation: 'I spent a lot of money.' }] },
+                { char: '花(动词)', pinyin: 'huā', meaning: 'spend', grammar: 'Verb. To spend money or time.', examples: [{ sentence: '我花了很多钱。', translation: 'I spent a lot of money.' }, { sentence: '这项工作花了我三天时间。', translation: 'This job took me three days.' }] },
+                { char: '花(名词)', pinyin: 'huā', meaning: 'flower', grammar: 'Noun.', examples: [{ sentence: '这朵花很香。', translation: 'This flower smells great.' }, { sentence: '桌子上放着一束花。', translation: 'There is a bouquet of flowers on the table.' }] },
                 { char: '画', pinyin: 'huà', meaning: 'to draw, painting', grammar: 'Verb/Noun.', examples: [{ sentence: '他喜欢画画。', translation: 'He likes to draw.' }] },
                 { char: '坏', pinyin: 'huài', meaning: 'bad, broken', grammar: 'Adjective.', examples: [{ sentence: '这个苹果是坏的。', translation: 'This apple is bad.' }] },
                 { char: '欢迎', pinyin: 'huānyíng', meaning: 'to welcome', grammar: 'Verb.', examples: [{ sentence: '欢迎来到我们家。', translation: 'Welcome to our home.' }] },
-                { char: '还', pinyin: 'huán', meaning: 'to return', grammar: 'Verb.', examples: [{ sentence: '我明天把书还给你。', translation: 'I will return the book to you tomorrow.' }] },
+                { char: '还(动词)', pinyin: 'huán', meaning: 'to return', grammar: 'Verb.', examples: [{ sentence: '我明天把书还给你。', translation: 'I will return the book to you tomorrow.' }] },
                 { char: '环境', pinyin: 'huánjìng', meaning: 'environment, surroundings', grammar: 'Noun.', examples: [{ sentence: '这里的环境很好。', translation: 'The environment here is very good.' }] },
                 { char: '换', pinyin: 'huàn', meaning: 'to change, to exchange', grammar: 'Verb.', examples: [{ sentence: '我想换一些人民币。', translation: 'I want to exchange some RMB.' }] },
                 { char: '黄河', pinyin: 'Huáng Hé', meaning: 'Yellow River', grammar: 'Noun (Proper name).', examples: [{ sentence: '黄河是中国的第二大河。', translation: 'The Yellow River is the second longest river in China.' }] },
@@ -489,6 +491,7 @@ export const vocabData: { [key: number]: Word[] } = {
                 { char: '其他', pinyin: 'qítā', meaning: 'other, else', grammar: 'Pronoun.', examples: [{ sentence: '除了我，还有其他人在吗？', translation: 'Besides me, is there anyone else?' }] },
                 { char: '奇怪', pinyin: 'qíguài', meaning: 'strange', grammar: 'Adjective.', examples: [{ sentence: '这件事很奇怪。', translation: 'This matter is very strange.' }] },
                 { char: '骑', pinyin: 'qí', meaning: 'to ride (an animal or a bike)', grammar: 'Verb.', examples: [{ sentence: '我每天骑自行车上学。', translation: 'I ride my bike to school every day.' }] },
+                { char: '起来', pinyin: 'qǐlái', meaning: 'get up', grammar: 'Verb. Used alone or as a directional complement indicating upward movement or beginning of an action.', examples: [{ sentence: '我每天早上六点起来。', translation: 'I get up at six o\'clock every morning.' }, { sentence: '大家高兴地唱了起来。', translation: 'Everyone happily started singing.' }] },
                 { char: '起飞', pinyin: 'qǐfēi', meaning: 'to take off (for an airplane)', grammar: 'Verb.', examples: [{ sentence: '飞机马上就要起飞了。', translation: 'The plane is about to take off.' }] },
                 { char: '清楚', pinyin: 'qīngchu', meaning: 'clear', grammar: 'Adjective.', examples: [{ sentence: '你说清楚一点，我没听见。', translation: 'Please speak a little more clearly, I didn\'t hear you.' }] },
                 { char: '请假', pinyin: 'qǐngjià', meaning: 'to ask for leave', grammar: 'Verb.', examples: [{ sentence: '我生病了，需要请假一天。', translation: 'I am sick and need to ask for a day off.' }] },
@@ -581,12 +584,13 @@ export const vocabData: { [key: number]: Word[] } = {
                 { char: '越', pinyin: 'yuè', meaning: 'the more...', grammar: 'Adverb. Used in the structure 越...越...', examples: [{ sentence: '他越说越激动。', translation: 'The more he spoke, the more excited he became.' }] },
                 { char: '站', pinyin: 'zhàn', meaning: 'to stand, station', grammar: 'Verb/Noun.', examples: [{ sentence: '请站起来。', translation: 'Please stand up.' }, { sentence: '火车站离这里远吗？', translation: 'Is the train station far from here?' }] },
                 { char: '张', pinyin: 'zhāng', meaning: 'measure word for flat objects', grammar: 'Measure word. Used for paper, tables, beds, etc.', examples: [{ sentence: '请给我一张纸。', translation: 'Please give me a piece of paper.' }] },
+                { char: '长(动词)', pinyin: 'zhǎng', meaning: 'grow', grammar: 'Verb. To grow or develop.', examples: [{ sentence: '孩子们长得很快。', translation: 'The children are growing very fast.' }, { sentence: '树上长满了绿叶。', translation: 'The tree is full of green leaves.' }] },
                 { char: '着急', pinyin: 'zháojí', meaning: 'worried, anxious', grammar: 'Adjective.', examples: [{ sentence: '别着急，慢慢来。', translation: 'Don\'t worry, take your time.' }] },
                 { char: '照顾', pinyin: 'zhàogù', meaning: 'to look after', grammar: 'Verb.', examples: [{ sentence: '请帮我照顾一下我的小狗。', translation: 'Please help me look after my puppy.' }] },
                 { char: '照片', pinyin: 'zhàopiàn', meaning: 'photo', grammar: 'Noun.', examples: [{ sentence: '这是我家的照片。', translation: 'This is my family photo.' }] },
                 { char: '照相机', pinyin: 'zhàoxiàngjī', meaning: 'camera', grammar: 'Noun.', examples: [{ sentence: '我买了一台新照相机。', translation: 'I bought a new camera.' }] },
-                { char: '只', pinyin: 'zhī', meaning: 'measure word for animals, etc.', grammar: 'Measure word. Used for some animals, one of a pair, boats.', examples: [{ sentence: '我有一只猫。', translation: 'I have a cat.' }] },
-                { char: '只', pinyin: 'zhǐ', meaning: 'only', grammar: 'Adverb.', examples: [{ sentence: '我只喜欢你。', translation: 'I only like you.' }] },
+                { char: '只(量词)', pinyin: 'zhī', meaning: 'measure word for animals, etc.', grammar: 'Measure word. Used for some animals, one of a pair, boats.', examples: [{ sentence: '我有一只猫。', translation: 'I have a cat.' }] },
+                { char: '只(副词)', pinyin: 'zhǐ', meaning: 'only', grammar: 'Adverb.', examples: [{ sentence: '我只喜欢你。', translation: 'I only like you.' }] },
                 { char: '只有……才……', pinyin: 'zhǐyǒu...cái...', meaning: 'only if... then...', grammar: 'Conjunction pair. Indicates a conditional relationship.', examples: [{ sentence: '只有努力学习，才能取得好成绩。', translation: 'Only by studying hard can you achieve good grades.' }] },
                 { char: '中间', pinyin: 'zhōngjiān', meaning: 'middle', grammar: 'Noun.', examples: [{ sentence: '我坐在他们两个中间。', translation: 'I am sitting between the two of them.' }] },
                 { char: '中文', pinyin: 'zhōngwén', meaning: 'Chinese language', grammar: 'Noun.', examples: [{ sentence: '我在学习中文。', translation: 'I am learning Chinese.' }] },
@@ -1207,6 +1211,7 @@ export const vocabData: { [key: number]: Word[] } = {
     { "char": "作者", "pinyin": "zuòzhě", "meaning": "author", "grammar": "Noun", "examples": [{"sentence": "这本书的作者是谁？", "translation": "Who is the author of this book?"}] },
     ],
     5: [
+        { "char": "唉", "pinyin": "āi", "meaning": "alas", "grammar": "Interjection. Used to express sighing, regret, or helplessness.", "examples": [{ "sentence": "唉，今天又忘了带钥匙。", "translation": "Alas, I forgot to bring my keys again today." }, { "sentence": "唉，真是没办法。", "translation": "Sigh, there is really nothing we can do." }] },
         { "char": "爱心", "pinyin": "àixīn", "meaning": "love, compassion", "grammar": "Noun.", "examples": [{ "sentence": "她很有爱心。", "translation": "She is very loving and compassionate." }] },
   { "char": "安慰", "pinyin": "ānwèi", "meaning": "to comfort, console", "grammar": "Verb.", "examples": [{ "sentence": "她试图安慰他。", "translation": "She tried to comfort him." }] },
   { "char": "岸", "pinyin": "àn", "meaning": "bank, shore, coast", "grammar": "Noun.", "examples": [{ "sentence": "我们在河岸上散步。", "translation": "We are walking on the river bank." }] },
@@ -2505,9 +2510,7 @@ export const vocabData: { [key: number]: Word[] } = {
   { "char": "尊敬", "pinyin": "zūnjìng", "meaning": "to respect, honor", "grammar": "Verb.", "examples": [{ "sentence": "我们应该尊敬老师。", "translation": "We should respect our teachers." }] },
   { "char": "遵守", "pinyin": "zūnshǒu", "meaning": "to abide by, observe", "grammar": "Verb.", "examples": [{ "sentence": "我们应该遵守法律。", "translation": "We should abide by the law." }] },
   { "char": "作品", "pinyin": "zuòpǐn", "meaning": "works (of literature and art)", "grammar": "Noun.", "examples": [{ "sentence": "这是一部优秀的作品。", "translation": "This is an excellent work." }] },
-  { "char": "作品", "pinyin": "zuòpǐn", "meaning": "works (of literature and art)", "grammar": "Noun.", "examples": [{ "sentence": "这是一部优秀的作品。", "translation": "This is an excellent work." }] },
+  { "char": "作为", "pinyin": "zuòwéi", "meaning": "as; conduct, deed", "grammar": "Preposition/Noun. Indicates role, identity, or accomplishment.", "examples": [{ "sentence": "作为一名医生，他非常负责。", "translation": "As a doctor, he is very responsible." }, { "sentence": "年轻人应该大有作为。", "translation": "Young people should accomplish great things." }] }
     ],
-    6: [
-      
-    ]
+    6: hsk6Words
 };
