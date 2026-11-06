@@ -4,14 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HSK Mastery Hub</title>
-    <meta name="description" content="A comprehensive platform for learning Chinese and preparing for HSK exams">
+    <meta name="description" content="An interactive web application to help users learn Chinese vocabulary for HSK (Hanyu Shuiping Kaoshi) tests. Users can browse vocabulary by HSK level, view detailed information about each word including pinyin, meaning, grammar, and example sentences.">
+    <meta property="og:title" content="HSK Mastery Hub">
+    <meta property="og:description" content="An interactive web application to help users learn Chinese vocabulary for HSK (Hanyu Shuiping Kaoshi) tests. Users can browse vocabulary by HSK level, view detailed information about each word including pinyin, meaning, grammar, and example sentences.">
     <meta name="keywords" content="HSK, Chinese, Mandarin, language learning, study plan, vocabulary, practice">
     <meta name="theme-color" content="#4a90e2">
-    <link rel="manifest" href="/hsk-mastery-hub3/manifest.json">
-    <link rel="icon" href="/hsk-mastery-hub3/favicon.ico">
+    <script>
+      (function () {
+        function isExtensionError(msg, stack) {
+          var text = (msg || '') + ' ' + (stack || '');
+          return (
+            text.indexOf('MetaMask') !== -1 ||
+            text.indexOf('chrome-extension://') !== -1 ||
+            text.indexOf('nkbihfbeogaeaoehlefnkodbefgpgknn') !== -1
+          );
+        }
+        window.addEventListener(
+          'error',
+          function (event) {
+            if (
+              isExtensionError(
+                event.message,
+                (event.filename || '') + ' ' + (event.error && event.error.stack ? event.error.stack : '')
+              )
+            ) {
+              event.stopImmediatePropagation();
+              event.preventDefault();
+            }
+          },
+          true
+        );
+        window.addEventListener(
+          'unhandledrejection',
+          function (event) {
+            var reason = event.reason;
+            var msg = reason && reason.message ? reason.message : String(reason || '');
+            var stack = reason && reason.stack ? reason.stack : '';
+            if (isExtensionError(msg, stack)) {
+              event.stopImmediatePropagation();
+              event.preventDefault();
+            }
+          },
+          true
+        );
+      })();
+    </script>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* Basic scrollbar styling */
         ::-webkit-scrollbar { width: 8px; }
@@ -85,21 +127,11 @@
             }
         }
     </style>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-
-<script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "react": "https://esm.sh/react@^19.1.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-    "@google/genai": "https://esm.sh/@google/genai"
-  }
-}
-</script>
-  <script type="module" crossorigin src="/hsk-mastery-hub3/assets/index-2LAOksmh.js"></script>
-  <link rel="modulepreload" crossorigin href="/hsk-mastery-hub3/assets/react-vendor-C3rq0lfV.js">
-  <link rel="stylesheet" crossorigin href="/hsk-mastery-hub3/assets/index-Cojnj0lW.css">
+  <script type="module" crossorigin src="/assets/index-80OYsshH.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/react-vendor-C3rq0lfV.js">
+  <link rel="modulepreload" crossorigin href="/assets/vocab-data-chunk-BD6P3yLY.js">
+  <link rel="modulepreload" crossorigin href="/assets/practice-chunk-DqEHc-ZJ.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-XLWUPUMR.css">
 </head>
 <body class="">
     <div id="root"></div>
