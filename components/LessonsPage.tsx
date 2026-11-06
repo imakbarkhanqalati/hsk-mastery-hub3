@@ -12,12 +12,9 @@ const LessonCard: React.FC<LessonCardProps> = ({
   lesson,
   onClick,
   lessonNumber,
-  totalLessons,
 }) => {
   const dialogueCount = lesson.dialogues ? lesson.dialogues.length : 1;
-  const grammarCount = lesson.grammarNotes ? lesson.grammarNotes.length : 1;
   const vocabCount = lesson.vocabularyExplanation.length;
-  const exerciseCount = lesson.exercises ? lesson.exercises.length : 0;
 
   return (
     <div
@@ -33,52 +30,26 @@ const LessonCard: React.FC<LessonCardProps> = ({
       }}
       aria-label={`Open lesson: ${lesson.title}`}
     >
-      <div className="vocab-card__top-bar">
-        <div className="vocab-card__meta">
-          <span>HSK {lesson.hskLevel}</span>
-          <span aria-hidden="true">·</span>
-          <span className="tabular-nums">
-            Unit {String(lessonNumber).padStart(2, '0')} of {String(totalLessons).padStart(2, '0')}
-          </span>
-          {lesson.chineseTitle && (
-            <>
-              <span aria-hidden="true">·</span>
-              <span className="font-noto-sc">{lesson.chineseTitle}</span>
-            </>
-          )}
-        </div>
+      <div className="lesson-card__top">
+        <span className="lesson-card__meta tabular-nums">
+          HSK {lesson.hskLevel} · Unit {String(lessonNumber).padStart(2, '0')}
+        </span>
+        {lesson.chineseTitle && (
+          <span className="lesson-card__hanzi font-noto-sc">{lesson.chineseTitle}</span>
+        )}
       </div>
 
       <div className="lesson-card__content">
         <h3 className="lesson-card__title">{lesson.title}</h3>
         <p className="lesson-card__description">{lesson.description}</p>
 
-        {lesson.objectives && lesson.objectives.length > 0 && (
-          <ul className="lesson-card__objectives">
-            {lesson.objectives.slice(0, 2).map((obj, idx) => (
-              <li key={idx}>{obj}</li>
-            ))}
-          </ul>
-        )}
-
         <div className="lesson-card__footer">
-          <div className="vocab-card__meta">
-            <span className="tabular-nums">{vocabCount} Words</span>
-            <span aria-hidden="true">·</span>
-            <span className="tabular-nums">{dialogueCount} {dialogueCount === 1 ? 'Dialogue' : 'Dialogues'}</span>
-            <span aria-hidden="true">·</span>
-            <span className="tabular-nums">{grammarCount + exerciseCount} Notes &amp; Drills</span>
-          </div>
-          <button
-            type="button"
-            className="lesson-card__button"
-            onClick={e => {
-              e.stopPropagation();
-              onClick();
-            }}
-          >
+          <span className="lesson-card__stats tabular-nums">
+            {vocabCount} Words · {dialogueCount} {dialogueCount === 1 ? 'Dialogue' : 'Dialogues'}
+          </span>
+          <span className="lesson-card__cta">
             Study Unit →
-          </button>
+          </span>
         </div>
       </div>
     </div>

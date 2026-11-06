@@ -7,7 +7,6 @@ import {
   getTodayStudiedWords,
   getLastSevenDaysGoalStatus,
   speakChineseText,
-  detectPinyinTones,
 } from '../utils/progress';
 import { DailyStreakData } from '../utils/streak';
 
@@ -76,11 +75,6 @@ const HomePage: React.FC<HomePageProps> = ({
     );
     return allWords[dayIndex % allWords.length] || allWords[0];
   }, [allWords]);
-
-  const spotlightTones = useMemo(
-    () => (spotlightWord ? detectPinyinTones(spotlightWord.pinyin) : []),
-    [spotlightWord]
-  );
 
   const totalVocabCount = allWords.length;
   const masteredCount = vocabProgress.masteredWords.length;
@@ -153,7 +147,7 @@ const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
 
-            {/* Interactive Daily Character Spotlight */}
+            {/* Minimalist Daily Character Spotlight */}
             {spotlightWord && (
               <div className="hero-spotlight-card">
                 <div className="hero-spotlight__top">
@@ -161,8 +155,6 @@ const HomePage: React.FC<HomePageProps> = ({
                     <span>Word of the Day</span>
                     <span aria-hidden="true">·</span>
                     <span>HSK {spotlightWord.hskLevel}</span>
-                    <span aria-hidden="true">·</span>
-                    <span>{spotlightWord.grammar}</span>
                   </div>
                   <div className="hero-spotlight__actions">
                     <button
@@ -175,7 +167,6 @@ const HomePage: React.FC<HomePageProps> = ({
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                         <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
                       </svg>
                     </button>
                     {onToggleBookmark && (
@@ -222,13 +213,9 @@ const HomePage: React.FC<HomePageProps> = ({
                   <div className="hero-spotlight__details">
                     <div className="hero-spotlight__pinyin">{spotlightWord.pinyin}</div>
                     <div className="hero-spotlight__meaning">{spotlightWord.meaning}</div>
-                    <div className="hero-spotlight__tones">
-                      {spotlightTones.map((t, idx) => (
-                        <span key={idx} className="hero-spotlight__tone-item">
-                          {t.syllable}: {t.toneName}
-                        </span>
-                      ))}
-                    </div>
+                    {spotlightWord.grammar && (
+                      <span className="hero-spotlight__pos">{spotlightWord.grammar}</span>
+                    )}
                   </div>
                 </div>
 
@@ -293,7 +280,7 @@ const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* Daily Study Goal & Progress Tracker Section */}
+      {/* Minimalist Daily Study Goal & Progress Tracker Section */}
       <section id="daily-goal-tracker" className="daily-goal-section">
         <div className="container">
           <div className="daily-goal-card">
@@ -301,25 +288,18 @@ const HomePage: React.FC<HomePageProps> = ({
               <div className="vocab-card__meta">
                 <span>Daily Study Goal</span>
                 <span aria-hidden="true">·</span>
-                <span className="tabular-nums">{todayCount} of {dailyGoalTarget} Words Today</span>
-                <span aria-hidden="true">·</span>
-                <span>{goalMetToday ? 'Goal Achieved' : 'In Progress'}</span>
+                <span>{goalMetToday ? 'Goal Achieved ✓' : 'In Progress'}</span>
               </div>
               <h2 className="daily-goal-card__title">
                 {goalMetToday
-                  ? `Daily target of ${dailyGoalTarget} words completed!`
-                  : `${Math.max(0, dailyGoalTarget - todayCount)} more ${
-                      dailyGoalTarget - todayCount === 1 ? 'word' : 'words'
-                    } to reach today's study goal`}
+                  ? `Daily target of ${dailyGoalTarget} words completed`
+                  : `${todayCount} of ${dailyGoalTarget} words studied today`}
               </h2>
-              <p className="daily-goal-card__desc">
-                Inspecting character cards, practicing flashcards or recall drills, completing quizzes, and marking words as mastered automatically count toward your daily target.
-              </p>
 
               <div className="daily-goal-card__bar-wrap">
                 <div className="daily-goal-card__bar-labels">
-                  <span>Today&apos;s Progress</span>
-                  <span className="tabular-nums">{todayCount} / {dailyGoalTarget} words ({goalProgressPct}%)</span>
+                  <span>Progress</span>
+                  <span className="tabular-nums">{goalProgressPct}%</span>
                 </div>
                 <div className="level-matrix__progress-track">
                   <div
@@ -331,9 +311,9 @@ const HomePage: React.FC<HomePageProps> = ({
 
               {todayStudiedWords.length > 0 && (
                 <div className="daily-goal-card__studied">
-                  <span className="daily-goal-card__subhead">Words Studied Today ({todayCount}):</span>
+                  <span className="daily-goal-card__subhead">Recent Words Today</span>
                   <div className="daily-goal-card__word-chips">
-                    {todayStudiedWords.map(char => {
+                    {todayStudiedWords.slice(0, 6).map(char => {
                       const matched = wordByChar.get(char);
                       return (
                         <button
@@ -344,7 +324,6 @@ const HomePage: React.FC<HomePageProps> = ({
                           title={matched ? `${matched.char} (${matched.pinyin}) — ${matched.meaning}` : char}
                         >
                           <span>{char}</span>
-                          {matched && <small>{matched.pinyin}</small>}
                         </button>
                       );
                     })}
@@ -355,20 +334,22 @@ const HomePage: React.FC<HomePageProps> = ({
 
             <div className="daily-goal-card__right">
               <div className="daily-goal-controls-box">
-                <span className="daily-goal-card__subhead">Set Daily Word Target</span>
-                <div className="goal-popover__presets">
-                  {GOAL_PRESETS.map(preset => (
-                    <button
-                      key={preset}
-                      type="button"
-                      onClick={() => onUpdateDailyGoal && onUpdateDailyGoal(preset)}
-                      className={`goal-preset-btn tabular-nums ${
-                        dailyGoalTarget === preset ? 'goal-preset-btn--active' : ''
-                      }`}
-                    >
-                      {preset} / day
-                    </button>
-                  ))}
+                <div className="daily-goal-target-header">
+                  <span className="daily-goal-card__subhead">Daily Target</span>
+                  <div className="goal-popover__presets">
+                    {GOAL_PRESETS.map(preset => (
+                      <button
+                        key={preset}
+                        type="button"
+                        onClick={() => onUpdateDailyGoal && onUpdateDailyGoal(preset)}
+                        className={`goal-preset-btn tabular-nums ${
+                          dailyGoalTarget === preset ? 'goal-preset-btn--active' : ''
+                        }`}
+                      >
+                        {preset}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <form onSubmit={handleCustomGoalSave} className="goal-popover__custom-form">
@@ -386,12 +367,12 @@ const HomePage: React.FC<HomePageProps> = ({
                     placeholder="Custom (1–200)"
                   />
                   <button type="submit" className="button button--secondary button--sm">
-                    Update Goal
+                    Save
                   </button>
                 </form>
 
                 <div className="daily-goal-week-strip">
-                  <span className="daily-goal-card__subhead">Last 7 Days Activity</span>
+                  <span className="daily-goal-card__subhead">7-Day Activity</span>
                   <div className="daily-goal-week-grid">
                     {sevenDayGoals.map(day => {
                       const barPct = Math.min(100, Math.round((day.count / day.target) * 100));
@@ -403,7 +384,6 @@ const HomePage: React.FC<HomePageProps> = ({
                               style={{ height: `${Math.max(day.count > 0 ? 16 : 0, barPct)}%` }}
                             />
                           </div>
-                          <span className="daily-goal-day-count tabular-nums">{day.count}</span>
                           <span className="daily-goal-day-label">{day.dayLabel}</span>
                         </div>
                       );
@@ -416,13 +396,13 @@ const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* HSK 1-6 Mastery Matrix Section */}
+      {/* HSK 1-6 Mastery Matrix Section (Minimalist Uncrowded Cards) */}
       <section id="levels" className="levels-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">HSK 1–6 Curriculum &amp; Mastery Matrix</h2>
+            <h2 className="section-title">HSK 1–6 Curriculum</h2>
             <p className="section-subtitle">
-              Track your real-time vocabulary mastery across every proficiency band and jump directly into targeted study.
+              Select a proficiency level to study vocabulary, stroke order, and pronunciation.
             </p>
           </div>
 
@@ -434,25 +414,33 @@ const HomePage: React.FC<HomePageProps> = ({
               ).length;
               const pct = wordsInLevel.length > 0 ? Math.round((levelMastered / wordsInLevel.length) * 100) : 0;
               const meta = HSK_META[level] || { cefr: 'HSK', badge: 'Standard', desc: 'Structured Mandarin vocabulary.' };
-              const sampleChars = wordsInLevel.slice(0, 5).map(w => w.char).join(' · ');
 
               return (
-                <div key={level} className="level-matrix-card">
+                <div
+                  key={level}
+                  className="level-matrix-card"
+                  onClick={() => {
+                    if (onSelectHSKLevel) onSelectHSKLevel(level);
+                    navigateToLearn();
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      if (onSelectHSKLevel) onSelectHSKLevel(level);
+                      navigateToLearn();
+                    }
+                  }}
+                >
                   <div className="level-matrix__top">
-                    <div className="level-matrix__meta">
-                      <span>{meta.cefr}</span>
-                      <span aria-hidden="true">·</span>
-                      <span>{meta.badge}</span>
-                      <span aria-hidden="true">·</span>
-                      <span className="tabular-nums">{wordsInLevel.length} Words</span>
-                    </div>
-                    <span className="level-matrix__pct tabular-nums">{pct}% Mastered</span>
+                    <span className="level-matrix__badge">
+                      {meta.cefr} · {meta.badge}
+                    </span>
+                    <span className="level-matrix__pct tabular-nums">{pct}%</span>
                   </div>
 
-                  <div className="level-matrix__title-row">
-                    <h3 className="level-matrix__title">HSK Level {level}</h3>
-                    <span className="level-matrix__samples font-noto-sc">{sampleChars}</span>
-                  </div>
+                  <h3 className="level-matrix__title">HSK Level {level}</h3>
 
                   <p className="level-matrix__desc">{meta.desc}</p>
 
@@ -465,20 +453,11 @@ const HomePage: React.FC<HomePageProps> = ({
 
                   <div className="level-matrix__footer">
                     <span className="level-matrix__count tabular-nums">
-                      {levelMastered} of {wordsInLevel.length} mastered
+                      {levelMastered} / {wordsInLevel.length} words
                     </span>
-                    <div className="level-matrix__actions">
-                      <button
-                        type="button"
-                        className="button button--primary button--sm"
-                        onClick={() => {
-                          if (onSelectHSKLevel) onSelectHSKLevel(level);
-                          navigateToLearn();
-                        }}
-                      >
-                        Study Level {level}
-                      </button>
-                    </div>
+                    <span className="level-matrix__cta">
+                      Study Level {level} →
+                    </span>
                   </div>
                 </div>
               );
@@ -487,71 +466,66 @@ const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* Core Learning Architecture Section */}
+      {/* Core Learning Architecture Section (Minimalist Feature Cards) */}
       <section id="features" className="features-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Four-Stage Mandarin Acquisition Workflow</h2>
+            <h2 className="section-title">Learning Workflow</h2>
             <p className="section-subtitle">
-              Every tool is wired to reinforce character recognition, tonal accuracy, and contextual recall.
+              Four focused tools for character recognition, tonal accuracy, and active recall.
             </p>
           </div>
 
           <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-card__meta">01 · Lexical Foundation</div>
-              <h3 className="feature-card__title">Interactive HSK 1–6 Lexicon</h3>
+            <div className="feature-card" onClick={navigateToLearn} role="button" tabIndex={0}>
+              <div className="feature-card__meta">01</div>
+              <h3 className="feature-card__title">HSK 1–6 Lexicon</h3>
               <p className="feature-card__description">
-                Browse words with instant native TTS audio, syllable-by-syllable tone contour breakdowns, and interactive character stroke practice pads.
+                Native audio, tone breakdowns, and interactive stroke order guides.
               </p>
-              <button type="button" onClick={navigateToLearn} className="feature-card__link">
-                Open Vocabulary Lexicon →
-              </button>
+              <span className="feature-card__link">Open Lexicon →</span>
             </div>
 
-            <div className="feature-card">
-              <div className="feature-card__meta">02 · Active Recall</div>
-              <h3 className="feature-card__title">Multi-Modal Practice Studio</h3>
+            <div
+              className="feature-card"
+              onClick={() => (navigateToPractice ? navigateToPractice() : navigateToLearn())}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="feature-card__meta">02</div>
+              <h3 className="feature-card__title">Practice Studio</h3>
               <p className="feature-card__description">
-                Switch seamlessly between 3D flip flashcards, multiple-choice drills, and meaning recall typing with automatic review queues for missed words.
+                3D flip flashcards, recall drills, and automatic review queues.
               </p>
-              <button
-                type="button"
-                onClick={() => (navigateToPractice ? navigateToPractice() : navigateToLearn())}
-                className="feature-card__link"
-              >
-                Launch Practice Studio →
-              </button>
+              <span className="feature-card__link">Start Practice →</span>
             </div>
 
-            <div className="feature-card">
-              <div className="feature-card__meta">03 · Diagnostic Assessment</div>
-              <h3 className="feature-card__title">Timed HSK Proficiency Quizzes</h3>
+            <div
+              className="feature-card"
+              onClick={() => (navigateToQuizzes ? navigateToQuizzes() : navigateToLearn())}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="feature-card__meta">03</div>
+              <h3 className="feature-card__title">Proficiency Quizzes</h3>
               <p className="feature-card__description">
-                Test character recognition, Pinyin accuracy, grammatical classification, and English definitions with full post-quiz answer explanations.
+                Timed character, Pinyin, and meaning assessments with explanations.
               </p>
-              <button
-                type="button"
-                onClick={() => (navigateToQuizzes ? navigateToQuizzes() : navigateToLearn())}
-                className="feature-card__link"
-              >
-                Start Proficiency Quiz →
-              </button>
+              <span className="feature-card__link">Take Quiz →</span>
             </div>
 
-            <div className="feature-card">
-              <div className="feature-card__meta">04 · Curriculum Planning</div>
-              <h3 className="feature-card__title">AI-Tailored Study Schedules</h3>
+            <div
+              className="feature-card"
+              onClick={() => (navigateToStudyPlan ? navigateToStudyPlan() : navigateToLearn())}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="feature-card__meta">04</div>
+              <h3 className="feature-card__title">Study Roadmaps</h3>
               <p className="feature-card__description">
-                Generate a structured weekly HSK study syllabus calibrated to your target level, available days per week, and daily session duration.
+                Personalized weekly study schedules calibrated to your target level.
               </p>
-              <button
-                type="button"
-                onClick={() => (navigateToStudyPlan ? navigateToStudyPlan() : navigateToLearn())}
-                className="feature-card__link"
-              >
-                Build Study Schedule →
-              </button>
+              <span className="feature-card__link">Build Plan →</span>
             </div>
           </div>
         </div>

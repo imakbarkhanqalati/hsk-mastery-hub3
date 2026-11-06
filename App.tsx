@@ -460,6 +460,11 @@ function App() {
         onTriggerPreviewReminder={handleTriggerPreviewReminder}
         offlineCacheStats={offlineCacheStats}
         onOpenOfflineModal={() => setIsOfflineModalOpen(true)}
+        onSelectHSKLevel={level => {
+          setSelectedHSKLevel(level);
+          setCurrentPage('learn');
+        }}
+        onSelectLesson={navigateToLessonDetail}
       />
       <div className="main-layout">
         <main className="main-content">

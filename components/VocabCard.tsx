@@ -19,8 +19,6 @@ const VocabCard: React.FC<VocabCardProps> = ({
   word,
   onSelect,
   hskLevel,
-  wordNumber,
-  totalWords,
   isFeatured = false,
   isMastered = false,
   isBookmarked = false,
@@ -63,18 +61,8 @@ const VocabCard: React.FC<VocabCardProps> = ({
       <div className="vocab-card__top-bar">
         <div className="vocab-card__meta">
           {hskLevel ? <span>HSK {hskLevel}</span> : null}
-          {hskLevel && wordNumber && totalWords ? <span aria-hidden="true">·</span> : null}
-          {wordNumber && totalWords ? (
-            <span className="vocab-card__index">
-              #{String(wordNumber).padStart(2, '0')}/{totalWords}
-            </span>
-          ) : null}
-          {word.grammar ? (
-            <>
-              <span aria-hidden="true">·</span>
-              <span>{word.grammar}</span>
-            </>
-          ) : null}
+          {hskLevel && word.grammar ? <span aria-hidden="true">·</span> : null}
+          {word.grammar ? <span>{word.grammar}</span> : null}
         </div>
 
         <div className="vocab-card__quick-actions">
@@ -125,11 +113,6 @@ const VocabCard: React.FC<VocabCardProps> = ({
         <h3 className="vocab-card__char">{word.char}</h3>
         <p className="vocab-card__pinyin">{word.pinyin}</p>
         <p className="vocab-card__meaning">{word.meaning}</p>
-      </div>
-
-      <div className="vocab-card__footer">
-        <span className="vocab-card__cta-hint">Inspect &amp; Practice Tones →</span>
-        {isMastered && <span className="vocab-card__status-text">✓ Mastered</span>}
       </div>
     </article>
   );

@@ -15,6 +15,18 @@
   --border-color-dark: #1e293b;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
 body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--background-color-light);
@@ -36,14 +48,15 @@ body.dark {
     display: flex;
     flex-direction: column;
     flex: 1;
+    min-width: 0;
 }
 
 .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
 }
 
 @media (min-width: 640px) {
@@ -3786,7 +3799,8 @@ body.dark .error-message {
     flex-direction: column;
   }
   
-  .button {
+  .study-plan-card-footer .button,
+  .plan-footer .button {
     width: 100%;
     justify-content: center;
   }
@@ -11276,4 +11290,1388 @@ body.dark .about-contact-pill {
     .about-contact-links {
         width: 100%;
     }
+}
+
+/* ==========================================================================
+   Phase 11 — Comprehensive All-Device Responsiveness (320px Mobile -> 1536px+ Desktop)
+   ========================================================================== */
+
+/* 1. Prevent Grid Track Overflow on Small Viewports */
+.lessons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+}
+
+.plan-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+}
+
+.badges-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+}
+
+.vocab-grid,
+.dictionary-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+}
+
+/* 2. Compact Laptops (1024px – 1220px): Keep 3-Zone Header Uncrowded */
+@media (min-width: 1024px) and (max-width: 1220px) {
+    .header__nav {
+        gap: 0.85rem;
+    }
+
+    .header__nav-links {
+        gap: 0.15rem;
+    }
+
+    .header__nav-links .nav-link {
+        padding: 0.4rem 0.55rem;
+        font-size: 0.84rem;
+    }
+
+    .header__actions {
+        gap: 0.45rem;
+    }
+
+    .pwa-install-btn__label {
+        display: none;
+    }
+
+    .pwa-install-btn {
+        padding: 0.4rem 0.55rem;
+    }
+}
+
+/* 3. Tablet & Mobile (< 1024px) */
+@media (max-width: 1023px) {
+    .header__nav {
+        gap: 0.75rem;
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+    }
+
+    .bento-profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-menu {
+        max-height: calc(100dvh - 4.25rem);
+        overflow-y: auto;
+        padding: 1rem 1.25rem 1.5rem;
+        background-color: var(--card-background-light);
+        box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+    }
+
+    body.dark .mobile-menu {
+        background-color: #0b1120;
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .mobile-menu__streak {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding: 0.45rem 0.5rem;
+        font-size: 0.86rem;
+    }
+}
+
+/* 4. Phablet & Small Tablet (< 768px) */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2.25rem 0 2rem;
+    }
+
+    .hero-split {
+        gap: 1.75rem;
+    }
+
+    .levels-section,
+    .features-section,
+    .main-content-page,
+    .lessons-page,
+    .dictionary-page,
+    .study-plan-page,
+    .about-page {
+        padding-top: 2rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .section-header {
+        margin-bottom: 1.75rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.55rem, 5vw, 2rem);
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    /* Dictionary Search & Filters Responsive Stack */
+    .dictionary-controls {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .search-and-filters {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+    }
+
+    .search-input-wrapper {
+        grid-column: 1 / -1;
+    }
+
+    .view-controls {
+        justify-self: start;
+    }
+
+    /* Lesson Reader 7-Tab Strip Smooth Horizontal Touch Scroll */
+    .lesson-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+        gap: 0.45rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .lesson-tab {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 0.55rem 0.95rem;
+        font-size: 0.88rem;
+    }
+
+    .lesson-title {
+        font-size: 1.65rem;
+    }
+
+    .dialogue-line--speakerA,
+    .dialogue-line--speakerB {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Pagination Controls Responsive Stack */
+    .pagination-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0.9rem 1rem;
+        gap: 0.75rem;
+    }
+
+    .pagination-info {
+        order: -1;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Bento Profile Banner & Detail Actions */
+    .badge-detail-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .badge-detail-banner__right {
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .badge-detail-banner__actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
+
+/* 5. Mobile Phones (< 640px) */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Keep Header Compact & Prevent Horizontal Overflow on 320px–430px Phones */
+    .header__logo-mark {
+        width: 1.9rem;
+        height: 1.9rem;
+        font-size: 1rem;
+    }
+
+    .header__logo-text {
+        font-size: 1.05rem;
+    }
+
+    .header__actions {
+        gap: 0.35rem;
+    }
+
+    .header__telemetry-group .goal-badge,
+    .header__telemetry-group .streak-badge {
+        padding: 0 0.45rem;
+        font-size: 0.75rem;
+        height: 1.8rem;
+    }
+
+    .pwa-install-btn__label {
+        display: none;
+    }
+
+    .pwa-install-btn {
+        padding: 0.38rem 0.5rem;
+    }
+
+    .theme-toggle {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    /* Anchor Header Popovers Within Viewport on Mobile */
+    .goal-popover,
+    .streak-popover,
+    .reminder-popover {
+        position: fixed !important;
+        top: 4.35rem !important;
+        left: 0.75rem !important;
+        right: 0.75rem !important;
+        width: auto !important;
+        max-width: calc(100vw - 1.5rem) !important;
+        max-height: calc(100dvh - 5.25rem);
+        overflow-y: auto;
+        z-index: 110;
+    }
+
+    /* Hero Actions & Spotlight Card on Mobile */
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-cta-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-spotlight-card {
+        padding: 1.15rem;
+    }
+
+    .hero-spotlight__main {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
+    }
+
+    .hero-spotlight__example {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Learn Toolbar & Search */
+    .learn-toolbar__controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .segmented-control {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .learn-toolbar__search {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Modals (Word Detail, Stroke Studio, Auth, Offline Cache) */
+    .modal-overlay {
+        padding: 0.65rem;
+        align-items: flex-end;
+    }
+
+    .modal-content,
+    .word-detail-modal,
+    .offline-cache-modal {
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 92dvh !important;
+        padding: 1.15rem !important;
+        border-radius: 1rem !important;
+    }
+
+    .mizige-stage,
+    .mizige-box {
+        width: min(220px, 74vw);
+        height: min(220px, 74vw);
+    }
+
+    /* Dictionary Search & Filters 1-Col on Small Mobile */
+    .search-and-filters {
+        grid-template-columns: 1fr;
+    }
+
+    /* Quizzes Level Tabs Compact 3x2 Grid on Mobile */
+    .quizzes-page .tabs-nav {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.5rem !important;
+    }
+
+    .quizzes-page .tab-button {
+        padding: 0.65rem 0.5rem !important;
+        font-size: 0.82rem !important;
+        min-width: 0 !important;
+    }
+
+    /* Study Plan Tabs Scrollable on Mobile */
+    .study-plan-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.35rem;
+    }
+
+    .study-plan-tab {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* Floating Toast & Offline Banner Full-Width on Mobile */
+    .study-reminder-toast,
+    .offline-connectivity-banner {
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.75rem;
+        width: auto;
+        max-width: none;
+    }
+}
+
+/* 6. Ultra-Small Phones (<= 380px) */
+@media (max-width: 380px) {
+    .header__logo-text {
+        display: none;
+    }
+
+    .bento-identity__meta-boxes {
+        grid-template-columns: 1fr;
+    }
+
+    .goal-popover__presets {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==========================================================================
+   Phase 12 — Categorized Hover / Mouseover Dropdown Navigation Architecture
+   ========================================================================== */
+.nav-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-dropdown__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.45rem 0.8rem;
+    border-radius: 0.55rem;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #475569;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+
+body.dark .nav-dropdown__trigger {
+    color: #94a3b8;
+}
+
+.nav-dropdown:hover .nav-dropdown__trigger,
+.nav-dropdown--open .nav-dropdown__trigger {
+    color: var(--text-color-light);
+    background-color: rgba(15, 23, 42, 0.05);
+}
+
+body.dark .nav-dropdown:hover .nav-dropdown__trigger,
+body.dark .nav-dropdown--open .nav-dropdown__trigger {
+    color: #f8fafc;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.nav-dropdown__trigger--current {
+    color: var(--primary-color) !important;
+    background-color: rgba(37, 99, 235, 0.08);
+    font-weight: 700;
+}
+
+body.dark .nav-dropdown__trigger--current {
+    color: #60a5fa !important;
+    background-color: rgba(59, 130, 246, 0.15);
+}
+
+.nav-dropdown__chevron {
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.75;
+}
+
+.nav-dropdown:hover .nav-dropdown__chevron,
+.nav-dropdown--open .nav-dropdown__chevron {
+    transform: rotate(180deg);
+    opacity: 1;
+}
+
+/* Hover Dropdown Panel with Invisible Cursor Bridge */
+.nav-dropdown__menu {
+    position: absolute;
+    top: calc(100% + 0.55rem);
+    left: 50%;
+    width: 360px;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color-light);
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.16), 0 4px 12px rgba(15, 23, 42, 0.05);
+    z-index: 80;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, 8px) scale(0.98);
+    transform-origin: top center;
+    transition:
+        opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0.2s;
+    text-align: left;
+}
+
+body.dark .nav-dropdown__menu {
+    background-color: rgba(15, 23, 42, 0.97);
+    border-color: #1e293b;
+    box-shadow: 0 22px 50px -10px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+/* Invisible hover bridge so moving mouse from trigger to menu never drops hover state */
+.nav-dropdown__menu::before {
+    content: '';
+    position: absolute;
+    top: -0.75rem;
+    left: 0;
+    right: 0;
+    height: 0.75rem;
+}
+
+.nav-dropdown__menu--wide {
+    width: 440px;
+}
+
+.nav-dropdown:hover .nav-dropdown__menu,
+.nav-dropdown--open .nav-dropdown__menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0) scale(1);
+}
+
+.nav-dropdown__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.nav-dropdown__kicker-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.nav-dropdown__kicker {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #64748b;
+    padding: 0 0.35rem;
+}
+
+body.dark .nav-dropdown__kicker {
+    color: #94a3b8;
+}
+
+.nav-dropdown__kicker-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: rgba(37, 99, 235, 0.1);
+    padding: 0.12rem 0.45rem;
+    border-radius: 0.35rem;
+}
+
+body.dark .nav-dropdown__kicker-tag {
+    color: #93c5fd;
+    background-color: rgba(59, 130, 246, 0.18);
+}
+
+.nav-dropdown__items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.nav-dropdown__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.16s ease;
+}
+
+.nav-dropdown__item:hover,
+.nav-dropdown__item--active {
+    background-color: #f8fafc;
+    border-color: var(--border-color-light);
+}
+
+body.dark .nav-dropdown__item:hover,
+body.dark .nav-dropdown__item--active {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+.nav-dropdown__item-seal {
+    width: 2.35rem;
+    height: 2.35rem;
+    border-radius: 0.6rem;
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+    border: 1px solid rgba(37, 99, 235, 0.22);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+}
+
+body.dark .nav-dropdown__item-seal {
+    background-color: rgba(59, 130, 246, 0.18);
+    color: #60a5fa;
+    border-color: rgba(96, 165, 250, 0.3);
+}
+
+.nav-dropdown__item-seal--indigo {
+    background-color: rgba(99, 102, 241, 0.12);
+    color: #4f46e5;
+    border-color: rgba(99, 102, 241, 0.25);
+}
+body.dark .nav-dropdown__item-seal--indigo {
+    background-color: rgba(99, 102, 241, 0.2);
+    color: #a5b4fc;
+}
+
+.nav-dropdown__item-seal--emerald {
+    background-color: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    border-color: rgba(16, 185, 129, 0.25);
+}
+body.dark .nav-dropdown__item-seal--emerald {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+}
+
+.nav-dropdown__item-seal--amber {
+    background-color: rgba(245, 158, 11, 0.14);
+    color: #d97706;
+    border-color: rgba(245, 158, 11, 0.28);
+}
+body.dark .nav-dropdown__item-seal--amber {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+}
+
+.nav-dropdown__item-seal--rose {
+    background-color: rgba(244, 63, 94, 0.12);
+    color: #e11d48;
+    border-color: rgba(244, 63, 94, 0.25);
+}
+body.dark .nav-dropdown__item-seal--rose {
+    background-color: rgba(244, 63, 94, 0.2);
+    color: #fb7185;
+}
+
+.nav-dropdown__item:hover .nav-dropdown__item-seal {
+    transform: scale(1.06);
+}
+
+.nav-dropdown__item-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+    min-width: 0;
+    flex: 1;
+}
+
+.nav-dropdown__item-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--text-color-light);
+    transition: color 0.15s ease;
+}
+
+body.dark .nav-dropdown__item-title {
+    color: #f8fafc;
+}
+
+.nav-dropdown__item:hover .nav-dropdown__item-title {
+    color: var(--primary-color);
+}
+
+body.dark .nav-dropdown__item:hover .nav-dropdown__item-title {
+    color: #60a5fa;
+}
+
+.nav-dropdown__item-arrow {
+    font-size: 0.85rem;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    color: var(--primary-color);
+}
+
+body.dark .nav-dropdown__item-arrow {
+    color: #60a5fa;
+}
+
+.nav-dropdown__item:hover .nav-dropdown__item-arrow {
+    opacity: 1;
+    transform: translateX(2px);
+}
+
+.nav-dropdown__item-desc {
+    font-size: 0.74rem;
+    line-height: 1.4;
+    color: #64748b;
+}
+
+body.dark .nav-dropdown__item-desc {
+    color: #94a3b8;
+}
+
+.nav-dropdown__divider {
+    height: 1px;
+    background-color: var(--border-color-light);
+    margin: 0.75rem 0;
+}
+
+body.dark .nav-dropdown__divider {
+    background-color: #1e293b;
+}
+
+/* HSK 1–6 Quick-Jump Grid inside Curriculum Dropdown */
+.nav-dropdown__level-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+}
+
+.nav-dropdown__level-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.12rem;
+    padding: 0.45rem 0.6rem;
+    border-radius: 0.55rem;
+    border: 1px solid var(--border-color-light);
+    background-color: #f8fafc;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: left;
+}
+
+body.dark .nav-dropdown__level-chip {
+    background-color: #111827;
+    border-color: #1e293b;
+}
+
+.nav-dropdown__level-chip:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(37, 99, 235, 0.06);
+    transform: translateY(-1px);
+}
+
+body.dark .nav-dropdown__level-chip:hover {
+    border-color: #60a5fa;
+    background-color: rgba(59, 130, 246, 0.14);
+}
+
+.nav-dropdown__level-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.78rem;
+    color: var(--text-color-light);
+}
+
+body.dark .nav-dropdown__level-top {
+    color: #f8fafc;
+}
+
+.nav-dropdown__level-top small {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+body.dark .nav-dropdown__level-top small {
+    color: #60a5fa;
+}
+
+.nav-dropdown__level-sub {
+    font-size: 0.66rem;
+    color: #64748b;
+}
+
+body.dark .nav-dropdown__level-sub {
+    color: #94a3b8;
+}
+
+.nav-dropdown__unit-shortcuts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.3rem;
+}
+
+.nav-dropdown__unit-link {
+    background: none;
+    border: none;
+    padding: 0.3rem 0.45rem;
+    border-radius: 0.4rem;
+    text-align: left;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+body.dark .nav-dropdown__unit-link {
+    color: #93c5fd;
+}
+
+.nav-dropdown__unit-link:hover {
+    background-color: rgba(37, 99, 235, 0.08);
+    transform: translateX(2px);
+}
+
+/* Categorized Mobile Accordion Menu */
+.mobile-category {
+    border-bottom: 1px solid var(--border-color-light);
+    padding: 0.25rem 0;
+}
+
+body.dark .mobile-category {
+    border-bottom-color: #1e293b;
+}
+
+.mobile-category__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 0.5rem;
+    background: none;
+    border: none;
+    color: var(--text-color-light);
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+}
+
+body.dark .mobile-category__header {
+    color: #f8fafc;
+}
+
+.mobile-category__chevron {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--primary-color);
+}
+
+.mobile-category__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.2rem 0.35rem 0.65rem;
+}
+
+.mobile-category__link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.12rem;
+    padding: 0.55rem 0.65rem;
+    border-radius: 0.55rem;
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color-light);
+    text-align: left;
+    cursor: pointer;
+}
+
+body.dark .mobile-category__link {
+    background-color: #111827;
+    border-color: #1e293b;
+}
+
+.mobile-category__link strong {
+    font-size: 0.84rem;
+    color: var(--text-color-light);
+}
+
+body.dark .mobile-category__link strong {
+    color: #f8fafc;
+}
+
+.mobile-category__link small {
+    font-size: 0.72rem;
+    color: #64748b;
+}
+
+body.dark .mobile-category__link small {
+    color: #94a3b8;
+}
+
+.mobile-category__chips {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.35rem;
+    margin-top: 0.25rem;
+}
+
+.mobile-category__chip {
+    padding: 0.4rem;
+    border-radius: 0.45rem;
+    border: 1px solid var(--border-color-light);
+    background-color: var(--card-background-light);
+    color: var(--primary-color);
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+body.dark .mobile-category__chip {
+    background-color: #0f172a;
+    border-color: #1e293b;
+    color: #60a5fa;
+}
+
+/* ==========================================================================
+   Phase 13 — Minimalist Card Design System (Anti-Crowding Card Architecture)
+   ========================================================================== */
+
+/* 1. HSK 1–6 Level Matrix Cards (Fixes Multi-Line Header & Title Wrapping) */
+.levels-matrix-grid {
+    gap: 1.5rem;
+}
+
+.level-matrix-card {
+    padding: 1.65rem 1.75rem;
+    border-radius: 1rem;
+    background-color: var(--card-background-light);
+    border: 1px solid var(--border-color-light);
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+    text-align: left;
+}
+
+body.dark .level-matrix-card {
+    background-color: var(--card-background-dark);
+    border-color: var(--border-color-dark);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.level-matrix-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.12);
+}
+
+.level-matrix__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+}
+
+.level-matrix__badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.dark .level-matrix__badge {
+    color: #94a3b8;
+}
+
+.level-matrix__pct {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: rgba(37, 99, 235, 0.08);
+    padding: 0.18rem 0.55rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+body.dark .level-matrix__pct {
+    color: #60a5fa;
+    background-color: rgba(59, 130, 246, 0.16);
+}
+
+.level-matrix__title {
+    margin: 0.1rem 0 0;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--text-color-light);
+    white-space: nowrap;
+}
+
+body.dark .level-matrix__title {
+    color: #f8fafc;
+}
+
+.level-matrix__desc {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #64748b;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+}
+
+body.dark .level-matrix__desc {
+    color: #94a3b8;
+}
+
+.level-matrix__progress-track {
+    height: 4px;
+    margin-top: 0.25rem;
+    background-color: #f1f5f9;
+}
+
+body.dark .level-matrix__progress-track {
+    background-color: #1e293b;
+}
+
+.level-matrix__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 0.35rem;
+    flex-wrap: nowrap;
+}
+
+.level-matrix__count {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #64748b;
+    white-space: nowrap;
+}
+
+body.dark .level-matrix__count {
+    color: #94a3b8;
+}
+
+.level-matrix__cta {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    white-space: nowrap;
+    transition: transform 0.18s ease;
+}
+
+body.dark .level-matrix__cta {
+    color: #60a5fa;
+}
+
+.level-matrix-card:hover .level-matrix__cta {
+    transform: translateX(3px);
+}
+
+/* 2. Minimalist Vocabulary Cards (VocabCard) */
+.vocab-grid,
+.dictionary-grid {
+    gap: 1.25rem;
+}
+
+.vocab-card {
+    padding: 1.35rem 1.45rem;
+    border-radius: 1rem;
+    background-color: var(--card-background-light);
+    border: 1px solid var(--border-color-light);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.9rem;
+    min-height: 168px;
+}
+
+body.dark .vocab-card {
+    background-color: var(--card-background-dark);
+    border-color: var(--border-color-dark);
+}
+
+.vocab-card__top-bar {
+    margin-bottom: 0;
+    flex-wrap: nowrap;
+}
+
+.vocab-card__meta {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-wrap: nowrap;
+}
+
+.vocab-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.vocab-card__char {
+    font-size: 2.15rem;
+    line-height: 1.15;
+    margin: 0 0 0.15rem;
+    letter-spacing: 0.01em;
+}
+
+.vocab-card__pinyin {
+    font-size: 0.88rem;
+    margin: 0;
+}
+
+.vocab-card__meaning {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: #475569;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+body.dark .vocab-card__meaning {
+    color: #94a3b8;
+}
+
+/* 3. Minimalist Textbook Lesson Cards (LessonCard) */
+.lessons-grid {
+    gap: 1.5rem;
+}
+
+.lesson-card {
+    padding: 1.6rem 1.75rem !important;
+    border-radius: 1rem !important;
+    background-color: var(--card-background-light);
+    border: 1px solid var(--border-color-light);
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+body.dark .lesson-card {
+    background-color: var(--card-background-dark);
+    border-color: var(--border-color-dark);
+}
+
+.lesson-card:hover {
+    transform: translateY(-3px) !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.12) !important;
+}
+
+.lesson-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.lesson-card__meta {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+body.dark .lesson-card__meta {
+    color: #60a5fa;
+}
+
+.lesson-card__hanzi {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+body.dark .lesson-card__hanzi {
+    color: #94a3b8;
+}
+
+.lesson-card__content {
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    flex: 1;
+}
+
+.lesson-card__title {
+    margin: 0 !important;
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.015em;
+}
+
+.lesson-card__description {
+    margin: 0 !important;
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+    color: #64748b !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+}
+
+body.dark .lesson-card__description {
+    color: #94a3b8 !important;
+}
+
+.lesson-card__footer {
+    margin-top: 0.5rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-color-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+body.dark .lesson-card__footer {
+    border-top-color: var(--border-color-dark);
+}
+
+.lesson-card__stats {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+body.dark .lesson-card__stats {
+    color: #94a3b8;
+}
+
+.lesson-card__cta {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    white-space: nowrap;
+    transition: transform 0.18s ease;
+}
+
+body.dark .lesson-card__cta {
+    color: #60a5fa;
+}
+
+.lesson-card:hover .lesson-card__cta {
+    transform: translateX(3px);
+}
+
+/* 4. Minimalist Four-Stage Feature Cards */
+.features-grid {
+    gap: 1.35rem;
+}
+
+.feature-card {
+    padding: 1.6rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color-light);
+    background-color: var(--card-background-light);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.dark .feature-card {
+    border-color: var(--border-color-dark);
+    background-color: var(--card-background-dark);
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.12);
+}
+
+.feature-card__meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.15rem;
+}
+
+.feature-card__title {
+    margin: 0;
+    font-size: 1.12rem;
+    font-weight: 800;
+}
+
+.feature-card__description {
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: #64748b;
+    flex: 1;
+}
+
+body.dark .feature-card__description {
+    color: #94a3b8;
+}
+
+.feature-card__link {
+    padding-top: 0.45rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition: transform 0.18s ease;
+}
+
+.feature-card:hover .feature-card__link {
+    transform: translateX(3px);
+    text-decoration: none;
+}
+
+/* 5. Minimalist Hero Spotlight & Daily Goal Refinements */
+.hero-spotlight__pos {
+    display: inline-block;
+    margin-top: 0.15rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+body.dark .hero-spotlight__pos {
+    color: #94a3b8;
+}
+
+.daily-goal-target-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.daily-goal-controls-box .goal-popover__presets {
+    grid-template-columns: repeat(6, 1fr);
+    margin-bottom: 0;
+}
+
+@media (max-width: 520px) {
+    .daily-goal-controls-box .goal-popover__presets {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 6. Minimalist Profile Milestone Badge Cards */
+.badge-card {
+    padding: 1.25rem 1.35rem;
+    border-radius: 0.9rem;
+    gap: 0.85rem;
+}
+
+.badge-card__desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.badge-card__bar-track {
+    height: 4px;
+    border-radius: 9999px;
+    background-color: #e2e8f0;
+    overflow: hidden;
+    margin-top: 0.15rem;
+}
+
+body.dark .badge-card__bar-track {
+    background-color: #1e293b;
+}
+
+/* 7. Minimalist Study Plan Day Cards */
+.day-card {
+    border-radius: 1rem !important;
+    border: 1px solid var(--border-color-light) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    padding: 1.4rem !important;
+}
+
+body.dark .day-card {
+    border-color: var(--border-color-dark) !important;
 }

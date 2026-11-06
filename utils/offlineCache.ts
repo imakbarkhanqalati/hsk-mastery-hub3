@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { registerSW } from 'virtual:pwa-register';
 import { vocabData } from '../data/vocab';
 import { lessons as lessonsData } from '../data/lessons';
 
@@ -17,15 +16,33 @@ const APP_SHELL_CACHE = 'hsk-hub-app-shell-v1';
 const HANZI_STROKE_CACHE = 'hanzi-stroke-data-cache';
 const OFFLINE_META_KEY = 'hsk_hub_offline_cache_meta_v1';
 
-const CORE_SHELL_URLS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/icon.svg',
-  '/favicon.ico',
-  '/pwa-192x192.png',
-  '/pwa-512x512.png',
-  '/apple-touch-icon.png',
+function getBaseUrl(): string {
+  try {
+    const base = (import.meta as any)?.env?.BASE_URL;
+    if (typeof base === 'string' && base.length > 0) {
+      return base.endsWith('/') ? base : `${base}/`;
+    }
+  } catch {
+    // ignore
+  }
+  return '/';
+}
+
+function resolveAssetUrl(relativePath: string): string {
+  const base = getBaseUrl();
+  const clean = relativePath.replace(/^\/+/, '');
+  return `${base}${clean}`;
+}
+
+const CORE_SHELL_FILES = [
+  '',
+  'index.html',
+  'manifest.json',
+  'icon.svg',
+  'favicon.ico',
+  'pwa-192x192.png',
+  'pwa-512x512.png',
+  'apple-touch-icon.png',
 ];
 
 export function useOnlineStatus(): boolean {
@@ -55,23 +72,13 @@ export async function initializeOfflineServiceWorker(): Promise<boolean> {
   }
 
   try {
-    // 1. Register via VitePWA virtual module
-    registerSW({
-      immediate: true,
-      onRegisteredSW() {
-        window.dispatchEvent(new CustomEvent('hsk-sw-registered'));
-      },
-    });
-  } catch {
-    // Fallback if virtual module registration fails in custom dev middleware
-  }
-
-  try {
-    // 2. Ensure our offline service worker is registered if no active controller exists yet
-    const existingReg = await navigator.serviceWorker.getRegistration();
+    const base = getBaseUrl();
+    const swUrl = resolveAssetUrl('sw-offline.js');
+    const existingReg = await navigator.serviceWorker.getRegistration(base);
     if (!existingReg) {
-      await navigator.serviceWorker.register('/sw-offline.js', { scope: '/' });
+      await navigator.serviceWorker.register(swUrl, { scope: base });
     }
+    window.dispatchEvent(new CustomEvent('hsk-sw-registered'));
     return true;
   } catch {
     return false;
@@ -108,7 +115,7 @@ export async function syncCoreVocabAndAssetsToCache(): Promise<OfflineCacheStats
       vocabData,
     });
     await vocabCache.put(
-      new Request('/offline-cache/hsk-vocabulary.json'),
+      new Request(resolveAssetUrl('offline-cache/hsk-vocabulary.json')),
       new Response(vocabPayload, {
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
       })
@@ -121,16 +128,17 @@ export async function syncCoreVocabAndAssetsToCache(): Promise<OfflineCacheStats
       lessons: lessonsData,
     });
     await vocabCache.put(
-      new Request('/offline-cache/hsk-lessons.json'),
+      new Request(resolveAssetUrl('offline-cache/hsk-lessons.json')),
       new Response(lessonsPayload, {
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
       })
     );
 
     // 2. Cache core app shell & static assets
-    const shellCache = await caches.open(APP_SHELL_URLS_CACHE_NAME());
+    const shellCache = await caches.open(APP_SHELL_CACHE);
     await Promise.allSettled(
-      CORE_SHELL_URLS.map(async url => {
+      CORE_SHELL_FILES.map(async file => {
+        const url = resolveAssetUrl(file);
         const res = await fetch(url, { cache: 'no-cache' });
         if (res.ok) {
           await shellCache.put(url, res.clone());
@@ -170,10 +178,6 @@ export async function syncCoreVocabAndAssetsToCache(): Promise<OfflineCacheStats
   }
 }
 
-function APP_SHELL_URLS_CACHE_NAME() {
-  return APP_SHELL_CACHE;
-}
-
 export async function precacheEssentialHanziStrokes(
   limit: number = 40
 ): Promise<OfflineCacheStats> {
@@ -183,7 +187,6 @@ export async function precacheEssentialHanziStrokes(
 
   try {
     const strokeCache = await caches.open(HANZI_STROKE_CACHE);
-    // Collect unique single Hanzi characters from HSK 1 & 2
     const charSet = new Set<string>();
     const hsk1And2 = [...(vocabData[1] || []), ...(vocabData[2] || [])];
     for (const word of hsk1And2) {
@@ -252,7 +255,7 @@ export async function getOfflineCacheStats(): Promise<OfflineCacheStats> {
   try {
     const vocabCache = await caches.open(VOCAB_DATA_CACHE);
     const hasVocab = Boolean(
-      await vocabCache.match('/offline-cache/hsk-vocabulary.json')
+      await vocabCache.match(resolveAssetUrl('offline-cache/hsk-vocabulary.json'))
     );
     const strokeCache = await caches.open(HANZI_STROKE_CACHE);
     const strokeKeys = await strokeCache.keys();

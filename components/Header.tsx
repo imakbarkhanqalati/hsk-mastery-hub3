@@ -27,6 +27,8 @@ type Page =
   | 'about'
   | 'profile';
 
+type NavCategoryId = 'curriculum' | 'practice' | 'resources';
+
 interface HeaderProps {
   theme: 'light' | 'dark';
   toggleTheme: () => void;
@@ -54,6 +56,8 @@ interface HeaderProps {
   onTriggerPreviewReminder: () => void;
   offlineCacheStats: OfflineCacheStats;
   onOpenOfflineModal: () => void;
+  onSelectHSKLevel?: (level: number) => void;
+  onSelectLesson?: (lessonId: string) => void;
 }
 
 const GOAL_PRESETS = [5, 10, 15, 20, 30, 50];
@@ -65,21 +69,14 @@ const REMINDER_TIME_PRESETS = [
   { label: 'Night', time: '21:30' },
 ];
 
-const NavLink: React.FC<{
-  href?: string;
-  isCurrent?: boolean;
-  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
-  children: React.ReactNode;
-  className?: string;
-}> = ({ href = '#', isCurrent = false, onClick, children, className = '' }) => {
-  const currentClass = isCurrent ? 'nav-link--current' : '';
-
-  return (
-    <a href={href} onClick={onClick} className={`nav-link ${currentClass} ${className}`}>
-      {children}
-    </a>
-  );
-};
+const HSK_QUICK_LEVELS = [
+  { level: 1, cefr: 'A1', label: 'HSK 1', sub: '150 Core Words' },
+  { level: 2, cefr: 'A2', label: 'HSK 2', sub: '150 Core Words' },
+  { level: 3, cefr: 'B1', label: 'HSK 3', sub: '300 Core Words' },
+  { level: 4, cefr: 'B2', label: 'HSK 4', sub: '600 Core Words' },
+  { level: 5, cefr: 'C1', label: 'HSK 5', sub: '1,300 Core Words' },
+  { level: 6, cefr: 'C2', label: 'HSK 6', sub: '2,500+ Words' },
+];
 
 const Header: React.FC<HeaderProps> = ({
   theme,
@@ -107,8 +104,13 @@ const Header: React.FC<HeaderProps> = ({
   onTriggerPreviewReminder,
   offlineCacheStats,
   onOpenOfflineModal,
+  onSelectHSKLevel,
+  onSelectLesson,
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeMobileCategory, setActiveMobileCategory] = useState<NavCategoryId | null>('curriculum');
+  const [activeHoverCategory, setActiveHoverCategory] = useState<NavCategoryId | null>(null);
+
   const [isStreakOpen, setIsStreakOpen] = useState(false);
   const [isGoalOpen, setIsGoalOpen] = useState(false);
   const [isReminderOpen, setIsReminderOpen] = useState(false);
@@ -121,6 +123,8 @@ const Header: React.FC<HeaderProps> = ({
 
   const isOnline = useOnlineStatus();
 
+  const hoverTimeoutRef = useRef<number | null>(null);
+  const navBarRef = useRef<HTMLDivElement>(null);
   const streakDropdownRef = useRef<HTMLDivElement>(null);
   const goalDropdownRef = useRef<HTMLDivElement>(null);
   const reminderDropdownRef = useRef<HTMLDivElement>(null);
@@ -140,8 +144,20 @@ const Header: React.FC<HeaderProps> = ({
     setCustomGoalInput(String(vocabProgress.dailyGoalTarget || DEFAULT_DAILY_GOAL));
   }, [vocabProgress.dailyGoalTarget]);
 
+  // Clear hover timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        window.clearTimeout(hoverTimeoutRef.current);
+      }
+    };
+  }, []);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      if (navBarRef.current && !navBarRef.current.contains(event.target as Node)) {
+        setActiveHoverCategory(null);
+      }
       if (streakDropdownRef.current && !streakDropdownRef.current.contains(event.target as Node)) {
         setIsStreakOpen(false);
       }
@@ -152,15 +168,62 @@ const Header: React.FC<HeaderProps> = ({
         setIsReminderOpen(false);
       }
     };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setActiveHoverCategory(null);
+        setIsStreakOpen(false);
+        setIsGoalOpen(false);
+        setIsReminderOpen(false);
+      }
+    };
+
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
-  const handleNavClick = (cb: () => void) => (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  // Hover-Intent Handlers (150ms grace delay for diagonal mouse movement)
+  const handleCategoryMouseEnter = (categoryId: NavCategoryId) => {
+    if (hoverTimeoutRef.current) {
+      window.clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    setActiveHoverCategory(categoryId);
+    setIsGoalOpen(false);
+    setIsStreakOpen(false);
+    setIsReminderOpen(false);
+  };
+
+  const handleCategoryMouseLeave = () => {
+    if (hoverTimeoutRef.current) {
+      window.clearTimeout(hoverTimeoutRef.current);
+    }
+    hoverTimeoutRef.current = window.setTimeout(() => {
+      setActiveHoverCategory(null);
+    }, 150);
+  };
+
+  const runNavAction = (cb: () => void) => {
     cb();
+    setActiveHoverCategory(null);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleJumpToDailyGoal = () => {
+    navigateToHome();
+    setActiveHoverCategory(null);
+    setIsMobileMenuOpen(false);
+    window.setTimeout(() => {
+      const el = document.getElementById('daily-goal-tracker');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 80);
   };
 
   const handleAuthClick = (cb: () => void) => {
@@ -198,12 +261,25 @@ const Header: React.FC<HeaderProps> = ({
   const shortFirstName = userDisplayName.trim().split(/\s+/)[0] || 'Scholar';
   const formattedReminderTime = formatTime12Hour(reminderSettings.reminderTime);
 
+  const isCurriculumCurrent =
+    currentPage === 'learn' || currentPage === 'lessons' || currentPage === 'lessonDetail';
+  const isPracticeCurrent = currentPage === 'practice' || currentPage === 'quizzes';
+  const isResourcesCurrent =
+    currentPage === 'dictionary' || currentPage === 'studyPlan' || currentPage === 'about';
+
   return (
     <header className="header">
       <nav className="container header__nav" aria-label="Main Navigation">
         {/* Zone 1: Brand Wordmark */}
         <div className="header__brand">
-          <a href="#" onClick={handleNavClick(navigateToHome)} className="header__logo-link">
+          <a
+            href="#"
+            onClick={e => {
+              e.preventDefault();
+              runNavAction(navigateToHome);
+            }}
+            className="header__logo-link"
+          >
             <span className="header__logo-mark" aria-hidden="true">
               汉
             </span>
@@ -211,29 +287,444 @@ const Header: React.FC<HeaderProps> = ({
           </a>
         </div>
 
-        {/* Zone 2: Primary Study Navigation (6 concise single-word items) */}
-        <div className="header__nav-links">
-          <NavLink onClick={handleNavClick(navigateToHome)} isCurrent={currentPage === 'home'}>
-            Home
-          </NavLink>
-          <NavLink onClick={handleNavClick(navigateToLearn)} isCurrent={currentPage === 'learn'}>
-            Learn
-          </NavLink>
-          <NavLink
-            onClick={handleNavClick(navigateToLessons)}
-            isCurrent={currentPage === 'lessons' || currentPage === 'lessonDetail'}
+        {/* Zone 2: Categorized Interactive Hover / Mouseover Dropdown Navigation */}
+        <div className="header__nav-links" ref={navBarRef}>
+          {/* 1. Direct Home Link */}
+          <a
+            href="#"
+            onClick={e => {
+              e.preventDefault();
+              runNavAction(navigateToHome);
+            }}
+            onMouseEnter={() => setActiveHoverCategory(null)}
+            className={`nav-link ${currentPage === 'home' ? 'nav-link--current' : ''}`}
           >
-            Lessons
-          </NavLink>
-          <NavLink onClick={handleNavClick(navigateToPractice)} isCurrent={currentPage === 'practice'}>
-            Practice
-          </NavLink>
-          <NavLink onClick={handleNavClick(navigateToQuizzes)} isCurrent={currentPage === 'quizzes'}>
-            Quizzes
-          </NavLink>
-          <NavLink onClick={handleNavClick(navigateToDictionary)} isCurrent={currentPage === 'dictionary'}>
-            Dictionary
-          </NavLink>
+            Home
+          </a>
+
+          {/* 2. Category Dropdown: Curriculum (Vocabulary Lexicon + Textbook Lessons + HSK 1-6 Direct Jumps) */}
+          <div
+            className={`nav-dropdown ${
+              activeHoverCategory === 'curriculum' ? 'nav-dropdown--open' : ''
+            }`}
+            onMouseEnter={() => handleCategoryMouseEnter('curriculum')}
+            onMouseLeave={handleCategoryMouseLeave}
+          >
+            <button
+              type="button"
+              onClick={() =>
+                setActiveHoverCategory(prev => (prev === 'curriculum' ? null : 'curriculum'))
+              }
+              className={`nav-dropdown__trigger ${
+                isCurriculumCurrent ? 'nav-dropdown__trigger--current' : ''
+              }`}
+              aria-expanded={activeHoverCategory === 'curriculum'}
+              aria-haspopup="true"
+            >
+              <span>Curriculum</span>
+              <svg
+                className="nav-dropdown__chevron"
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <div className="nav-dropdown__menu nav-dropdown__menu--wide" role="menu">
+              <div className="nav-dropdown__section">
+                <span className="nav-dropdown__kicker">Core Study Modules</span>
+                <div className="nav-dropdown__items">
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => runNavAction(navigateToLearn)}
+                    className={`nav-dropdown__item ${
+                      currentPage === 'learn' ? 'nav-dropdown__item--active' : ''
+                    }`}
+                  >
+                    <span className="nav-dropdown__item-seal font-noto-sc" aria-hidden="true">
+                      词
+                    </span>
+                    <span className="nav-dropdown__item-body">
+                      <span className="nav-dropdown__item-title">
+                        HSK 1–6 Vocabulary Lexicon
+                        <span className="nav-dropdown__item-arrow" aria-hidden="true">
+                          →
+                        </span>
+                      </span>
+                      <span className="nav-dropdown__item-desc">
+                        5,000+ words with native audio, stroke order &amp; speech lab
+                      </span>
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => runNavAction(navigateToLessons)}
+                    className={`nav-dropdown__item ${
+                      currentPage === 'lessons' || currentPage === 'lessonDetail'
+                        ? 'nav-dropdown__item--active'
+                        : ''
+                    }`}
+                  >
+                    <span
+                      className="nav-dropdown__item-seal nav-dropdown__item-seal--indigo font-noto-sc"
+                      aria-hidden="true"
+                    >
+                      课
+                    </span>
+                    <span className="nav-dropdown__item-body">
+                      <span className="nav-dropdown__item-title">
+                        Structured Textbook Units
+                        <span className="nav-dropdown__item-arrow" aria-hidden="true">
+                          →
+                        </span>
+                      </span>
+                      <span className="nav-dropdown__item-desc">
+                        Authentic dialogues, reading passages, grammar &amp; cultural notes
+                      </span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <div className="nav-dropdown__divider" />
+
+              <div className="nav-dropdown__section">
+                <div className="nav-dropdown__kicker-row">
+                  <span className="nav-dropdown__kicker">Jump by Proficiency Level</span>
+                  <span className="nav-dropdown__kicker-tag">CEFR A1–C2</span>
+                </div>
+                <div className="nav-dropdown__level-grid">
+                  {HSK_QUICK_LEVELS.map(item => (
+                    <button
+                      key={item.level}
+                      type="button"
+                      role="menuitem"
+                      onClick={() => {
+                        if (onSelectHSKLevel) {
+                          onSelectHSKLevel(item.level);
+                        } else {
+                          navigateToLearn();
+                        }
+                        setActiveHoverCategory(null);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="nav-dropdown__level-chip"
+                    >
+                      <span className="nav-dropdown__level-top">
+                        <strong>{item.label}</strong>
+                        <small>{item.cefr}</small>
+                      </span>
+                      <span className="nav-dropdown__level-sub">{item.sub}</span>
+                    </button>
+                  ))}
+                </div>
+
+                {onSelectLesson && (
+                  <div className="nav-dropdown__unit-shortcuts">
+                    <button
+                      type="button"
+                      onClick={() => runNavAction(() => onSelectLesson('lesson1'))}
+                      className="nav-dropdown__unit-link"
+                    >
+                      HSK 1 · Unit 01: Greetings &amp; Names →
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => runNavAction(() => onSelectLesson('lesson5'))}
+                      className="nav-dropdown__unit-link"
+                    >
+                      HSK 2 · Unit 05: Shopping &amp; Prices →
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* 3. Category Dropdown: Practice & Lab (Flashcards, Drills, Timed Quizzes, Daily Goal) */}
+          <div
+            className={`nav-dropdown ${
+              activeHoverCategory === 'practice' ? 'nav-dropdown--open' : ''
+            }`}
+            onMouseEnter={() => handleCategoryMouseEnter('practice')}
+            onMouseLeave={handleCategoryMouseLeave}
+          >
+            <button
+              type="button"
+              onClick={() =>
+                setActiveHoverCategory(prev => (prev === 'practice' ? null : 'practice'))
+              }
+              className={`nav-dropdown__trigger ${
+                isPracticeCurrent ? 'nav-dropdown__trigger--current' : ''
+              }`}
+              aria-expanded={activeHoverCategory === 'practice'}
+              aria-haspopup="true"
+            >
+              <span>Practice &amp; Lab</span>
+              <svg
+                className="nav-dropdown__chevron"
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <div className="nav-dropdown__menu" role="menu">
+              <div className="nav-dropdown__section">
+                <span className="nav-dropdown__kicker">Active Recall &amp; Assessment</span>
+                <div className="nav-dropdown__items">
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => runNavAction(navigateToPractice)}
+                    className={`nav-dropdown__item ${
+                      currentPage === 'practice' ? 'nav-dropdown__item--active' : ''
+                    }`}
+                  >
+                    <span
+                      className="nav-dropdown__item-seal nav-dropdown__item-seal--emerald font-noto-sc"
+                      aria-hidden="true"
+                    >
+                      练
+                    </span>
+                    <span className="nav-dropdown__item-body">
+                      <span className="nav-dropdown__item-title">
+                        Flashcards &amp; Recall Studio
+                        <span className="nav-dropdown__item-arrow" aria-hidden="true">
+                          →
+                        </span>
+                      </span>
+                      <span className="nav-dropdown__item-desc">
+                        3D flip cards, multiple-choice drills &amp; meaning typing recall
+                      </span>
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => runNavAction(navigateToQuizzes)}
+                    className={`nav-dropdown__item ${
+                      currentPage === 'quizzes' ? 'nav-dropdown__item--active' : ''
+                    }`}
+                  >
+                    <span
+                      className="nav-dropdown__item-seal nav-dropdown__item-seal--amber font-noto-sc"
+                      aria-hidden="true"
+                    >
+                      测
+                    </span>
+                    <span className="nav-dropdown__item-body">
+                      <span className="nav-dropdown__item-title">
+                        HSK Proficiency Quizzes
+                        <span className="nav-dropdown__item-arrow" aria-hidden="true">
+                          →
+                        </span>
+                      </span>
+                      <span className="nav-dropdown__item-desc">
+                        Diagnostic level tests with detailed answer explanations
+                      </span>
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={handleJumpToDailyGoal}
+                    className="nav-dropdown__item"
+                  >
+                    <span
+                      className="nav-dropdown__item-seal nav-dropdown__item-seal--rose font-noto-sc"
+                      aria-hidden="true"
+                    >
+                      标
+                    </span>
+                    <span className="nav-dropdown__item-body">
+                      <span className="nav-dropdown__item-title">
+                        Daily Target &amp; 7-Day Activity
+                        <span className="nav-dropdown__item-arrow" aria-hidden="true">
+                          →
+                        </span>
+                      </span>
+                      <span className="nav-dropdown__item-desc">
+                        {todayCount}/{dailyGoalTarget} words studied today ({goalProgressPct}% of goal)
+                      </span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. Category Dropdown: Resources (Dictionary, Study Roadmaps, Offline Cache, About) */}
+          <div
+            className={`nav-dropdown ${
+              activeHoverCategory === 'resources' ? 'nav-dropdown--open' : ''
+            }`}
+            onMouseEnter={() => handleCategoryMouseEnter('resources')}
+            onMouseLeave={handleCategoryMouseLeave}
+          >
+            <button
+              type="button"
+              onClick={() =>
+                setActiveHoverCategory(prev => (prev === 'resources' ? null : 'resources'))
+              }
+              className={`nav-dropdown__trigger ${
+                isResourcesCurrent ? 'nav-dropdown__trigger--current' : ''
+              }`}
+              aria-expanded={activeHoverCategory === 'resources'}
+              aria-haspopup="true"
+            >
+              <span>Resources</span>
+              <svg
+                className="nav-dropdown__chevron"
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <div className="nav-dropdown__menu" role="menu">
+              <div className="nav-dropdown__section">
+                <span className="nav-dropdown__kicker">Reference, Planning &amp; Tools</span>
+                <div className="nav-dropdown__items">
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => runNavAction(navigateToDictionary)}
+                    className={`nav-dropdown__item ${
+                      currentPage === 'dictionary' ? 'nav-dropdown__item--active' : ''
+                    }`}
+                  >
+                    <span className="nav-dropdown__item-seal font-noto-sc" aria-hidden="true">
+                      典
+                    </span>
+                    <span className="nav-dropdown__item-body">
+                      <span className="nav-dropdown__item-title">
+                        HSK 1–6 Searchable Dictionary
+                        <span className="nav-dropdown__item-arrow" aria-hidden="true">
+                          →
+                        </span>
+                      </span>
+                      <span className="nav-dropdown__item-desc">
+                        Instant lookup by Hanzi, Pinyin, tone-free syllables, or English
+                      </span>
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => runNavAction(navigateToStudyPlan)}
+                    className={`nav-dropdown__item ${
+                      currentPage === 'studyPlan' ? 'nav-dropdown__item--active' : ''
+                    }`}
+                  >
+                    <span
+                      className="nav-dropdown__item-seal nav-dropdown__item-seal--indigo font-noto-sc"
+                      aria-hidden="true"
+                    >
+                      划
+                    </span>
+                    <span className="nav-dropdown__item-body">
+                      <span className="nav-dropdown__item-title">
+                        Custom Study Roadmaps
+                        <span className="nav-dropdown__item-arrow" aria-hidden="true">
+                          →
+                        </span>
+                      </span>
+                      <span className="nav-dropdown__item-desc">
+                        Generate weekly HSK study schedules calibrated to your pace
+                      </span>
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => {
+                      setActiveHoverCategory(null);
+                      onOpenOfflineModal();
+                    }}
+                    className="nav-dropdown__item"
+                  >
+                    <span
+                      className="nav-dropdown__item-seal nav-dropdown__item-seal--emerald font-noto-sc"
+                      aria-hidden="true"
+                    >
+                      云
+                    </span>
+                    <span className="nav-dropdown__item-body">
+                      <span className="nav-dropdown__item-title">
+                        Offline Review Cache
+                        <span className="nav-dropdown__item-arrow" aria-hidden="true">
+                          →
+                        </span>
+                      </span>
+                      <span className="nav-dropdown__item-desc tabular-nums">
+                        {offlineCacheStats.cachedWordCount.toLocaleString()} words &amp;{' '}
+                        {offlineCacheStats.cachedLessonCount} units cached for offline study
+                      </span>
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => runNavAction(navigateToAbout)}
+                    className={`nav-dropdown__item ${
+                      currentPage === 'about' ? 'nav-dropdown__item--active' : ''
+                    }`}
+                  >
+                    <span
+                      className="nav-dropdown__item-seal nav-dropdown__item-seal--amber font-noto-sc"
+                      aria-hidden="true"
+                    >
+                      介
+                    </span>
+                    <span className="nav-dropdown__item-body">
+                      <span className="nav-dropdown__item-title">
+                        About HSK Hub &amp; Methodology
+                        <span className="nav-dropdown__item-arrow" aria-hidden="true">
+                          →
+                        </span>
+                      </span>
+                      <span className="nav-dropdown__item-desc">
+                        Platform architecture, curriculum standards &amp; creator contact
+                      </span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Zone 3: Streamlined Telemetry & Account Controls */}
@@ -247,6 +738,7 @@ const Header: React.FC<HeaderProps> = ({
                   setIsGoalOpen(prev => !prev);
                   setIsStreakOpen(false);
                   setIsReminderOpen(false);
+                  setActiveHoverCategory(null);
                 }}
                 className={`goal-badge ${
                   goalMetToday
@@ -391,6 +883,7 @@ const Header: React.FC<HeaderProps> = ({
                   setIsStreakOpen(prev => !prev);
                   setIsGoalOpen(false);
                   setIsReminderOpen(false);
+                  setActiveHoverCategory(null);
                 }}
                 className={`streak-badge ${practicedToday ? 'streak-badge--active' : 'streak-badge--inactive'}`}
                 aria-label={`Daily practice streak: ${streakData.currentStreak} ${
@@ -477,6 +970,7 @@ const Header: React.FC<HeaderProps> = ({
                   setIsReminderOpen(prev => !prev);
                   setIsGoalOpen(false);
                   setIsStreakOpen(false);
+                  setActiveHoverCategory(null);
                   setNotificationPermission(getBrowserNotificationPermission());
                 }}
                 className={`reminder-badge ${
@@ -765,36 +1259,175 @@ const Header: React.FC<HeaderProps> = ({
         </div>
       </nav>
 
+      {/* Categorized Mobile Accordion Menu */}
       {isMobileMenuOpen && (
         <div className="mobile-menu">
-          <NavLink onClick={handleNavClick(navigateToHome)} isCurrent={currentPage === 'home'}>
-            Home
-          </NavLink>
-          <NavLink onClick={handleNavClick(navigateToLearn)} isCurrent={currentPage === 'learn'}>
-            Learn Vocabulary
-          </NavLink>
-          <NavLink
-            onClick={handleNavClick(navigateToLessons)}
-            isCurrent={currentPage === 'lessons' || currentPage === 'lessonDetail'}
+          <a
+            href="#"
+            onClick={e => {
+              e.preventDefault();
+              runNavAction(navigateToHome);
+            }}
+            className={`nav-link ${currentPage === 'home' ? 'nav-link--current' : ''}`}
           >
-            Textbook Lessons
-          </NavLink>
-          <NavLink onClick={handleNavClick(navigateToPractice)} isCurrent={currentPage === 'practice'}>
-            Practice Drills
-          </NavLink>
-          <NavLink onClick={handleNavClick(navigateToQuizzes)} isCurrent={currentPage === 'quizzes'}>
-            Quizzes
-          </NavLink>
-          <NavLink onClick={handleNavClick(navigateToDictionary)} isCurrent={currentPage === 'dictionary'}>
-            Dictionary
-          </NavLink>
-          <div className="mobile-menu__divider"></div>
-          <NavLink onClick={handleNavClick(navigateToStudyPlan)} isCurrent={currentPage === 'studyPlan'}>
-            Study Plan & Roadmaps
-          </NavLink>
-          <NavLink onClick={handleNavClick(navigateToAbout)} isCurrent={currentPage === 'about'}>
-            About HSK Hub
-          </NavLink>
+            Home Dashboard
+          </a>
+
+          {/* Mobile Category 1: Curriculum */}
+          <div className="mobile-category">
+            <button
+              type="button"
+              onClick={() =>
+                setActiveMobileCategory(prev => (prev === 'curriculum' ? null : 'curriculum'))
+              }
+              className="mobile-category__header"
+            >
+              <span>Curriculum &amp; HSK Levels</span>
+              <span className="mobile-category__chevron">
+                {activeMobileCategory === 'curriculum' ? '−' : '+'}
+              </span>
+            </button>
+            {activeMobileCategory === 'curriculum' && (
+              <div className="mobile-category__body">
+                <button
+                  type="button"
+                  onClick={() => runNavAction(navigateToLearn)}
+                  className="mobile-category__link"
+                >
+                  <strong>HSK 1–6 Vocabulary Lexicon</strong>
+                  <small>5,000+ words with native audio &amp; stroke order</small>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => runNavAction(navigateToLessons)}
+                  className="mobile-category__link"
+                >
+                  <strong>Structured Textbook Lessons</strong>
+                  <small>Dialogues, reading passages &amp; grammar notes</small>
+                </button>
+                <div className="mobile-category__chips">
+                  {HSK_QUICK_LEVELS.map(item => (
+                    <button
+                      key={item.level}
+                      type="button"
+                      onClick={() => {
+                        if (onSelectHSKLevel) onSelectHSKLevel(item.level);
+                        else navigateToLearn();
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="mobile-category__chip"
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Mobile Category 2: Practice & Lab */}
+          <div className="mobile-category">
+            <button
+              type="button"
+              onClick={() =>
+                setActiveMobileCategory(prev => (prev === 'practice' ? null : 'practice'))
+              }
+              className="mobile-category__header"
+            >
+              <span>Practice &amp; Assessment</span>
+              <span className="mobile-category__chevron">
+                {activeMobileCategory === 'practice' ? '−' : '+'}
+              </span>
+            </button>
+            {activeMobileCategory === 'practice' && (
+              <div className="mobile-category__body">
+                <button
+                  type="button"
+                  onClick={() => runNavAction(navigateToPractice)}
+                  className="mobile-category__link"
+                >
+                  <strong>Flashcards &amp; Recall Studio</strong>
+                  <small>3D flip cards, drills &amp; typing recall</small>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => runNavAction(navigateToQuizzes)}
+                  className="mobile-category__link"
+                >
+                  <strong>HSK Proficiency Quizzes</strong>
+                  <small>Diagnostic assessments with answer explanations</small>
+                </button>
+                <button
+                  type="button"
+                  onClick={handleJumpToDailyGoal}
+                  className="mobile-category__link"
+                >
+                  <strong>Daily Target &amp; 7-Day Activity</strong>
+                  <small>
+                    {todayCount}/{dailyGoalTarget} words studied today ({goalProgressPct}%)
+                  </small>
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Mobile Category 3: Resources */}
+          <div className="mobile-category">
+            <button
+              type="button"
+              onClick={() =>
+                setActiveMobileCategory(prev => (prev === 'resources' ? null : 'resources'))
+              }
+              className="mobile-category__header"
+            >
+              <span>Resources &amp; Offline Tools</span>
+              <span className="mobile-category__chevron">
+                {activeMobileCategory === 'resources' ? '−' : '+'}
+              </span>
+            </button>
+            {activeMobileCategory === 'resources' && (
+              <div className="mobile-category__body">
+                <button
+                  type="button"
+                  onClick={() => runNavAction(navigateToDictionary)}
+                  className="mobile-category__link"
+                >
+                  <strong>Searchable HSK 1–6 Dictionary</strong>
+                  <small>Lookup by Hanzi, Pinyin, or English meaning</small>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => runNavAction(navigateToStudyPlan)}
+                  className="mobile-category__link"
+                >
+                  <strong>Custom Study Roadmaps</strong>
+                  <small>Weekly study schedules calibrated to your pace</small>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    onOpenOfflineModal();
+                  }}
+                  className="mobile-category__link"
+                >
+                  <strong>Offline Review Cache</strong>
+                  <small>
+                    {offlineCacheStats.cachedWordCount.toLocaleString()} words cached for offline use
+                  </small>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => runNavAction(navigateToAbout)}
+                  className="mobile-category__link"
+                >
+                  <strong>About HSK Hub</strong>
+                  <small>Platform methodology &amp; creator contact</small>
+                </button>
+              </div>
+            )}
+          </div>
+
           <div className="mobile-menu__divider"></div>
           <div className="mobile-menu__streak">
             <span>
@@ -822,22 +1455,6 @@ const Header: React.FC<HeaderProps> = ({
               className="reminder-popover__perm-btn"
             >
               {reminderSettings.enabled ? 'Turn Off' : 'Turn On'}
-            </button>
-          </div>
-          <div className="mobile-menu__streak">
-            <span>
-              Offline Cache:{' '}
-              <strong>{offlineCacheStats.cachedWordCount.toLocaleString()} words ready</strong>
-            </span>
-            <button
-              type="button"
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                onOpenOfflineModal();
-              }}
-              className="reminder-popover__perm-btn"
-            >
-              Manage
             </button>
           </div>
           <div className="mobile-menu__divider"></div>

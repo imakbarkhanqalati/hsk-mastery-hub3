@@ -1141,41 +1141,27 @@ const Badges: React.FC<BadgesProps> = ({
                             {renderBadgeSvg(badge.iconType)}
                           </div>
 
-                          <div className="badge-card__seal-wrap">
-                            <span className="badge-card__seal font-noto-sc">{badge.hanziSeal}</span>
-                            <span
-                              className={`badge-card__status ${badge.unlocked ? 'badge-card__status--unlocked' : ''}`}
-                            >
-                              {badge.unlocked ? '✓ Unlocked' : `${pct}%`}
-                            </span>
-                          </div>
+                          <span
+                            className={`badge-card__status tabular-nums ${
+                              badge.unlocked ? 'badge-card__status--unlocked' : ''
+                            }`}
+                          >
+                            {badge.unlocked ? '✓ Unlocked' : `${badge.currentValue} / ${badge.targetValue}`}
+                          </span>
                         </div>
 
                         <div className="badge-card__body">
-                          <div className="badge-card__meta">
-                            <span>{badge.categoryLabel}</span>
-                            <span aria-hidden="true">·</span>
-                            <span>{badge.pinyin}</span>
-                          </div>
                           <h4 className="badge-card__title">{badge.title}</h4>
                           <p className="badge-card__desc">{badge.description}</p>
                         </div>
 
-                        <div className="badge-card__footer">
-                          <div className="badge-card__progress-row">
-                            <span className="tabular-nums">
-                              {badge.currentValue} / {badge.targetValue} {badge.unit}
-                            </span>
-                            <span className="tabular-nums">{pct}%</span>
-                          </div>
-                          <div className="badge-card__bar-track">
-                            <div
-                              className={`badge-card__bar-fill ${
-                                badge.unlocked ? `badge-card__bar-fill--${badge.accentColor}` : ''
-                              }`}
-                              style={{ width: `${pct}%` }}
-                            />
-                          </div>
+                        <div className="badge-card__bar-track">
+                          <div
+                            className={`badge-card__bar-fill ${
+                              badge.unlocked ? `badge-card__bar-fill--${badge.accentColor}` : ''
+                            }`}
+                            style={{ width: `${pct}%` }}
+                          />
                         </div>
                       </button>
                     );
