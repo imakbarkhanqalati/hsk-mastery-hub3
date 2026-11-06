@@ -1,9 +1,9 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { vocabData } from '../data/vocab';
 import { Word } from '../types';
 import confetti from 'canvas-confetti';
 import { recordDailyPractice } from '../utils/streak';
-import { recordWordStudied } from '../utils/progress';
+import { recordWordStudied, speakChineseText } from '../utils/progress';
 
 // Enhanced shuffle algorithm with better randomization
 const shuffleArray = (array: Word[]): Word[] => {
@@ -44,6 +44,7 @@ const PracticePage: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
   const [cardAnimation, setCardAnimation] = useState<string>('');
   const [showHint, setShowHint] = useState<boolean>(false);
+  const [activeShortcut, setActiveShortcut] = useState<string | null>(null);
   
   // Multiple choice state
   const [options, setOptions] = useState<string[]>([]);
@@ -66,14 +67,20 @@ const PracticePage: React.FC = () => {
   const hskLevels = useMemo(() => Object.keys(vocabData).map(Number), []);
   const currentWord = currentSession?.words[currentSession.currentIndex];
 
+  const pulseShortcutHighlight = useCallback((keyId: string) => {
+    setActiveShortcut(keyId);
+    window.setTimeout(() => {
+      setActiveShortcut(prev => (prev === keyId ? null : prev));
+    }, 220);
+  }, []);
+
   // Generate multiple choice options
   const generateOptions = useCallback((correctWord: Word, allWords: Word[]) => {
     const correctAnswer = correctWord.meaning;
     const otherWords = allWords.filter(w => w.char !== correctWord.char);
     const shuffledOthers = shuffleArray(otherWords).slice(0, 3);
-    const options = [correctAnswer, ...shuffledOthers.map(w => w.meaning)];
-    // Create array of objects and shuffle them, then extract options
-    const optionObjects = options.map((option, index) => ({ option, index }));
+    const opts = [correctAnswer, ...shuffledOthers.map(w => w.meaning)];
+    const optionObjects = opts.map((option, index) => ({ option, index }));
     const shuffledObjects = shuffleArray(optionObjects as any);
     return shuffledObjects.map((item: any) => item.option);
   }, []);
@@ -113,15 +120,85 @@ const PracticePage: React.FC = () => {
       maxStreak: 0
     });
 
-    // Generate options for multiple choice mode
     if (mode === 'multiple-choice' && words.length > 0) {
       setOptions(generateOptions(shuffledWords[0], words));
     }
   }, [generateOptions]);
 
+  // Navigate to previous card (Left Arrow)
+  const goToPreviousCard = useCallback(() => {
+    if (!currentSession || currentSession.currentIndex <= 0 || cardAnimation) return;
+
+    const prevIndex = currentSession.currentIndex - 1;
+    const prevWord = currentSession.words[prevIndex];
+    if (prevWord) {
+      recordDailyPractice();
+      recordWordStudied(prevWord.char);
+    }
+
+    const updatedSession: PracticeSession = {
+      ...currentSession,
+      currentIndex: prevIndex,
+    };
+
+    setCurrentSession(updatedSession);
+    setIsFlipped(false);
+    setCardAnimation('');
+    setShowHint(false);
+    setSelectedAnswer('');
+    setShowResult(false);
+    setUserInput('');
+    setInputStatus('idle');
+
+    if (studyMode === 'multiple-choice' && prevWord) {
+      setOptions(generateOptions(prevWord, updatedSession.words));
+    }
+  }, [currentSession, cardAnimation, studyMode, generateOptions]);
+
+  // Navigate to next card (Right Arrow)
+  const goToNextCard = useCallback(() => {
+    if (!currentSession || cardAnimation) return;
+    if (currentSession.currentIndex + 1 >= currentSession.words.length) return;
+
+    const nextIndex = currentSession.currentIndex + 1;
+    const nextWord = currentSession.words[nextIndex];
+    if (nextWord) {
+      recordDailyPractice();
+      recordWordStudied(nextWord.char);
+    }
+
+    const updatedSession: PracticeSession = {
+      ...currentSession,
+      currentIndex: nextIndex,
+    };
+
+    setCurrentSession(updatedSession);
+    setIsFlipped(false);
+    setCardAnimation('');
+    setShowHint(false);
+    setSelectedAnswer('');
+    setShowResult(false);
+    setUserInput('');
+    setInputStatus('idle');
+
+    if (studyMode === 'multiple-choice' && nextWord) {
+      setOptions(generateOptions(nextWord, updatedSession.words));
+    }
+  }, [currentSession, cardAnimation, studyMode, generateOptions]);
+
+  // Trigger confetti animation
+  const triggerConfetti = useCallback(() => {
+    confetti({
+      particleCount: 150,
+      spread: 80,
+      origin: { y: 0.6 },
+      colors: ['#22c55e', '#16a34a', '#86efac', '#fbbf24', '#f59e0b']
+    });
+  }, []);
+
   // Handle answer submission
   const handleAnswer = useCallback((isCorrect: boolean) => {
-    if (!currentSession || !currentWord) return;
+    if (!currentSession || !currentWord || cardAnimation) return;
 
     recordDailyPractice();
     recordWordStudied(currentWord.char);
@@ -142,7 +219,6 @@ const PracticePage: React.FC = () => {
 
     setSessionStats(newStats);
 
-    // Trigger animations based on mode
     if (studyMode === 'flashcard') {
       setCardAnimation(isCorrect ? 'card-exit-correct' : 'card-exit-incorrect');
     } else if (studyMode === 'multiple-choice') {
@@ -151,7 +227,6 @@ const PracticePage: React.FC = () => {
       setInputStatus(isCorrect ? 'correct' : 'incorrect');
     }
 
-    // Move to next word or end session
     setTimeout(() => {
       const isLastWord = currentSession.currentIndex + 1 >= currentSession.words.length;
       
@@ -163,7 +238,6 @@ const PracticePage: React.FC = () => {
           setSessionState('round_over');
         }
       } else {
-        // Move to next word
         const updatedSession = { ...currentSession };
         updatedSession.currentIndex++;
         
@@ -176,14 +250,13 @@ const PracticePage: React.FC = () => {
         setUserInput('');
         setInputStatus('idle');
         
-        // Generate new options for multiple choice
         if (studyMode === 'multiple-choice') {
           const nextWord = updatedSession.words[updatedSession.currentIndex];
           setOptions(generateOptions(nextWord, updatedSession.words));
         }
       }
-    }, studyMode === 'flashcard' ? 500 : 1000);
-  }, [currentSession, currentWord, sessionStats, studyMode, generateOptions]);
+    }, studyMode === 'flashcard' ? 420 : 900);
+  }, [currentSession, currentWord, cardAnimation, sessionStats, studyMode, generateOptions, triggerConfetti]);
 
   // Handle multiple choice selection
   const handleMultipleChoice = useCallback((selected: string) => {
@@ -229,15 +302,124 @@ const PracticePage: React.FC = () => {
     }
   }, [currentSession, studyMode, generateOptions]);
 
-  // Trigger confetti animation
-  const triggerConfetti = () => {
-    confetti({
-      particleCount: 150,
-      spread: 80,
-      origin: { y: 0.6 },
-      colors: ['#22c55e', '#16a34a', '#86efac', '#fbbf24', '#f59e0b']
-    });
-  };
+  // Global Keyboard Shortcuts for Flashcard & Practice Interface
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      // Do not intercept shortcuts when typing in an input, textarea, select, or contentEditable element
+      const target = e.target as HTMLElement | null;
+      if (
+        target &&
+        (target.tagName === 'INPUT' ||
+          target.tagName === 'TEXTAREA' ||
+          target.tagName === 'SELECT' ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
+
+      // Ignore modified key combinations (Ctrl/Cmd/Alt)
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+
+      // Setup screen: Enter starts the session, 1-6 selects HSK level
+      if (sessionState === 'setup') {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          startNewSession(activeLevel, studyMode);
+        } else if (['1', '2', '3', '4', '5', '6'].includes(e.key)) {
+          e.preventDefault();
+          setActiveLevel(Number(e.key));
+        }
+        return;
+      }
+
+      if (sessionState !== 'practicing' || !currentWord) return;
+
+      // Left / Right Arrows: Previous / Next Card across Flashcard & Multiple-Choice modes
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        pulseShortcutHighlight('prev');
+        goToPreviousCard();
+        return;
+      }
+
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        pulseShortcutHighlight('next');
+        goToNextCard();
+        return;
+      }
+
+      // Audio playback shortcut ('a' or 's')
+      if (e.key.toLowerCase() === 'a' || e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        pulseShortcutHighlight('audio');
+        speakChineseText(currentWord.char, 0.85);
+        return;
+      }
+
+      // Flashcard-specific shortcuts
+      if (studyMode === 'flashcard') {
+        if (e.key === ' ' || e.code === 'Space' || e.key === 'ArrowUp' || e.key === 'ArrowDown' || e.key === 'Enter') {
+          e.preventDefault();
+          if (!cardAnimation) {
+            pulseShortcutHighlight('flip');
+            setIsFlipped(prev => !prev);
+          }
+          return;
+        }
+
+        if (e.key.toLowerCase() === 'h') {
+          e.preventDefault();
+          if (!isFlipped) {
+            pulseShortcutHighlight('hint');
+            setShowHint(prev => !prev);
+          }
+          return;
+        }
+
+        if (e.key === '1' || e.key.toLowerCase() === 'x') {
+          e.preventDefault();
+          pulseShortcutHighlight('review');
+          handleAnswer(false);
+          return;
+        }
+
+        if (e.key === '2' || e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          pulseShortcutHighlight('known');
+          handleAnswer(true);
+          return;
+        }
+      }
+
+      // Multiple-choice number shortcuts (1-4)
+      if (studyMode === 'multiple-choice' && !showResult) {
+        const idx = parseInt(e.key, 10) - 1;
+        if (idx >= 0 && idx < options.length) {
+          e.preventDefault();
+          handleMultipleChoice(options[idx]);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, [
+    sessionState,
+    studyMode,
+    activeLevel,
+    currentWord,
+    isFlipped,
+    cardAnimation,
+    showResult,
+    options,
+    startNewSession,
+    goToPreviousCard,
+    goToNextCard,
+    handleAnswer,
+    handleMultipleChoice,
+    pulseShortcutHighlight,
+  ]);
 
   // Calculate session progress
   const progressPercentage = currentSession 
@@ -249,13 +431,44 @@ const PracticePage: React.FC = () => {
     ? Math.floor((new Date().getTime() - currentSession.startTime.getTime()) / 1000)
     : 0;
 
+  const canGoPrev = Boolean(currentSession && currentSession.currentIndex > 0 && !cardAnimation);
+  const canGoNext = Boolean(
+    currentSession && currentSession.currentIndex + 1 < currentSession.words.length && !cardAnimation
+  );
+
   // Render flashcard mode
   const renderFlashcardMode = () => (
     <div className="flashcard-container">
+      {/* Screen-reader live region for accessible card state announcements */}
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        {currentWord
+          ? isFlipped
+            ? `Back of card: ${currentWord.char}, Pinyin ${currentWord.pinyin}, Meaning ${currentWord.meaning}, ${currentWord.grammar || ''}`
+            : `Front of card ${(currentSession?.currentIndex ?? 0) + 1} of ${currentSession?.totalWords}: Character ${currentWord.char}${showHint ? `, Hint Pinyin ${currentWord.pinyin}` : ''}`
+          : ''}
+      </div>
+
       <div className="card-wrapper">
         <div 
           className={`flashcard ${isFlipped ? 'flipped' : ''} ${cardAnimation}`}
           onClick={() => !cardAnimation && setIsFlipped(!isFlipped)}
+          role="button"
+          tabIndex={0}
+          aria-label={
+            isFlipped
+              ? `Flashcard back: ${currentWord?.char}, ${currentWord?.pinyin}, ${currentWord?.meaning}. Press Space to flip to front.`
+              : `Flashcard front: ${currentWord?.char}. Press Space to flip to answer.`
+          }
+          onKeyDown={e => {
+            if (e.key === ' ' || e.key === 'Enter') {
+              e.preventDefault();
+              e.stopPropagation();
+              if (!cardAnimation) {
+                pulseShortcutHighlight('flip');
+                setIsFlipped(prev => !prev);
+              }
+            }
+          }}
         >
           <div className="card-front">
             <div className="character">{currentWord?.char}</div>
@@ -264,6 +477,7 @@ const PracticePage: React.FC = () => {
                 <span>Hint: {currentWord?.pinyin}</span>
               </div>
             )}
+            <span className="flashcard-flip-caption">Click or press Space to flip</span>
           </div>
           <div className="card-back">
             <div className="word-details">
@@ -286,14 +500,77 @@ const PracticePage: React.FC = () => {
         </div>
       </div>
       
-      <div className="card-controls">
+      <div className="card-controls flashcard-nav-controls">
+        <button
+          type="button"
+          className="flashcard-nav-btn"
+          onClick={goToPreviousCard}
+          disabled={!canGoPrev}
+          title="Previous card (Left Arrow)"
+          aria-label="Previous card"
+        >
+          ← Previous
+        </button>
+
         <button 
+          type="button"
           className="hint-button"
           onClick={() => setShowHint(!showHint)}
           disabled={isFlipped}
+          title="Toggle Pinyin hint (H)"
         >
           {showHint ? 'Hide Hint' : 'Show Hint'}
         </button>
+
+        <button
+          type="button"
+          className="flashcard-audio-btn"
+          onClick={() => currentWord && speakChineseText(currentWord.char, 0.85)}
+          title="Listen to pronunciation (A)"
+          aria-label="Listen to pronunciation"
+        >
+          🔊 Listen
+        </button>
+
+        <button
+          type="button"
+          className="flashcard-nav-btn"
+          onClick={goToNextCard}
+          disabled={!canGoNext}
+          title="Next card (Right Arrow)"
+          aria-label="Next card"
+        >
+          Next →
+        </button>
+      </div>
+
+      {/* Minimalist Global Keyboard Shortcuts Bar */}
+      <div className="flashcard-shortcuts-bar" role="region" aria-label="Keyboard shortcuts">
+        <span className={`kbd-shortcut-item ${activeShortcut === 'flip' ? 'kbd-shortcut-item--active' : ''}`}>
+          <kbd className="kbd-badge">Space</kbd>
+          <span>Flip</span>
+        </span>
+        <span className={`kbd-shortcut-item ${activeShortcut === 'prev' || activeShortcut === 'next' ? 'kbd-shortcut-item--active' : ''}`}>
+          <kbd className="kbd-badge">←</kbd>
+          <kbd className="kbd-badge">→</kbd>
+          <span>Prev / Next</span>
+        </span>
+        <span className={`kbd-shortcut-item ${activeShortcut === 'review' ? 'kbd-shortcut-item--active' : ''}`}>
+          <kbd className="kbd-badge">1</kbd>
+          <span>Needs Review</span>
+        </span>
+        <span className={`kbd-shortcut-item ${activeShortcut === 'known' ? 'kbd-shortcut-item--active' : ''}`}>
+          <kbd className="kbd-badge">2</kbd>
+          <span>I Knew It</span>
+        </span>
+        <span className={`kbd-shortcut-item ${activeShortcut === 'hint' ? 'kbd-shortcut-item--active' : ''}`}>
+          <kbd className="kbd-badge">H</kbd>
+          <span>Hint</span>
+        </span>
+        <span className={`kbd-shortcut-item ${activeShortcut === 'audio' ? 'kbd-shortcut-item--active' : ''}`}>
+          <kbd className="kbd-badge">A</kbd>
+          <span>Audio</span>
+        </span>
       </div>
     </div>
   );
@@ -325,7 +602,8 @@ const PracticePage: React.FC = () => {
             onClick={() => handleMultipleChoice(option)}
             disabled={showResult}
           >
-            {option}
+            <span className="option-key-badge tabular-nums">{index + 1}</span>
+            <span>{option}</span>
           </button>
         ))}
       </div>
@@ -411,18 +689,22 @@ const PracticePage: React.FC = () => {
         <button
           className="action-button incorrect"
           onClick={() => handleAnswer(false)}
-          disabled={!isFlipped || !!cardAnimation}
+          disabled={!!cardAnimation}
+          title="Shortcut: Press 1 or X"
         >
           <span className="icon">❌</span>
-          Needs Review
+          <span>Needs Review</span>
+          <kbd className="action-btn-kbd">1</kbd>
         </button>
         <button
           className="action-button correct"
           onClick={() => handleAnswer(true)}
-          disabled={!isFlipped || !!cardAnimation}
+          disabled={!!cardAnimation}
+          title="Shortcut: Press 2 or K"
         >
           <span className="icon">✅</span>
-          I Knew It
+          <span>I Knew It</span>
+          <kbd className="action-btn-kbd">2</kbd>
         </button>
       </div>
     );

@@ -12675,3 +12675,177 @@ body.dark .badge-card__bar-track {
 body.dark .day-card {
     border-color: var(--border-color-dark) !important;
 }
+
+/* ==========================================================================
+   Phase 14 — Flashcard Global Keyboard Shortcuts & Accessible Navigation
+   ========================================================================== */
+.flashcard:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
+    border-radius: 1.25rem;
+}
+
+.flashcard-flip-caption {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #94a3b8;
+    letter-spacing: 0.02em;
+}
+
+.flashcard-nav-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+}
+
+.flashcard-nav-btn,
+.flashcard-audio-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.55rem 1rem;
+    border-radius: 0.6rem;
+    border: 1px solid var(--border-color-light);
+    background-color: var(--card-background-light);
+    color: var(--text-color-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.16s ease;
+}
+
+body.dark .flashcard-nav-btn,
+body.dark .flashcard-audio-btn {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+}
+
+.flashcard-nav-btn:hover:not(:disabled),
+.flashcard-audio-btn:hover:not(:disabled) {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+body.dark .flashcard-nav-btn:hover:not(:disabled),
+body.dark .flashcard-audio-btn:hover:not(:disabled) {
+    border-color: #60a5fa;
+    color: #60a5fa;
+}
+
+.flashcard-nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.flashcard-shortcuts-bar {
+    margin-top: 1rem;
+    padding: 0.65rem 1rem;
+    border-radius: 0.75rem;
+    background-color: rgba(15, 23, 42, 0.03);
+    border: 1px solid var(--border-color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem 1.15rem;
+    flex-wrap: wrap;
+}
+
+body.dark .flashcard-shortcuts-bar {
+    background-color: rgba(15, 23, 42, 0.45);
+    border-color: #1e293b;
+}
+
+.kbd-shortcut-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+body.dark .kbd-shortcut-item {
+    color: #94a3b8;
+}
+
+.kbd-shortcut-item--active {
+    color: var(--primary-color);
+    transform: scale(1.06);
+}
+
+body.dark .kbd-shortcut-item--active {
+    color: #60a5fa;
+}
+
+.kbd-badge,
+.action-btn-kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.45rem;
+    height: 1.4rem;
+    padding: 0 0.38rem;
+    border-radius: 0.35rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 1px 0 #cbd5e1;
+    color: #334155;
+}
+
+body.dark .kbd-badge,
+body.dark .action-btn-kbd {
+    background-color: #0f172a;
+    border-color: #334155;
+    box-shadow: 0 1px 0 #1e293b;
+    color: #e2e8f0;
+}
+
+.kbd-shortcut-item--active .kbd-badge {
+    border-color: var(--primary-color);
+    background-color: rgba(37, 99, 235, 0.12);
+    color: var(--primary-color);
+}
+
+body.dark .kbd-shortcut-item--active .kbd-badge {
+    border-color: #60a5fa;
+    background-color: rgba(59, 130, 246, 0.22);
+    color: #93c5fd;
+}
+
+.action-btn-kbd {
+    margin-left: 0.35rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: none;
+    color: currentColor;
+}
+
+.option-key-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.55rem;
+    height: 1.55rem;
+    border-radius: 0.4rem;
+    background-color: rgba(15, 23, 42, 0.06);
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+}
+
+body.dark .option-key-badge {
+    background-color: rgba(255, 255, 255, 0.08);
+}
