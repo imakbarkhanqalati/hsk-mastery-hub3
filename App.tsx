@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import StudyReminderToast from './components/StudyReminderToast';
+import OfflineStatusBanner from './components/OfflineStatusBanner';
 
 const LoadingSpinner = () => (
   <div className="loading-spinner-container">
@@ -24,17 +26,38 @@ const AboutPage = lazy(() => import('./components/AboutPage'));
 const Badges = lazy(() => import('./components/Badges'));
 
 import { lessons as lessonsData } from './data/lessons';
+import { vocabData } from './data/vocab';
 import { Word } from './types';
 import { AuthModalState } from './components/AuthModal';
-import { DailyStreakData, getStreakData, recordDailyPractice } from './utils/streak';
+import {
+  DailyStreakData,
+  getStreakData,
+  recordDailyPractice,
+  getLocalDateString,
+} from './utils/streak';
 import {
   UserVocabProgress,
+  DEFAULT_DAILY_GOAL,
   getVocabProgress,
+  getTodayStudiedWords,
   toggleBookmarkedWord,
   toggleMasteredWord,
   recordWordStudied,
   setDailyGoalTarget,
 } from './utils/progress';
+import {
+  StudyReminderSettings,
+  getReminderSettings,
+  saveReminderSettings,
+  hasReachedReminderTime,
+  sendBrowserNotification,
+  formatTime12Hour,
+} from './utils/reminders';
+import {
+  OfflineCacheStats,
+  initializeOfflineServiceWorker,
+  syncCoreVocabAndAssetsToCache,
+} from './utils/offlineCache';
 import './index.css';
 
 type Page =
@@ -50,6 +73,11 @@ type Page =
   | 'profile';
 
 const AUTH_STORAGE_KEY = 'hsk_hub_auth_user_v1';
+
+const INITIAL_WORD_COUNT = Object.values(vocabData).reduce(
+  (sum, list) => sum + (Array.isArray(list) ? list.length : 0),
+  0
+);
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -102,6 +130,46 @@ function App() {
   const [selectedHSKLevel, setSelectedHSKLevel] = useState<number | undefined>(undefined);
   const [streakData, setStreakData] = useState<DailyStreakData>(() => getStreakData());
   const [vocabProgress, setVocabProgress] = useState<UserVocabProgress>(() => getVocabProgress());
+  const [reminderSettings, setReminderSettings] = useState<StudyReminderSettings>(() =>
+    getReminderSettings()
+  );
+  const [isReminderToastOpen, setIsReminderToastOpen] = useState(false);
+  const [isReminderToastPreview, setIsReminderToastPreview] = useState(false);
+
+  const [offlineCacheStats, setOfflineCacheStats] = useState<OfflineCacheStats>({
+    swRegistered: false,
+    vocabCached: true,
+    cachedWordCount: INITIAL_WORD_COUNT,
+    cachedLessonCount: lessonsData.length,
+    cachedStrokeCount: 0,
+    lastSyncedAt: null,
+  });
+  const [isOfflineModalOpen, setIsOfflineModalOpen] = useState(false);
+
+  // Initialize Service Worker & cache core HSK 1-6 vocabulary + lessons on mount
+  useEffect(() => {
+    let mounted = true;
+    const setupOffline = async () => {
+      await initializeOfflineServiceWorker();
+      const stats = await syncCoreVocabAndAssetsToCache();
+      if (mounted) {
+        setOfflineCacheStats(stats);
+      }
+    };
+    setupOffline();
+
+    const handleOfflineUpdated = (event: Event) => {
+      const customEvent = event as CustomEvent<OfflineCacheStats>;
+      if (customEvent.detail && mounted) {
+        setOfflineCacheStats(customEvent.detail);
+      }
+    };
+    window.addEventListener('offline-cache-updated', handleOfflineUpdated);
+    return () => {
+      mounted = false;
+      window.removeEventListener('offline-cache-updated', handleOfflineUpdated);
+    };
+  }, []);
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -144,12 +212,133 @@ function App() {
         setVocabProgress(getVocabProgress());
       }
     };
+    const handleReminderUpdated = (event: Event) => {
+      const customEvent = event as CustomEvent<StudyReminderSettings>;
+      if (customEvent.detail) {
+        setReminderSettings(customEvent.detail);
+      } else {
+        setReminderSettings(getReminderSettings());
+      }
+    };
     window.addEventListener('streak-updated', handleStreakUpdated);
     window.addEventListener('vocab-progress-updated', handleProgressUpdated);
+    window.addEventListener('study-reminder-updated', handleReminderUpdated);
     return () => {
       window.removeEventListener('streak-updated', handleStreakUpdated);
       window.removeEventListener('vocab-progress-updated', handleProgressUpdated);
+      window.removeEventListener('study-reminder-updated', handleReminderUpdated);
     };
+  }, []);
+
+  const handleUpdateReminderSettings = useCallback((next: Partial<StudyReminderSettings>) => {
+    const updated = saveReminderSettings(next);
+    setReminderSettings(updated);
+  }, []);
+
+  const navigateToHome = useCallback(() => {
+    setCurrentPage('home');
+    setSelectedHSKLevel(undefined);
+  }, []);
+  const navigateToLearn = useCallback(() => setCurrentPage('learn'), []);
+  const navigateToPractice = useCallback(() => setCurrentPage('practice'), []);
+  const navigateToQuizzes = useCallback(() => setCurrentPage('quizzes'), []);
+  const navigateToDictionary = useCallback(() => setCurrentPage('dictionary'), []);
+  const navigateToStudyPlan = useCallback(() => setCurrentPage('studyPlan'), []);
+  const navigateToLessons = useCallback(() => setCurrentPage('lessons'), []);
+  const navigateToAbout = useCallback(() => setCurrentPage('about'), []);
+  const navigateToProfile = useCallback(() => setCurrentPage('profile'), []);
+
+  // Automatically close non-preview reminder toast once user practices today
+  useEffect(() => {
+    const todayStr = getLocalDateString();
+    const todayWords = getTodayStudiedWords(vocabProgress);
+    const hasPracticedToday =
+      streakData.lastPracticeDate === todayStr || todayWords.length > 0;
+    if (hasPracticedToday && isReminderToastOpen && !isReminderToastPreview) {
+      setIsReminderToastOpen(false);
+    }
+  }, [streakData.lastPracticeDate, vocabProgress, isReminderToastOpen, isReminderToastPreview]);
+
+  // Daily Study Reminder Scheduler (checks every 15 seconds + immediately on state change)
+  useEffect(() => {
+    if (!reminderSettings.enabled) return;
+
+    const checkAndTriggerReminder = () => {
+      const now = new Date();
+      const todayStr = getLocalDateString(now);
+      const todayWords = getTodayStudiedWords(vocabProgress);
+      const hasPracticedToday =
+        streakData.lastPracticeDate === todayStr || todayWords.length > 0;
+
+      // Only notify if the user has NOT practiced yet today
+      if (hasPracticedToday) return;
+
+      // Check if snoozed
+      if (reminderSettings.snoozedUntil) {
+        if (now.getTime() < reminderSettings.snoozedUntil) {
+          return;
+        }
+      } else if (reminderSettings.lastNotifiedDate === todayStr) {
+        // Already notified today and not snoozed
+        return;
+      }
+
+      if (hasReachedReminderTime(reminderSettings.reminderTime, now)) {
+        const updated = saveReminderSettings({
+          lastNotifiedDate: todayStr,
+          snoozedUntil: null,
+        });
+        setReminderSettings(updated);
+
+        const target = vocabProgress.dailyGoalTarget || DEFAULT_DAILY_GOAL;
+        const formatted = formatTime12Hour(reminderSettings.reminderTime);
+        sendBrowserNotification(
+          `HSK Hub · Daily Study Reminder (${formatted})`,
+          `You haven't practiced Mandarin yet today! Complete ${target} words to reach your daily goal.`,
+          () => {
+            setCurrentPage('practice');
+            setIsReminderToastOpen(false);
+          }
+        );
+
+        setIsReminderToastPreview(false);
+        setIsReminderToastOpen(true);
+      }
+    };
+
+    checkAndTriggerReminder();
+    const intervalId = window.setInterval(checkAndTriggerReminder, 15000);
+    return () => window.clearInterval(intervalId);
+  }, [reminderSettings, streakData.lastPracticeDate, vocabProgress]);
+
+  const handleTriggerPreviewReminder = useCallback(() => {
+    const target = vocabProgress.dailyGoalTarget || DEFAULT_DAILY_GOAL;
+    const todayWords = getTodayStudiedWords(vocabProgress);
+    const remaining = Math.max(0, target - todayWords.length);
+    const formatted = formatTime12Hour(reminderSettings.reminderTime);
+
+    sendBrowserNotification(
+      `HSK Hub · Study Reminder (${formatted})`,
+      remaining > 0
+        ? `Time to practice Mandarin! ${remaining} words left to reach your daily goal.`
+        : `Your ${formatted} study reminder is active!`,
+      () => {
+        setCurrentPage('practice');
+        setIsReminderToastOpen(false);
+      }
+    );
+
+    setIsReminderToastPreview(true);
+    setIsReminderToastOpen(true);
+  }, [vocabProgress, reminderSettings.reminderTime]);
+
+  const handleSnoozeReminder = useCallback(() => {
+    const snoozeMs = Date.now() + 15 * 60 * 1000; // 15 minutes
+    const updated = saveReminderSettings({
+      snoozedUntil: snoozeMs,
+    });
+    setReminderSettings(updated);
+    setIsReminderToastOpen(false);
   }, []);
 
   const handleToggleMastered = useCallback((char: string) => {
@@ -167,19 +356,6 @@ function App() {
     const updated = setDailyGoalTarget(target);
     setVocabProgress(updated);
   }, []);
-
-  const navigateToHome = useCallback(() => {
-    setCurrentPage('home');
-    setSelectedHSKLevel(undefined);
-  }, []);
-  const navigateToLearn = useCallback(() => setCurrentPage('learn'), []);
-  const navigateToPractice = useCallback(() => setCurrentPage('practice'), []);
-  const navigateToQuizzes = useCallback(() => setCurrentPage('quizzes'), []);
-  const navigateToDictionary = useCallback(() => setCurrentPage('dictionary'), []);
-  const navigateToStudyPlan = useCallback(() => setCurrentPage('studyPlan'), []);
-  const navigateToLessons = useCallback(() => setCurrentPage('lessons'), []);
-  const navigateToAbout = useCallback(() => setCurrentPage('about'), []);
-  const navigateToProfile = useCallback(() => setCurrentPage('profile'), []);
 
   const navigateToLessonDetail = useCallback((lessonId: string) => {
     setSelectedLessonId(lessonId);
@@ -252,6 +428,9 @@ function App() {
     setCurrentPage(prev => (prev === 'profile' ? 'home' : prev));
   }, []);
 
+  const todayStudiedCount = getTodayStudiedWords(vocabProgress).length;
+  const dailyGoalTarget = vocabProgress.dailyGoalTarget || DEFAULT_DAILY_GOAL;
+
   return (
     <div id="app-wrapper">
       <Header
@@ -276,6 +455,11 @@ function App() {
         streakData={streakData}
         vocabProgress={vocabProgress}
         onUpdateDailyGoal={handleUpdateDailyGoal}
+        reminderSettings={reminderSettings}
+        onUpdateReminderSettings={handleUpdateReminderSettings}
+        onTriggerPreviewReminder={handleTriggerPreviewReminder}
+        offlineCacheStats={offlineCacheStats}
+        onOpenOfflineModal={() => setIsOfflineModalOpen(true)}
       />
       <div className="main-layout">
         <main className="main-content">
@@ -367,6 +551,35 @@ function App() {
           setSelectedHSKLevel(level);
         }}
       />
+
+      {/* Global On-Screen Study Reminder Toast */}
+      <StudyReminderToast
+        isOpen={isReminderToastOpen}
+        reminderTime={reminderSettings.reminderTime}
+        todayStudiedCount={todayStudiedCount}
+        dailyGoalTarget={dailyGoalTarget}
+        currentStreak={streakData.currentStreak}
+        isPreview={isReminderToastPreview}
+        onStartPractice={() => {
+          setIsReminderToastOpen(false);
+          navigateToPractice();
+        }}
+        onStartLearn={() => {
+          setIsReminderToastOpen(false);
+          navigateToLearn();
+        }}
+        onSnooze={handleSnoozeReminder}
+        onDismiss={() => setIsReminderToastOpen(false)}
+      />
+
+      {/* Offline Connectivity Banner & Service Worker Cache Manager Modal */}
+      <OfflineStatusBanner
+        cacheStats={offlineCacheStats}
+        onUpdateStats={setOfflineCacheStats}
+        isPanelOpen={isOfflineModalOpen}
+        onClosePanel={() => setIsOfflineModalOpen(false)}
+      />
+
       <Suspense fallback={<LoadingSpinner />}>
         {isFeatureModalOpen && (
           <FeatureModal isOpen={isFeatureModalOpen} onClose={handleCloseFeatureModal} />

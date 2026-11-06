@@ -55,7 +55,7 @@ const LessonCard: React.FC<LessonCardProps> = ({
 
         {lesson.objectives && lesson.objectives.length > 0 && (
           <ul className="lesson-card__objectives">
-            {lesson.objectives.slice(0, 3).map((obj, idx) => (
+            {lesson.objectives.slice(0, 2).map((obj, idx) => (
               <li key={idx}>{obj}</li>
             ))}
           </ul>
@@ -63,17 +63,11 @@ const LessonCard: React.FC<LessonCardProps> = ({
 
         <div className="lesson-card__footer">
           <div className="vocab-card__meta">
-            <span className="tabular-nums">{dialogueCount} {dialogueCount === 1 ? 'Dialogue' : 'Dialogues'}</span>
-            <span aria-hidden="true">·</span>
             <span className="tabular-nums">{vocabCount} Words</span>
             <span aria-hidden="true">·</span>
-            <span className="tabular-nums">{grammarCount} Grammar Notes</span>
-            {exerciseCount > 0 && (
-              <>
-                <span aria-hidden="true">·</span>
-                <span className="tabular-nums">{exerciseCount} Exercises</span>
-              </>
-            )}
+            <span className="tabular-nums">{dialogueCount} {dialogueCount === 1 ? 'Dialogue' : 'Dialogues'}</span>
+            <span aria-hidden="true">·</span>
+            <span className="tabular-nums">{grammarCount + exerciseCount} Notes &amp; Drills</span>
           </div>
           <button
             type="button"

@@ -43,7 +43,6 @@ const HomePage: React.FC<HomePageProps> = ({
   navigateToPractice,
   navigateToQuizzes,
   navigateToStudyPlan,
-  navigateToDictionary,
   onSelectHSKLevel,
   onWordSelect,
   vocabProgress,
@@ -149,17 +148,8 @@ const HomePage: React.FC<HomePageProps> = ({
                   onClick={navigateToLearn}
                   className="button button--outline hero-cta-btn"
                 >
-                  Browse HSK Lexicon
+                  Explore HSK 1–6 Lexicon
                 </button>
-                {navigateToDictionary && (
-                  <button
-                    type="button"
-                    onClick={navigateToDictionary}
-                    className="button button--secondary hero-cta-btn"
-                  >
-                    Open Dictionary
-                  </button>
-                )}
               </div>
             </div>
 
@@ -168,7 +158,7 @@ const HomePage: React.FC<HomePageProps> = ({
               <div className="hero-spotlight-card">
                 <div className="hero-spotlight__top">
                   <div className="hero-spotlight__meta">
-                    <span>Daily Character Spotlight</span>
+                    <span>Word of the Day</span>
                     <span aria-hidden="true">·</span>
                     <span>HSK {spotlightWord.hskLevel}</span>
                     <span aria-hidden="true">·</span>
@@ -269,41 +259,32 @@ const HomePage: React.FC<HomePageProps> = ({
                     onClick={() => onWordSelect && onWordSelect(spotlightWord)}
                     className="button button--primary hero-spotlight__btn"
                   >
-                    Practice Pronunciation &amp; Stroke Writing →
+                    Open Stroke &amp; Speech Studio →
                   </button>
                 </div>
               </div>
             )}
           </div>
 
-          {/* Full-Width 4-Column Curriculum Telemetry Strip */}
-          <div className="hero-kpi-strip">
-            <div className="hero-kpi-item">
-              <span className="hero-kpi__label">Daily Study Goal</span>
-              <span className="hero-kpi__value tabular-nums">
-                {todayCount} <small>/ {dailyGoalTarget} Words</small>
-              </span>
-              <span className="hero-kpi__sub">
-                {goalMetToday ? 'Daily target completed!' : `${goalProgressPct}% of today’s word target`}
-              </span>
-            </div>
+          {/* Balanced 3-Column Curriculum Telemetry Strip */}
+          <div className="hero-kpi-strip hero-kpi-strip--three">
             <div className="hero-kpi-item">
               <span className="hero-kpi__label">Words Mastered</span>
-              <span className="hero-kpi__value">
+              <span className="hero-kpi__value tabular-nums">
                 {masteredCount} <small>/ {totalVocabCount}</small>
               </span>
               <span className="hero-kpi__sub">
-                {totalVocabCount > 0 ? ((masteredCount / totalVocabCount) * 100).toFixed(1) : '0.0'}% curriculum completion
+                {totalVocabCount > 0 ? ((masteredCount / totalVocabCount) * 100).toFixed(1) : '0.0'}% HSK 1–6 completion
               </span>
             </div>
             <div className="hero-kpi-item">
               <span className="hero-kpi__label">Saved Bookmarks</span>
-              <span className="hero-kpi__value">{bookmarkedCount} Words</span>
+              <span className="hero-kpi__value tabular-nums">{bookmarkedCount} Words</span>
               <span className="hero-kpi__sub">Pinned for focused review</span>
             </div>
             <div className="hero-kpi-item">
               <span className="hero-kpi__label">Active Study Streak</span>
-              <span className="hero-kpi__value">
+              <span className="hero-kpi__value tabular-nums">
                 {streakData.currentStreak} {streakData.currentStreak === 1 ? 'Day' : 'Days'}
               </span>
               <span className="hero-kpi__sub">Personal best: {streakData.longestStreak} days</span>
@@ -318,7 +299,7 @@ const HomePage: React.FC<HomePageProps> = ({
           <div className="daily-goal-card">
             <div className="daily-goal-card__left">
               <div className="vocab-card__meta">
-                <span>Daily Study Goal Tracker</span>
+                <span>Daily Study Goal</span>
                 <span aria-hidden="true">·</span>
                 <span className="tabular-nums">{todayCount} of {dailyGoalTarget} Words Today</span>
                 <span aria-hidden="true">·</span>
@@ -326,13 +307,13 @@ const HomePage: React.FC<HomePageProps> = ({
               </div>
               <h2 className="daily-goal-card__title">
                 {goalMetToday
-                  ? `You've reached your daily target of ${dailyGoalTarget} words!`
-                  : `Learn ${Math.max(0, dailyGoalTarget - todayCount)} more ${
+                  ? `Daily target of ${dailyGoalTarget} words completed!`
+                  : `${Math.max(0, dailyGoalTarget - todayCount)} more ${
                       dailyGoalTarget - todayCount === 1 ? 'word' : 'words'
-                    } to hit today's goal`}
+                    } to reach today's study goal`}
               </h2>
               <p className="daily-goal-card__desc">
-                Words are automatically counted toward your daily goal whenever you inspect a character card, practice flashcards or drills, answer quiz questions, or mark a word as mastered.
+                Inspecting character cards, practicing flashcards or recall drills, completing quizzes, and marking words as mastered automatically count toward your daily target.
               </p>
 
               <div className="daily-goal-card__bar-wrap">

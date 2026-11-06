@@ -10,22 +10,37 @@
 
 ```text
 /
-├── App.tsx                         # Root SPA state, navigation router, theme controller, global modal manager
+├── App.tsx                         # Root SPA state, navigation router, theme controller, global modal, reminder scheduler & offline cache manager
 ├── index.tsx                       # React DOM entry point
-├── index.html                      # HTML shell + Google Fonts (Plus Jakarta Sans, Noto Sans SC, Noto Serif SC, JetBrains Mono)
+├── index.html                      # HTML shell + PWA/iOS meta tags + Google Fonts (Plus Jakarta Sans, Noto Sans SC, Noto Serif SC, JetBrains Mono)
 ├── index.css                       # Global design system, Dual-Theme (Light/Dark) tokens, component styles
+├── vite.config.ts                  # Vite bundler + VitePWA (Workbox precaching + Google Fonts & Hanzi stroke order runtime caching)
 ├── types.ts                        # Core TypeScript interfaces for Vocabulary (Word, Example, GrammarTip)
 ├── server.ts                       # Express + Vite server (Port 3000)
+├── public/
+│   ├── manifest.json               # Web App Manifest (standalone display, 192x192, 512x512, maskable icons)
+│   ├── sw-offline.js               # Service Worker script for offline app-shell, core HSK vocabulary, lessons, and stroke order caching
+│   ├── icon.svg                    # Vector brand emblem (汉 HSK HUB)
+│   ├── pwa-192x192.png             # Standard 192x192 PWA icon
+│   ├── pwa-512x512.png             # Standard 512x512 PWA icon
+│   ├── pwa-maskable-512x512.png    # Maskable 512x512 PWA icon with safe-zone margin
+│   └── apple-touch-icon.png        # 180x180 PNG icon for iOS Safari Home Screen
 ├── data/
-│   ├── hsk.ts                      # Complete deduplicated HSK 1–6 Vocabulary Lexicon (5,000+ words)
+│   ├── vocab.ts / hsk.ts           # Complete deduplicated HSK 1–6 Vocabulary Lexicon (5,000+ words)
 │   └── lessons.ts                  # Structured Textbook Curriculum (HSK 1 & HSK 2 units, dialogues, grammar, cultural readers, exercises)
 ├── utils/
 │   ├── progress.ts                 # LocalStorage persistence for mastered words, bookmarks, daily goal target, and per-date studied words
 │   ├── streak.ts                   # Daily study streak engine (currentStreak, longestStreak, 7-day history)
+│   ├── reminders.ts                # Daily study reminder preferences in localStorage + Web Notification API & time evaluation helpers
+│   ├── offlineCache.ts             # Service Worker registration, Cache Storage sync for HSK 1–6 vocab/lessons, stroke pre-cacher & online status hook
+│   ├── usePWAInstall.ts            # React hook for beforeinstallprompt, standalone mode detection, and iOS install flow
 │   └── speech.ts                   # Web Speech API TTS (zh-CN pronunciation) + SpeechRecognition + Pinyin/Hanzi similarity scoring
 └── components/
-    ├── Header.tsx                  # 3-Zone Top Bar: Brand (汉 HSK Hub) | 6 Core Study Links | Unified Daily Goal + Streak Telemetry + Signed-In Profile Trigger / Auth
+    ├── Header.tsx                  # 3-Zone Top Bar: Brand (汉 HSK Hub) | 6 Core Study Links | Unified Goal + Streak + Reminder + Offline Status + PWA Install + Profile/Auth
     ├── Footer.tsx                  # 4-Column Platform Footer: Brand & HSK 1–6 Quick Jumps | Study Workspace | Resources (Study Plan, About) | Contact
+    ├── StudyReminderToast.tsx      # Global on-screen toast notification when user hasn't practiced by their preferred reminder time
+    ├── OfflineStatusBanner.tsx     # Floating offline mode banner + interactive Service Worker & Cache Storage management modal
+    ├── PWAInstallButton.tsx        # In-app PWA install trigger button (Desktop/Android native prompt + iOS Safari instruction modal)
     ├── HomePage.tsx                # Dashboard: Split Hero + Word of the Day Spotlight, 4-KPI Strip, Daily Study Goal Tracker + 7-Day Bar Chart, HSK 1–6 Mastery Matrix
     ├── Badges.tsx                  # Dedicated 'profile' page: 2-Column Bento Scholar Profile & 12 Milestone Badges (accessed via top-bar Profile button when signed in)
     ├── MainContent.tsx             # Learn Page: HSK 1–6 Vocabulary Browser with level filters, search, audio playback, mastery/bookmark toggles
@@ -44,7 +59,7 @@
 
 ---
 
-## 2. Vocabulary Database (`/data/hsk.ts`)
+## 2. Vocabulary Database (`/data/hsk.ts` & `/data/vocab.ts`)
 
 - **Source**: Official HSK 1–6 PDF vocabulary lists uploaded in `/public/assets/aistudio/HSK-1-Vocabulary_*.pdf` through `HSK-6-Vocabulary_*.pdf`.
 - **Zero-Duplication Guarantee**:
@@ -119,17 +134,37 @@ When the user uploads the next batch of PDFs (such as Lesson 7, Lesson 8, Lesson
    - Dispatches `window.dispatchEvent(new CustomEvent('vocab-progress-updated', { detail: data }))` for instant UI reactivity across `Header.tsx` and `HomePage.tsx`.
 
 2. **Daily Streak Engine (`/utils/streak.ts`)**:
-   - LocalStorage key: `'hsk_hub_daily_streak_v1'`
+   - LocalStorage key: `'hsk-daily-streak'`
    - Tracks `currentStreak`, `longestStreak`, `lastPracticeDate`, and `practiceHistory: string[]`.
 
-3. **Animated Stroke Order Visualizer (`/components/StrokeOrderVisualizer.tsx`)**:
-   - Fetches official stroke medians & SVG paths from `https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/${encodeURIComponent(char)}.json`.
+3. **Daily Study Reminder & Notification Engine (`/utils/reminders.ts` & `/components/StudyReminderToast.tsx`)**:
+   - LocalStorage key: `'hsk_hub_study_reminder_v1'`
+   - Schema:
+     ```ts
+     export interface StudyReminderSettings {
+       enabled: boolean;
+       reminderTime: string;           // "HH:mm" in 24h format, default "19:00"
+       lastNotifiedDate: string | null; // "YYYY-MM-DD"
+       snoozedUntil: number | null;     // epoch ms
+     }
+     ```
+   - **Header Bell Widget & Popover (`Header.tsx`)**: Allows users to toggle daily reminders ON/OFF, choose a custom time (`<input type="time" />`) or quick preset (`Morning 08:30`, `Midday 13:00`, `Evening 19:00`, `Night 21:30`), request browser notification permissions, and test the notification immediately (`Test Notification Now`).
+   - **Background Scheduler (`App.tsx`)**: Evaluates every 15 seconds whether `enabled === true`, the user has not yet practiced today, and the current local time has reached `reminderTime`. When triggered, it dispatches a native **Browser Notification** (when granted) and opens the **On-Screen Toast (`StudyReminderToast.tsx`)** with `Practice Now →`, `Browse Words`, `Snooze 15m`, and `Dismiss` actions.
+
+4. **Offline Service Worker, PWA Compliance & Local Vocabulary Cache (`vite.config.ts`, `/public/sw-offline.js`, `/utils/offlineCache.ts`, `/components/OfflineStatusBanner.tsx`, `/components/PWAInstallButton.tsx`)**:
+   - **Workbox + Fallback Service Worker**: Configured via `vite-plugin-pwa` in `vite.config.ts` (`maximumFileSizeToCacheInBytes: 6MB`) plus `/public/sw-offline.js` to precache all JS/CSS/HTML chunks (including `vocab-data-chunk`) and runtime-cache Google Fonts (`google-fonts-cache`, `gstatic-fonts-cache`) and Hanzi stroke order JSON (`hanzi-stroke-data-cache`).
+   - **Direct Cache Storage Synchronization (`utils/offlineCache.ts`)**: On application startup, `syncCoreVocabAndAssetsToCache()` writes the entire HSK 1–6 vocabulary dataset (`/offline-cache/hsk-vocabulary.json`) and textbook lessons (`/offline-cache/hsk-lessons.json`) into the browser's Cache Storage (`'hsk-hub-core-vocab-v1'`) and supports one-click pre-caching of essential Hanzi stroke order animations (`precacheEssentialHanziStrokes`).
+   - **Offline Connectivity Indicator & Cache Modal (`OfflineStatusBanner.tsx`)**: Automatically displays a floating offline status banner when `!navigator.onLine`, and provides a detailed modal (accessible via the cloud-check button in `Header.tsx`) showing cached word counts, lesson units, cached Hanzi stroke diagrams, and Service Worker status.
+   - **In-App PWA Install Prompt (`PWAInstallButton.tsx` & `usePWAInstall.ts`)**: Mounted in `Header.tsx` to trigger native installation on Chromium/Desktop/Android and display an installation guide on iOS Safari.
+
+5. **Animated Stroke Order Visualizer (`/components/StrokeOrderVisualizer.tsx`)**:
+   - Fetches official stroke medians & SVG paths from `https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/${encodeURIComponent(char)}.json` (cached automatically by the Service Worker in `'hanzi-stroke-data-cache'` for offline reuse).
    - Supports multi-character words (character selector tabs), Play/Pause, Step Backward/Forward, Speed (`0.5x`, `1x`, `2x`), Outline/Numbers toggles, Interactive Freehand Brush Tracing (`<canvas>`), and a clickable Stroke-by-Stroke Sequence Strip.
 
-4. **Speech Recognition Pronunciation Lab (`/components/WordDetailModal.tsx` & `/utils/speech.ts`)**:
+6. **Speech Recognition Pronunciation Lab (`/components/WordDetailModal.tsx` & `/utils/speech.ts`)**:
    - Uses browser `SpeechRecognition` / `webkitSpeechRecognition` (`lang = 'zh-CN'`) + `MediaRecorder` audio playback so learners can listen to native TTS (`1.0x` and `0.65x` slow speed), record their own voice, replay their recording, and get an instant accuracy score (`0–100%`) comparing their spoken Hanzi/Pinyin against the target word.
 
-5. **Asymmetric 2-Column Bento Scholar Profile & Learning Milestone Badges (`/components/Badges.tsx`, Route: `currentPage === 'profile'`)**:
+7. **Asymmetric 2-Column Bento Scholar Profile & Learning Milestone Badges (`/components/Badges.tsx`, Route: `currentPage === 'profile'`)**:
    - **Access Flow**: Shown exclusively on the dedicated `'profile'` page when the user is signed in (`isAuthenticated === true`, persisted in `localStorage` under `'hsk_hub_auth_user_v1'`) and clicks their **Profile button (`[学] Name`)** in the top header (`Header.tsx`)—not rendered on `HomePage.tsx`.
    - **Breadcrumb Header**: Contextual `Scholars › [Scholar Name]` bar with `← Back to Dashboard`, `Customize Profile`, and `Sign Out` controls.
    - **Left Column (Tall Identity Card)**:
@@ -148,7 +183,7 @@ When the user uploads the next batch of PDFs (such as Lesson 7, Lesson 8, Lesson
   - Follows a strict 3-zone layout with `gap: 2rem` so elements never crowd or collide:
     - **Left**: Brand mark (`汉 HSK Hub`)
     - **Center**: 6 concise single-word primary study links (`Home`, `Learn`, `Lessons`, `Practice`, `Quizzes`, `Dictionary`)
-    - **Right**: Unified Telemetry Group (`🎯 Studied/Goal` + `🔥 Streak` popovers) + Auth / Signed-In Top-Bar Profile Button (`[学] Name` -> opens `'profile'` page) + Theme Toggle (`Light` / `Dark`)
+    - **Right**: Unified Telemetry Group (`🎯 Studied/Goal` + `🔥 Streak` + `🔔 Study Reminder` + `☁️✓ Offline Cache` popovers/modals) + `<PWAInstallButton />` + Auth / Signed-In Top-Bar Profile Button (`[学] Name` -> opens `'profile'` page) + Theme Toggle (`Light` / `Dark`)
 - **Footer (`Footer.tsx`)**:
   - Houses the 4-column platform sitemap including secondary and planning pages (`Study Plan & Roadmaps`, `About HSK Hub`, `Daily Target Settings`), `HSK 1–6` quick-jump level chips, and creator contact links (`akq.qalati@gmail.com`, LinkedIn, GitHub).
 
@@ -184,7 +219,17 @@ Before finishing any future turn, always:
 - **Phase 7 — Top-Bar Signed-In Profile Trigger & Dedicated Profile Route**:
   - Removed `<Badges />` from `HomePage.tsx` and wired it to a dedicated `'profile'` route in `App.tsx`.
   - Added persistent authentication state (`'hsk_hub_auth_user_v1'`) and a top-bar Profile button (`header__profile-trigger`) in `Header.tsx` that appears when the user signs in and opens the Bento Scholar Profile page when clicked.
-
-
-
+- **Phase 8 — Daily Study Reminder & Notification Engine**:
+  - Created `/utils/reminders.ts` and `/components/StudyReminderToast.tsx`.
+  - Added a Daily Study Reminder bell widget & popover in `Header.tsx` allowing users to toggle reminders on/off, select their preferred time (`HH:mm` or Morning/Midday/Evening/Night presets) persisted in `localStorage` (`'hsk_hub_study_reminder_v1'`), grant optional Browser Notification permission, and trigger a live test notification.
+  - Added a background scheduler in `App.tsx` that triggers both a Browser Notification (when permitted) and an on-screen toast message (`StudyReminderToast.tsx`) if the user hasn't practiced by their target reminder time.
+- **Phase 9 — Offline Service Worker, Local HSK Vocabulary Caching & PWA Compliance**:
+  - Integrated `vite-plugin-pwa` in `vite.config.ts` and created `/public/sw-offline.js` to precache application bundles and runtime-cache Google Fonts and Hanzi stroke order JSON files (`hanzi-stroke-data-cache`).
+  - Created `/utils/offlineCache.ts` to register the Service Worker, store the complete HSK 1–6 vocabulary dataset and textbook lessons in browser Cache Storage (`'hsk-hub-core-vocab-v1'`), and support pre-caching essential Hanzi stroke order diagrams.
+  - Created `/components/OfflineStatusBanner.tsx`, `/components/PWAInstallButton.tsx`, and `/utils/usePWAInstall.ts`, and generated compliant PWA icons (`icon.svg`, `pwa-192x192.png`, `pwa-512x512.png`, `pwa-maskable-512x512.png`, `apple-touch-icon.png`).
+- **Phase 10 — Comprehensive Visual Audit, Anti-Crowding Refinements & Editorial About Page**:
+  - **Header (`Header.tsx`)**: De-crowded the right-hand telemetry bar by turning the Study Reminder bell into a compact icon + active indicator dot (`reminder-badge__dot`), integrating the Offline Cache status & modal trigger cleanly inside the Reminder popover (`reminder-popover__offline-strip`) when online, and keeping Sign Out exclusively inside the Scholar Profile view.
+  - **Home Dashboard (`HomePage.tsx`)**: Eliminated duplicate Daily Study Goal cards by refining the Hero telemetry bar into a balanced 3-column strip (`Words Mastered`, `Saved Bookmarks`, `Active Study Streak`) paired with the interactive `Daily Study Goal` & `7-Day Activity` section below, and streamlined Hero CTAs to 2 primary actions.
+  - **Lessons Hub (`LessonsPage.tsx`)**: Reduced card text density by capping preview objectives at 2 concise items and simplifying unit footer metadata (`Words · Dialogues · Notes & Drills`).
+  - **About Page (`AboutPage.tsx`)**: Upgraded the legacy plain-text layout into an editorial 3-pillar layout (`about-mission-card`, `about-pillars-grid`, `about-contact-card`) consistent with the rest of `HSK Hub`.
 

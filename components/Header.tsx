@@ -6,6 +6,14 @@ import {
   getTodayStudiedWords,
   getLastSevenDaysGoalStatus,
 } from '../utils/progress';
+import {
+  StudyReminderSettings,
+  formatTime12Hour,
+  getBrowserNotificationPermission,
+  requestBrowserNotificationPermission,
+} from '../utils/reminders';
+import { useOnlineStatus, OfflineCacheStats } from '../utils/offlineCache';
+import PWAInstallButton from './PWAInstallButton';
 
 type Page =
   | 'home'
@@ -41,9 +49,21 @@ interface HeaderProps {
   streakData: DailyStreakData;
   vocabProgress: UserVocabProgress;
   onUpdateDailyGoal: (target: number) => void;
+  reminderSettings: StudyReminderSettings;
+  onUpdateReminderSettings: (next: Partial<StudyReminderSettings>) => void;
+  onTriggerPreviewReminder: () => void;
+  offlineCacheStats: OfflineCacheStats;
+  onOpenOfflineModal: () => void;
 }
 
 const GOAL_PRESETS = [5, 10, 15, 20, 30, 50];
+
+const REMINDER_TIME_PRESETS = [
+  { label: 'Morning', time: '08:30' },
+  { label: 'Midday', time: '13:00' },
+  { label: 'Evening', time: '19:00' },
+  { label: 'Night', time: '21:30' },
+];
 
 const NavLink: React.FC<{
   href?: string;
@@ -82,23 +102,36 @@ const Header: React.FC<HeaderProps> = ({
   streakData,
   vocabProgress,
   onUpdateDailyGoal,
+  reminderSettings,
+  onUpdateReminderSettings,
+  onTriggerPreviewReminder,
+  offlineCacheStats,
+  onOpenOfflineModal,
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isStreakOpen, setIsStreakOpen] = useState(false);
   const [isGoalOpen, setIsGoalOpen] = useState(false);
+  const [isReminderOpen, setIsReminderOpen] = useState(false);
   const [customGoalInput, setCustomGoalInput] = useState<string>(
     String(vocabProgress.dailyGoalTarget || DEFAULT_DAILY_GOAL)
   );
+  const [notificationPermission, setNotificationPermission] = useState<
+    NotificationPermission | 'unsupported'
+  >(() => getBrowserNotificationPermission());
+
+  const isOnline = useOnlineStatus();
+
   const streakDropdownRef = useRef<HTMLDivElement>(null);
   const goalDropdownRef = useRef<HTMLDivElement>(null);
+  const reminderDropdownRef = useRef<HTMLDivElement>(null);
 
   const todayStr = getLocalDateString();
-  const practicedToday = streakData.lastPracticeDate === todayStr;
+  const todayStudiedWords = getTodayStudiedWords(vocabProgress);
+  const todayCount = todayStudiedWords.length;
+  const practicedToday = streakData.lastPracticeDate === todayStr || todayCount > 0;
   const weekDays = getLastSevenDaysStatus(streakData.practiceHistory);
 
   const dailyGoalTarget = vocabProgress.dailyGoalTarget || DEFAULT_DAILY_GOAL;
-  const todayStudiedWords = getTodayStudiedWords(vocabProgress);
-  const todayCount = todayStudiedWords.length;
   const goalMetToday = todayCount >= dailyGoalTarget;
   const goalProgressPct = Math.min(100, Math.round((todayCount / dailyGoalTarget) * 100));
   const sevenDayGoals = getLastSevenDaysGoalStatus(vocabProgress);
@@ -114,6 +147,9 @@ const Header: React.FC<HeaderProps> = ({
       }
       if (goalDropdownRef.current && !goalDropdownRef.current.contains(event.target as Node)) {
         setIsGoalOpen(false);
+      }
+      if (reminderDropdownRef.current && !reminderDropdownRef.current.contains(event.target as Node)) {
+        setIsReminderOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -142,7 +178,25 @@ const Header: React.FC<HeaderProps> = ({
     }
   };
 
+  const handleToggleReminder = async () => {
+    const nextEnabled = !reminderSettings.enabled;
+    onUpdateReminderSettings({
+      enabled: nextEnabled,
+      snoozedUntil: null,
+    });
+    if (nextEnabled && notificationPermission === 'default') {
+      const perm = await requestBrowserNotificationPermission();
+      setNotificationPermission(perm);
+    }
+  };
+
+  const handleRequestBrowserPermission = async () => {
+    const perm = await requestBrowserNotificationPermission();
+    setNotificationPermission(perm);
+  };
+
   const shortFirstName = userDisplayName.trim().split(/\s+/)[0] || 'Scholar';
+  const formattedReminderTime = formatTime12Hour(reminderSettings.reminderTime);
 
   return (
     <header className="header">
@@ -157,7 +211,7 @@ const Header: React.FC<HeaderProps> = ({
           </a>
         </div>
 
-        {/* Zone 2: Primary Study Navigation (Concise single-word items; secondary pages live in Footer) */}
+        {/* Zone 2: Primary Study Navigation (6 concise single-word items) */}
         <div className="header__nav-links">
           <NavLink onClick={handleNavClick(navigateToHome)} isCurrent={currentPage === 'home'}>
             Home
@@ -182,16 +236,17 @@ const Header: React.FC<HeaderProps> = ({
           </NavLink>
         </div>
 
-        {/* Zone 3: Unified Telemetry & Account Actions */}
+        {/* Zone 3: Streamlined Telemetry & Account Controls */}
         <div className="header__actions">
           <div className="header__telemetry-group">
-            {/* Daily Study Goal Widget */}
+            {/* 1. Daily Study Goal Widget */}
             <div className="goal-widget" ref={goalDropdownRef}>
               <button
                 type="button"
                 onClick={() => {
                   setIsGoalOpen(prev => !prev);
                   setIsStreakOpen(false);
+                  setIsReminderOpen(false);
                 }}
                 className={`goal-badge ${
                   goalMetToday
@@ -328,13 +383,14 @@ const Header: React.FC<HeaderProps> = ({
 
             <span className="header__telemetry-divider" aria-hidden="true" />
 
-            {/* Daily Streak Tracker */}
+            {/* 2. Daily Streak Tracker */}
             <div className="streak-widget" ref={streakDropdownRef}>
               <button
                 type="button"
                 onClick={() => {
                   setIsStreakOpen(prev => !prev);
                   setIsGoalOpen(false);
+                  setIsReminderOpen(false);
                 }}
                 className={`streak-badge ${practicedToday ? 'streak-badge--active' : 'streak-badge--inactive'}`}
                 aria-label={`Daily practice streak: ${streakData.currentStreak} ${
@@ -410,7 +466,216 @@ const Header: React.FC<HeaderProps> = ({
                 </div>
               )}
             </div>
+
+            <span className="header__telemetry-divider" aria-hidden="true" />
+
+            {/* 3. Compact Study Reminder & Offline Cache Hub Bell */}
+            <div className="reminder-widget" ref={reminderDropdownRef}>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsReminderOpen(prev => !prev);
+                  setIsGoalOpen(false);
+                  setIsStreakOpen(false);
+                  setNotificationPermission(getBrowserNotificationPermission());
+                }}
+                className={`reminder-badge ${
+                  !isOnline
+                    ? 'offline-status-btn--offline'
+                    : reminderSettings.enabled
+                    ? 'reminder-badge--enabled'
+                    : 'reminder-badge--disabled'
+                }`}
+                aria-label={
+                  reminderSettings.enabled
+                    ? `Daily study reminder enabled at ${formattedReminderTime}`
+                    : 'Study reminders & offline cache settings'
+                }
+                title={
+                  !isOnline
+                    ? 'Offline Mode Active — Click for settings'
+                    : reminderSettings.enabled
+                    ? `Study Reminder ON (${formattedReminderTime}) · Offline Cache Ready`
+                    : 'Study Reminders & Offline Cache'
+                }
+              >
+                <svg
+                  className="reminder-badge__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+                  <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+                </svg>
+                {reminderSettings.enabled && <span className="reminder-badge__dot" aria-hidden="true" />}
+              </button>
+
+              {isReminderOpen && (
+                <div className="reminder-popover animate-fade-in">
+                  <div className="reminder-popover__top">
+                    <div className="reminder-popover__title-group">
+                      <h4 className="reminder-popover__title">Daily Study Reminder</h4>
+                      <p className="reminder-popover__subtitle">
+                        Get notified if you haven&apos;t practiced by your target time.
+                      </p>
+                    </div>
+
+                    <button
+                      type="button"
+                      role="switch"
+                      aria-checked={reminderSettings.enabled}
+                      onClick={handleToggleReminder}
+                      className={`reminder-switch ${
+                        reminderSettings.enabled ? 'reminder-switch--on' : ''
+                      }`}
+                      aria-label="Toggle daily study reminder"
+                    >
+                      <span className="reminder-switch__thumb" />
+                    </button>
+                  </div>
+
+                  {/* Today's Practice Status Banner */}
+                  <div
+                    className={`reminder-popover__status ${
+                      practicedToday
+                        ? 'reminder-popover__status--done'
+                        : reminderSettings.enabled
+                        ? 'reminder-popover__status--pending'
+                        : 'reminder-popover__status--off'
+                    }`}
+                  >
+                    <span className="reminder-popover__status-dot" aria-hidden="true" />
+                    <span>
+                      {practicedToday
+                        ? `You've practiced today! Next check-in tomorrow at ${formattedReminderTime}.`
+                        : reminderSettings.enabled
+                        ? `Scheduled for ${formattedReminderTime} today if you haven't practiced yet.`
+                        : 'Reminders are paused. Toggle the switch above to activate.'}
+                    </span>
+                  </div>
+
+                  {/* Time Picker & Presets */}
+                  <div className="reminder-popover__section">
+                    <label htmlFor="header-reminder-time" className="goal-popover__label">
+                      Preferred Reminder Time
+                    </label>
+                    <div className="reminder-popover__time-row">
+                      <input
+                        id="header-reminder-time"
+                        type="time"
+                        value={reminderSettings.reminderTime}
+                        onChange={e => {
+                          if (e.target.value) {
+                            onUpdateReminderSettings({
+                              reminderTime: e.target.value,
+                              enabled: true,
+                              lastNotifiedDate: null,
+                              snoozedUntil: null,
+                            });
+                          }
+                        }}
+                        className="reminder-popover__time-input tabular-nums"
+                      />
+                      <span className="reminder-popover__time-formatted tabular-nums">
+                        {formattedReminderTime}
+                      </span>
+                    </div>
+
+                    <div className="reminder-popover__presets">
+                      {REMINDER_TIME_PRESETS.map(preset => (
+                        <button
+                          key={preset.time}
+                          type="button"
+                          onClick={() =>
+                            onUpdateReminderSettings({
+                              reminderTime: preset.time,
+                              enabled: true,
+                              lastNotifiedDate: null,
+                              snoozedUntil: null,
+                            })
+                          }
+                          className={`reminder-preset-btn ${
+                            reminderSettings.reminderTime === preset.time
+                              ? 'reminder-preset-btn--active'
+                              : ''
+                          }`}
+                        >
+                          <span>{preset.label}</span>
+                          <small className="tabular-nums">{preset.time}</small>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Browser Notification Channel Status */}
+                  <div className="reminder-popover__channel">
+                    <div className="reminder-popover__channel-info">
+                      <span className="reminder-popover__channel-label">Notification Channel</span>
+                      <span className="reminder-popover__channel-desc">
+                        {notificationPermission === 'granted'
+                          ? 'Browser Alert + On-Screen Toast'
+                          : 'On-Screen Toast (Browser optional)'}
+                      </span>
+                    </div>
+                    {notificationPermission === 'default' && (
+                      <button
+                        type="button"
+                        onClick={handleRequestBrowserPermission}
+                        className="reminder-popover__perm-btn"
+                      >
+                        Allow Browser
+                      </button>
+                    )}
+                    {notificationPermission === 'granted' && (
+                      <span className="reminder-popover__perm-tag">✓ Active</span>
+                    )}
+                  </div>
+
+                  {/* Offline Service Worker Cache Status Row */}
+                  <div className="reminder-popover__channel">
+                    <div className="reminder-popover__channel-info">
+                      <span className="reminder-popover__channel-label">Offline Review Cache</span>
+                      <span className="reminder-popover__channel-desc tabular-nums">
+                        {offlineCacheStats.cachedWordCount.toLocaleString()} words &amp;{' '}
+                        {offlineCacheStats.cachedLessonCount} units cached
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsReminderOpen(false);
+                        onOpenOfflineModal();
+                      }}
+                      className="reminder-popover__perm-btn"
+                    >
+                      Manage Cache
+                    </button>
+                  </div>
+
+                  {/* Preview / Test Button */}
+                  <div className="reminder-popover__footer">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsReminderOpen(false);
+                        onTriggerPreviewReminder();
+                      }}
+                      className="button button--secondary button--sm reminder-popover__test-btn"
+                    >
+                      Test Notification Now
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
+
+          <PWAInstallButton />
 
           <span className="header__action-divider" aria-hidden="true" />
 
@@ -431,9 +696,6 @@ const Header: React.FC<HeaderProps> = ({
                   学
                 </span>
                 <span className="header__profile-name">{shortFirstName}</span>
-              </button>
-              <button onClick={onSignOut} className="header__signin-link" title="Sign Out">
-                Sign Out
               </button>
             </div>
           ) : (
@@ -548,6 +810,35 @@ const Header: React.FC<HeaderProps> = ({
               </strong>
             </span>
             <span className="mobile-menu__streak-best tabular-nums">Best: {streakData.longestStreak}d</span>
+          </div>
+          <div className="mobile-menu__streak">
+            <span>
+              Study Reminder:{' '}
+              <strong>{reminderSettings.enabled ? formattedReminderTime : 'Off'}</strong>
+            </span>
+            <button
+              type="button"
+              onClick={handleToggleReminder}
+              className="reminder-popover__perm-btn"
+            >
+              {reminderSettings.enabled ? 'Turn Off' : 'Turn On'}
+            </button>
+          </div>
+          <div className="mobile-menu__streak">
+            <span>
+              Offline Cache:{' '}
+              <strong>{offlineCacheStats.cachedWordCount.toLocaleString()} words ready</strong>
+            </span>
+            <button
+              type="button"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                onOpenOfflineModal();
+              }}
+              className="reminder-popover__perm-btn"
+            >
+              Manage
+            </button>
           </div>
           <div className="mobile-menu__divider"></div>
           {isAuthenticated ? (
