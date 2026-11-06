@@ -7,7 +7,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, '.'),
     }
   },
-  base: '/',
+base: '/hsk-mastery-hub3/',
   build: {
     rollupOptions: {
       output: {
