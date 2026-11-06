@@ -1,16 +1,31 @@
 {
+  "id": "/",
   "name": "HSK Mastery Hub",
   "short_name": "HSK Hub",
-  "description": "A comprehensive platform for learning Chinese and preparing for HSK exams",
+  "description": "Interactive Mandarin Chinese HSK 1–6 vocabulary, stroke order calligraphy, textbook lessons, and offline review workspace.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#4a90e2",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "64x64",
-      "type": "image/x-icon"
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
