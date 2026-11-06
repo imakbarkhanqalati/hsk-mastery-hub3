@@ -96,6 +96,41 @@ export const recordDailyPractice = (): DailyStreakData => {
   return updated;
 };
 
+export const mergeCloudStreakData = (cloud: {
+  currentStreak?: number;
+  longestStreak?: number;
+  lastPracticeDate?: string | null;
+  practiceHistory?: string[];
+}): DailyStreakData => {
+  const current = getStreakData();
+  const mergedHistory = Array.from(
+    new Set([
+      ...current.practiceHistory,
+      ...(Array.isArray(cloud.practiceHistory) ? cloud.practiceHistory : []),
+    ])
+  ).sort();
+  const lastDate =
+    cloud.lastPracticeDate && (!current.lastPracticeDate || cloud.lastPracticeDate > current.lastPracticeDate)
+      ? cloud.lastPracticeDate
+      : current.lastPracticeDate;
+  const updated: DailyStreakData = {
+    currentStreak: Math.max(current.currentStreak, cloud.currentStreak || 0),
+    longestStreak: Math.max(current.longestStreak, cloud.longestStreak || 0),
+    lastPracticeDate: lastDate,
+    practiceHistory: mergedHistory.slice(-60),
+  };
+
+  if (typeof window !== 'undefined' && window.localStorage) {
+    try {
+      localStorage.setItem(STREAK_STORAGE_KEY, JSON.stringify(updated));
+      window.dispatchEvent(new CustomEvent('streak-updated', { detail: updated }));
+    } catch (err) {
+      console.error('Failed to save merged streak data:', err);
+    }
+  }
+  return updated;
+};
+
 export const getLastSevenDaysStatus = (practiceHistory: string[]): {
   date: string;
   dayLabel: string;

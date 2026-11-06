@@ -80,6 +80,42 @@ export const setDailyGoalTarget = (target: number): UserVocabProgress => {
   return updated;
 };
 
+export const mergeCloudVocabProgress = (cloud: {
+  masteredChars?: string[];
+  bookmarkedChars?: string[];
+  dailyGoalTarget?: number;
+  dailyStudiedByDate?: Record<string, string[]>;
+}): UserVocabProgress => {
+  const current = getVocabProgress();
+  const mergedMastered = Array.from(
+    new Set([...current.masteredWords, ...(Array.isArray(cloud.masteredChars) ? cloud.masteredChars : [])])
+  );
+  const mergedBookmarked = Array.from(
+    new Set([...current.bookmarkedWords, ...(Array.isArray(cloud.bookmarkedChars) ? cloud.bookmarkedChars : [])])
+  );
+  const mergedByDate: Record<string, string[]> = { ...current.dailyStudiedByDate };
+  if (cloud.dailyStudiedByDate && typeof cloud.dailyStudiedByDate === 'object') {
+    for (const [dateStr, chars] of Object.entries(cloud.dailyStudiedByDate)) {
+      if (Array.isArray(chars)) {
+        const existing = mergedByDate[dateStr] || [];
+        mergedByDate[dateStr] = Array.from(new Set([...existing, ...chars]));
+      }
+    }
+  }
+  const updated: UserVocabProgress = {
+    ...current,
+    masteredWords: mergedMastered,
+    bookmarkedWords: mergedBookmarked,
+    dailyGoalTarget:
+      typeof cloud.dailyGoalTarget === 'number' && cloud.dailyGoalTarget >= 1
+        ? Math.min(200, Math.round(cloud.dailyGoalTarget))
+        : current.dailyGoalTarget,
+    dailyStudiedByDate: mergedByDate,
+  };
+  saveVocabProgress(updated);
+  return updated;
+};
+
 export const recordWordStudied = (char: string): UserVocabProgress => {
   const cleanChar = char.trim();
   const current = getVocabProgress();

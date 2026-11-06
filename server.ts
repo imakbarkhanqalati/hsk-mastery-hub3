@@ -4,6 +4,8 @@ import { fileURLToPath } from 'url';
 import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI, Type } from '@google/genai';
 import { vocabData } from './data/vocab';
+import { requireAuth, AuthRequest } from './src/middleware/auth.ts';
+import { getOrCreateUser, syncUserProgress } from './src/db/users.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,6 +15,53 @@ async function startServer() {
   const PORT = 3000;
 
   app.use(express.json({ limit: '15mb' }));
+
+  app.get('/api/me', requireAuth, async (req: AuthRequest, res) => {
+    try {
+      const uid = req.user!.uid;
+      const email = req.user!.email || `${uid}@scholar.hskhub.app`;
+      const displayName = req.user!.name || null;
+      const photoUrl = req.user!.picture || null;
+
+      const userRecord = await getOrCreateUser(uid, email, displayName, photoUrl);
+      res.json({
+        uid: userRecord.uid,
+        email: userRecord.email,
+        displayName: userRecord.displayName,
+        photoUrl: userRecord.photoUrl,
+        dailyGoalTarget: userRecord.dailyGoalTarget,
+        currentStreak: userRecord.currentStreak,
+        longestStreak: userRecord.longestStreak,
+        lastPracticeDate: userRecord.lastPracticeDate,
+        masteredChars: JSON.parse(userRecord.masteredCharsJson || '[]'),
+        bookmarkedChars: JSON.parse(userRecord.bookmarkedCharsJson || '[]'),
+        dailyStudiedByDate: JSON.parse(userRecord.dailyStudiedJson || '{}'),
+        practiceHistory: JSON.parse(userRecord.practiceHistoryJson || '[]'),
+      });
+    } catch (error: any) {
+      console.error('Failed to fetch user profile:', error);
+      res.status(500).json({ error: error.message || 'Failed to fetch user profile' });
+    }
+  });
+
+  app.post('/api/me/sync', requireAuth, async (req: AuthRequest, res) => {
+    try {
+      const uid = req.user!.uid;
+      const email = req.user!.email || `${uid}@scholar.hskhub.app`;
+      const updated = await syncUserProgress(uid, email, req.body || {});
+      res.json({
+        uid: updated.uid,
+        email: updated.email,
+        displayName: updated.displayName,
+        dailyGoalTarget: updated.dailyGoalTarget,
+        currentStreak: updated.currentStreak,
+        longestStreak: updated.longestStreak,
+      });
+    } catch (error: any) {
+      console.error('Failed to sync user progress:', error);
+      res.status(500).json({ error: error.message || 'Failed to sync user progress' });
+    }
+  });
 
   app.post('/api/evaluate-pronunciation', async (req, res) => {
     try {

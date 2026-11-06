@@ -1,4 +1,6 @@
-import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { auth } from './src/lib/firebase';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import StudyReminderToast from './components/StudyReminderToast';
@@ -28,12 +30,13 @@ const Badges = lazy(() => import('./components/Badges'));
 import { lessons as lessonsData } from './data/lessons';
 import { vocabData } from './data/vocab';
 import { Word } from './types';
-import { AuthModalState } from './components/AuthModal';
+import { AuthModalState, AuthUserData } from './components/AuthModal';
 import {
   DailyStreakData,
   getStreakData,
   recordDailyPractice,
   getLocalDateString,
+  mergeCloudStreakData,
 } from './utils/streak';
 import {
   UserVocabProgress,
@@ -44,6 +47,7 @@ import {
   toggleMasteredWord,
   recordWordStudied,
   setDailyGoalTarget,
+  mergeCloudVocabProgress,
 } from './utils/progress';
 import {
   StudyReminderSettings,
@@ -95,6 +99,10 @@ function App() {
   const [isFeatureModalOpen, setIsFeatureModalOpen] = useState(false);
   const [selectedWord, setSelectedWord] = useState<Word | null>(null);
 
+  // Store Firebase Auth ID token strictly in memory (never in localStorage)
+  const authTokenRef = useRef<string | null>(null);
+  const isInitialCloudLoadDoneRef = useRef<boolean>(false);
+
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
       try {
@@ -145,6 +153,104 @@ function App() {
     lastSyncedAt: null,
   });
   const [isOfflineModalOpen, setIsOfflineModalOpen] = useState(false);
+
+  // Listen to Firebase Auth state changes and synchronize user profile with backend
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async firebaseUser => {
+      if (firebaseUser) {
+        try {
+          const token = await firebaseUser.getIdToken();
+          authTokenRef.current = token;
+          const derivedName =
+            firebaseUser.displayName ||
+            (firebaseUser.email
+              ? firebaseUser.email
+                  .split('@')[0]
+                  .replace(/[._-]+/g, ' ')
+                  .replace(/\b\w/g, c => c.toUpperCase())
+              : 'Mandarin Scholar');
+
+          setIsAuthenticated(true);
+          setUserDisplayName(prev => (prev && prev !== 'Akbar Qalati' ? prev : derivedName));
+
+          const response = await fetch('/api/me', {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          if (response.ok) {
+            const profile = await response.json();
+            if (profile.displayName) {
+              setUserDisplayName(profile.displayName);
+            }
+            const mergedVocab = mergeCloudVocabProgress({
+              masteredChars: profile.masteredChars,
+              bookmarkedChars: profile.bookmarkedChars,
+              dailyGoalTarget: profile.dailyGoalTarget,
+              dailyStudiedByDate: profile.dailyStudiedByDate,
+            });
+            setVocabProgress(mergedVocab);
+
+            const mergedStreak = mergeCloudStreakData({
+              currentStreak: profile.currentStreak,
+              longestStreak: profile.longestStreak,
+              lastPracticeDate: profile.lastPracticeDate,
+              practiceHistory: profile.practiceHistory,
+            });
+            setStreakData(mergedStreak);
+          }
+          isInitialCloudLoadDoneRef.current = true;
+        } catch (err) {
+          console.error('Error syncing authenticated user session:', err);
+          isInitialCloudLoadDoneRef.current = true;
+        }
+      } else {
+        authTokenRef.current = null;
+        isInitialCloudLoadDoneRef.current = false;
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  // Push progress updates to PostgreSQL when authenticated
+  useEffect(() => {
+    const syncToBackend = async () => {
+      if (!isAuthenticated || !authTokenRef.current || !isInitialCloudLoadDoneRef.current) {
+        return;
+      }
+      try {
+        const currentUser = auth.currentUser;
+        const token = currentUser ? await currentUser.getIdToken() : authTokenRef.current;
+        if (!token) return;
+        authTokenRef.current = token;
+
+        await fetch('/api/me/sync', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            displayName: userDisplayName,
+            dailyGoalTarget: vocabProgress.dailyGoalTarget,
+            currentStreak: streakData.currentStreak,
+            longestStreak: streakData.longestStreak,
+            lastPracticeDate: streakData.lastPracticeDate,
+            masteredChars: vocabProgress.masteredWords,
+            bookmarkedChars: vocabProgress.bookmarkedWords,
+            dailyStudiedByDate: vocabProgress.dailyStudiedByDate,
+            practiceHistory: streakData.practiceHistory,
+          }),
+        });
+      } catch {
+        // Silent background sync fallback if offline
+      }
+    };
+
+    const timeoutId = window.setTimeout(syncToBackend, 600);
+    return () => window.clearTimeout(timeoutId);
+  }, [isAuthenticated, userDisplayName, vocabProgress, streakData]);
 
   // Initialize Service Worker & cache core HSK 1-6 vocabulary + lessons on mount
   useEffect(() => {
@@ -402,7 +508,7 @@ function App() {
   }, []);
 
   const handleSignIn = useCallback(
-    (data: { email?: string; name?: string }) => {
+    (data: AuthUserData) => {
       if (data?.name) {
         setUserDisplayName(data.name);
       }
@@ -413,7 +519,7 @@ function App() {
   );
 
   const handleSignUp = useCallback(
-    (data: { email?: string; name?: string }) => {
+    (data: AuthUserData) => {
       if (data?.name) {
         setUserDisplayName(data.name);
       }
@@ -423,7 +529,14 @@ function App() {
     [handleCloseAuthModal]
   );
 
-  const handleSignOut = useCallback(() => {
+  const handleSignOut = useCallback(async () => {
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.error('Error signing out:', err);
+    }
+    authTokenRef.current = null;
+    isInitialCloudLoadDoneRef.current = false;
     setIsAuthenticated(false);
     setCurrentPage(prev => (prev === 'profile' ? 'home' : prev));
   }, []);
