@@ -1,13 +1,15 @@
 import path from 'path';
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  plugins: [react()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '.'),
-    }
+    },
   },
-base: '/hsk-mastery-hub3/',
+  base: '/hsk-mastery-hub3/',
   build: {
     rollupOptions: {
       output: {
@@ -30,9 +32,9 @@ base: '/hsk-mastery-hub3/',
           if (id.includes('/data/vocab')) {
             return 'vocab-data-chunk';
           }
-        }
-      }
+        },
+      },
     },
-    chunkSizeWarningLimit: 600
-  }
+    chunkSizeWarningLimit: 600,
+  },
 });
