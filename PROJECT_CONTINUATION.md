@@ -82,7 +82,7 @@
 ## 3. Textbook Curriculum (`/data/lessons.ts`)
 
 ### Current Curriculum Status
-All lessons are authored in `/data/lessons.ts` from the uploaded *Mastering Chinese: Elementary 1 & 2 (会通汉语 精编版·初级1 & 初级2)* PDFs in `/public/assets/aistudio/`.
+All 12 lessons are authored in `/data/lessons.ts` from the uploaded *Mastering Chinese: Elementary 1, 2 & 3 (会通汉语 精编版·初级1, 初级2 & 初级3)* PDFs in `/public/assets/aistudio/` with zero duplication across sub-parts.
 
 | Lesson ID | Unit Number | HSK Level | Chinese Title | English Title | Sub-Parts Covered |
 | :--- | :---: | :---: | :--- | :--- | :--- |
@@ -94,6 +94,10 @@ All lessons are authored in `/data/lessons.ts` from the uploaded *Mastering Chin
 | `lesson6` | Unit 6 | **HSK 2** | 第5课：你去那儿干什么 | What Are You Going There to Do? (Directions, Campus Places & Errands) | (一), (二), (三), (四) + 文化读本2 |
 | `lesson7` | Unit 7 | **HSK 2** | 第6课：再点一个素的吧 | Let's Order One More Vegetarian Dish (Dining Out, Ordering & Dietary Preferences) | (一), (二), (三), (四) + 文化读本2 |
 | `lesson8` | Unit 8 | **HSK 2** | 文化读本2：中国人的日常饮食与消费文化 | Cultural Reader 2: Chinese Culinary Traditions, Tea Culture & Digital Life | 文化读本2 (Comprehensive Synthesis) |
+| `lesson9` | Unit 9 | **HSK 3** | 第7课：你怎么去的 | Lesson 7: How Did You Go There? (Past Experiences `V+过`, Transport, Duration & `(是…)的`) | 第7课 (一), (二), (三), (四) |
+| `lesson10` | Unit 10 | **HSK 3** | 第8课：今天比昨天冷多了 | Lesson 8: Today Is Much Colder Than Yesterday (Weather, Seasons, Comparisons `比/更/一样` & `正…呢/着`) | 第8课 (一), (二), (三), (四) |
+| `lesson11` | Unit 11 | **HSK 3** | 第9课：地铁站在哪儿 | Lesson 9: Where Is the Subway Station? (Location Words, Distance `离/从…到…`, Route Directions & `过来/过去`) | 第9课 (一), (二), (三), (四) |
+| `lesson12` | Unit 12 | **HSK 3** | 文化读本3：中国的二十四节气 | Cultural Reader 3: China's Twenty-Four Solar Terms (Fifth Great Invention, Farming Wisdom & Seasonal Customs) | 文化读本3 (Comprehensive Synthesis) |
 
 ### How to Add Future Textbook Lessons (e.g., Elementary 3 / HSK 2–6 Units)
 When the user uploads the next batch of PDFs (such as Lesson 7, Lesson 8, Lesson 9, Cultural Reader 3, or HSK 3–6 textbook chapters):
@@ -258,4 +262,11 @@ Before finishing any future turn, always:
 - **Phase 16 — Multi-Provider Authentication UI (`Google`, `Facebook`, & `Email/Password` in `AuthModal.tsx`, `src/lib/firebase.ts`, `index.css`)**:
   - **All 3 Enabled Firebase Providers**: Added `FacebookAuthProvider` (`signInWithPopup(auth, facebookAuthProvider)`), `GoogleAuthProvider` (`signInWithPopup(auth, googleAuthProvider)`), and Email/Password authentication (`signInWithEmailAndPassword`, `createUserWithEmailAndPassword`, `updateProfile`, `sendPasswordResetEmail`).
   - **Redesigned Sign In & Sign Up Modal (`AuthModal.tsx` & `index.css`)**: Added segmented `Sign In` / `Create Account` mode tabs, a 2-column Google & Facebook OAuth button grid, an `or continue with email` divider, Email/Password inputs with a Show/Hide password toggle, `Forgot password?` email reset flow, and human-friendly Firebase error messages.
+- **Phase 17 — *Mastering Chinese: Elementary 3 (会通汉语 精编版·初级3)* HSK 3 Curriculum (`lesson9`–`lesson12` in `/data/lessons.ts` & `Header.tsx`)**:
+  - **Zero-Duplication Synthesis of All 13 Uploaded Elementary 3 PDFs**: Authored 4 comprehensive **HSK 3 (`hskLevel: 3`)** units consolidating sub-parts `(一)`, `(二)`, `(三)`, and `(四)` plus *Cultural Reader 3*:
+    - **`lesson9` (Unit 9 — 第7课：你怎么去的 / *Lesson 7: How Did You Go There?*)**: Pictophonetic characters (`形声字`: 饭, 问, 期, 汽, 什, 们, 漂, 作) and radicals (`饣`, `讠`, `木`, `扌`), dialogues on character dictation before an exam and buying a qipao / traveling to Beijing, reading passage on Jin Zhiying's bicycle commute & weekend trips, 32 deduplicated vocabulary items, 5 grammar notes (`V+过`, `[short/early time]+就+V`, `V+过/了+[时段]`, `(是…)的`, `不是…吗？`), and 4 comprehension exercises.
+    - **`lesson10` (Unit 10 — 第8课：今天比昨天冷多了 / *Lesson 8: Today Is Much Colder Than Yesterday*)**: Look-alike character pairs (`了/子`, `少/小`, `几/儿`, `千/干`, `白/百`, `老/考`) and weather/temperature radicals (`日`, `冫`, `火`, `灬`), dialogues on windy autumn weather in Tokyo and Saudi summers vs. Ottawa winters (`零下三十五六度`), Hirata's global weather reading essay, 21 deduplicated vocabulary items, 5 grammar notes (`又+V+了` vs. `再+V`, `挺+Adj+的` & `左右`/adjacent digits, `跟…一样`/`更`/`比…多了/一点儿/[数量]`, `快…了` & `不会…吧？`, `正…呢` & `V+着`), and 4 exercises.
+    - **`lesson11` (Unit 11 — 第9课：地铁站在哪儿 / *Lesson 9: Where Is the Subway Station?*)**: Initial/final discrimination drills (`b-p`, `d-t`, `z-zh`, `c-ch`, `s-sh`, `an-ang`, `in-ing`), 9 look-alike character pairs (`左/右`, `往/住`, etc.), and movement/place radicals (`辶`, `⺶/足`, `阝`), dialogues on asking a passerby for directions to a department store restroom and meeting at the subway station, reading passages on a residential complex (`小区`) and route directions to KTV, 22 deduplicated vocabulary items, 5 grammar notes (location words with `有/在/是`, distance with `离` & `从…到…`, route directions with `一直往…走` & `拐`, `一…就…`, `过来` vs. `过去`), and 4 exercises.
+    - **`lesson12` (Unit 12 — 文化读本3：中国的二十四节气 / *Cultural Reader 3: China's Twenty-Four Solar Terms*)**: Detailed guide to the 7 featured solar terms (`立春`, `清明`, `小暑`, `大暑`, `冬至`, `小寒`, `大寒`), 2 discussion dialogues on agricultural origins and modern urban customs, the full 3-paragraph authentic essay on "China's Fifth Great Invention" (`中国的第五大发明`), 16 deduplicated vocabulary items, 3 discourse/grammar notes (`通过…总结出…`, `一是…；二是…`, `这么说吧 / 比如说我吧`), and 4 exercises.
+
 

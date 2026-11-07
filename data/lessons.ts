@@ -4810,4 +4810,2537 @@ export const lessons: Lesson[] = [
       },
     ],
   },
+  {
+    "id": "lesson9",
+    "title": "Lesson 7: How Did You Go There? — 第7课：你怎么去的",
+    "chineseTitle": "第7课：你怎么去的",
+    "unitBadge": "Mastering Chinese · Elementary 3 (会通汉语 精编版·初级3)",
+    "description": "Learn how to talk about past experiences using V+过, emphasize quick or early actions with 就, state duration of past or completed actions, and highlight the time, place, transportation, or companion of a completed event using the (是…)的 structure.",
+    "content": "Past Experiences (V+过), Modes of Transportation, Time Duration & The (是…)的 Construction. Learn how to talk about past experiences using V+过, emphasize quick or early actions with 就, state duration of past or completed actions, and highlight the time, place, transportation, or companion of a completed event using the (是…)的 structure.",
+    "hskLevel": 3,
+    "objectives": [
+      "Talk about past experiences and whether something has ever happened using V + 过 (+ N) and its negative form 没 + V + 过 (+ N).",
+      "Express that an action happened quickly or early using [short/early time] + 就 + V (+ 了) (e.g., 一会儿就写完了, 两年前就学过了).",
+      "Ask and answer how long an activity lasted using V + 过/了 + 多长时间 (+ N) and distinguish points in time (时点) from durations (时段).",
+      "Highlight the time, place, mode of transportation (坐出租车, 坐飞机, 坐火车, 骑自行车, 开车), or companion of a past event using (是 +) … 的, and form rhetorical questions with 不是……吗？."
+    ],
+    "phoneticsAndCharacters": {
+      "title": "Section 1 & 2 · Phonetics, Character Structure & Radicals (第7课：你怎么去的)",
+      "sections": [
+        {
+          "subtitle": "Pictophonetic Characters (形声字 — Semantic Radical + Phonetic Component)",
+          "summary": "Over 90% of Chinese characters are pictophonetic compounds (形声字). One component—the semantic radical (形旁)—indicates the general meaning category, while the other—the phonetic component (声旁)—gives a clue to the pronunciation.",
+          "items": [
+            {
+              "label": "饭 (fàn · meal / cooked rice)",
+              "pinyin": "饣 (food radical) + 反 (fǎn, phonetic)",
+              "examples": "Meaning relates to food (饣); pronunciation echoes 反 (fǎn → fàn).",
+              "detail": "Meaning relates to food (饣); pronunciation echoes 反 (fǎn → fàn). — Left-side semantic radical + right-side phonetic component"
+            },
+            {
+              "label": "问 (wèn · to ask)",
+              "pinyin": "口 (mouth radical) + 门 (mén, phonetic)",
+              "examples": "Asking uses the mouth (口); pronunciation is close to 门 (mén → wèn).",
+              "detail": "Asking uses the mouth (口); pronunciation is close to 门 (mén → wèn). — Outer phonetic frame (门) + inner semantic radical (口)"
+            },
+            {
+              "label": "期 (qī · period / phase)",
+              "pinyin": "月 (moon / time radical) + 其 (qí, phonetic)",
+              "examples": "星期 (xīngqī, week); meaning relates to lunar time (月), sound matches 其 (qí → qī).",
+              "detail": "星期 (xīngqī, week); meaning relates to lunar time (月), sound matches 其 (qí → qī). — Left-side phonetic (其) + right-side semantic (月)"
+            },
+            {
+              "label": "Character Riddles (猜字游戏 · Radical + Phonetic)",
+              "pinyin": "氵+气=汽 (qì) · 亻+十=什 (shén) · 亻+门=们 (men) · 氵+票=漂 (piào) · 亻+乍=作 (zuò)",
+              "examples": "汽水 (qìshuǐ), 什么 (shénme), 我们 (wǒmen), 漂亮 (piàoliang), 作业 (zuòyè)",
+              "detail": "汽水 (qìshuǐ), 什么 (shénme), 我们 (wǒmen), 漂亮 (piàoliang), 作业 (zuòyè) — Recognize the shared phonetic clue while checking the radical for meaning"
+            }
+          ]
+        },
+        {
+          "subtitle": "Four Essential Radicals: 饣, 讠, 木, and 扌(常用的偏旁)",
+          "summary": "Mastering these four high-frequency radicals helps you immediately infer whether a character relates to food, language/speech, trees/wood, or hand actions.",
+          "items": [
+            {
+              "label": "饣 (食字旁 · Food & Diet Radical)",
+              "pinyin": "Usually on the left side of characters related to food or eating",
+              "examples": "饭 (fàn, meal), 饱 (bǎo, full after eating), 饿 (è, hungry), 饺 (jiǎo, dumpling)",
+              "detail": "饭 (fàn, meal), 饱 (bǎo, full after eating), 饿 (è, hungry), 饺 (jiǎo, dumpling) — Derived from 食 (shí, food / to eat)"
+            },
+            {
+              "label": "讠 (言字旁 · Speech & Language Radical)",
+              "pinyin": "Usually on the left side of characters related to speaking or language",
+              "examples": "请 (qǐng, please/invite), 谢 (xiè, thank), 语 (yǔ, language), 话 (huà, speech), 认 (rèn, recognize), 识 (shí, know)",
+              "detail": "请 (qǐng, please/invite), 谢 (xiè, thank), 语 (yǔ, language), 话 (huà, speech), 认 (rèn, recognize), 识 (shí, know) — Derived from 言 (yán, words / speech)"
+            },
+            {
+              "label": "木 (木字旁 · Tree & Wood Radical)",
+              "pinyin": "Appears on the left, bottom, or top of characters related to trees or wooden objects",
+              "examples": "杯 (bēi, cup), 机 (jī, machine/loom), 梨 (lí, pear), 桌 (zhuō, table), 楼 (lóu, building)",
+              "detail": "杯 (bēi, cup), 机 (jī, machine/loom), 梨 (lí, pear), 桌 (zhuō, table), 楼 (lóu, building) — Pictograph of a tree with branches and roots"
+            },
+            {
+              "label": "扌 (提手旁 · Hand & Action Radical)",
+              "pinyin": "Usually on the left side of characters denoting actions performed with the hands",
+              "examples": "打 (dǎ, hit/play/call), 接 (jiē, receive/pick up), 找 (zhǎo, look for), 拍 (pāi, take a photo/clap)",
+              "detail": "打 (dǎ, hit/play/call), 接 (jiē, receive/pick up), 找 (zhǎo, look for), 拍 (pāi, take a photo/clap) — Derived from 手 (shǒu, hand)"
+            }
+          ]
+        }
+      ]
+    },
+    "dialogue": [
+      {
+        "character": "阿里",
+        "hanzi": "明天有考试，我们一起做作业吧。我来说，你来听和写，怎么样？",
+        "pinyin": "Míngtiān yǒu kǎoshì, wǒmen yìqǐ zuò zuòyè ba. Wǒ lái shuō, nǐ lái tīng hé xiě, zěnmeyàng?",
+        "translation": "There is a test tomorrow; let’s do our homework together. I’ll speak, and you listen and write—how about that?"
+      },
+      {
+        "character": "金志英",
+        "hanzi": "太好了！你说吧。",
+        "pinyin": "Tài hǎo le! Nǐ shuō ba.",
+        "translation": "Great! Go ahead and say them."
+      },
+      {
+        "character": "阿里",
+        "hanzi": "“走”。",
+        "pinyin": "“Zǒu”.",
+        "translation": "“Zǒu” (to walk / leave)."
+      },
+      {
+        "character": "金志英",
+        "hanzi": "“走”？学过吗？",
+        "pinyin": "“Zǒu”? Xuéguo ma?",
+        "translation": "“Zǒu”? Have we learned it before?"
+      },
+      {
+        "character": "阿里",
+        "hanzi": "学过，你看。",
+        "pinyin": "Xuéguo, nǐ kàn.",
+        "translation": "Yes, we have—look."
+      },
+      {
+        "character": "金志英",
+        "hanzi": "哦，对对对，我忘了。一共多少个汉字？",
+        "pinyin": "Ò, duì duì duì, wǒ wàng le. Yígòng duōshao gè Hànzì?",
+        "translation": "Oh, right, right, I forgot. How many Chinese characters are there altogether?"
+      },
+      {
+        "character": "阿里",
+        "hanzi": "三十六个。",
+        "pinyin": "Sānshíliù gè.",
+        "translation": "Thirty-six."
+      },
+      {
+        "character": "金志英",
+        "hanzi": "那一会儿就写完了！写完作业我们一起看电影，好不好？",
+        "pinyin": "Nà yíhuìr jiù xiěwán le! Xiěwán zuòyè wǒmen yìqǐ kàn diànyǐng, hǎo bu hǎo?",
+        "translation": "Then we’ll finish writing them in just a moment! After finishing homework, let’s watch a movie together, okay?"
+      },
+      {
+        "character": "阿里",
+        "hanzi": "好啊！你以前学过汉语吗？",
+        "pinyin": "Hǎo a! Nǐ yǐqián xuéguo Hànyǔ ma?",
+        "translation": "Sure! Have you studied Chinese before?"
+      },
+      {
+        "character": "金志英",
+        "hanzi": "学过。",
+        "pinyin": "Xuéguo.",
+        "translation": "Yes, I have."
+      },
+      {
+        "character": "阿里",
+        "hanzi": "学过多长时间？",
+        "pinyin": "Xuéguo duō cháng shíjiān?",
+        "translation": "How long did you study it?"
+      },
+      {
+        "character": "金志英",
+        "hanzi": "学过三个月。",
+        "pinyin": "Xuéguo sān gè yuè.",
+        "translation": "I studied it for three months."
+      },
+      {
+        "character": "阿里",
+        "hanzi": "什么时候学的？",
+        "pinyin": "Shénme shíhou xué de?",
+        "translation": "When did you study it?"
+      },
+      {
+        "character": "金志英",
+        "hanzi": "两年前学的。",
+        "pinyin": "Liǎng nián qián xué de.",
+        "translation": "I studied it two years ago."
+      },
+      {
+        "character": "阿里",
+        "hanzi": "两年前就学过了？那么早啊！在中国学的吗？",
+        "pinyin": "Liǎng nián qián jiù xuéguo le? Nàme zǎo a! Zài Zhōngguó xué de ma?",
+        "translation": "You already studied it two years ago? That early! Did you study it in China?"
+      },
+      {
+        "character": "金志英",
+        "hanzi": "不是，在韩国的学院学的。",
+        "pinyin": "Bú shì, zài Hánguó de xuéyuàn xué de.",
+        "translation": "No, I studied it at an institute in Korea."
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Dialogue 1: Reviewing Characters Before an Exam & Past Mandarin Study (阿里 & 金志英)",
+        "context": "Ali (阿里) and Jin Zhiying (金志英) practice dictating 36 Chinese characters together for tomorrow’s test and talk about when and where Jin Zhiying first studied Mandarin.",
+        "lines": [
+          {
+            "character": "阿里",
+            "hanzi": "明天有考试，我们一起做作业吧。我来说，你来听和写，怎么样？",
+            "pinyin": "Míngtiān yǒu kǎoshì, wǒmen yìqǐ zuò zuòyè ba. Wǒ lái shuō, nǐ lái tīng hé xiě, zěnmeyàng?",
+            "translation": "There is a test tomorrow; let’s do our homework together. I’ll speak, and you listen and write—how about that?"
+          },
+          {
+            "character": "金志英",
+            "hanzi": "太好了！你说吧。",
+            "pinyin": "Tài hǎo le! Nǐ shuō ba.",
+            "translation": "Great! Go ahead and say them."
+          },
+          {
+            "character": "阿里",
+            "hanzi": "“走”。",
+            "pinyin": "“Zǒu”.",
+            "translation": "“Zǒu” (to walk / leave)."
+          },
+          {
+            "character": "金志英",
+            "hanzi": "“走”？学过吗？",
+            "pinyin": "“Zǒu”? Xuéguo ma?",
+            "translation": "“Zǒu”? Have we learned it before?"
+          },
+          {
+            "character": "阿里",
+            "hanzi": "学过，你看。",
+            "pinyin": "Xuéguo, nǐ kàn.",
+            "translation": "Yes, we have—look."
+          },
+          {
+            "character": "金志英",
+            "hanzi": "哦，对对对，我忘了。一共多少个汉字？",
+            "pinyin": "Ò, duì duì duì, wǒ wàng le. Yígòng duōshao gè Hànzì?",
+            "translation": "Oh, right, right, I forgot. How many Chinese characters are there altogether?"
+          },
+          {
+            "character": "阿里",
+            "hanzi": "三十六个。",
+            "pinyin": "Sānshíliù gè.",
+            "translation": "Thirty-six."
+          },
+          {
+            "character": "金志英",
+            "hanzi": "那一会儿就写完了！写完作业我们一起看电影，好不好？",
+            "pinyin": "Nà yíhuìr jiù xiěwán le! Xiěwán zuòyè wǒmen yìqǐ kàn diànyǐng, hǎo bu hǎo?",
+            "translation": "Then we’ll finish writing them in just a moment! After finishing homework, let’s watch a movie together, okay?"
+          },
+          {
+            "character": "阿里",
+            "hanzi": "好啊！你以前学过汉语吗？",
+            "pinyin": "Hǎo a! Nǐ yǐqián xuéguo Hànyǔ ma?",
+            "translation": "Sure! Have you studied Chinese before?"
+          },
+          {
+            "character": "金志英",
+            "hanzi": "学过。",
+            "pinyin": "Xuéguo.",
+            "translation": "Yes, I have."
+          },
+          {
+            "character": "阿里",
+            "hanzi": "学过多长时间？",
+            "pinyin": "Xuéguo duō cháng shíjiān?",
+            "translation": "How long did you study it?"
+          },
+          {
+            "character": "金志英",
+            "hanzi": "学过三个月。",
+            "pinyin": "Xuéguo sān gè yuè.",
+            "translation": "I studied it for three months."
+          },
+          {
+            "character": "阿里",
+            "hanzi": "什么时候学的？",
+            "pinyin": "Shénme shíhou xué de?",
+            "translation": "When did you study it?"
+          },
+          {
+            "character": "金志英",
+            "hanzi": "两年前学的。",
+            "pinyin": "Liǎng nián qián xué de.",
+            "translation": "I studied it two years ago."
+          },
+          {
+            "character": "阿里",
+            "hanzi": "两年前就学过了？那么早啊！在中国学的吗？",
+            "pinyin": "Liǎng nián qián jiù xuéguo le? Nàme zǎo a! Zài Zhōngguó xué de ma?",
+            "translation": "You already studied it two years ago? That early! Did you study it in China?"
+          },
+          {
+            "character": "金志英",
+            "hanzi": "不是，在韩国的学院学的。",
+            "pinyin": "Bú shì, zài Hánguó de xuéyuàn xué de.",
+            "translation": "No, I studied it at an institute in Korea."
+          }
+        ]
+      },
+      {
+        "title": "Dialogue 2: Buying a Qipao on Culture Street & Travelling to Beijing (马克 & 莉莉)",
+        "context": "Mark (马克) admires Lily’s (莉莉) new qipao bought on Culture Street, and they compare Mark’s childhood flight to Beijing with his recent solo train trip.",
+        "lines": [
+          {
+            "character": "马克",
+            "hanzi": "好漂亮啊！这叫旗袍吧？在哪儿买的？",
+            "pinyin": "Hǎo piàoliang a! Zhè jiào qípáo ba? Zài nǎr mǎi de?",
+            "translation": "How beautiful! This is called a qipao, right? Where did you buy it?"
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "好看吧？在文化街买的。",
+            "pinyin": "Hǎokàn ba? Zài Wénhuàjiē mǎi de.",
+            "translation": "Looks nice, doesn’t it? I bought it on Culture Street."
+          },
+          {
+            "character": "马克",
+            "hanzi": "文化街？远吗？怎么去那儿的？",
+            "pinyin": "Wénhuàjiē? Yuǎn ma? Zěnme qù nàr de?",
+            "translation": "Culture Street? Is it far? How did you get there?"
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "不远，我是坐出租车去的。你不是去北京了吗？什么时候回来的？",
+            "pinyin": "Bù yuǎn, wǒ shì zuò chūzūchē qù de. Nǐ bú shì qù Běijīng le ma? Shénme shíhou huílái de?",
+            "translation": "Not far—I went by taxi. Didn’t you go to Beijing? When did you come back?"
+          },
+          {
+            "character": "马克",
+            "hanzi": "昨天。你看，这是我在北京拍的照片。",
+            "pinyin": "Zuótiān. Nǐ kàn, zhè shì wǒ zài Běijīng pāi de zhàopiàn.",
+            "translation": "Yesterday. Look, these are the photos I took in Beijing."
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "真好！你以前去过北京吗？",
+            "pinyin": "Zhēn hǎo! Nǐ yǐqián qùguo Běijīng ma?",
+            "translation": "They’re great! Had you ever been to Beijing before?"
+          },
+          {
+            "character": "马克",
+            "hanzi": "去过，十年前跟爸爸一起坐飞机去的。",
+            "pinyin": "Qùguo, shí nián qián gēn bàba yìqǐ zuò fēijī qù de.",
+            "translation": "Yes, I went ten years ago with my dad by plane."
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "哦，坐了多长时间飞机？",
+            "pinyin": "Ò, zuòle duō cháng shíjiān fēijī?",
+            "translation": "Oh, how long was the flight?"
+          },
+          {
+            "character": "马克",
+            "hanzi": "坐了十个小时。",
+            "pinyin": "Zuòle shí gè xiǎoshí.",
+            "translation": "I was on the plane for ten hours."
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "这次跟谁一起去的？",
+            "pinyin": "Zhè cì gēn shuí yìqǐ qù de?",
+            "translation": "Who did you go with this time?"
+          },
+          {
+            "character": "马克",
+            "hanzi": "这次呀，我是自己一个人坐火车去的。怎么样？厉害吧？",
+            "pinyin": "Zhè cì ya, wǒ shì zìjǐ yí gè rén zuò huǒchē qù de. Zěnmeyàng? Lìhai ba?",
+            "translation": "This time, I went all by myself by train. How about that? Pretty impressive, right?"
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "真厉害！",
+            "pinyin": "Zhēn lìhai!",
+            "translation": "Really impressive!"
+          }
+        ]
+      }
+    ],
+    "readingPassage": {
+      "title": "Reading: Jin Zhiying’s Bicycle Commute & Weekend Travels (金志英骑自行车去学校)",
+      "subtitle": "Read the narrative below synthesizing the Section 4 reading tasks about how Jin Zhiying learned to ride a bicycle in China and how her classmates travel and exercise.",
+      "paragraphs": [
+        {
+          "hanzi": "金志英是九月来中国的。她住在一个亲戚家，每天骑自行车去学校，很方便，八点去学校，十分钟就到了。她以前不会骑自行车，来中国以后才学会骑的，是她的朋友莉莉教她的。自行车是在超市买的，她跟莉莉一起去买的。昨天他们有一个考试，金志英考得比同学们好，因为她两年前在韩国的学院学过三个月汉语。",
+          "pinyin": "Jīn Zhìyīng shì jiǔyuè lái Zhōngguó de. Tā zhù zài yí gè qīnqi jiā, měitiān qí zìxíngchē qù xuéxiào, hěn fāngbiàn, bā diǎn qù xuéxiào, shí fēnzhōng jiù dào le. Tā yǐqián bú huì qí zìxíngchē, lái Zhōngguó yǐhòu cái xuéhuì qí de, shì tā de péngyou Lìli jiāo tā de. Zìxíngchē shì zài chāoshì mǎi de, tā gēn Lìli yìqǐ qù mǎi de. Zuótiān tāmen yǒu yí gè kǎoshì, Jīn Zhìyīng kǎo de bǐ tóngxuémen hǎo, yīnwèi tā liǎng nián qián zài Hánguó de xuéyuàn xuéguo sān gè yuè Hànyǔ.",
+          "translation": "Jin Zhiying came to China in September. She lives at a relative’s home and rides a bicycle to school every day—it is very convenient; she leaves for school at 8:00 and arrives in just ten minutes. She didn’t know how to ride a bicycle before and only learned how after coming to China; her friend Lily taught her. The bicycle was bought at the supermarket, where she and Lily went together to buy it. Yesterday they had a test, and Jin Zhiying did better than her classmates because she had studied Chinese for three months at an institute in Korea two years ago."
+        },
+        {
+          "hanzi": "上个星期六，莉莉跟朋友一起坐火车去了杭州，那儿很漂亮，是十点十分的火车，一个小时就到了，她在那儿拍了很多好看的照片。星期天下午，何大华跟他的表弟在学校踢了两个小时足球，他们都很喜欢运动。",
+          "pinyin": "Shàng gè xīngqīliù, Lìli gēn péngyou yìqǐ zuò huǒchē qùle Hángzhōu, nàr hěn piàoliang, shì shí diǎn shí fēn de huǒchē, yí gè xiǎoshí jiù dào le, tā zài nàr pāile hěn duō hǎokàn de zhàopiàn. Xīngqītiān xiàwǔ, Hé Dàhuá gēn tā de biǎodì zài xuéxiào tīle liǎng gè xiǎoshí zúqiú, tāmen dōu hěn xǐhuan yùndòng.",
+          "translation": "Last Saturday, Lily took the train to Hangzhou with her friend. It is very beautiful there; it was the 10:10 train and arrived in just one hour, and she took many nice photos there. On Sunday afternoon, He Dahua played soccer at school with his younger male cousin for two hours; they both love sports."
+        }
+      ]
+    },
+    "vocabularyExplanation": [
+      {
+        "hanzi": "考试",
+        "pinyin": "kǎoshì",
+        "english": "exam; test; to take an exam",
+        "partOfSpeech": "n. / v.",
+        "exampleHanzi": "明天有汉语考试，我们一起复习吧。",
+        "examplePinyin": "Míngtiān yǒu Hànyǔ kǎoshì, wǒmen yìqǐ fùxí ba.",
+        "exampleTranslation": "There is a Chinese test tomorrow; let’s review together."
+      },
+      {
+        "hanzi": "听",
+        "pinyin": "tīng",
+        "english": "to listen; to hear",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "我来说，你来听和写。",
+        "examplePinyin": "Wǒ lái shuō, nǐ lái tīng hé xiě.",
+        "exampleTranslation": "I will speak, and you listen and write."
+      },
+      {
+        "hanzi": "写",
+        "pinyin": "xiě",
+        "english": "to write",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "这三十六个汉字你都会写吗？",
+        "examplePinyin": "Zhè sānshíliù gè Hànzì nǐ dōu huì xiě ma?",
+        "exampleTranslation": "Can you write all thirty-six of these Chinese characters?"
+      },
+      {
+        "hanzi": "走",
+        "pinyin": "zǒu",
+        "english": "to walk; to go; to leave",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "时间不早了，我们走吧。",
+        "examplePinyin": "Shíjiān bù zǎo le, wǒmen zǒu ba.",
+        "exampleTranslation": "It’s getting late; let’s go."
+      },
+      {
+        "hanzi": "过",
+        "pinyin": "guo",
+        "english": "(experiential aspect particle) ever; have done before",
+        "partOfSpeech": "part.",
+        "exampleHanzi": "你以前学过汉语吗？",
+        "examplePinyin": "Nǐ yǐqián xuéguo Hànyǔ ma?",
+        "exampleTranslation": "Have you studied Chinese before?"
+      },
+      {
+        "hanzi": "忘",
+        "pinyin": "wàng",
+        "english": "to forget",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "对不起，我忘了他的名字。",
+        "examplePinyin": "Duìbuqǐ, wǒ wàngle tā de míngzi.",
+        "exampleTranslation": "Sorry, I forgot his name."
+      },
+      {
+        "hanzi": "汉字",
+        "pinyin": "Hànzì",
+        "english": "Chinese character(s)",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "每天写十个汉字，就不容易忘。",
+        "examplePinyin": "Měitiān xiě shí gè Hànzì, jiù bù róngyì wàng.",
+        "exampleTranslation": "If you write ten Chinese characters every day, you won’t easily forget them."
+      },
+      {
+        "hanzi": "一会儿",
+        "pinyin": "yíhuìr",
+        "english": "a short while; a moment",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "只有三十六个汉字，一会儿就写完了。",
+        "examplePinyin": "Zhǐyǒu sānshíliù gè Hànzì, yíhuìr jiù xiěwán le.",
+        "exampleTranslation": "There are only thirty-six characters; we’ll finish writing them in a moment."
+      },
+      {
+        "hanzi": "就",
+        "pinyin": "jiù",
+        "english": "soon; right away; as early as",
+        "partOfSpeech": "adv.",
+        "exampleHanzi": "她两年前就学过汉语了。",
+        "examplePinyin": "Tā liǎng nián qián jiù xuéguo Hànyǔ le.",
+        "exampleTranslation": "She already studied Chinese as early as two years ago."
+      },
+      {
+        "hanzi": "完",
+        "pinyin": "wán",
+        "english": "to finish; to complete",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "写完作业我们一起看电影，好不好？",
+        "examplePinyin": "Xiěwán zuòyè wǒmen yìqǐ kàn diànyǐng, hǎo bu hǎo?",
+        "exampleTranslation": "After finishing our homework, let’s watch a movie together, okay?"
+      },
+      {
+        "hanzi": "以前",
+        "pinyin": "yǐqián",
+        "english": "before; previously; in the past",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "你以前去过北京吗？",
+        "examplePinyin": "Nǐ yǐqián qùguo Běijīng ma?",
+        "exampleTranslation": "Have you ever been to Beijing before?"
+      },
+      {
+        "hanzi": "学院",
+        "pinyin": "xuéyuàn",
+        "english": "college; institute; academy",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "我是在韩国的学院学的汉语。",
+        "examplePinyin": "Wǒ shì zài Hánguó de xuéyuàn xué de Hànyǔ.",
+        "exampleTranslation": "I studied Chinese at an institute in Korea."
+      },
+      {
+        "hanzi": "旗袍",
+        "pinyin": "qípáo",
+        "english": "qipao; cheongsam (traditional form-fitting Chinese dress)",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "这件旗袍真漂亮，在哪儿买的？",
+        "examplePinyin": "Zhè jiàn qípáo zhēn piàoliang, zài nǎr mǎi de?",
+        "exampleTranslation": "This qipao is really beautiful; where did you buy it?"
+      },
+      {
+        "hanzi": "好看",
+        "pinyin": "hǎokàn",
+        "english": "good-looking; pretty; interesting (of a movie/book)",
+        "partOfSpeech": "adj.",
+        "exampleHanzi": "你在文化街买的旗袍真好看！",
+        "examplePinyin": "Nǐ zài Wénhuàjiē mǎi de qípáo zhēn hǎokàn!",
+        "exampleTranslation": "The qipao you bought on Culture Street is really pretty!"
+      },
+      {
+        "hanzi": "怎么",
+        "pinyin": "zěnme",
+        "english": "how; by what means; why",
+        "partOfSpeech": "pron.",
+        "exampleHanzi": "文化街远吗？你怎么去那儿的？",
+        "examplePinyin": "Wénhuàjiē yuǎn ma? Nǐ zěnme qù nàr de?",
+        "exampleTranslation": "Is Culture Street far? How did you get there?"
+      },
+      {
+        "hanzi": "坐",
+        "pinyin": "zuò",
+        "english": "to sit; to travel by (bus, train, plane, taxi, subway)",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "我是坐出租车去文化街的。",
+        "examplePinyin": "Wǒ shì zuò chūzūchē qù Wénhuàjiē de.",
+        "exampleTranslation": "I went to Culture Street by taxi."
+      },
+      {
+        "hanzi": "出租车",
+        "pinyin": "chūzūchē",
+        "english": "taxi; cab",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "坐出租车去那儿只要十五块钱。",
+        "examplePinyin": "Zuò chūzūchē qù nàr zhǐ yào shíwǔ kuài qián.",
+        "exampleTranslation": "Taking a taxi there only costs fifteen yuan."
+      },
+      {
+        "hanzi": "开车",
+        "pinyin": "kāichē",
+        "english": "to drive a car",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "今天早上我是开车来的。",
+        "examplePinyin": "Jīntiān zǎoshang wǒ shì kāichē lái de.",
+        "exampleTranslation": "I came by driving a car this morning."
+      },
+      {
+        "hanzi": "骑",
+        "pinyin": "qí",
+        "english": "to ride (a straddled vehicle or animal, e.g., bicycle, horse, motorbike)",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "她每天骑自行车去学校。",
+        "examplePinyin": "Tā měitiān qí zìxíngchē qù xuéxiào.",
+        "exampleTranslation": "She rides a bicycle to school every day."
+      },
+      {
+        "hanzi": "自行车",
+        "pinyin": "zìxíngchē",
+        "english": "bicycle; bike",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "这辆自行车是在超市买的。",
+        "examplePinyin": "Zhè liàng zìxíngchē shì zài chāoshì mǎi de.",
+        "exampleTranslation": "This bicycle was bought at the supermarket."
+      },
+      {
+        "hanzi": "回来",
+        "pinyin": "huílái",
+        "english": "to come back; to return (toward the speaker)",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "你不是去北京了吗？什么时候回来的？",
+        "examplePinyin": "Nǐ bú shì qù Běijīng le ma? Shénme shíhou huílái de?",
+        "exampleTranslation": "Didn’t you go to Beijing? When did you come back?"
+      },
+      {
+        "hanzi": "拍",
+        "pinyin": "pāi",
+        "english": "to take (a photo); to shoot (a film); to clap/pat",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "这是我在北京拍的照片。",
+        "examplePinyin": "Zhè shì wǒ zài Běijīng pāi de zhàopiàn.",
+        "exampleTranslation": "These are the photos I took in Beijing."
+      },
+      {
+        "hanzi": "照片",
+        "pinyin": "zhàopiàn",
+        "english": "photograph; picture; photo",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "这张照片是在哪儿拍的？",
+        "examplePinyin": "Zhè zhāng zhàopiàn shì zài nǎr pāi de?",
+        "exampleTranslation": "Where was this photo taken?"
+      },
+      {
+        "hanzi": "跟",
+        "pinyin": "gēn",
+        "english": "with; together with",
+        "partOfSpeech": "prep.",
+        "exampleHanzi": "十年前我跟爸爸一起坐飞机去过北京。",
+        "examplePinyin": "Shí nián qián wǒ gēn bàba yìqǐ zuò fēijī qùguo Běijīng.",
+        "exampleTranslation": "Ten years ago I went to Beijing by plane with my dad."
+      },
+      {
+        "hanzi": "飞机",
+        "pinyin": "fēijī",
+        "english": "airplane; aircraft",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "从这儿去北京，坐飞机只要两个小时。",
+        "examplePinyin": "Cóng zhèr qù Běijīng, zuò fēijī zhǐ yào liǎng gè xiǎoshí.",
+        "exampleTranslation": "Going to Beijing from here takes only two hours by plane."
+      },
+      {
+        "hanzi": "自己",
+        "pinyin": "zìjǐ",
+        "english": "oneself; by oneself",
+        "partOfSpeech": "pron.",
+        "exampleHanzi": "这次我是自己一个人坐火车去的。",
+        "examplePinyin": "Zhè cì wǒ shì zìjǐ yí gè rén zuò huǒchē qù de.",
+        "exampleTranslation": "This time I went all by myself by train."
+      },
+      {
+        "hanzi": "火车",
+        "pinyin": "huǒchē",
+        "english": "train",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "坐火车去旅游既舒服又便宜。",
+        "examplePinyin": "Zuò huǒchē qù lǚyóu jì shūfu yòu piányi.",
+        "exampleTranslation": "Traveling by train is both comfortable and inexpensive."
+      },
+      {
+        "hanzi": "厉害",
+        "pinyin": "lìhai",
+        "english": "awesome; impressive; formidable; severe",
+        "partOfSpeech": "adj.",
+        "exampleHanzi": "你自己一个人去北京，真厉害！",
+        "examplePinyin": "Nǐ zìjǐ yí gè rén qù Běijīng, zhēn lìhai!",
+        "exampleTranslation": "You went to Beijing all by yourself—that’s really impressive!"
+      },
+      {
+        "hanzi": "方便",
+        "pinyin": "fāngbiàn",
+        "english": "convenient; handy",
+        "partOfSpeech": "adj.",
+        "exampleHanzi": "每天骑自行车去学校，很方便。",
+        "examplePinyin": "Měitiān qí zìxíngchē qù xuéxiào, hěn fāngbiàn.",
+        "exampleTranslation": "Riding a bicycle to school every day is very convenient."
+      },
+      {
+        "hanzi": "教",
+        "pinyin": "jiāo",
+        "english": "to teach; to instruct",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "是我的朋友莉莉教我骑自行车的。",
+        "examplePinyin": "Shì wǒ de péngyou Lìli jiāo wǒ qí zìxíngchē de.",
+        "exampleTranslation": "It was my friend Lily who taught me how to ride a bicycle."
+      },
+      {
+        "hanzi": "踢足球",
+        "pinyin": "tī zúqiú",
+        "english": "to play soccer / football",
+        "partOfSpeech": "v.+o.",
+        "exampleHanzi": "何大华跟表弟踢了两个小时足球。",
+        "examplePinyin": "Hé Dàhuá gēn biǎodì tīle liǎng gè xiǎoshí zúqiú.",
+        "exampleTranslation": "He Dahua played soccer with his younger cousin for two hours."
+      }
+    ],
+    "grammarPoint": "Past Experiences (V+过), Modes of Transportation, Time Duration & The (是…)的 Construction",
+    "structure": "Subject (+ 以前) + Verb + 过 (+ Object)  |  Negative: Subject (+ 以前) + 没 + Verb + 过 (+ Object)  |  (Subject +) Time Duration / Early Point in Time + 就 + Verb (+ 了)  |  Subject + Verb + 过 / 了 + [Duration: 多长时间 / 三个月 / 十个小时] (+ Object)  |  Subject + (是) + [Time / 在 Place / Mode of Transport / 跟 Companion] + Verb + 的  |  不是 + Verb / Clause (+ 了) + 吗？  |  不 / 没 + Verb …… 吗？",
+    "explanation": "Learn how to talk about past experiences using V+过, emphasize quick or early actions with 就, state duration of past or completed actions, and highlight the time, place, transportation, or companion of a completed event using the (是…)的 structure.",
+    "examples": [
+      {
+        "hanzi": "你以前学过汉语吗？——我以前学过汉语。",
+        "pinyin": "Nǐ yǐqián xuéguo Hànyǔ ma? — Wǒ yǐqián xuéguo Hànyǔ.",
+        "translation": "Have you studied Chinese before? — I have studied Chinese before."
+      },
+      {
+        "hanzi": "我以前没去过北京，也没吃过北京烤鸭。",
+        "pinyin": "Wǒ yǐqián méi qùguo Běijīng, yě méi chīguo Běijīng kǎoyā.",
+        "translation": "I have never been to Beijing before, nor have I ever eaten Peking duck."
+      },
+      {
+        "hanzi": "一共三十六个汉字，一会儿就写完了！",
+        "pinyin": "Yígòng sānshíliù gè Hànzì, yíhuìr jiù xiěwán le!",
+        "translation": "There are thirty-six characters in total—we’ll finish writing them in just a moment!"
+      },
+      {
+        "hanzi": "她八点去学校，十分钟就到了。",
+        "pinyin": "Tā bā diǎn qù xuéxiào, shí fēnzhōng jiù dào le.",
+        "translation": "She leaves for school at eight o’clock and gets there in just ten minutes."
+      }
+    ],
+    "grammarNotes": [
+      {
+        "title": "Experiential Aspect: V + 过 (+ N) & Negation 没 + V + 过 (+ N)",
+        "structure": "Subject (+ 以前) + Verb + 过 (+ Object)  |  Negative: Subject (+ 以前) + 没 + Verb + 过 (+ Object)",
+        "explanation": "Adding the dynamic particle 过 (guo, neutral tone) directly after a verb indicates that an action has occurred at least once in the past as a life experience, without continuing into the present. To negate it, place 没 (méi) before the verb while keeping 过 after the verb (never use 不 with 过).",
+        "examples": [
+          {
+            "hanzi": "你以前学过汉语吗？——我以前学过汉语。",
+            "pinyin": "Nǐ yǐqián xuéguo Hànyǔ ma? — Wǒ yǐqián xuéguo Hànyǔ.",
+            "translation": "Have you studied Chinese before? — I have studied Chinese before."
+          },
+          {
+            "hanzi": "我以前没去过北京，也没吃过北京烤鸭。",
+            "pinyin": "Wǒ yǐqián méi qùguo Běijīng, yě méi chīguo Běijīng kǎoyā.",
+            "translation": "I have never been to Beijing before, nor have I ever eaten Peking duck."
+          }
+        ]
+      },
+      {
+        "title": "Quick or Early Attainment: [Short / Early Time] + 就 + V (+ 了)",
+        "structure": "(Subject +) Time Duration / Early Point in Time + 就 + Verb (+ 了)",
+        "explanation": "The adverb 就 (jiù) placed immediately after a duration or point in time expresses the speaker’s view that an action was completed in a very short time or happened earlier than expected.",
+        "examples": [
+          {
+            "hanzi": "一共三十六个汉字，一会儿就写完了！",
+            "pinyin": "Yígòng sānshíliù gè Hànzì, yíhuìr jiù xiěwán le!",
+            "translation": "There are thirty-six characters in total—we’ll finish writing them in just a moment!"
+          },
+          {
+            "hanzi": "她八点去学校，十分钟就到了。",
+            "pinyin": "Tā bā diǎn qù xuéxiào, shí fēnzhōng jiù dào le.",
+            "translation": "She leaves for school at eight o’clock and gets there in just ten minutes."
+          },
+          {
+            "hanzi": "你两年前就学过汉语了？那么早啊！",
+            "pinyin": "Nǐ liǎng nián qián jiù xuéguo Hànyǔ le? Nàme zǎo a!",
+            "translation": "You already studied Chinese two years ago? That early!"
+          }
+        ]
+      },
+      {
+        "title": "Duration of Past Experience vs. Completed Action: V + 过/了 + [Time Duration] (+ N)",
+        "structure": "Subject + Verb + 过 / 了 + [Duration: 多长时间 / 三个月 / 十个小时] (+ Object)",
+        "explanation": "Place the time duration (时段, e.g., 三个月, 十个小时, 二十分钟) between V + 过/了 and the object. Use V + 过 + Duration for total past experience at some point in life; use V + 了 + Duration for a specific completed occasion. Be careful to distinguish points in time (时点: 三点, 十月, 星期三 — placed before the verb) from durations (时段: 三个小时, 十个月, 三个星期 — placed after the verb).",
+        "examples": [
+          {
+            "hanzi": "你在韩国学过多长时间汉语？——我学过三个月汉语。",
+            "pinyin": "Nǐ zài Hánguó xuéguo duō cháng shíjiān Hànyǔ? — Wǒ xuéguo sān gè yuè Hànyǔ.",
+            "translation": "How long did you study Chinese in Korea? — I studied Chinese for three months."
+          },
+          {
+            "hanzi": "你坐了多长时间飞机？——我坐了十个小时飞机。",
+            "pinyin": "Nǐ zuòle duō cháng shíjiān fēijī? — Wǒ zuòle shí gè xiǎoshí fēijī.",
+            "translation": "How long did you fly on the plane? — I was on the plane for ten hours."
+          }
+        ]
+      },
+      {
+        "title": "The (是 +) … 的 Construction for Highlighting Time, Place, Transportation & Companion",
+        "structure": "Subject + (是) + [Time / 在 Place / Mode of Transport / 跟 Companion] + Verb + 的",
+        "explanation": "When both speaker and listener already know that an action took place in the past, use (是 +) … 的 to ask about or emphasize the specific details of how it happened: when (什么时候), where (在哪儿), how/by what transport (怎么 / 坐什么车), or with whom (跟谁一起). In affirmative and interrogative sentences, 是 can be omitted; in negative sentences (不是……的), 是 cannot be omitted.",
+        "examples": [
+          {
+            "hanzi": "这件旗袍是在哪儿买的？——是在文化街买的。",
+            "pinyin": "Zhè jiàn qípáo shì zài nǎr mǎi de? — Shì zài Wénhuàjiē mǎi de.",
+            "translation": "Where was this qipao bought? — It was bought on Culture Street."
+          },
+          {
+            "hanzi": "你怎么去那儿的？——我是坐出租车去的。",
+            "pinyin": "Nǐ zěnme qù nàr de? — Wǒ shì zuò chūzūchē qù de.",
+            "translation": "How did you get there? — I went there by taxi."
+          },
+          {
+            "hanzi": "这次我是自己一个人坐火车去的，不是跟爸爸一起去的。",
+            "pinyin": "Zhè cì wǒ shì zìjǐ yí gè rén zuò huǒchē qù de, bú shì gēn bàba yìqǐ qù de.",
+            "translation": "This time I went by train all by myself, not with my dad."
+          }
+        ]
+      },
+      {
+        "title": "Rhetorical Questions Expressing Certainty or Surprise: 不是……吗？",
+        "structure": "不是 + Verb / Clause (+ 了) + 吗？  |  不 / 没 + Verb …… 吗？",
+        "explanation": "Negative-form questions with 不是……吗？ or 不/没……吗？ are frequently used as rhetorical questions to confirm something the speaker believes to be true (\"Didn’t you...?\", \"Isn’t it...?\") or to express mild surprise.",
+        "examples": [
+          {
+            "hanzi": "你不是去北京了吗？什么时候回来的？",
+            "pinyin": "Nǐ bú shì qù Běijīng le ma? Shénme shíhou huílái de?",
+            "translation": "Didn’t you go to Beijing? When did you come back?"
+          },
+          {
+            "hanzi": "你以前没学过这个汉字吗？",
+            "pinyin": "Nǐ yǐqián méi xuéguo zhège Hànzì ma?",
+            "translation": "Haven’t you learned this Chinese character before?"
+          }
+        ]
+      }
+    ],
+    "exercises": [
+      {
+        "question": "Choose the correct negative form to answer: “你以前去过北京吗？” (Have you ever been to Beijing before?)",
+        "options": [
+          "我以前没去过北京。 (Wǒ yǐqián méi qùguo Běijīng.)",
+          "我以前不去过北京。 (Wǒ yǐqián bú qùguo Běijīng.)",
+          "我以前没去北京了。 (Wǒ yǐqián méi qù Běijīng le.)",
+          "我以前不是去过北京。 (Wǒ yǐqián bú shì qùguo Běijīng.)"
+        ],
+        "answerIndex": 0,
+        "explanation": "The experiential aspect V + 过 is always negated with 没(有) before the verb while keeping 过 after the verb: 没 + V + 过 (+ O)."
+      },
+      {
+        "question": "Which verb Correctly pairs with “自行车” (zìxíngchē, bicycle) in Mandarin?",
+        "promptHanzi": "金志英每天________自行车去学校，十分钟就到了。",
+        "promptPinyin": "Jīn Zhìyīng měitiān ________ zìxíngchē qù xuéxiào, shí fēnzhōng jiù dào le.",
+        "options": [
+          "骑 (qí)",
+          "坐 (zuò)",
+          "开 (kāi)",
+          "打 (dǎ)"
+        ],
+        "answerIndex": 0,
+        "explanation": "Use 骑 (qí) for straddled vehicles like bicycles (骑自行车) and motorbikes; use 坐 (zuò) for taxis, buses, trains, subways, and airplanes; and use 开 (kāi) for driving a car."
+      },
+      {
+        "question": "Select the sentence that correctly places the time duration “十个小时” (ten hours) with “坐飞机”:",
+        "options": [
+          "我坐了十个小时飞机。 (Wǒ zuòle shí gè xiǎoshí fēijī.)",
+          "我十个小时坐了飞机。 (Wǒ shí gè xiǎoshí zuòle fēijī.)",
+          "我坐飞机十个小时了昨天。 (Wǒ zuò fēijī shí gè xiǎoshí le zuótiān.)",
+          "我是十个小时坐飞机的。 (Wǒ shì shí gè xiǎoshí zuò fēijī de.)"
+        ],
+        "answerIndex": 0,
+        "explanation": "Time duration (时段) is placed after V + 了/过 and before the object noun: Subject + V + 了/过 + [Duration] + Object (坐了十个小时飞机)."
+      },
+      {
+        "question": "When Mark asks Lily “这件旗袍是在哪儿买的？”, why does he use the “(是)…的” structure?",
+        "options": [
+          "Because both speakers already know the qipao was bought, and Mark wants to highlight the specific place where the past purchase happened.",
+          "Because Lily has not bought the qipao yet and plans to buy it tomorrow.",
+          "Because 的 turns 买 into an ongoing progressive action.",
+          "Because 是……的 is only used for future weather forecasts."
+        ],
+        "answerIndex": 0,
+        "explanation": "The (是 +) … 的 construction is used when a past event is already known and the speaker wants to inquire about or emphasize its time, location, mode of transport, or companion."
+      }
+    ]
+  },
+  {
+    "id": "lesson10",
+    "title": "Lesson 8: Today Is Much Colder Than Yesterday — 第8课：今天比昨天冷多了",
+    "chineseTitle": "第8课：今天比昨天冷多了",
+    "unitBadge": "Mastering Chinese · Elementary 3 (会通汉语 精编版·初级3)",
+    "description": "Discuss weather forecasts, temperatures above and below zero, and seasonal climates across countries while mastering comparative structures (比…多了/一点儿, 更, 跟…一样), imminent change (快…了), and ongoing actions (正…呢 / V+着).",
+    "content": "Weather, Seasons, Temperature Comparisons (比 / 更 / 一样) & Progressive Aspect (正…呢 / 着). Discuss weather forecasts, temperatures above and below zero, and seasonal climates across countries while mastering comparative structures (比…多了/一点儿, 更, 跟…一样), imminent change (快…了), and ongoing actions (正…呢 / V+着).",
+    "hskLevel": 3,
+    "objectives": [
+      "Describe weather conditions (刮风, 下雨, 下雪, 晴天, 阴天), four seasons (春, 夏, 秋, 冬), and exact or approximate temperatures (二十度左右, 零下三十五六度).",
+      "Distinguish past/actualized repetition (又 + V + 了) from future/unactualized repetition (再 + V).",
+      "Compare climates and qualities using (a + Adj,) b + 更 + Adj, a 跟 b + (不)一样, and a 比 b + Adj + 多了 / 一点儿 / [specific degree].",
+      "Express imminent weather changes with (可能) 快 + V + 了, concerned speculation with 不会……吧？, and ongoing actions with 正 + VP + 呢 and V + 着 (+ N)."
+    ],
+    "phoneticsAndCharacters": {
+      "title": "Section 1 & 2 · Phonetics, Character Structure & Radicals (第8课：今天比昨天冷多了)",
+      "sections": [
+        {
+          "subtitle": "Look-Alike Character Pairs (形近字辨析)",
+          "summary": "Carefully distinguish these six pairs of visually similar characters by paying attention to stroke hooks, dots, and top components.",
+          "items": [
+            {
+              "label": "了 (le / liǎo) vs. 子 (zǐ / zi)",
+              "pinyin": "走了 (zǒule, left) vs. 孩子 (háizi, child)",
+              "examples": "了 has no horizontal stroke across the middle; 子 adds a horizontal stroke (一).",
+              "detail": "了 has no horizontal stroke across the middle; 子 adds a horizontal stroke (一). — 1-stroke difference"
+            },
+            {
+              "label": "少 (shǎo) vs. 小 (xiǎo)",
+              "pinyin": "多少 (duōshao, how many) vs. 大小 (dàxiǎo, size)",
+              "examples": "少 adds a sweeping bottom-left slash (丿) beneath 小.",
+              "detail": "少 adds a sweeping bottom-left slash (丿) beneath 小. — Antonym pair: 多–少 vs. 大–小"
+            },
+            {
+              "label": "几 (jǐ) vs. 儿 (ér)",
+              "pinyin": "几个 (jǐ gè, several) vs. 儿子 (érzi, son)",
+              "examples": "几 connects at the top with a horizontal-turn-hook; 儿 has two separate downward strokes.",
+              "detail": "几 connects at the top with a horizontal-turn-hook; 儿 has two separate downward strokes. — Check the top connection"
+            },
+            {
+              "label": "千 (qiān) vs. 干 (gān / gàn)",
+              "pinyin": "两千 (liǎng qiān, 2,000) vs. 干什么 (gàn shénme, do what)",
+              "examples": "千 begins with a short left-falling stroke (丿); 干 begins with a flat horizontal stroke (一).",
+              "detail": "千 begins with a short left-falling stroke (丿); 干 begins with a flat horizontal stroke (一). — Top stroke: 丿 vs. 一"
+            },
+            {
+              "label": "白 (bái) vs. 百 (bǎi)",
+              "pinyin": "白色 (báisè, white) vs. 五百 (wǔ bǎi, 500)",
+              "examples": "百 places an extra horizontal bar (一) on top of 白.",
+              "detail": "百 places an extra horizontal bar (一) on top of 白. — Added top horizontal stroke"
+            },
+            {
+              "label": "老 (lǎo) vs. 考 (kǎo)",
+              "pinyin": "老师 (lǎoshī, teacher) vs. 考试 (kǎoshì, exam)",
+              "examples": "Both share the top 耂 component; 老 finishes with 匕 at the bottom, while 考 finishes with 丂.",
+              "detail": "Both share the top 耂 component; 老 finishes with 匕 at the bottom, while 考 finishes with 丂. — Shared top component 耂"
+            }
+          ]
+        },
+        {
+          "subtitle": "Four Weather & Temperature Radicals: 日, 冫, 火, and 灬 (常用的偏旁)",
+          "summary": "Characters describing sunlight, warmth, ice, cold, and heat systematically use these four semantic radicals.",
+          "items": [
+            {
+              "label": "日 (日字旁 · Sun, Time & Warmth Radical)",
+              "pinyin": "Appears on the left, top, or bottom of characters relating to the sun, clear skies, warmth, or time",
+              "examples": "晴 (qíng, sunny/clear), 暖 (nuǎn, warm), 春 (chūn, spring), 晚 (wǎn, evening), 早 (zǎo, morning), 昨 (zuó, yesterday), 明 (míng, bright/tomorrow)",
+              "detail": "晴 (qíng, sunny/clear), 暖 (nuǎn, warm), 春 (chūn, spring), 晚 (wǎn, evening), 早 (zǎo, morning), 昨 (zuó, yesterday), 明 (míng, bright/tomorrow) — Pictograph of the sun"
+            },
+            {
+              "label": "冫 (两点水 · Ice & Cold Radical)",
+              "pinyin": "Usually on the left (or bottom in 冬) of characters related to ice, freezing temperatures, or coldness",
+              "examples": "冷 (lěng, cold), 凉 (liáng, cool), 冰 (bīng, ice), 冬 (dōng, winter)",
+              "detail": "冷 (lěng, cold), 凉 (liáng, cool), 冰 (bīng, ice), 冬 (dōng, winter) — Two ice crystals (distinct from 氵 three-dot water)"
+            },
+            {
+              "label": "火 (火字旁 · Fire & Heat Radical)",
+              "pinyin": "Appears on the left side of characters related to fire, cooking, or burning",
+              "examples": "炒 (chǎo, stir-fry: 蛋炒饭), 烧 (shāo, roast/braise), 灯 (dēng, lamp/light)",
+              "detail": "炒 (chǎo, stir-fry: 蛋炒饭), 烧 (shāo, roast/braise), 灯 (dēng, lamp/light) — Pictograph of rising flames"
+            },
+            {
+              "label": "灬 (火字底 / 四点底 · Four-Dot Fire Base)",
+              "pinyin": "Variant of 火 placed at the bottom of characters related to heat, light, or cooking",
+              "examples": "热 (rè, hot), 照 (zhào, shine/photograph: 照片), 点 (diǎn, kindle/order/o’clock)",
+              "detail": "热 (rè, hot), 照 (zhào, shine/photograph: 照片), 点 (diǎn, kindle/order/o’clock) — Four bottom dots represent glowing embers/flames"
+            }
+          ]
+        }
+      ]
+    },
+    "dialogue": [
+      {
+        "character": "平田",
+        "hanzi": "又刮风了！又不能打球了！",
+        "pinyin": "Yòu guā fēng le! Yòu bù néng dǎqiú le!",
+        "translation": "It’s windy again! We can’t play ball again!"
+      },
+      {
+        "character": "金志英",
+        "hanzi": "没事儿，咱们休息一会儿，现在挺凉快的。",
+        "pinyin": "Méishìr, zánmen xiūxi yíhuìr, xiànzài tǐng liángkuai de.",
+        "translation": "It’s okay—let’s rest for a bit. It’s quite cool and pleasant right now."
+      },
+      {
+        "character": "平田",
+        "hanzi": "凉快？是冷吧！",
+        "pinyin": "Liángkuai? Shì lěng ba!",
+        "translation": "Cool? More like cold!"
+      },
+      {
+        "character": "金志英",
+        "hanzi": "今天十度左右，不冷啊。日本的秋天很暖和吗？",
+        "pinyin": "Jīntiān shí dù zuǒyòu, bù lěng a. Rìběn de qiūtiān hěn nuǎnhuo ma?",
+        "translation": "It’s around ten degrees today—not cold at all. Is autumn in Japan very warm?"
+      },
+      {
+        "character": "平田",
+        "hanzi": "我家在东京，十月的时候白天二十度左右，晚上十五度左右。你看今天，最高气温二十三度，最低气温十四度。",
+        "pinyin": "Wǒ jiā zài Dōngjīng, shíyuè de shíhou báitiān èrshí dù zuǒyòu, wǎnshang shíwǔ dù zuǒyòu. Nǐ kàn jīntiān, zuìgāo qìwēn èrshísān dù, zuìdī qìwēn shísì dù.",
+        "translation": "My home is in Tokyo; in October it’s around 20°C during the day and around 15°C at night. Look at today in Tokyo: a high of 23°C and a low of 14°C."
+      },
+      {
+        "character": "金志英",
+        "hanzi": "也不经常刮风、下雨吗？",
+        "pinyin": "Yě bù jīngcháng guā fēng, xià yǔ ma?",
+        "translation": "And isn’t it often windy or rainy either?"
+      },
+      {
+        "character": "平田",
+        "hanzi": "对，天气很舒服。啊！我怎么觉得现在风更大了呢？",
+        "pinyin": "Duì, tiānqì hěn shūfu. Ā! Wǒ zěnme juéde xiànzài fēng gèng dà le ne?",
+        "translation": "Right, the weather is very comfortable. Ah! Why do I feel the wind has gotten even stronger now?"
+      },
+      {
+        "character": "金志英",
+        "hanzi": "可能快下雨了，咱们走吧！",
+        "pinyin": "Kěnéng kuài xià yǔ le, zánmen zǒu ba!",
+        "translation": "It might rain soon—let’s go!"
+      },
+      {
+        "character": "平田",
+        "hanzi": "好！明天天气怎么样？不会又是阴天吧？",
+        "pinyin": "Hǎo! Míngtiān tiānqì zěnmeyàng? Bú huì yòu shì yīntiān ba?",
+        "translation": "Okay! How is the weather tomorrow? Don’t tell me it’ll be overcast again?"
+      },
+      {
+        "character": "金志英",
+        "hanzi": "我看看预报……明天是晴天，没有风，也没有雨，咱们明天再来打球！",
+        "pinyin": "Wǒ kànkan yùbào... Míngtiān shì qíngtiān, méiyǒu fēng, yě méiyǒu yǔ, zánmen míngtiān zài lái dǎqiú!",
+        "translation": "Let me check the forecast... Tomorrow is sunny, with no wind and no rain. Let’s come play ball again tomorrow!"
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Dialogue 1: Windy Autumn Weather & Comparing Tokyo’s Climate (平田 & 金志英)",
+        "context": "Hirata (平田) and Jin Zhiying (金志英) have their ball game interrupted by wind, compare autumn temperatures in Tokyo with local weather, and check tomorrow’s forecast.",
+        "lines": [
+          {
+            "character": "平田",
+            "hanzi": "又刮风了！又不能打球了！",
+            "pinyin": "Yòu guā fēng le! Yòu bù néng dǎqiú le!",
+            "translation": "It’s windy again! We can’t play ball again!"
+          },
+          {
+            "character": "金志英",
+            "hanzi": "没事儿，咱们休息一会儿，现在挺凉快的。",
+            "pinyin": "Méishìr, zánmen xiūxi yíhuìr, xiànzài tǐng liángkuai de.",
+            "translation": "It’s okay—let’s rest for a bit. It’s quite cool and pleasant right now."
+          },
+          {
+            "character": "平田",
+            "hanzi": "凉快？是冷吧！",
+            "pinyin": "Liángkuai? Shì lěng ba!",
+            "translation": "Cool? More like cold!"
+          },
+          {
+            "character": "金志英",
+            "hanzi": "今天十度左右，不冷啊。日本的秋天很暖和吗？",
+            "pinyin": "Jīntiān shí dù zuǒyòu, bù lěng a. Rìběn de qiūtiān hěn nuǎnhuo ma?",
+            "translation": "It’s around ten degrees today—not cold at all. Is autumn in Japan very warm?"
+          },
+          {
+            "character": "平田",
+            "hanzi": "我家在东京，十月的时候白天二十度左右，晚上十五度左右。你看今天，最高气温二十三度，最低气温十四度。",
+            "pinyin": "Wǒ jiā zài Dōngjīng, shíyuè de shíhou báitiān èrshí dù zuǒyòu, wǎnshang shíwǔ dù zuǒyòu. Nǐ kàn jīntiān, zuìgāo qìwēn èrshísān dù, zuìdī qìwēn shísì dù.",
+            "translation": "My home is in Tokyo; in October it’s around 20°C during the day and around 15°C at night. Look at today in Tokyo: a high of 23°C and a low of 14°C."
+          },
+          {
+            "character": "金志英",
+            "hanzi": "也不经常刮风、下雨吗？",
+            "pinyin": "Yě bù jīngcháng guā fēng, xià yǔ ma?",
+            "translation": "And isn’t it often windy or rainy either?"
+          },
+          {
+            "character": "平田",
+            "hanzi": "对，天气很舒服。啊！我怎么觉得现在风更大了呢？",
+            "pinyin": "Duì, tiānqì hěn shūfu. Ā! Wǒ zěnme juéde xiànzài fēng gèng dà le ne?",
+            "translation": "Right, the weather is very comfortable. Ah! Why do I feel the wind has gotten even stronger now?"
+          },
+          {
+            "character": "金志英",
+            "hanzi": "可能快下雨了，咱们走吧！",
+            "pinyin": "Kěnéng kuài xià yǔ le, zánmen zǒu ba!",
+            "translation": "It might rain soon—let’s go!"
+          },
+          {
+            "character": "平田",
+            "hanzi": "好！明天天气怎么样？不会又是阴天吧？",
+            "pinyin": "Hǎo! Míngtiān tiānqì zěnmeyàng? Bú huì yòu shì yīntiān ba?",
+            "translation": "Okay! How is the weather tomorrow? Don’t tell me it’ll be overcast again?"
+          },
+          {
+            "character": "金志英",
+            "hanzi": "我看看预报……明天是晴天，没有风，也没有雨，咱们明天再来打球！",
+            "pinyin": "Wǒ kànkan yùbào... Míngtiān shì qíngtiān, méiyǒu fēng, yě méiyǒu yǔ, zánmen míngtiān zài lái dǎqiú!",
+            "translation": "Let me check the forecast... Tomorrow is sunny, with no wind and no rain. Let’s come play ball again tomorrow!"
+          }
+        ]
+      },
+      {
+        "title": "Dialogue 2: Egg Fried Rice, Saudi Summers vs. Ottawa Winters & Sudden Rain (杰希 & 朱迪)",
+        "context": "Jessie (杰希, from Ottawa, Canada) bumps into Judy (朱迪, from Saudi Arabia) at a restaurant over egg fried rice and iced cola, comparing extreme summer and winter temperatures before getting caught in the rain.",
+        "lines": [
+          {
+            "character": "杰希",
+            "hanzi": "朱迪！你也来吃蛋炒饭了？",
+            "pinyin": "Zhūdí! Nǐ yě lái chī dànchǎofàn le?",
+            "translation": "Judy! You came to eat egg fried rice too?"
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "哈哈，说曹操曹操到，我正给你发照片呢。你吃什么？",
+            "pinyin": "Hāhā, shuō Cáo Cāo Cáo Cāo dào, wǒ zhèng gěi nǐ fā zhàopiàn ne. Nǐ chī shénme?",
+            "translation": "Haha, speak of the devil—I was just sending you a photo! What are you having?"
+          },
+          {
+            "character": "杰希",
+            "hanzi": "跟你一样，蛋炒饭！我还点了冰可乐，今天太热了！沙特的夏天比这儿热多了吧？",
+            "pinyin": "Gēn nǐ yíyàng, dànchǎofàn! Wǒ hái diǎnle bīng kělè, jīntiān tài rè le! Shātè de xiàtiān bǐ zhèr rè duō le ba?",
+            "translation": "Same as you—egg fried rice! I also ordered an iced cola; it’s so hot today! Summer in Saudi Arabia must be much hotter than here, right?"
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "嗯，中午特别热，晚上的气温比白天低十度左右吧。",
+            "pinyin": "Ng, zhōngwǔ tèbié rè, wǎnshang de qìwēn bǐ báitiān dī shí dù zuǒyòu ba.",
+            "translation": "Yeah, midday is especially hot, and the nighttime temperature is about ten degrees lower than during the day."
+          },
+          {
+            "character": "杰希",
+            "hanzi": "我不喜欢夏天，春天和冬天好，都比夏天舒服。",
+            "pinyin": "Wǒ bù xǐhuan xiàtiān, chūntiān hé dōngtiān hǎo, dōu bǐ xiàtiān shūfu.",
+            "translation": "I don’t like summer; spring and winter are nice—both are more comfortable than summer."
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "加拿大的冬天是不是特别冷？",
+            "pinyin": "Jiānádà de dōngtiān shì bu shì tèbié lěng?",
+            "translation": "Isn’t winter in Canada extremely cold?"
+          },
+          {
+            "character": "杰希",
+            "hanzi": "每个地方不一样，我是渥太华人，渥太华冬天最低气温零下三十五六度。",
+            "pinyin": "Měi gè dìfang bù yíyàng, wǒ shì Wòtàihuá rén, Wòtàihuá dōngtiān zuìdī qìwēn língxià sānshíwǔ-liù dù.",
+            "translation": "Every place is different; I’m from Ottawa, and in Ottawa the lowest winter temperature is minus 35 or 36 degrees."
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "天啊！太冷了！",
+            "pinyin": "Tiān a! Tài lěng le!",
+            "translation": "Oh my goodness! That’s freezing!"
+          },
+          {
+            "character": "杰希",
+            "hanzi": "嗯，挺冷的……你吃完了？那你先回吧！带伞了吗？外面正下着雨呢！",
+            "pinyin": "Ng, tǐng lěng de... Nǐ chīwán le? Nà nǐ xiān huí ba! Dài sǎn le ma? Wàimiàn zhèng xiàzhe yǔ ne!",
+            "translation": "Yeah, it’s pretty cold... Have you finished eating? Then head back first! Did you bring an umbrella? It’s raining outside right now!"
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "啊？怎么下雨了？那……我再吃一碗吧！",
+            "pinyin": "Á? Zěnme xià yǔ le? Nà... wǒ zài chī yì wǎn ba!",
+            "translation": "Huh? How come it started raining? Well then... I’ll just eat one more bowl!"
+          },
+          {
+            "character": "杰希",
+            "hanzi": "啊？！",
+            "pinyin": "Á?!",
+            "translation": "What?!"
+          }
+        ]
+      }
+    ],
+    "readingPassage": {
+      "title": "Reading: Hirata on Autumn Weather Around the World (国家不一样，天气也不一样)",
+      "subtitle": "Read Hirata’s essay from Section 4 comparing autumn temperatures across Japan, South Korea, Kenya, and Canada.",
+      "paragraphs": [
+        {
+          "hanzi": "我叫平田，家在日本东京。我觉得东京的天气很舒服，比如现在是秋天，气温一般二十度左右。我的同学金志英是韩国人，现在韩国跟日本一样，也挺暖和的。阿里来自肯尼亚，肯尼亚的秋天比日本、韩国热一点儿，最高气温可能有二十八九度，最低气温也有十七八度。",
+          "pinyin": "Wǒ jiào Píngtián, jiā zài Rìběn Dōngjīng. Wǒ juéde Dōngjīng de tiānqì hěn shūfu, bǐrú xiànzài shì qiūtiān, qìwēn yìbān èrshí dù zuǒyòu. Wǒ de tóngxué Jīn Zhìyīng shì Hánguó rén, xiànzài Hánguó gēn Rìběn yíyàng, yě tǐng nuǎnhuo de. Ālǐ láizì Kěnníyà, Kěnníyà de qiūtiān bǐ Rìběn, Hánguó rè yìdiǎnr, zuìgāo qìwēn kěnéng yǒu èrshíbā-jiǔ dù, zuìdī qìwēn yě yǒu shíqī-bā dù.",
+          "translation": "My name is Hirata, and my home is in Tokyo, Japan. I think the weather in Tokyo is very comfortable; for example, right now it is autumn, and the temperature is generally around 20 degrees. My classmate Jin Zhiying is Korean; right now Korea is the same as Japan and is also quite warm. Ali comes from Kenya; autumn in Kenya is a little hotter than in Japan and Korea, with the highest temperature possibly reaching 28 or 29 degrees and the lowest temperature around 17 or 18 degrees."
+        },
+        {
+          "hanzi": "杰希家在加拿大，我们都知道加拿大很冷，但是加拿大的每个地方也是不一样的。比如今天，渥太华最高气温十六度，挺凉快的，有的地方零下二度，就有点儿冷。世界很大，可能这个国家正下雪呢，那个国家就特别热；这个国家刮着大风呢，那个国家又下雨了。国家不一样，天气也不一样。",
+          "pinyin": "Jiéxī jiā zài Jiānádà, wǒmen dōu zhīdào Jiānádà hěn lěng, dànshì Jiānádà de měi gè dìfang yě shì bù yíyàng de. Bǐrú jīntiān, Wòtàihuá zuìgāo qìwēn shíliù dù, tǐng liángkuai de, yǒude dìfang língxià èr dù, jiù yǒudiǎnr lěng. Shìjiè hěn dà, kěnéng zhège guójiā zhèng xià xuě ne, nàge guójiā jiù tèbié rè; zhège guójiā guāzhe dàfēng ne, nàge guójiā yòu xià yǔ le. Guójiā bù yíyàng, tiānqì yě bù yíyàng.",
+          "translation": "Jessie’s home is in Canada. We all know Canada is very cold, but every place in Canada is different too. For example, today Ottawa has a high of 16 degrees, which is quite cool and pleasant, while some places are minus 2 degrees, which is a bit cold. The world is huge: while one country is snowing right now, another country is extremely hot; while one country has strong winds blowing, another has started raining again. Different countries have different weather."
+        }
+      ]
+    },
+    "vocabularyExplanation": [
+      {
+        "hanzi": "又",
+        "pinyin": "yòu",
+        "english": "again (for past or already-realized actions/states)",
+        "partOfSpeech": "adv.",
+        "exampleHanzi": "外面又刮风了，咱们今天又不能打球了。",
+        "examplePinyin": "Wàimiàn yòu guā fēng le, zánmen jīntiān yòu bù néng dǎqiú le.",
+        "exampleTranslation": "It’s windy outside again; we can’t play ball again today."
+      },
+      {
+        "hanzi": "刮风",
+        "pinyin": "guā fēng",
+        "english": "to be windy; the wind blows",
+        "partOfSpeech": "v.+o.",
+        "exampleHanzi": "今天刮风了，比昨天冷一点儿。",
+        "examplePinyin": "Jīntiān guā fēng le, bǐ zuótiān lěng yìdiǎnr.",
+        "exampleTranslation": "It is windy today and a bit colder than yesterday."
+      },
+      {
+        "hanzi": "咱们",
+        "pinyin": "zánmen",
+        "english": "we; us (inclusive of both speaker and listener)",
+        "partOfSpeech": "pron.",
+        "exampleHanzi": "可能快下雨了，咱们走吧！",
+        "examplePinyin": "Kěnéng kuài xià yǔ le, zánmen zǒu ba!",
+        "exampleTranslation": "It might rain soon—let’s go!"
+      },
+      {
+        "hanzi": "休息",
+        "pinyin": "xiūxi",
+        "english": "to rest; to take a break",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "咱们休息一会儿再走吧。",
+        "examplePinyin": "Zánmen xiūxi yíhuìr zài zǒu ba.",
+        "exampleTranslation": "Let’s rest for a moment before leaving."
+      },
+      {
+        "hanzi": "挺",
+        "pinyin": "tǐng",
+        "english": "quite; rather; pretty",
+        "partOfSpeech": "adv.",
+        "exampleHanzi": "今天天气挺凉快的，不热也不冷。",
+        "examplePinyin": "Jīntiān tiānqì tǐng liángkuai de, bú rè yě bù lěng.",
+        "exampleTranslation": "The weather today is quite cool and pleasant—neither hot nor cold."
+      },
+      {
+        "hanzi": "凉快",
+        "pinyin": "liángkuai",
+        "english": "pleasantly cool; refreshing",
+        "partOfSpeech": "adj.",
+        "exampleHanzi": "秋天的晚上很凉快，很舒服。",
+        "examplePinyin": "Qiūtiān de wǎnshang hěn liángkuai, hěn shūfu.",
+        "exampleTranslation": "Autumn evenings are pleasantly cool and very comfortable."
+      },
+      {
+        "hanzi": "度",
+        "pinyin": "dù",
+        "english": "degree (of temperature, angle, etc.)",
+        "partOfSpeech": "m.",
+        "exampleHanzi": "今天最高气温二十三度，最低气温十四度。",
+        "examplePinyin": "Jīntiān zuìgāo qìwēn èrshísān dù, zuìdī qìwēn shísì dù.",
+        "exampleTranslation": "Today’s high temperature is 23 degrees and the low is 14 degrees."
+      },
+      {
+        "hanzi": "左右",
+        "pinyin": "zuǒyòu",
+        "english": "around; approximately; about",
+        "partOfSpeech": "n. / part.",
+        "exampleHanzi": "东京十月的时候白天二十度左右。",
+        "examplePinyin": "Dōngjīng shíyuè de shíhou báitiān èrshí dù zuǒyòu.",
+        "exampleTranslation": "In Tokyo in October, it is around twenty degrees during the day."
+      },
+      {
+        "hanzi": "暖和",
+        "pinyin": "nuǎnhuo",
+        "english": "warm; pleasantly warm",
+        "partOfSpeech": "adj.",
+        "exampleHanzi": "春天来了，天气越来越暖和了。",
+        "examplePinyin": "Chūntiān lái le, tiānqì yuèláiyuè nuǎnhuo le.",
+        "exampleTranslation": "Spring has arrived, and the weather is getting warmer and warmer."
+      },
+      {
+        "hanzi": "气温",
+        "pinyin": "qìwēn",
+        "english": "air temperature",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "晚上的气温比白天低十度左右。",
+        "examplePinyin": "Wǎnshang de qìwēn bǐ báitiān dī shí dù zuǒyòu.",
+        "exampleTranslation": "The nighttime temperature is about ten degrees lower than during the day."
+      },
+      {
+        "hanzi": "经常",
+        "pinyin": "jīngcháng",
+        "english": "often; frequently",
+        "partOfSpeech": "adv.",
+        "exampleHanzi": "这儿的秋天不经常刮风、下雨。",
+        "examplePinyin": "Zhèr de qiūtiān bù jīngcháng guā fēng, xià yǔ.",
+        "exampleTranslation": "It isn’t often windy or rainy here in autumn."
+      },
+      {
+        "hanzi": "下雨",
+        "pinyin": "xià yǔ",
+        "english": "to rain",
+        "partOfSpeech": "v.+o.",
+        "exampleHanzi": "外面正下着雨呢，你带伞了吗？",
+        "examplePinyin": "Wàimiàn zhèng xiàzhe yǔ ne, nǐ dài sǎn le ma?",
+        "exampleTranslation": "It’s raining outside right now—did you bring an umbrella?"
+      },
+      {
+        "hanzi": "更",
+        "pinyin": "gèng",
+        "english": "even more; still more",
+        "partOfSpeech": "adv.",
+        "exampleHanzi": "我怎么觉得现在风更大了呢？",
+        "examplePinyin": "Wǒ zěnme juéde xiànzài fēng gèng dà le ne?",
+        "exampleTranslation": "Why do I feel the wind has gotten even stronger now?"
+      },
+      {
+        "hanzi": "阴天",
+        "pinyin": "yīntiān",
+        "english": "overcast day; cloudy day",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "明天不会又是阴天吧？",
+        "examplePinyin": "Míngtiān bú huì yòu shì yīntiān ba?",
+        "exampleTranslation": "Tomorrow won’t be an overcast day again, will it?"
+      },
+      {
+        "hanzi": "预报",
+        "pinyin": "yùbào",
+        "english": "forecast; to forecast",
+        "partOfSpeech": "n. / v.",
+        "exampleHanzi": "我看看天气预报，明天是晴天。",
+        "examplePinyin": "Wǒ kànkan tiānqì yùbào, míngtiān shì qíngtiān.",
+        "exampleTranslation": "Let me check the weather forecast—tomorrow is a sunny day."
+      },
+      {
+        "hanzi": "零下",
+        "pinyin": "língxià",
+        "english": "below zero; minus (temperature)",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "渥太华冬天最低气温零下三十五六度。",
+        "examplePinyin": "Wòtàihuá dōngtiān zuìdī qìwēn língxià sānshíwǔ-liù dù.",
+        "exampleTranslation": "In Ottawa, the lowest temperature in winter is minus 35 or 36 degrees."
+      },
+      {
+        "hanzi": "一样",
+        "pinyin": "yíyàng",
+        "english": "same; alike; identical",
+        "partOfSpeech": "adj.",
+        "exampleHanzi": "现在韩国跟日本一样，也挺暖和的。",
+        "examplePinyin": "Xiànzài Hánguó gēn Rìběn yíyàng, yě tǐng nuǎnhuo de.",
+        "exampleTranslation": "Right now Korea is the same as Japan—it’s also quite warm."
+      },
+      {
+        "hanzi": "季节",
+        "pinyin": "jìjié",
+        "english": "season (春天 spring, 夏天 summer, 秋天 autumn, 冬天 winter)",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "我不喜欢夏天，春天和冬天都比夏天舒服。",
+        "examplePinyin": "Wǒ bù xǐhuan xiàtiān, chūntiān hé dōngtiān dōu bǐ xiàtiān shūfu.",
+        "exampleTranslation": "I don’t like summer; both spring and winter are more comfortable than summer."
+      },
+      {
+        "hanzi": "带",
+        "pinyin": "dài",
+        "english": "to bring; to carry; to take along",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "外面正下着雨呢，你带伞了吗？",
+        "examplePinyin": "Wàimiàn zhèng xiàzhe yǔ ne, nǐ dài sǎn le ma?",
+        "exampleTranslation": "It’s raining outside right now—did you bring an umbrella?"
+      },
+      {
+        "hanzi": "着",
+        "pinyin": "zhe",
+        "english": "(continuous aspect particle) indicates an ongoing action or continuing state",
+        "partOfSpeech": "part.",
+        "exampleHanzi": "外面正下着雨呢，咱们等一会儿再走吧。",
+        "examplePinyin": "Wàimiàn zhèng xiàzhe yǔ ne, zánmen děng yíhuìr zài zǒu ba.",
+        "exampleTranslation": "It is raining outside right now; let’s wait a moment before leaving."
+      },
+      {
+        "hanzi": "比如",
+        "pinyin": "bǐrú",
+        "english": "for example; for instance; such as",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "东京的天气很舒服，比如现在是秋天，气温一般二十度左右。",
+        "examplePinyin": "Dōngjīng de tiānqì hěn shūfu, bǐrú xiànzài shì qiūtiān, qìwēn yìbān èrshí dù zuǒyòu.",
+        "exampleTranslation": "Tokyo’s weather is very comfortable; for instance, right now it’s autumn and the temperature is usually around 20 degrees."
+      }
+    ],
+    "grammarPoint": "Weather, Seasons, Temperature Comparisons (比 / 更 / 一样) & Progressive Aspect (正…呢 / 着)",
+    "structure": "又 + Verb (+ 了) / 又 + Modal Verb  vs.  再 + Verb (+ Quantity)  |  挺 + Adjective + 的  |  Number + Measure Word + 左右  |  [Adjacent Digits: 三十五六 / 十七八] + Measure Word  |  A 跟 B (不)一样 (+ Adj)  |  A 比 B + Adj + 多了 / 一点儿 / [Number + Measure]  |  (可能) + 快 + Verb / Adjective + 了  |  Subject + 不会 (+ 又) + Verb / Adjective + 吧？  |  Subject + 正 / 在 + Verb Phrase (+ 呢)  |  Subject + (正) + Verb + 着 (+ Object) (+ 呢)",
+    "explanation": "Discuss weather forecasts, temperatures above and below zero, and seasonal climates across countries while mastering comparative structures (比…多了/一点儿, 更, 跟…一样), imminent change (快…了), and ongoing actions (正…呢 / V+着).",
+    "examples": [
+      {
+        "hanzi": "今天又下雨了，我们明天再去公园吧。",
+        "pinyin": "Jīntiān yòu xià yǔ le, wǒmen míngtiān zài qù gōngyuán ba.",
+        "translation": "It rained again today; let’s go to the park tomorrow instead."
+      },
+      {
+        "hanzi": "外面正下着雨呢，我再吃一碗蛋炒饭吧！",
+        "pinyin": "Wàimiàn zhèng xiàzhe yǔ ne, wǒ zài chī yì wǎn dànchǎofàn ba!",
+        "translation": "It’s raining outside right now—I’ll eat one more bowl of egg fried rice!"
+      },
+      {
+        "hanzi": "今天渥太华最高气温十六度左右，挺凉快的。",
+        "pinyin": "Jīntiān Wòtàihuá zuìgāo qìwēn shíliù dù zuǒyòu, tǐng liángkuai de.",
+        "translation": "Today Ottawa’s high temperature is around 16 degrees—quite cool and pleasant."
+      },
+      {
+        "hanzi": "肯尼亚的秋天最高气温有二十八九度，最低气温也有十七八度。",
+        "pinyin": "Kěnníyà de qiūtiān zuìgāo qìwēn yǒu èrshíbā-jiǔ dù, zuìdī qìwēn yě yǒu shíqī-bā dù.",
+        "translation": "In autumn in Kenya, the high temperature is 28 or 29 degrees, and the low is 17 or 18 degrees."
+      }
+    ],
+    "grammarNotes": [
+      {
+        "title": "Repetition: 又 + V (+ 了) (Past / Already Realized) vs. 再 + V (Future / Unactualized)",
+        "structure": "又 + Verb (+ 了) / 又 + Modal Verb  vs.  再 + Verb (+ Quantity)",
+        "explanation": "Both 又 (yòu) and 再 (zài) mean \"again\", but 又 is used when a repeated event has already occurred or is already happening now (又刮风了 \"It’s windy again!\"), or before modal/negative verbs (又不能打球了). 再 is used for a future or planned repetition that has not happened yet (咱们明天再来打球 \"Let’s come play ball again tomorrow\", 我再吃一碗吧 \"I’ll eat one more bowl\").",
+        "examples": [
+          {
+            "hanzi": "今天又下雨了，我们明天再去公园吧。",
+            "pinyin": "Jīntiān yòu xià yǔ le, wǒmen míngtiān zài qù gōngyuán ba.",
+            "translation": "It rained again today; let’s go to the park tomorrow instead."
+          },
+          {
+            "hanzi": "外面正下着雨呢，我再吃一碗蛋炒饭吧！",
+            "pinyin": "Wàimiàn zhèng xiàzhe yǔ ne, wǒ zài chī yì wǎn dànchǎofàn ba!",
+            "translation": "It’s raining outside right now—I’ll eat one more bowl of egg fried rice!"
+          }
+        ]
+      },
+      {
+        "title": "Colloquial Degree 挺 + Adj + 的 & Approximate Numbers (左右 / Adjacent Digits)",
+        "structure": "挺 + Adjective + 的  |  Number + Measure Word + 左右  |  [Adjacent Digits: 三十五六 / 十七八] + Measure Word",
+        "explanation": "1) 挺 + Adj + 的 means \"quite / pretty + Adj\" in natural spoken Mandarin (挺凉快的, 挺暖和的). 2) To express an approximate quantity (\"around / about\"), either add 左右 after [Number + Measure Word] (二十度左右) or place two adjacent numbers side by side before the measure word (二十八九度 \"28 or 29 degrees\", 零下三十五六度 \"minus 35 or 36 degrees\").",
+        "examples": [
+          {
+            "hanzi": "今天渥太华最高气温十六度左右，挺凉快的。",
+            "pinyin": "Jīntiān Wòtàihuá zuìgāo qìwēn shíliù dù zuǒyòu, tǐng liángkuai de.",
+            "translation": "Today Ottawa’s high temperature is around 16 degrees—quite cool and pleasant."
+          },
+          {
+            "hanzi": "肯尼亚的秋天最高气温有二十八九度，最低气温也有十七八度。",
+            "pinyin": "Kěnníyà de qiūtiān zuìgāo qìwēn yǒu èrshíbā-jiǔ dù, zuìdī qìwēn yě yǒu shíqī-bā dù.",
+            "translation": "In autumn in Kenya, the high temperature is 28 or 29 degrees, and the low is 17 or 18 degrees."
+          }
+        ]
+      },
+      {
+        "title": "Comparisons: A 跟 B (不)一样, 更 + Adj, and A 比 B + Adj + 多了 / 一点儿 / [Quantity]",
+        "structure": "A 跟 B (不)一样 (+ Adj)  |  A 比 B + Adj + 多了 / 一点儿 / [Number + Measure]",
+        "explanation": "1) Use A 跟 B 一样 to state that two things are the same, and A 跟 B 不一样 to state they are different. 2) Use 更 + Adj (\"even more...\") when comparing a new state to a previous baseline. 3) In a 比 (bǐ) comparison, to specify the degree of difference, place 多了 (\"much more\"), 一点儿 (\"a little more\"), or a specific measurement (e.g., 十度左右) AFTER the adjective—never put 很, 太, or 非常 before the adjective in a 比 sentence.",
+        "examples": [
+          {
+            "hanzi": "沙特的夏天比这儿热多了，晚上的气温比白天低十度左右。",
+            "pinyin": "Shātè de xiàtiān bǐ zhèr rè duō le, wǎnshang de qìwēn bǐ báitiān dī shí dù zuǒyòu.",
+            "translation": "Summer in Saudi Arabia is much hotter than here, and nighttime temperatures are about ten degrees lower than daytime."
+          },
+          {
+            "hanzi": "肯尼亚的秋天比日本、韩国热一点儿。",
+            "pinyin": "Kěnníyà de qiūtiān bǐ Rìběn, Hánguó rè yìdiǎnr.",
+            "translation": "Autumn in Kenya is a little hotter than in Japan and Korea."
+          }
+        ]
+      },
+      {
+        "title": "Imminent Change 快 + V/Adj + 了 & Concerned Speculation 不会……吧？",
+        "structure": "(可能) + 快 + Verb / Adjective + 了  |  Subject + 不会 (+ 又) + Verb / Adjective + 吧？",
+        "explanation": "1) 快……了 (kuài ... le) indicates that an action or change of state is about to happen very soon (快下雨了 \"It’s about to rain soon\"). 2) 不会……吧？ expresses a worried or reluctant guess about something the speaker hopes is not true (\"Don’t tell me that... / It won’t ..., will it?\").",
+        "examples": [
+          {
+            "hanzi": "风更大了，可能快下雨了，咱们走吧！",
+            "pinyin": "Fēng gèng dà le, kěnéng kuài xià yǔ le, zánmen zǒu ba!",
+            "translation": "The wind has gotten even stronger—it might rain soon, so let’s go!"
+          },
+          {
+            "hanzi": "明天天气怎么样？不会又是阴天吧？",
+            "pinyin": "Míngtiān tiānqì zěnmeyàng? Bú huì yòu shì yīntiān ba?",
+            "translation": "How is the weather tomorrow? It won’t be overcast again, will it?"
+          }
+        ]
+      },
+      {
+        "title": "Progressive & Continuous Aspects: 正 + VP + 呢 and V + 着 (+ N)",
+        "structure": "Subject + 正 / 在 + Verb Phrase (+ 呢)  |  Subject + (正) + Verb + 着 (+ Object) (+ 呢)",
+        "explanation": "Both 正 + VP + 呢 and V + 着 (+ N) indicate that an action or state is ongoing right now. 正 (or 在) before the verb highlights the active point in progress (\"right in the middle of...\"), while 着 after the verb highlights the continuing state or posture of the action (下着雨, 刮着大风, 穿着旗袍, 戴着帽子). They are often combined: 外面正下着雨呢！",
+        "examples": [
+          {
+            "hanzi": "说曹操曹操到，我正给你发照片呢！",
+            "pinyin": "Shuō Cáo Cāo Cáo Cāo dào, wǒ zhèng gěi nǐ fā zhàopiàn ne!",
+            "translation": "Speak of the devil—I was right in the middle of sending you a photo!"
+          },
+          {
+            "hanzi": "外面正下着雨呢，这个国家还刮着大风呢。",
+            "pinyin": "Wàimiàn zhèng xiàzhe yǔ ne, zhège guójiā hái guāzhe dàfēng ne.",
+            "translation": "It is raining outside right now, and strong winds are blowing in this country."
+          }
+        ]
+      }
+    ],
+    "exercises": [
+      {
+        "question": "Fill in the blanks with “又” or “再”: “昨天刮风了，今天________刮风了，咱们明天________来打球吧！”",
+        "promptHanzi": "昨天刮风了，今天________刮风了，咱们明天________来打球吧！",
+        "promptPinyin": "Zuótiān guā fēng le, jīntiān ________ guā fēng le, zánmen míngtiān ________ lái dǎqiú ba!",
+        "options": [
+          "又 …… 再 (yòu ... zài)",
+          "再 …… 又 (zài ... yòu)",
+          "又 …… 又 (yòu ... yòu)",
+          "再 …… 再 (zài ... zài)"
+        ],
+        "answerIndex": 0,
+        "explanation": "Use 又 (yòu) for a repetition that has already happened (今天又刮风了), and 再 (zài) for a future repetition that has not happened yet (明天再来打球)."
+      },
+      {
+        "question": "Which comparative sentence is grammatically CORRECT in Mandarin?",
+        "options": [
+          "今天比昨天冷多了。 (Jīntiān bǐ zuótiān lěng duō le.)",
+          "今天比昨天很冷。 (Jīntiān bǐ zuótiān hěn lěng.)",
+          "今天比昨天太冷了。 (Jīntiān bǐ zuótiān tài lěng le.)",
+          "今天多了冷比昨天。 (Jīntiān duō le lěng bǐ zuótiān.)"
+        ],
+        "answerIndex": 0,
+        "explanation": "In a 比 comparative sentence, never put degree adverbs like 很 or 太 before the adjective; instead, place degree complements like 多了, 一点儿, or a specific number after the adjective (比昨天冷多了)."
+      },
+      {
+        "question": "How do you express “The nighttime temperature is about 10 degrees lower than during the day”?",
+        "options": [
+          "晚上的气温比白天低十度左右。 (Wǎnshang de qìwēn bǐ báitiān dī shí dù zuǒyòu.)",
+          "晚上的气温比白天冷十度左右。 (Wǎnshang de qìwēn bǐ báitiān lěng shí dù zuǒyòu.)",
+          "晚上的气温比白天少十度左右。 (Wǎnshang de qìwēn bǐ báitiān shǎo shí dù zuǒyòu.)",
+          "晚上的气温低比白天十度左右。 (Wǎnshang de qìwēn dī bǐ báitiān shí dù zuǒyòu.)"
+        ],
+        "answerIndex": 0,
+        "explanation": "Air temperature (气温) is described with 高 (high) and 低 (low), and the specific numerical difference (十度左右) follows the adjective: 晚上的气温比白天低十度左右。"
+      },
+      {
+        "question": "Choose the correct characters to complete: “外面正下着雨呢，我今天穿了毛衣，________了帽子，还________了雨伞。”",
+        "promptHanzi": "外面正下着雨呢，我今天穿了毛衣，________了帽子，还________了雨伞。",
+        "promptPinyin": "Wàimiàn zhèng xiàzhe yǔ ne, wǒ jīntiān chuānle máoyī, ________ le màozi, hái ________ le yǔsǎn.",
+        "options": [
+          "戴 …… 带 (dài [wear accessories] ... dài [bring/carry])",
+          "带 …… 戴 (dài [bring] ... dài [wear])",
+          "穿 …… 穿 (chuān ... chuān)",
+          "拿 …… 戴 (ná ... dài)"
+        ],
+        "answerIndex": 0,
+        "explanation": "Use 戴 (dài) for wearing accessories like hats, glasses, or scarves (戴帽子), and 带 (dài) for bringing or carrying items with you like an umbrella or phone (带雨伞)."
+      }
+    ]
+  },
+  {
+    "id": "lesson11",
+    "title": "Lesson 9: Where Is the Subway Station? — 第9课：地铁站在哪儿",
+    "chineseTitle": "第9课：地铁站在哪儿",
+    "unitBadge": "Mastering Chinese · Elementary 3 (会通汉语 精编版·初级3)",
+    "description": "Master spatial orientation, location nouns, existence vs. position sentences ([地点]+有 / N+在 / [地点]+是), asking and stating distances with 离 and 从…到…, giving turn-by-turn directions with 一直往…走 and 往左/右拐, immediate sequence 一…就…, and directional movement (过来 vs. 过去).",
+    "content": "Location Words, Distance (离 / 从…到…), Turn-by-Turn Route Directions (往…走 / 拐) & Directional Complements (过来 / 过去). Master spatial orientation, location nouns, existence vs. position sentences ([地点]+有 / N+在 / [地点]+是), asking and stating distances with 离 and 从…到…, giving turn-by-turn directions with 一直往…走 and 往左/右拐, immediate sequence 一…就…, and directional movement (过来 vs. 过去).",
+    "hskLevel": 3,
+    "objectives": [
+      "Use location words (前边, 后边, 左边, 右边, 东边, 西边, 南边, 北边, 里, 对面, 附近) with 有, 在, and 是 to describe neighborhood landmarks.",
+      "Ask and state distances between two places using A 离 B + 远吗 / 很近 and 从 A 到 B + 有多远 / 有几百米.",
+      "Ask for and give clear turn-by-turn directions using 去 + [Place] + 怎么走？, (一直) 往 + Direction + 走, (往 +) 左/右 + 拐, and 一 + VP1 + 就 + VP2.",
+      "Distinguish directional complements 过来 (come over toward the speaker) and 过去 (go over away from the speaker)."
+    ],
+    "phoneticsAndCharacters": {
+      "title": "Section 1 & 2 · Phonetics, Character Structure & Radicals (第9课：地铁站在哪儿)",
+      "sections": [
+        {
+          "subtitle": "Initial & Final Discrimination Drills (声母与韵母对比练习)",
+          "summary": "Practice contrasting aspirated vs. unaspirated initials, dental vs. retroflex sibilants, and front vs. back nasal finals from Section 1.",
+          "items": [
+            {
+              "label": "Aspirated vs. Unaspirated Stops & Affricates (b–p, d–t, g–k, j–q, z–c, zh–ch)",
+              "pinyin": "b–p: 爸–怕 (bà–pà), 遍–片 (biàn–piàn) · d–t: 带–太 (dài–tài), 冬–同 (dōng–tóng) · g–k: 干–看 (gān–kàn) · j–q: 今–亲 (jīn–qīn), 寄–汽 (jì–qì)",
+              "examples": "自–次 (zì–cì), 早–草 (zǎo–cǎo), 知–吃 (zhī–chī), 猪–出 (zhū–chū)",
+              "detail": "自–次 (zì–cì), 早–草 (zǎo–cǎo), 知–吃 (zhī–chī), 猪–出 (zhū–chū) — Release a strong puff of air on p, t, k, q, c, ch"
+            },
+            {
+              "label": "Flat Dental vs. Retroflex Sibilants & Nasals/Laterals (z–zh, c–ch, s–sh, r–sh, n–l, f–h)",
+              "pinyin": "z–zh: 坐–桌 (zuò–zhuō), 早–找 (zǎo–zhǎo) · c–ch: 草–炒 (cǎo–chǎo), 操场 (cāochǎng) · s–sh: 三–山 (sān–shān), 宿舍 (sùshè) · r–sh: 认识 (rènshi)",
+              "examples": "n–l: 念–练 (niàn–liàn), 能–冷 (néng–lěng) · f–h: 房–黄 (fáng–huáng), 福–湖 (fú–hú)",
+              "detail": "n–l: 念–练 (niàn–liàn), 能–冷 (néng–lěng) · f–h: 房–黄 (fáng–huáng), 福–湖 (fú–hú) — Curl the tongue tip back for zh, ch, sh, r"
+            },
+            {
+              "label": "Front vs. Back Nasal Finals & Diphthongs (an–ang, ian–iang, uan–uang, en–eng, in–ing)",
+              "pinyin": "an–ang: 饭–放 (fàn–fàng), 单–当 (dān–dāng) · ian–iang: 先–香 (xiān–xiāng), 现–向 (xiàn–xiàng) · uan–uang: 晚–往 (wǎn–wǎng), 船–床 (chuán–chuáng)",
+              "examples": "en–eng: 分–风 (fēn–fēng), 身–生 (shēn–shēng) · in–ing: 今–经 (jīn–jīng), 饮–影 (yǐn–yǐng) · ia–ie: 家–街 (jiā–jiē) · ai–ei: 百–北 (bǎi–běi) · uai–uei: 外–位 (wài–wèi)",
+              "detail": "en–eng: 分–风 (fēn–fēng), 身–生 (shēn–shēng) · in–ing: 今–经 (jīn–jīng), 饮–影 (yǐn–yǐng) · ia–ie: 家–街 (jiā–jiē) · ai–ei: 百–北 (bǎi–běi) · uai–uei: 外–位 (wài–wèi) — Front nasals (-n) end with the tongue tip on the alveolar ridge; back nasals (-ng) open the velum"
+            }
+          ]
+        },
+        {
+          "subtitle": "Look-Alike Characters & Three Movement/Place Radicals: 辶, ⺶(足), and 阝",
+          "summary": "Distinguish nine pairs of look-alike characters and master the three key radicals for walking, foot movement, hills, and cities.",
+          "items": [
+            {
+              "label": "Nine Look-Alike Character Pairs (形近字)",
+              "pinyin": "饺–校 (jiǎo–xiào) · 北–比 (běi–bǐ) · 我–找 (wǒ–zhǎo) · 车–东 (chē–dōng) · 往–住 (wǎng–zhù)",
+              "examples": "左–右 (zuǒ–yòu: 工 under left hand vs. 口 under right hand) · 帅–师 (shuài–shī) · 四–西 (sì–xī) · 同–向 (tóng–xiàng)",
+              "detail": "左–右 (zuǒ–yòu: 工 under left hand vs. 口 under right hand) · 帅–师 (shuài–shī) · 四–西 (sì–xī) · 同–向 (tóng–xiàng) — Compare 左 (left + 工) and 右 (right + 口) carefully"
+            },
+            {
+              "label": "辶 (走之旁 · Walking & Distance Radical)",
+              "pinyin": "Wraps around the left and bottom of characters related to walking, roads, or distance",
+              "examples": "远 (yuǎn, far), 近 (jìn, near), 过 (guò, pass/cross), 这 (zhè), 那 (nà), 送 (sòng), 还 (hái/huán)",
+              "detail": "远 (yuǎn, far), 近 (jìn, near), 过 (guò, pass/cross), 这 (zhè), 那 (nà), 送 (sòng), 还 (hái/huán) — Always written last in stroke order"
+            },
+            {
+              "label": "⺶ / 足 (足字旁 · Foot & Stepping Radical)",
+              "pinyin": "Usually on the left side of characters related to the feet, running, kicking, or following",
+              "examples": "跑 (pǎo, run), 跟 (gēn, follow/with), 踢 (tī, kick), 路 (lù, road)",
+              "detail": "跑 (pǎo, run), 跟 (gēn, follow/with), 踢 (tī, kick), 路 (lù, road) — Derived from 足 (zú, foot)"
+            },
+            {
+              "label": "阝 (双耳旁 · Left Mound/Terrain vs. Right City/District Radical)",
+              "pinyin": "Left 阝 (阜字旁) relates to hills, steps, or buildings; Right 阝 (邑字旁) relates to cities, towns, or regions",
+              "examples": "Left 阝: 院 (yuàn, courtyard/institute), 附 (fù, near: 附近) · Right 阝: 邮 (yóu, post: 邮局), 都 (dōu/dū, all/capital), 郊 (jiāo, suburb)",
+              "detail": "Left 阝: 院 (yuàn, courtyard/institute), 附 (fù, near: 附近) · Right 阝: 邮 (yóu, post: 邮局), 都 (dōu/dū, all/capital), 郊 (jiāo, suburb) — Position (left vs. right) changes its historical origin and meaning category"
+            }
+          ]
+        }
+      ]
+    },
+    "dialogue": [
+      {
+        "character": "莉莉",
+        "hanzi": "请问，这附近有卫生间吗？",
+        "pinyin": "Qǐngwèn, zhè fùjìn yǒu wèishēngjiān ma?",
+        "translation": "Excuse me, is there a restroom near here?"
+      },
+      {
+        "character": "行人",
+        "hanzi": "前边的百货商店里有。",
+        "pinyin": "Qiánbian de bǎihuò-shāngdiàn lǐ yǒu.",
+        "translation": "There is one inside the department store up ahead."
+      },
+      {
+        "character": "莉莉",
+        "hanzi": "百货商店离这儿远吗？去那儿怎么走？",
+        "pinyin": "Bǎihuò-shāngdiàn lí zhèr yuǎn ma? Qù nàr zěnme zǒu?",
+        "translation": "Is the department store far from here? How do I get there?"
+      },
+      {
+        "character": "行人",
+        "hanzi": "不远，很近。从这儿一直往前走，第一个路口往左拐，一拐弯儿就到了。",
+        "pinyin": "Bù yuǎn, hěn jìn. Cóng zhèr yìzhí wǎng qián zǒu, dì-yī gè lùkǒu wǎng zuǒ guǎi, yì guǎiwānr jiù dào le.",
+        "translation": "Not far—it’s very close. Walk straight ahead from here, turn left at the first intersection, and as soon as you turn the corner you’re there."
+      },
+      {
+        "character": "莉莉",
+        "hanzi": "要多长时间？",
+        "pinyin": "Yào duō cháng shíjiān?",
+        "translation": "How long does it take?"
+      },
+      {
+        "character": "行人",
+        "hanzi": "走路三四分钟吧。",
+        "pinyin": "Zǒulù sān-sì fēnzhōng ba.",
+        "translation": "About three or four minutes on foot."
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Dialogue 1: Asking a Passerby for Directions to a Restroom & Department Store (莉莉 & 行人)",
+        "context": "Lily (莉莉) asks a passerby (行人) where the nearest restroom is and gets step-by-step walking directions to the department store ahead.",
+        "lines": [
+          {
+            "character": "莉莉",
+            "hanzi": "请问，这附近有卫生间吗？",
+            "pinyin": "Qǐngwèn, zhè fùjìn yǒu wèishēngjiān ma?",
+            "translation": "Excuse me, is there a restroom near here?"
+          },
+          {
+            "character": "行人",
+            "hanzi": "前边的百货商店里有。",
+            "pinyin": "Qiánbian de bǎihuò-shāngdiàn lǐ yǒu.",
+            "translation": "There is one inside the department store up ahead."
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "百货商店离这儿远吗？去那儿怎么走？",
+            "pinyin": "Bǎihuò-shāngdiàn lí zhèr yuǎn ma? Qù nàr zěnme zǒu?",
+            "translation": "Is the department store far from here? How do I get there?"
+          },
+          {
+            "character": "行人",
+            "hanzi": "不远，很近。从这儿一直往前走，第一个路口往左拐，一拐弯儿就到了。",
+            "pinyin": "Bù yuǎn, hěn jìn. Cóng zhèr yìzhí wǎng qián zǒu, dì-yī gè lùkǒu wǎng zuǒ guǎi, yì guǎiwānr jiù dào le.",
+            "translation": "Not far—it’s very close. Walk straight ahead from here, turn left at the first intersection, and as soon as you turn the corner you’re there."
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "要多长时间？",
+            "pinyin": "Yào duō cháng shíjiān?",
+            "translation": "How long does it take?"
+          },
+          {
+            "character": "行人",
+            "hanzi": "走路三四分钟吧。",
+            "pinyin": "Zǒulù sān-sì fēnzhōng ba.",
+            "translation": "About three or four minutes on foot."
+          }
+        ]
+      },
+      {
+        "title": "Dialogue 2: Meeting at the Subway Station & Giving Turn-by-Turn Directions (平田 & 马克)",
+        "context": "Hirata (平田) is waiting at the school’s East Gate and calls Mark (马克) to ask how far the subway station is and how to walk there.",
+        "lines": [
+          {
+            "character": "平田",
+            "hanzi": "马克，我已经在学校东门了，你到地铁站了吗？",
+            "pinyin": "Mǎkè, wǒ yǐjīng zài xuéxiào dōngmén le, nǐ dào dìtiězhàn le ma?",
+            "translation": "Mark, I’m already at the school’s East Gate. Have you arrived at the subway station?"
+          },
+          {
+            "character": "马克",
+            "hanzi": "快到了，你赶快过来吧。",
+            "pinyin": "Kuài dào le, nǐ gǎnkuài guòlái ba.",
+            "translation": "Almost there—hurry and come on over."
+          },
+          {
+            "character": "平田",
+            "hanzi": "地铁站在哪儿？从学校到地铁站有多远？",
+            "pinyin": "Dìtiězhàn zài nǎr? Cóng xuéxiào dào dìtiězhàn yǒu duō yuǎn?",
+            "translation": "Where is the subway station? How far is it from the school to the subway station?"
+          },
+          {
+            "character": "马克",
+            "hanzi": "很近，有几百米吧。",
+            "pinyin": "Hěn jìn, yǒu jǐ bǎi mǐ ba.",
+            "translation": "Very close—probably a few hundred meters."
+          },
+          {
+            "character": "平田",
+            "hanzi": "几百米？你问我吗？我不知道，我在问你啊。",
+            "pinyin": "Jǐ bǎi mǐ? Nǐ wèn wǒ ma? Wǒ bù zhīdào, wǒ zài wèn nǐ a.",
+            "translation": "“How many hundred meters?” Are you asking me? I don’t know—I’m asking you!"
+          },
+          {
+            "character": "马克",
+            "hanzi": "（笑）五百米左右吧。",
+            "pinyin": "(Xiào) Wǔbǎi mǐ zuǒyòu ba.",
+            "translation": "(Laughs) Around five hundred meters."
+          },
+          {
+            "character": "平田",
+            "hanzi": "五百米左右……怎么走啊？",
+            "pinyin": "Wǔbǎi mǐ zuǒyòu... Zěnme zǒu a?",
+            "translation": "Around five hundred meters... How do I walk there?"
+          },
+          {
+            "character": "马克",
+            "hanzi": "出了东门右拐，过了红绿灯再左拐，往前走有一家书店，对面就是地铁站。",
+            "pinyin": "Chūle dōngmén yòu guǎi, guòle hóng-lǜdēng zài zuǒ guǎi, wǎng qián zǒu yǒu yì jiā shūdiàn, duìmiàn jiù shì dìtiězhàn.",
+            "translation": "Go out the East Gate and turn right, pass the traffic light and turn left again, walk ahead and there is a bookstore—right across from it is the subway station."
+          },
+          {
+            "character": "平田",
+            "hanzi": "好，我马上过去。",
+            "pinyin": "Hǎo, wǒ mǎshàng guòqù.",
+            "translation": "Okay, I’ll head over right away."
+          }
+        ]
+      }
+    ],
+    "readingPassage": {
+      "title": "Reading: My Residential Neighborhood & Directions to KTV (我家住的小区与问路)",
+      "subtitle": "Read the two connected passages from Section 4 describing a convenient residential complex (小区) near campus and Lily’s directions from the park bus stop to KTV.",
+      "paragraphs": [
+        {
+          "hanzi": "我家住的小区离学校很近，只有七八百米，从学校往东走，过了马路就到了。小区门的左边有超市和银行，往右走一百米就是地铁站。小区里边，我家楼下就是书店，书店的北边是水果店和一个小饭馆。同学们常常来我家玩儿，因为走路十分钟就到了，坐公交车只有一站。",
+          "pinyin": "Wǒ jiā zhù de xiǎoqū lí xuéxiào hěn jìn, zhǐ yǒu qī-bābǎi mǐ, cóng xuéxiào wǎng dōng zǒu, guòle mǎlù jiù dào le. Xiǎoqū mén de zuǒbian yǒu chāoshì hé yínháng, wǎng yòu zǒu yìbǎi mǐ jiù shì dìtiězhàn. Xiǎoqū lǐbian, wǒ jiā lóuxià jiù shì shūdiàn, shūdiàn de běibian shì shuǐguǒdiàn hé yí gè xiǎo fànguǎn. Tóngxuémen chángcháng lái wǒ jiā wánr, yīnwèi zǒulù shí fēnzhōng jiù dào le, zuò gōngjiāochē zhǐ yǒu yí zhàn.",
+          "translation": "The residential complex where my family lives is very close to school—only 700 or 800 meters away. If you walk east from school, you arrive right after crossing the street. To the left of the complex gate are a supermarket and a bank, and 100 meters to the right is the subway station. Inside the complex, right downstairs from my home is a bookstore, and north of the bookstore are a fruit shop and a small restaurant. My classmates often come to my home to hang out because it takes just ten minutes on foot, or only one stop by bus."
+        },
+        {
+          "hanzi": "周末马克和朋友们去KTV唱歌，莉莉已经到了。马克刚下公交车，在公园站给莉莉打电话问路。莉莉告诉他，公交站离KTV很近，从公交站到KTV有两百米左右：下车以后一直往南走，到了第一个路口往右拐，再往前走，左边有一个公园，公园对面就是KTV，很容易找。",
+          "pinyin": "Zhōumò Mǎkè hé péngyoumen qù KTV chànggē, Lìli yǐjīng dào le. Mǎkè gāng xià gōngjiāochē, zài Gōngyuán Zhàn gěi Lìli dǎ diànhuà wèn lù. Lìli gàosu tā, gōngjiāozhàn lí KTV hěn jìn, cóng gōngjiāozhàn dào KTV yǒu liǎngbǎi mǐ zuǒyòu: xià chē yǐhòu yìzhí wǎng nán zǒu, dàole dì-yī gè lùkǒu wǎng yòu guǎi, zài wǎng qián zǒu, zuǒbian yǒu yí gè gōngyuán, gōngyuán duìmiàn jiù shì KTV, hěn róngyì zhǎo.",
+          "translation": "On the weekend Mark and his friends went to KTV to sing, and Lily had already arrived. Mark had just gotten off the bus at Park Stop and called Lily to ask for directions. Lily told him that the bus stop is very close to the KTV—about 200 meters from the bus stop to the KTV: after getting off the bus, walk straight south, turn right at the first intersection, walk ahead again, and on the left there is a park; right across from the park is the KTV—it’s very easy to find."
+        }
+      ]
+    },
+    "vocabularyExplanation": [
+      {
+        "hanzi": "附近",
+        "pinyin": "fùjìn",
+        "english": "nearby; in the vicinity; neighborhood",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "请问，这附近有卫生间吗？",
+        "examplePinyin": "Qǐngwèn, zhè fùjìn yǒu wèishēngjiān ma?",
+        "exampleTranslation": "Excuse me, is there a restroom near here?"
+      },
+      {
+        "hanzi": "卫生间",
+        "pinyin": "wèishēngjiān",
+        "english": "restroom; bathroom; washroom",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "前边的百货商店里有卫生间。",
+        "examplePinyin": "Qiánbian de bǎihuò-shāngdiàn lǐ yǒu wèishēngjiān.",
+        "exampleTranslation": "There is a restroom inside the department store up ahead."
+      },
+      {
+        "hanzi": "前边",
+        "pinyin": "qiánbian",
+        "english": "in front; ahead",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "前边有一家很大的百货商店。",
+        "examplePinyin": "Qiánbian yǒu yì jiā hěn dà de bǎihuò-shāngdiàn.",
+        "exampleTranslation": "There is a large department store up ahead."
+      },
+      {
+        "hanzi": "百货商店",
+        "pinyin": "bǎihuò-shāngdiàn",
+        "english": "department store",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "百货商店离这儿远吗？",
+        "examplePinyin": "Bǎihuò-shāngdiàn lí zhèr yuǎn ma?",
+        "exampleTranslation": "Is the department store far from here?"
+      },
+      {
+        "hanzi": "离",
+        "pinyin": "lí",
+        "english": "away from; distant from (in space or time)",
+        "partOfSpeech": "prep.",
+        "exampleHanzi": "我家住的小区离学校很近。",
+        "examplePinyin": "Wǒ jiā zhù de xiǎoqū lí xuéxiào hěn jìn.",
+        "exampleTranslation": "The residential complex where I live is very close to the school."
+      },
+      {
+        "hanzi": "近",
+        "pinyin": "jìn",
+        "english": "near; close",
+        "partOfSpeech": "adj.",
+        "exampleHanzi": "地铁站离这儿不远，很近。",
+        "examplePinyin": "Dìtiězhàn lí zhèr bù yuǎn, hěn jìn.",
+        "exampleTranslation": "The subway station isn’t far from here—it’s very close."
+      },
+      {
+        "hanzi": "从",
+        "pinyin": "cóng",
+        "english": "from (a starting point in space or time)",
+        "partOfSpeech": "prep.",
+        "exampleHanzi": "从学校到地铁站有多远？",
+        "examplePinyin": "Cóng xuéxiào dào dìtiězhàn yǒu duō yuǎn?",
+        "exampleTranslation": "How far is it from the school to the subway station?"
+      },
+      {
+        "hanzi": "一直",
+        "pinyin": "yìzhí",
+        "english": "straight (ahead); all along; continuously",
+        "partOfSpeech": "adv.",
+        "exampleHanzi": "从这儿一直往前走，第一个路口往左拐。",
+        "examplePinyin": "Cóng zhèr yìzhí wǎng qián zǒu, dì-yī gè lùkǒu wǎng zuǒ guǎi.",
+        "exampleTranslation": "Walk straight ahead from here, and turn left at the first intersection."
+      },
+      {
+        "hanzi": "往",
+        "pinyin": "wǎng",
+        "english": "toward; in the direction of",
+        "partOfSpeech": "prep.",
+        "exampleHanzi": "下车以后一直往南走。",
+        "examplePinyin": "Xià chē yǐhòu yìzhí wǎng nán zǒu.",
+        "exampleTranslation": "After getting off the vehicle, walk straight south."
+      },
+      {
+        "hanzi": "路口",
+        "pinyin": "lùkǒu",
+        "english": "intersection; crossing; street corner",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "到了第一个路口往右拐。",
+        "examplePinyin": "Dàole dì-yī gè lùkǒu wǎng yòu guǎi.",
+        "exampleTranslation": "When you reach the first intersection, turn right."
+      },
+      {
+        "hanzi": "拐",
+        "pinyin": "guǎi",
+        "english": "to turn (a corner / direction)",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "出了东门右拐，过了红绿灯再左拐。",
+        "examplePinyin": "Chūle dōngmén yòu guǎi, guòle hóng-lǜdēng zài zuǒ guǎi.",
+        "exampleTranslation": "Go out the East Gate and turn right; after passing the traffic light, turn left."
+      },
+      {
+        "hanzi": "走路",
+        "pinyin": "zǒulù",
+        "english": "to walk; to go on foot",
+        "partOfSpeech": "v.+o.",
+        "exampleHanzi": "去百货商店走路只要三四分钟。",
+        "examplePinyin": "Qù bǎihuò-shāngdiàn zǒulù zhǐ yào sān-sì fēnzhōng.",
+        "exampleTranslation": "Walking to the department store only takes three or four minutes."
+      },
+      {
+        "hanzi": "米",
+        "pinyin": "mǐ",
+        "english": "meter (unit of length)",
+        "partOfSpeech": "m.",
+        "exampleHanzi": "从学校到地铁站有五百米左右。",
+        "examplePinyin": "Cóng xuéxiào dào dìtiězhàn yǒu wǔbǎi mǐ zuǒyòu.",
+        "exampleTranslation": "It is about five hundred meters from the school to the subway station."
+      },
+      {
+        "hanzi": "马路",
+        "pinyin": "mǎlù",
+        "english": "street; road; avenue",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "从学校往东走，过了马路就到了。",
+        "examplePinyin": "Cóng xuéxiào wǎng dōng zǒu, guòle mǎlù jiù dào le.",
+        "exampleTranslation": "Walk east from the school, and you’ll arrive right after crossing the street."
+      },
+      {
+        "hanzi": "地铁站",
+        "pinyin": "dìtiězhàn",
+        "english": "subway station; metro station",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "你到地铁站了吗？我已经在学校东门了。",
+        "examplePinyin": "Nǐ dào dìtiězhàn le ma? Wǒ yǐjīng zài xuéxiào dōngmén le.",
+        "exampleTranslation": "Have you arrived at the subway station? I’m already at the school’s East Gate."
+      },
+      {
+        "hanzi": "赶快",
+        "pinyin": "gǎnkuài",
+        "english": "hurry up; quickly; right away",
+        "partOfSpeech": "adv.",
+        "exampleHanzi": "快上课了，咱们赶快走吧！",
+        "examplePinyin": "Kuài shàngkè le, zánmen gǎnkuài zǒu ba!",
+        "exampleTranslation": "Class is about to start—let’s hurry up and go!"
+      },
+      {
+        "hanzi": "过来",
+        "pinyin": "guòlái",
+        "english": "to come over (toward the speaker)",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "我快到地铁站了，你赶快过来吧！——好，我马上过去。",
+        "examplePinyin": "Wǒ kuài dào dìtiězhàn le, nǐ gǎnkuài guòlái ba! — Hǎo, wǒ mǎshàng guòqù.",
+        "exampleTranslation": "I’m almost at the subway station; hurry and come over! — Okay, I’ll head over right away."
+      },
+      {
+        "hanzi": "红绿灯",
+        "pinyin": "hóng-lǜdēng",
+        "english": "traffic light (literally \"red-green light\")",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "过了前边的红绿灯再往左拐。",
+        "examplePinyin": "Guòle qiánbian de hóng-lǜdēng zài wǎng zuǒ guǎi.",
+        "exampleTranslation": "Pass the traffic light ahead and then turn left."
+      },
+      {
+        "hanzi": "对面",
+        "pinyin": "duìmiàn",
+        "english": "opposite; across from",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "往前走有一家书店，对面就是地铁站。",
+        "examplePinyin": "Wǎng qián zǒu yǒu yì jiā shūdiàn, duìmiàn jiù shì dìtiězhàn.",
+        "exampleTranslation": "Walk ahead and there is a bookstore; right across from it is the subway station."
+      },
+      {
+        "hanzi": "马上",
+        "pinyin": "mǎshàng",
+        "english": "immediately; right away; at once",
+        "partOfSpeech": "adv.",
+        "exampleHanzi": "请等一下，我马上过去。",
+        "examplePinyin": "Qǐng děng yíxià, wǒ mǎshàng guòqù.",
+        "exampleTranslation": "Please wait a moment; I’ll head over right away."
+      },
+      {
+        "hanzi": "小区",
+        "pinyin": "xiǎoqū",
+        "english": "residential complex; housing estate; neighborhood compound",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "我家住的小区里边有书店、水果店和小饭馆。",
+        "examplePinyin": "Wǒ jiā zhù de xiǎoqū lǐbian yǒu shūdiàn, shuǐguǒdiàn hé xiǎo fànguǎn.",
+        "exampleTranslation": "Inside the residential complex where I live, there is a bookstore, a fruit shop, and a small restaurant."
+      },
+      {
+        "hanzi": "容易",
+        "pinyin": "róngyì",
+        "english": "easy; likely to",
+        "partOfSpeech": "adj.",
+        "exampleHanzi": "公园对面就是KTV，很容易找。",
+        "examplePinyin": "Gōngyuán duìmiàn jiù shì KTV, hěn róngyì zhǎo.",
+        "exampleTranslation": "Right across from the park is the KTV; it’s very easy to find."
+      }
+    ],
+    "grammarPoint": "Location Words, Distance (离 / 从…到…), Turn-by-Turn Route Directions (往…走 / 拐) & Directional Complements (过来 / 过去)",
+    "structure": "[Place] + 有 + Indefinite Noun  |  Definite Noun + 在 + [Place]  |  [Place] (+ 就) + 是 + Noun  |  Place A + 离 + Place B + 远吗 / (不)远 / 很近  |  从 + Place A + 到 + Place B + 有多远 / 有 + [Number + 米/公里]  |  (从 Place A) + 去 + Place B + 怎么走？  |  (一直) 往 + [前/东/南/左/右] + 走 / 拐  |  (Subject +) 一 + Verb Phrase 1 + 就 + Verb Phrase 2  |  Verb / Adverb + 过来 (come over here)  vs.  Verb / Adverb + 过去 (go over there)",
+    "explanation": "Master spatial orientation, location nouns, existence vs. position sentences ([地点]+有 / N+在 / [地点]+是), asking and stating distances with 离 and 从…到…, giving turn-by-turn directions with 一直往…走 and 往左/右拐, immediate sequence 一…就…, and directional movement (过来 vs. 过去).",
+    "examples": [
+      {
+        "hanzi": "这附近有卫生间吗？——前边的百货商店里有。",
+        "pinyin": "Zhè fùjìn yǒu wèishēngjiān ma? — Qiánbian de bǎihuò-shāngdiàn lǐ yǒu.",
+        "translation": "Is there a restroom near here? — There is one inside the department store ahead."
+      },
+      {
+        "hanzi": "银行在超市的东边，书店对面就是地铁站。",
+        "pinyin": "Yínháng zài chāoshì de dōngbian, shūdiàn duìmiàn jiù shì dìtiězhàn.",
+        "translation": "The bank is to the east of the supermarket, and right across from the bookstore is the subway station."
+      },
+      {
+        "hanzi": "百货商店离这儿远吗？——不远，很近，走路三四分钟吧。",
+        "pinyin": "Bǎihuò-shāngdiàn lí zhèr yuǎn ma? — Bù yuǎn, hěn jìn, zǒulù sān-sì fēnzhōng ba.",
+        "translation": "Is the department store far from here? — Not far, very close; about three or four minutes on foot."
+      },
+      {
+        "hanzi": "从学校到地铁站有多远？——有五百米左右。",
+        "pinyin": "Cóng xuéxiào dào dìtiězhàn yǒu duō yuǎn? — Yǒu wǔbǎi mǐ zuǒyòu.",
+        "translation": "How far is it from the school to the subway station? — It’s around five hundred meters."
+      }
+    ],
+    "grammarNotes": [
+      {
+        "title": "Location Words (方位词) & Existence vs. Position vs. Identification (有 / 在 / 是)",
+        "structure": "[Place] + 有 + Indefinite Noun  |  Definite Noun + 在 + [Place]  |  [Place] (+ 就) + 是 + Noun",
+        "explanation": "1) Location words include 前边, 后边, 左边, 右边, 东边, 西边, 南边, 北边, 里(边), 对面, and 附近. When modifying a noun, 里 is used directly after the place without 的 (百货商店里). 2) Use [Place] + 有 + N to state that something exists at a location; use N + 在 + [Place] to state where a specific thing is located; use [Place] (+ 就) + 是 + N to identify what occupies a specific spot.",
+        "examples": [
+          {
+            "hanzi": "这附近有卫生间吗？——前边的百货商店里有。",
+            "pinyin": "Zhè fùjìn yǒu wèishēngjiān ma? — Qiánbian de bǎihuò-shāngdiàn lǐ yǒu.",
+            "translation": "Is there a restroom near here? — There is one inside the department store ahead."
+          },
+          {
+            "hanzi": "银行在超市的东边，书店对面就是地铁站。",
+            "pinyin": "Yínháng zài chāoshì de dōngbian, shūdiàn duìmiàn jiù shì dìtiězhàn.",
+            "translation": "The bank is to the east of the supermarket, and right across from the bookstore is the subway station."
+          }
+        ]
+      },
+      {
+        "title": "Asking & Stating Distances: A 离 B + 远吗 / 很近 & 从 A 到 B + 有多远 / 有 + [Distance]",
+        "structure": "Place A + 离 + Place B + 远吗 / (不)远 / 很近  |  从 + Place A + 到 + Place B + 有多远 / 有 + [Number + 米/公里]",
+        "explanation": "1) Use A 离 B + 远/近 to describe whether Place A is far from or close to Place B. 2) Use 从 A 到 B + 有多远？ to ask for the distance from A to B, and answer with 有 + [Number + 米/公里] (or 走路/坐车 + [Time]). Note that 几百米 with a question mark asks \"How many hundred meters?\", whereas in a statement with 吧 it means \"several hundred meters\".",
+        "examples": [
+          {
+            "hanzi": "百货商店离这儿远吗？——不远，很近，走路三四分钟吧。",
+            "pinyin": "Bǎihuò-shāngdiàn lí zhèr yuǎn ma? — Bù yuǎn, hěn jìn, zǒulù sān-sì fēnzhōng ba.",
+            "translation": "Is the department store far from here? — Not far, very close; about three or four minutes on foot."
+          },
+          {
+            "hanzi": "从学校到地铁站有多远？——有五百米左右。",
+            "pinyin": "Cóng xuéxiào dào dìtiězhàn yǒu duō yuǎn? — Yǒu wǔbǎi mǐ zuǒyòu.",
+            "translation": "How far is it from the school to the subway station? — It’s around five hundred meters."
+          }
+        ]
+      },
+      {
+        "title": "Asking & Giving Route Directions: 去 + [Place] + 怎么走？, (一直) 往 + Direction + 走, and (往) 左/右拐",
+        "structure": "(从 Place A) + 去 + Place B + 怎么走？  |  (一直) 往 + [前/东/南/左/右] + 走 / 拐",
+        "explanation": "To ask for walking or driving directions to a destination, use 去 + [Place] + 怎么走？ (How do I get to...?). Give directions using 一直往前走 (\"walk straight ahead\"), 往左/右拐 (\"turn left/right\", where 往 can be omitted before 左拐/右拐), and sequence markers like 先……，过了……再…… (\"first..., after passing..., then...\").",
+        "examples": [
+          {
+            "hanzi": "从这儿一直往前走，第一个路口往左拐。",
+            "pinyin": "Cóng zhèr yìzhí wǎng qián zǒu, dì-yī gè lùkǒu wǎng zuǒ guǎi.",
+            "translation": "Walk straight ahead from here, and turn left at the first intersection."
+          },
+          {
+            "hanzi": "出了东门右拐，过了红绿灯再左拐。",
+            "pinyin": "Chūle dōngmén yòu guǎi, guòle hóng-lǜdēng zài zuǒ guǎi.",
+            "translation": "Go out the East Gate and turn right; after passing the traffic light, turn left."
+          }
+        ]
+      },
+      {
+        "title": "Immediate Sequence: 一 + VP1 + 就 + VP2 (\"As soon as ... then ...\")",
+        "structure": "(Subject +) 一 + Verb Phrase 1 + 就 + Verb Phrase 2",
+        "explanation": "The correlative pattern 一……就…… links two actions to show that the second action happens immediately after the first action occurs (\"as soon as VP1 happens, VP2 follows right away\").",
+        "examples": [
+          {
+            "hanzi": "第一个路口往左拐，一拐弯儿就到了。",
+            "pinyin": "Dì-yī gè lùkǒu wǎng zuǒ guǎi, yì guǎiwānr jiù dào le.",
+            "translation": "Turn left at the first intersection, and as soon as you turn the corner you’ll be there."
+          },
+          {
+            "hanzi": "他每天晚上一吃完晚饭就写汉字。",
+            "pinyin": "Tā měitiān wǎnshang yì chīwán wǎnfàn jiù xiě Hànzì.",
+            "translation": "Every evening, as soon as he finishes dinner, he writes Chinese characters."
+          }
+        ]
+      },
+      {
+        "title": "Directional Orientation: 过来 (Toward Speaker) vs. 过去 (Away from Speaker)",
+        "structure": "Verb / Adverb + 过来 (come over here)  vs.  Verb / Adverb + 过去 (go over there)",
+        "explanation": "Both 过来 and 过去 indicate movement across a space, but their perspective is anchored to the speaker’s current position: use 过来 when movement is toward the speaker (\"come over here\"), and use 过去 when movement is away from the speaker toward the listener or a third place (\"go over there\").",
+        "examples": [
+          {
+            "hanzi": "我快到地铁站了，你赶快过来吧！",
+            "pinyin": "Wǒ kuài dào dìtiězhàn le, nǐ gǎnkuài guòlái ba!",
+            "translation": "I’m almost at the subway station—hurry up and come over here!"
+          },
+          {
+            "hanzi": "好，你在那儿等我，我马上过去。",
+            "pinyin": "Hǎo, nǐ zài nàr děng wǒ, wǒ mǎshàng guòqù.",
+            "translation": "Okay, wait for me there—I’ll head over right away."
+          }
+        ]
+      }
+    ],
+    "exercises": [
+      {
+        "question": "Which sentence correctly asks and states the distance between the school and the subway station?",
+        "options": [
+          "从学校到地铁站有多远？——有五百米左右。 (Cóng xuéxiào dào dìtiězhàn yǒu duō yuǎn? — Yǒu wǔbǎi mǐ zuǒyòu.)",
+          "从学校离地铁站有多远？——是五百米左右。 (Cóng xuéxiào lí dìtiězhàn yǒu duō yuǎn? — Shì wǔbǎi mǐ zuǒyòu.)",
+          "学校到地铁站很远吗？——从五百米左右。 (Xuéxiào dào dìtiězhàn hěn yuǎn ma? — Cóng wǔbǎi mǐ zuǒyòu.)",
+          "离学校从地铁站多远？——五百米。 (Lí xuéxiào cóng dìtiězhàn duō yuǎn? — Wǔbǎi mǐ.)"
+        ],
+        "answerIndex": 0,
+        "explanation": "Use A 离 B 远吗？ OR 从 A 到 B 有多远？ (never mix *从 A 离 B), and state the measured distance with 有 + [Number + 米]."
+      },
+      {
+        "question": "Fill in the blanks to complete the route directions: “从这儿一直________前走，第一个路口往左________，一拐弯儿就到了。”",
+        "promptHanzi": "从这儿一直________前走，第一个路口往左________，一拐弯儿就到了。",
+        "promptPinyin": "Cóng zhèr yìzhí ________ qián zǒu, dì-yī gè lùkǒu wǎng zuǒ ________, yì guǎiwānr jiù dào le.",
+        "options": [
+          "往 …… 拐 (wǎng ... guǎi)",
+          "离 …… 走 (lí ... zǒu)",
+          "从 …… 到 (cóng ... dào)",
+          "在 …… 过 (zài ... guò)"
+        ],
+        "answerIndex": 0,
+        "explanation": "Use 往 + Direction + 走 (\"walk toward...\") and 往左/右拐 (\"turn left/right\")."
+      },
+      {
+        "question": "When Mark is at the subway station and asks Hirata to join him there, Mark says “你赶快________吧”, and Hirata replies “好，我马上________”. Which pair fits?",
+        "promptHanzi": "马克：“你赶快________吧。” 平田：“好，我马上________。”",
+        "promptPinyin": "Mǎkè: “Nǐ gǎnkuài ________ ba.” Píngtián: “Hǎo, wǒ mǎshàng ________.”",
+        "options": [
+          "过来 …… 过去 (guòlái ... guòqù)",
+          "过去 …… 过来 (guòqù ... guòlái)",
+          "回来 …… 回去 (huílái ... huíqù)",
+          "过来 …… 过来 (guòlái ... guòlái)"
+        ],
+        "answerIndex": 0,
+        "explanation": "Mark invites Hirata toward Mark’s location (过来 \"come over here\"), while Hirata describes moving away from his own current spot at the East Gate toward Mark (过去 \"go over there\")."
+      },
+      {
+        "question": "In the dialogue, Mark says “有几百米吧” and Hirata replies “几百米？你问我吗？”. Why did Hirata misunderstand Mark?",
+        "options": [
+          "Because 几 (jǐ) means both \"how many\" (in questions) and \"several / a few\" (in statements like 有几百米吧).",
+          "Because 百米 means \"white rice\" in Chinese.",
+          "Because Hirata does not know what a subway station is.",
+          "Because 几百米 means \"more than ten kilometers\"."
+        ],
+        "answerIndex": 0,
+        "explanation": "几 (jǐ) is an interrogative pronoun (\"how many?\"), but in affirmative statements with 吧 (有几百米吧) it functions as an indefinite number meaning \"several / a few (hundred meters)\"."
+      }
+    ]
+  },
+  {
+    "id": "lesson12",
+    "title": "Cultural Reader 3: China’s Twenty-Four Solar Terms — 文化读本3：中国的二十四节气",
+    "chineseTitle": "文化读本3：中国的二十四节气",
+    "unitBadge": "Mastering Chinese · Elementary 3 (会通汉语 精编版·初级3 · 文化读本)",
+    "description": "Explore why UNESCO-recognized Twenty-Four Solar Terms (二十四节气) are called \"China’s Fifth Great Invention\", how ancient observers summarized two solar terms per month to guide farming, and how modern urban Chinese celebrate Lichun (立春), Qingming (清明), Dongzhi (冬至), and the peak heat and cold periods.",
+    "content": "The \"Fifth Great Invention of China\", Agricultural Wisdom, Seasonal Customs & Major Solar Terms (立春 · 清明 · 冬至). Explore why UNESCO-recognized Twenty-Four Solar Terms (二十四节气) are called \"China’s Fifth Great Invention\", how ancient observers summarized two solar terms per month to guide farming, and how modern urban Chinese celebrate Lichun (立春), Qingming (清明), Dongzhi (冬至), and the peak heat and cold periods.",
+    "hskLevel": 3,
+    "objectives": [
+      "Understand the historical origin of the Twenty-Four Solar Terms (二十四节气) in the traditional Chinese calendar (农历) and why they are called \"China’s Fifth Great Invention\" (中国的第五大发明).",
+      "Explain how ancient Chinese farmers observed the sun (太阳), stars (星星), and nature (自然界) to summarize two solar terms per month for agriculture (种地).",
+      "Describe how the Twenty-Four Solar Terms have evolved in modern urban life from an agricultural necessity into cherished cultural customs (风俗).",
+      "Identify the dates, seasonal meanings, and traditions of key solar terms: 立春 (Start of Spring), 清明 (Pure Brightness — spring outings & tomb-sweeping), 小暑/大暑 (Minor/Major Heat), 冬至 (Winter Solstice — eating dumplings), and 小寒/大寒 (Minor/Major Cold)."
+    ],
+    "phoneticsAndCharacters": {
+      "title": "Section 1 & 2 · Phonetics, Character Structure & Radicals (文化读本3：中国的二十四节气)",
+      "sections": [
+        {
+          "subtitle": "Seven Key Solar Terms Featured in Cultural Reader 3 (课文重点节气一览)",
+          "summary": "Although the traditional calendar divides the solar year into 24 solar terms (two per month), the reading highlights seven solar terms that remain closely tied to modern Chinese daily life and seasonal customs.",
+          "items": [
+            {
+              "label": "立春 (Lìchūn · Start of Spring) — Feb 3–5",
+              "pinyin": "立 (establish / begin) + 春 (spring)",
+              "examples": "“立春”——春天来了 (Spring has arrived; people welcome spring and eat spring pancakes 春饼).",
+              "detail": "“立春”——春天来了 (Spring has arrived; people welcome spring and eat spring pancakes 春饼). — 1st of the 24 Solar Terms"
+            },
+            {
+              "label": "清明 (Qīngmíng · Pure Brightness) — Apr 4–6",
+              "pinyin": "清 (clear / pure) + 明 (bright)",
+              "examples": "“清明”——天气暖和了，可以春游扫墓 (The weather warms up; people go on spring outings and sweep ancestors’ tombs).",
+              "detail": "“清明”——天气暖和了，可以春游扫墓 (The weather warms up; people go on spring outings and sweep ancestors’ tombs). — 5th Solar Term & traditional festival"
+            },
+            {
+              "label": "小暑 & 大暑 (Xiǎoshǔ & Dàshǔ · Minor Heat & Major Heat) — Jul 6–8 & Jul 22–24",
+              "pinyin": "小/大 (minor/major) + 暑 (summer heat)",
+              "examples": "一年中最热的日子 (The hottest days of the year in midsummer).",
+              "detail": "一年中最热的日子 (The hottest days of the year in midsummer). — 11th & 12th Solar Terms (peak summer)"
+            },
+            {
+              "label": "冬至 (Dōngzhì · Winter Solstice) — Dec 21–23",
+              "pinyin": "冬 (winter) + 至 (arrive / extreme)",
+              "examples": "“冬至”——真正的冬天来了，应该吃饺子 (True winter arrives; northern Chinese eat dumplings 饺子, southern Chinese eat tangyuan 汤圆).",
+              "detail": "“冬至”——真正的冬天来了，应该吃饺子 (True winter arrives; northern Chinese eat dumplings 饺子, southern Chinese eat tangyuan 汤圆). — 22nd Solar Term (shortest day of the year)"
+            },
+            {
+              "label": "小寒 & 大寒 (Xiǎohán & Dàhán · Minor Cold & Major Cold) — Jan 5–7 & Jan 20–21",
+              "pinyin": "小/大 (minor/major) + 寒 (winter cold)",
+              "examples": "一年中最冷的日子，希望快点儿过去 (The coldest days of the year before spring returns).",
+              "detail": "一年中最冷的日子，希望快点儿过去 (The coldest days of the year before spring returns). — 23rd & 24th Solar Terms (final terms of the year)"
+            }
+          ]
+        }
+      ]
+    },
+    "dialogue": [
+      {
+        "character": "马克",
+        "hanzi": "王老师，我听说中国农历有二十四节气，很多人说它是“中国的第五大发明”，这是真的吗？",
+        "pinyin": "Wáng lǎoshī, wǒ tīngshuō Zhōngguó nónglì yǒu èrshísì jiéqì, hěn duō rén shuō tā shì “Zhōngguó de dì-wǔ dà fāmíng”, zhè shì zhēnde ma?",
+        "translation": "Teacher Wang, I heard that the Chinese calendar has Twenty-Four Solar Terms and many people call them \"China’s Fifth Great Invention\"—is that true?"
+      },
+      {
+        "character": "王老师",
+        "hanzi": "对。很早以前中国人就开始种地，非常关心季节和天气的变化。",
+        "pinyin": "Duì. Hěn zǎo yǐqián Zhōngguó rén jiù kāishǐ zhòngdì, fēicháng guānxīn jìjié hé tiānqì de biànhuà.",
+        "translation": "Yes. Very long ago Chinese people began farming the land and cared deeply about seasonal and weather changes."
+      },
+      {
+        "character": "马克",
+        "hanzi": "那古人是怎么知道节气的呢？",
+        "pinyin": "Nà gǔrén shì zěnme zhīdào jiéqì de ne?",
+        "translation": "Then how did ancient people figure out the solar terms?"
+      },
+      {
+        "character": "王老师",
+        "hanzi": "他们通过观察太阳、星星和自然界的变化，总结出了“节气”。每个月两个节气，一年就有二十四个节气。",
+        "pinyin": "Tāmen tōngguò guānchá tàiyáng, xīngxing hé zìránjiè de biànhuà, zǒngjiéchūle “jiéqì”. Měi gè yuè liǎng gè jiéqì, yì nián jiù yǒu èrshísì gè jiéqì.",
+        "translation": "By observing changes in the sun, stars, and the natural world, they summarized the \"solar terms\". With two solar terms each month, there are twenty-four solar terms in a year."
+      },
+      {
+        "character": "马克",
+        "hanzi": "以前不知道节气就种不好地，难怪二十四节气那么重要！",
+        "pinyin": "Yǐqián bù zhīdào jiéqì jiù zhòngbuhǎo dì, nánguài èrshísì jiéqì nàme zhòngyào!",
+        "translation": "In the past, if you didn’t know the solar terms you couldn’t farm well—no wonder the Twenty-Four Solar Terms were so important!"
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Dialogue 1: Why Are the Twenty-Four Solar Terms Called \"China’s Fifth Great Invention\"? (马克 & 王老师)",
+        "context": "Mark (马克) asks Teacher Wang (王老师) about the origin of the Twenty-Four Solar Terms and why they were vital for ancient Chinese agriculture.",
+        "lines": [
+          {
+            "character": "马克",
+            "hanzi": "王老师，我听说中国农历有二十四节气，很多人说它是“中国的第五大发明”，这是真的吗？",
+            "pinyin": "Wáng lǎoshī, wǒ tīngshuō Zhōngguó nónglì yǒu èrshísì jiéqì, hěn duō rén shuō tā shì “Zhōngguó de dì-wǔ dà fāmíng”, zhè shì zhēnde ma?",
+            "translation": "Teacher Wang, I heard that the Chinese calendar has Twenty-Four Solar Terms and many people call them \"China’s Fifth Great Invention\"—is that true?"
+          },
+          {
+            "character": "王老师",
+            "hanzi": "对。很早以前中国人就开始种地，非常关心季节和天气的变化。",
+            "pinyin": "Duì. Hěn zǎo yǐqián Zhōngguó rén jiù kāishǐ zhòngdì, fēicháng guānxīn jìjié hé tiānqì de biànhuà.",
+            "translation": "Yes. Very long ago Chinese people began farming the land and cared deeply about seasonal and weather changes."
+          },
+          {
+            "character": "马克",
+            "hanzi": "那古人是怎么知道节气的呢？",
+            "pinyin": "Nà gǔrén shì zěnme zhīdào jiéqì de ne?",
+            "translation": "Then how did ancient people figure out the solar terms?"
+          },
+          {
+            "character": "王老师",
+            "hanzi": "他们通过观察太阳、星星和自然界的变化，总结出了“节气”。每个月两个节气，一年就有二十四个节气。",
+            "pinyin": "Tāmen tōngguò guānchá tàiyáng, xīngxing hé zìránjiè de biànhuà, zǒngjiéchūle “jiéqì”. Měi gè yuè liǎng gè jiéqì, yì nián jiù yǒu èrshísì gè jiéqì.",
+            "translation": "By observing changes in the sun, stars, and the natural world, they summarized the \"solar terms\". With two solar terms each month, there are twenty-four solar terms in a year."
+          },
+          {
+            "character": "马克",
+            "hanzi": "以前不知道节气就种不好地，难怪二十四节气那么重要！",
+            "pinyin": "Yǐqián bù zhīdào jiéqì jiù zhòngbuhǎo dì, nánguài èrshísì jiéqì nàme zhòngyào!",
+            "translation": "In the past, if you didn’t know the solar terms you couldn’t farm well—no wonder the Twenty-Four Solar Terms were so important!"
+          }
+        ]
+      },
+      {
+        "title": "Dialogue 2: Celebrating Lichun, Qingming & Dongzhi in Modern Cities (金志英 & 李明)",
+        "context": "Jin Zhiying (金志英) and Li Ming (李明) discuss how city dwellers observe solar terms today as cultural customs.",
+        "lines": [
+          {
+            "character": "金志英",
+            "hanzi": "李明，现在有天气预报，很多人又住在城市里，你们还过二十四节气吗？",
+            "pinyin": "Lǐ Míng, xiànzài yǒu tiānqì yùbào, hěn duō rén yòu zhù zài chéngshì lǐ, nǐmen hái guò èrshísì jiéqì ma?",
+            "translation": "Li Ming, now that there are weather forecasts and many people live in cities, do you still observe the Twenty-Four Solar Terms?"
+          },
+          {
+            "character": "李明",
+            "hanzi": "现在二十四节气更多是一种风俗。比如说我吧，一年一般过三个节气：立春、清明和冬至。",
+            "pinyin": "Xiànzài èrshísì jiéqì gèng duō shì yì zhǒng fēngsú. Bǐrú shuō wǒ ba, yì nián yìbān guò sān gè jiéqì: Lìchūn, Qīngmíng hé Dōngzhì.",
+            "translation": "Nowadays the Twenty-Four Solar Terms are more of a cultural custom. Take me for example—I usually observe three solar terms a year: Lichun, Qingming, and Dongzhi."
+          },
+          {
+            "character": "金志英",
+            "hanzi": "这三个节气有什么不一样呢？",
+            "pinyin": "Zhè sān gè jiéqì yǒu shénme bù yíyàng ne?",
+            "translation": "What is special about these three solar terms?"
+          },
+          {
+            "character": "李明",
+            "hanzi": "“立春”告诉我们春天来了；“清明”的时候天气暖和了，大家可以去春游、扫墓；到了“冬至”，真正的冬天来了，我们北方人应该吃饺子。",
+            "pinyin": "“Lìchūn” gàosu wǒmen chūntiān lái le; “Qīngmíng” de shíhou tiānqì nuǎnhuo le, dàjiā kěyǐ qù chūnyóu, sǎomù; dàole “Dōngzhì”, zhēnzhèng de dōngtiān lái le, wǒmen běifāngrén yīnggāi chī jiǎozi.",
+            "translation": "“Lichun” tells us spring has arrived; during “Qingming” the weather warms up so everyone can go on spring outings and sweep tombs; when “Dongzhi” arrives, true winter is here and we northerners should eat dumplings."
+          },
+          {
+            "character": "金志英",
+            "hanzi": "我听说夏天还有“小暑”“大暑”，冬天有“小寒”“大寒”，对吗？",
+            "pinyin": "Wǒ tīngshuō xiàtiān hái yǒu “Xiǎoshǔ” “Dàshǔ”, dōngtiān yǒu “Xiǎohán” “Dàhán”, duì ma?",
+            "translation": "I heard that in summer there are also \"Minor Heat\" and \"Major Heat\", and in winter \"Minor Cold\" and \"Major Cold\", right?"
+          },
+          {
+            "character": "李明",
+            "hanzi": "对！我也会看看它们的时间，希望一年中最热和最冷的日子快点儿过去！",
+            "pinyin": "Duì! Wǒ yě huì kànkan tāmen de shíjiān, xīwàng yì nián zhōng zuì rè hé zuì lěng de rìzi kuài diǎnr guòqù!",
+            "translation": "Right! I also check their dates, hoping the hottest and coldest days of the year pass quickly!"
+          }
+        ]
+      }
+    ],
+    "readingPassage": {
+      "title": "Reading: China’s Twenty-Four Solar Terms (中国的二十四节气)",
+      "subtitle": "Read the complete authentic essay from Cultural Reader 3 explaining the origin, agricultural significance, and modern cultural customs of China’s Twenty-Four Solar Terms.",
+      "paragraphs": [
+        {
+          "hanzi": "中国农历有二十四节气，很多人说它是“中国的第五大发明”。",
+          "pinyin": "Zhōngguó nónglì yǒu èrshísì jiéqì, hěn duō rén shuō tā shì “Zhōngguó de dì-wǔ dà fāmíng”.",
+          "translation": "The traditional Chinese calendar has Twenty-Four Solar Terms, and many people call them \"China’s Fifth Great Invention\"."
+        },
+        {
+          "hanzi": "很多中国人从小就知道二十四节气，可是不一定知道它为什么重要。这么说吧，很早以前中国人就开始种地，很关心季节和天气的变化。有人通过观察太阳、星星和自然界的变化总结出了“节气”，每个月两个节气，就有了二十四节气。",
+          "pinyin": "Hěn duō Zhōngguó rén cóngxiǎo jiù zhīdào èrshísì jiéqì, kěshì bùyídìng zhīdào tā wèishénme zhòngyào. Zhème shuō ba, hěn zǎo yǐqián Zhōngguó rén jiù kāishǐ zhòngdì, hěn guānxīn jìjié hé tiānqì de biànhuà. Yǒu rén tōngguò guānchá tàiyáng, xīngxing hé zìránjiè de biànhuà zǒngjiéchūle “jiéqì”, měi gè yuè liǎng gè jiéqì, jiù yǒule èrshísì jiéqì.",
+          "translation": "Many Chinese people have known about the Twenty-Four Solar Terms since childhood, yet they do not necessarily know why they are important. Put it this way: very long ago Chinese people began farming the land and cared deeply about seasonal and weather changes. By observing changes in the sun, stars, and the natural world, people summarized the \"solar terms\"—two solar terms each month, giving rise to the Twenty-Four Solar Terms."
+        },
+        {
+          "hanzi": "以前二十四节气真的很重要，不知道节气就种不好地。可是现在一是有天气预报，人们很容易就知道天气怎么样；二是很多人住在城市里，离种地很远，二十四节气更多是一种风俗。比如说我吧，一年只过三个节气：“立春”——春天来了；“清明”——天气暖和了，可以春游扫墓；“冬至”——真正的冬天来了，应该吃饺子。有时候，我也会看看“小暑”“大暑”“小寒”“大寒”的时间，希望最热和最冷的日子快点儿过去。",
+          "pinyin": "Yǐqián èrshísì jiéqì zhēnde hěn zhòngyào, bù zhīdào jiéqì jiù zhòngbuhǎo dì. Kěshì xiànzài yī shì yǒu tiānqì yùbào, rénmen hěn róngyì jiù zhīdào tiānqì zěnmeyàng; èr shì hěn duō rén zhù zài chéngshì lǐ, lí zhòngdì hěn yuǎn, èrshísì jiéqì gèng duō shì yì zhǒng fēngsú. Bǐrú shuō wǒ ba, yì nián zhǐ guò sān gè jiéqì: “Lìchūn” — chūntiān lái le; “Qīngmíng” — tiānqì nuǎnhuo le, kěyǐ chūnyóu sǎomù; “Dōngzhì” — zhēnzhèng de dōngtiān lái le, yīnggāi chī jiǎozi. Yǒu shíhou, wǒ yě huì kànkan “Xiǎoshǔ” “Dàshǔ” “Xiǎohán” “Dàhán” de shíjiān, xīwàng zuì rè hé zuì lěng de rìzi kuài diǎnr guòqù.",
+          "translation": "In the past, the Twenty-Four Solar Terms were truly very important—without knowing the solar terms, one could not farm well. Nowadays, however, first there are weather forecasts so people can easily know what the weather will be like; second, many people live in cities far removed from farming, so the Twenty-Four Solar Terms are more of a cultural custom. Take me for instance—I only observe three solar terms a year: \"Lichun\" (Start of Spring)—spring has arrived; \"Qingming\" (Pure Brightness)—the weather has warmed up, and we can go on spring outings and sweep tombs; and \"Dongzhi\" (Winter Solstice)—true winter has arrived, and we should eat dumplings. Sometimes I also check the dates for \"Xiaoshu\" (Minor Heat), \"Dashu\" (Major Heat), \"Xiaohan\" (Minor Cold), and \"Dahan\" (Major Cold), hoping that the hottest and coldest days will pass quickly."
+        }
+      ]
+    },
+    "vocabularyExplanation": [
+      {
+        "hanzi": "农历",
+        "pinyin": "nónglì",
+        "english": "traditional Chinese calendar (lunisolar agricultural calendar)",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "中国农历有二十四节气。",
+        "examplePinyin": "Zhōngguó nónglì yǒu èrshísì jiéqì.",
+        "exampleTranslation": "The traditional Chinese calendar has Twenty-Four Solar Terms."
+      },
+      {
+        "hanzi": "节气",
+        "pinyin": "jiéqì",
+        "english": "solar term (each of the 24 seasonal division points of the solar year)",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "每个月有两个节气，一年就有二十四个节气。",
+        "examplePinyin": "Měi gè yuè yǒu liǎng gè jiéqì, yì nián jiù yǒu èrshísì gè jiéqì.",
+        "exampleTranslation": "There are two solar terms each month, making twenty-four solar terms in a year."
+      },
+      {
+        "hanzi": "发明",
+        "pinyin": "fāmíng",
+        "english": "invention; to invent",
+        "partOfSpeech": "n. / v.",
+        "exampleHanzi": "很多人说二十四节气是“中国的第五大发明”。",
+        "examplePinyin": "Hěn duō rén shuō èrshísì jiéqì shì “Zhōngguó de dì-wǔ dà fāmíng”.",
+        "exampleTranslation": "Many people say the Twenty-Four Solar Terms are \"China’s Fifth Great Invention\"."
+      },
+      {
+        "hanzi": "从小",
+        "pinyin": "cóngxiǎo",
+        "english": "from childhood; since one was young",
+        "partOfSpeech": "adv.",
+        "exampleHanzi": "很多中国人从小就知道二十四节气。",
+        "examplePinyin": "Hěn duō Zhōngguó rén cóngxiǎo jiù zhīdào èrshísì jiéqì.",
+        "exampleTranslation": "Many Chinese people have known about the Twenty-Four Solar Terms since childhood."
+      },
+      {
+        "hanzi": "不一定",
+        "pinyin": "bùyídìng",
+        "english": "not necessarily; not sure",
+        "partOfSpeech": "adv.",
+        "exampleHanzi": "大家从小就知道二十四节气，可是不一定知道它为什么重要。",
+        "examplePinyin": "Dàjiā cóngxiǎo jiù zhīdào èrshísì jiéqì, kěshì bùyídìng zhīdào tā wèishénme zhòngyào.",
+        "exampleTranslation": "Everyone has known about the 24 Solar Terms since childhood, yet they don’t necessarily know why they are important."
+      },
+      {
+        "hanzi": "种地",
+        "pinyin": "zhòngdì",
+        "english": "to farm; to till/cultivate the land",
+        "partOfSpeech": "v.+o.",
+        "exampleHanzi": "以前不知道节气就种不好地。",
+        "examplePinyin": "Yǐqián bù zhīdào jiéqì jiù zhòngbuhǎo dì.",
+        "exampleTranslation": "In the past, if you didn’t know the solar terms, you couldn’t farm the land well."
+      },
+      {
+        "hanzi": "关心",
+        "pinyin": "guānxīn",
+        "english": "to care about; to be concerned with",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "种地的人非常关心季节和天气的变化。",
+        "examplePinyin": "Zhòngdì de rén fēicháng guānxīn jìjié hé tiānqì de biànhuà.",
+        "exampleTranslation": "People who farm care deeply about changes in the seasons and weather."
+      },
+      {
+        "hanzi": "变化",
+        "pinyin": "biànhuà",
+        "english": "change; variation; to change",
+        "partOfSpeech": "n. / v.",
+        "exampleHanzi": "春天的天气变化很快。",
+        "examplePinyin": "Chūntiān de tiānqì biànhuà hěn kuài.",
+        "exampleTranslation": "The weather in spring changes very quickly."
+      },
+      {
+        "hanzi": "通过",
+        "pinyin": "tōngguò",
+        "english": "by means of; through; via",
+        "partOfSpeech": "prep. / v.",
+        "exampleHanzi": "古人通过观察太阳、星星和自然界的变化总结出了节气。",
+        "examplePinyin": "Gǔrén tōngguò guānchá tàiyáng, xīngxing hé zìránjiè de biànhuà zǒngjiéchūle jiéqì.",
+        "exampleTranslation": "Ancient people summarized the solar terms through observing changes in the sun, stars, and nature."
+      },
+      {
+        "hanzi": "观察",
+        "pinyin": "guānchá",
+        "english": "to observe; to watch closely",
+        "partOfSpeech": "v.",
+        "exampleHanzi": "他喜欢观察自然界的变化。",
+        "examplePinyin": "Tā xǐhuan guānchá zìránjiè de biànhuà.",
+        "exampleTranslation": "He likes observing changes in the natural world."
+      },
+      {
+        "hanzi": "总结",
+        "pinyin": "zǒngjié",
+        "english": "to summarize; to sum up; summary",
+        "partOfSpeech": "v. / n.",
+        "exampleHanzi": "人们总结出了二十四节气。",
+        "examplePinyin": "Rénmen zǒngjiéchūle èrshísì jiéqì.",
+        "exampleTranslation": "People summarized and formulated the Twenty-Four Solar Terms."
+      },
+      {
+        "hanzi": "城市",
+        "pinyin": "chéngshì",
+        "english": "city; urban area",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "现在很多人住在城市里，离种地很远。",
+        "examplePinyin": "Xiànzài hěn duō rén zhù zài chéngshì lǐ, lí zhòngdì hěn yuǎn.",
+        "exampleTranslation": "Nowadays many people live in cities, far removed from farming."
+      },
+      {
+        "hanzi": "风俗",
+        "pinyin": "fēngsú",
+        "english": "custom; social tradition",
+        "partOfSpeech": "n.",
+        "exampleHanzi": "冬至吃饺子是中国北方的一种风俗。",
+        "examplePinyin": "Dōngzhì chī jiǎozi shì Zhōngguó běifāng de yì zhǒng fēngsú.",
+        "exampleTranslation": "Eating dumplings on the Winter Solstice is a custom in northern China."
+      },
+      {
+        "hanzi": "春游",
+        "pinyin": "chūnyóu",
+        "english": "to go on a spring outing; spring excursion",
+        "partOfSpeech": "v. / n.",
+        "exampleHanzi": "清明的时候天气暖和了，可以去春游、扫墓。",
+        "examplePinyin": "Qīngmíng de shíhou tiānqì nuǎnhuo le, kěyǐ qù chūnyóu, sǎomù.",
+        "exampleTranslation": "During Qingming the weather warms up, and people can go on spring outings and sweep tombs."
+      },
+      {
+        "hanzi": "真正",
+        "pinyin": "zhēnzhèng",
+        "english": "true; genuine; real",
+        "partOfSpeech": "adj. / adv.",
+        "exampleHanzi": "到了冬至，真正的冬天就来了。",
+        "examplePinyin": "Dàole Dōngzhì, zhēnzhèng de dōngtiān jiù lái le.",
+        "exampleTranslation": "When the Winter Solstice arrives, true winter has come."
+      },
+      {
+        "hanzi": "希望",
+        "pinyin": "xīwàng",
+        "english": "to hope; to wish; hope",
+        "partOfSpeech": "v. / n.",
+        "exampleHanzi": "我希望最热和最冷的日子快点儿过去。",
+        "examplePinyin": "Wǒ xīwàng zuì rè hé zuì lěng de rìzi kuài diǎnr guòqù.",
+        "exampleTranslation": "I hope the hottest and coldest days pass quickly."
+      }
+    ],
+    "grammarPoint": "The \"Fifth Great Invention of China\", Agricultural Wisdom, Seasonal Customs & Major Solar Terms (立春 · 清明 · 冬至)",
+    "structure": "Subject + 通过 + Verb / Noun Phrase + Verb + Result (总结出……)  |  一(方面)是 + Clause 1；二(方面)是 + Clause 2  |  这么说吧，+ Explanation  |  比如说 + Noun/Pronoun + 吧，+ Example",
+    "explanation": "Explore why UNESCO-recognized Twenty-Four Solar Terms (二十四节气) are called \"China’s Fifth Great Invention\", how ancient observers summarized two solar terms per month to guide farming, and how modern urban Chinese celebrate Lichun (立春), Qingming (清明), Dongzhi (冬至), and the peak heat and cold periods.",
+    "examples": [
+      {
+        "hanzi": "有人通过观察太阳、星星和自然界的变化总结出了“节气”。",
+        "pinyin": "Yǒu rén tōngguò guānchá tàiyáng, xīngxing hé zìránjiè de biànhuà zǒngjiéchūle “jiéqì”.",
+        "translation": "By observing changes in the sun, stars, and nature, people summarized the \"solar terms\"."
+      },
+      {
+        "hanzi": "现在一是有天气预报，人们很容易就知道天气怎么样；二是很多人住在城市里，离种地很远。",
+        "pinyin": "Xiànzài yī shì yǒu tiānqì yùbào, rénmen hěn róngyì jiù zhīdào tiānqì zěnmeyàng; èr shì hěn duō rén zhù zài chéngshì lǐ, lí zhòngdì hěn yuǎn.",
+        "translation": "Nowadays, first there are weather forecasts so people easily know what the weather is like; second, many people live in cities far from farming."
+      },
+      {
+        "hanzi": "这么说吧，很早以前中国人就开始种地，很关心季节和天气的变化。",
+        "pinyin": "Zhème shuō ba, hěn zǎo yǐqián Zhōngguó rén jiù kāishǐ zhòngdì, hěn guānxīn jìjié hé tiānqì de biànhuà.",
+        "translation": "Put it this way: very long ago Chinese people began farming and cared deeply about seasonal and weather changes."
+      },
+      {
+        "hanzi": "比如说我吧，一年只过三个节气：立春、清明和冬至。",
+        "pinyin": "Bǐrú shuō wǒ ba, yì nián zhǐ guò sān gè jiéqì: Lìchūn, Qīngmíng hé Dōngzhì.",
+        "translation": "Take me for instance: I only observe three solar terms a year—Lichun, Qingming, and Dongzhi."
+      }
+    ],
+    "grammarNotes": [
+      {
+        "title": "Expressing Method & Synthesis: 通过 + [Action / Means] + 总结出 + [Result]",
+        "structure": "Subject + 通过 + Verb / Noun Phrase + Verb + Result (总结出……)",
+        "explanation": "Use the preposition 通过 (tōngguò, \"through / by means of\") before an observation or method to explain how a conclusion, invention, or result was achieved.",
+        "examples": [
+          {
+            "hanzi": "有人通过观察太阳、星星和自然界的变化总结出了“节气”。",
+            "pinyin": "Yǒu rén tōngguò guānchá tàiyáng, xīngxing hé zìránjiè de biànhuà zǒngjiéchūle “jiéqì”.",
+            "translation": "By observing changes in the sun, stars, and nature, people summarized the \"solar terms\"."
+          }
+        ]
+      },
+      {
+        "title": "Enumerating Two Reasons Clearly: 一是……；二是…… (\"First...; Second...\")",
+        "structure": "一(方面)是 + Clause 1；二(方面)是 + Clause 2",
+        "explanation": "When explaining two parallel reasons for a change or situation, use 一是……；二是…… (\"First is that...; second is that...\") to structure the argument clearly and cohesively.",
+        "examples": [
+          {
+            "hanzi": "现在一是有天气预报，人们很容易就知道天气怎么样；二是很多人住在城市里，离种地很远。",
+            "pinyin": "Xiànzài yī shì yǒu tiānqì yùbào, rénmen hěn róngyì jiù zhīdào tiānqì zěnmeyàng; èr shì hěn duō rén zhù zài chéngshì lǐ, lí zhòngdì hěn yuǎn.",
+            "translation": "Nowadays, first there are weather forecasts so people easily know what the weather is like; second, many people live in cities far from farming."
+          }
+        ]
+      },
+      {
+        "title": "Conversational Transitions: 这么说吧 (\"Put It This Way\") & 比如说我吧 (\"Take Me for Example\")",
+        "structure": "这么说吧，+ Explanation  |  比如说 + Noun/Pronoun + 吧，+ Example",
+        "explanation": "In natural narrative writing and speech, 这么说吧 introduces an accessible explanation of a complex topic (\"Let’s put it this way\"), while 比如说我吧 introduces oneself as a concrete personal example (\"Take me for example\").",
+        "examples": [
+          {
+            "hanzi": "这么说吧，很早以前中国人就开始种地，很关心季节和天气的变化。",
+            "pinyin": "Zhème shuō ba, hěn zǎo yǐqián Zhōngguó rén jiù kāishǐ zhòngdì, hěn guānxīn jìjié hé tiānqì de biànhuà.",
+            "translation": "Put it this way: very long ago Chinese people began farming and cared deeply about seasonal and weather changes."
+          },
+          {
+            "hanzi": "比如说我吧，一年只过三个节气：立春、清明和冬至。",
+            "pinyin": "Bǐrú shuō wǒ ba, yì nián zhǐ guò sān gè jiéqì: Lìchūn, Qīngmíng hé Dōngzhì.",
+            "translation": "Take me for instance: I only observe three solar terms a year—Lichun, Qingming, and Dongzhi."
+          }
+        ]
+      }
+    ],
+    "exercises": [
+      {
+        "question": "Why are the Twenty-Four Solar Terms (二十四节气) hailed as “China’s Fifth Great Invention” (中国的第五大发明)?",
+        "options": [
+          "Because ancient Chinese people summarized them by observing the sun, stars, and nature to guide farming across seasonal and weather changes.",
+          "Because they were invented last year by modern smartphone weather apps.",
+          "Because there are twenty-four months in the traditional Chinese calendar.",
+          "Because they only exist in southern cities."
+        ],
+        "answerIndex": 0,
+        "explanation": "The passage explains: “很早以前中国人就开始种地，很关心季节和天气的变化。有人通过观察太阳、星星和自然界的变化总结出了‘节气’，每个月两个节气，就有了二十四节气。”"
+      },
+      {
+        "question": "According to Cultural Reader 3, why have the Twenty-Four Solar Terms become more of a cultural custom (一种风俗) in modern times?",
+        "options": [
+          "First, people have weather forecasts (天气预报); second, many people live in cities (住在城市里) far from farming.",
+          "Because the sun and stars no longer change with the seasons.",
+          "Because there are only three solar terms left in a year.",
+          "Because nobody in China eats dumplings anymore."
+        ],
+        "answerIndex": 0,
+        "explanation": "The author gives two clear reasons: “可是现在一是有天气预报，人们很容易就知道天气怎么样；二是很多人住在城市里，离种地很远，二十四节气更多是一种风俗。”"
+      },
+      {
+        "question": "Match the three solar terms “立春”, “清明”, and “冬至” with their seasonal meanings and customs from the text:",
+        "options": [
+          "立春: Spring arrives · 清明: Warm weather for spring outings (春游) & tomb-sweeping (扫墓) · 冬至: True winter arrives & eating dumplings (吃饺子).",
+          "立春: Hottest day of summer · 清明: Eating dumplings in snow · 冬至: Going on spring outings.",
+          "立春: Buying umbrellas · 清明: Taking exams · 冬至: Riding bicycles.",
+          "立春: Minor Cold · 清明: Major Heat · 冬至: Autumn Equinox."
+        ],
+        "answerIndex": 0,
+        "explanation": "The passage states: “‘立春’——春天来了；‘清明’——天气暖和了，可以春游扫墓；‘冬至’——真正的冬天来了，应该吃饺子。”"
+      },
+      {
+        "question": "Which four solar terms mark the hottest days of summer and the coldest days of winter that the author hopes will pass quickly?",
+        "options": [
+          "小暑、大暑 (Minor & Major Heat) and 小寒、大寒 (Minor & Major Cold).",
+          "立春、立夏、立秋、立冬.",
+          "春分、秋分、夏至、冬至.",
+          "清明、谷雨、白露、霜降."
+        ],
+        "answerIndex": 0,
+        "explanation": "The passage concludes: “有时候，我也会看看‘小暑’‘大暑’‘小寒’‘大寒’的时间，希望最热和最冷的日子快点儿过去。”"
+      }
+    ]
+  },
 ];
