@@ -69,6 +69,7 @@ export interface Lesson {
   content: string;
   hskLevel: 1 | 2 | 3 | 4 | 5 | 6;
   objectives?: string[];
+  characterNames?: string[];
   dialogue: DialogueLine[];
   dialogues?: DialogueSection[];
   readingPassage?: ReadingPassage;
@@ -4515,85 +4516,138 @@ export const lessons: Lesson[] = [
     ],
     dialogue: [
       {
-        character: '文化导读 · 第一段 (Part 1: Auspicious Fruits)',
-        hanzi:
-          '去朋友家一般都要带点儿礼物，很多人喜欢带香蕉、苹果、橘子等水果。因为香蕉很好吃，也不贵；苹果有“平安”的意思；橘子有“吉利”的意思。',
-        pinyin:
-          'Qù péngyou jiā yìbān dōu yào dài diǎnr lǐwù, hěn duō rén xǐhuan dài xiāngjiāo, píngguǒ, júzi děng shuǐguǒ. Yīnwèi xiāngjiāo hěn hǎochī, yě bú guì; píngguǒ yǒu “píng’ān” de yìsi; júzi yǒu “jílì” de yìsi.',
-        translation:
-          'When visiting a friend’s home, people generally bring a small gift, and many like to bring fruits such as bananas, apples, and tangerines. That is because bananas are delicious and inexpensive; apples carry the meaning of "peace and safety" (píng’ān); and tangerines carry the meaning of "good fortune and auspiciousness" (jílì).',
+        character: '马克 (Mark)',
+        hanzi: '李老师，周末我想去中国朋友家玩儿，去朋友家带什么礼物好？',
+        pinyin: 'Lǐ lǎoshī, zhōumò wǒ xiǎng qù Zhōngguó péngyou jiā wánr, qù péngyou jiā dài shénme lǐwù hǎo?',
+        translation: 'Teacher Li, this weekend I want to visit a Chinese friend’s home—what gift is good to bring to a friend’s house?',
       },
       {
-        character: '文化导读 · 第二段 (Part 2: Why Pears Are Avoided & Seasonal Fruits)',
-        hanzi:
-          '带梨就不好，因为“梨”和“离”发音一样，不吉利。带应季水果也不错，夏天带一个西瓜去朋友家，大家一起吃很开心。',
-        pinyin:
-          'Dài lí jiù bù hǎo, yīnwèi “lí” hé “lí” fāyīn yíyàng, bù jílì. Dài yìngjì shuǐguǒ yě búcuò, xiàtiān dài yí gè xīguā qù péngyou jiā, dàjiā yìqǐ chī hěn kāixīn.',
-        translation:
-          'Bringing pears, however, is not good, because "pear" (lí, 梨) has the exact same pronunciation as "separation" (lí, 离), which is inauspicious. Bringing seasonal fruit is also a great choice—bringing a watermelon to a friend’s house in summer for everyone to eat together is very joyful.',
+        character: '李老师 (Teacher Li)',
+        hanzi: '很多人喜欢带香蕉、苹果、橘子等水果。因为苹果有“平安”的意思，橘子有“吉利”的意思。',
+        pinyin: 'Hěn duō rén xǐhuan dài xiāngjiāo, píngguǒ, júzi děng shuǐguǒ. Yīnwèi píngguǒ yǒu “píng’ān” de yìsi, júzi yǒu “jílì” de yìsi.',
+        translation: 'Many people like to bring fruits such as bananas, apples, and tangerines. Because apples mean "peace and safety," and tangerines mean "good fortune."',
       },
       {
-        character: '文化导读 · 第三段 (Part 3: Flower Etiquette & Taboos)',
-        hanzi:
-          '有人还喜欢带花儿去朋友家。带花儿也很不错，可是要注意花儿的颜色和意思。在中国，不能送白色的花儿，最好也不送菊花，特别是白色和黄色的菊花，这两种一般都是扫墓时会带的花儿。',
-        pinyin:
-          'Yǒu rén hái xǐhuan dài huār qù péngyou jiā. Dài huār yě hěn búcuò, kěshì yào zhùyì huār de yánsè hé yìsi. Zài Zhōngguó, bù néng sòng báisè de huār, zuìhǎo yě bú sòng júhuā, tèbié shì báisè hé huángsè de júhuā, zhè liǎng zhǒng yìbān dōu shì sǎomù shí huì dài de huār.',
-        translation:
-          'Some people also like to bring flowers to a friend’s home. Bringing flowers is very nice too, but you must pay attention to the colors and meanings of the flowers. In China, you must not give white flowers, and it is best not to give chrysanthemums either—especially white and yellow chrysanthemums, as those two kinds are generally brought when sweeping tombs to mourn the deceased.',
+        character: '金志英 (Jin Zhiying)',
+        hanzi: '那可以带梨或者白色的花儿吗？',
+        pinyin: 'Nà kěyǐ dài lí huòzhě báisè de huār ma?',
+        translation: 'Then can we bring pears or white flowers?',
       },
       {
-        character: '文化导读 · 第四段 (Part 4: The Core Principle of Chinese Gift-Giving)',
-        hanzi: '在中国，送礼物最重要的就是送吉利，吉利的都比不吉利的好，你明白了吗？',
-        pinyin:
-          'Zài Zhōngguó, sòng lǐwù zuì zhòngyào de jiùshì sòng jílì, jílì de dōu bǐ bù jílì de hǎo, nǐ míngbai le ma?',
-        translation:
-          'In China, the most important thing when giving gifts is to give auspiciousness—anything auspicious is better than something inauspicious. Have you understood?',
+        character: '李老师 (Teacher Li)',
+        hanzi: '带梨就不好，因为“梨”和“离”发音一样，不吉利。在中国，也不能送白色的花儿和菊花，送礼物最重要的就是送吉利！',
+        pinyin: 'Dài lí jiù bù hǎo, yīnwèi “lí” hé “lí” fāyīn yíyàng, bù jílì. Zài Zhōngguó, yě bù néng sòng báisè de huār hé júhuā, sòng lǐwù zuì zhòngyào de jiùshì sòng jílì!',
+        translation: 'Bringing pears is not good because "pear" and "separation" sound the same, which is inauspicious. In China, you also cannot give white flowers or chrysanthemums—the most important thing when giving gifts is to give good fortune!',
       },
     ],
     dialogues: [
       {
-        title: 'Cultural Reading: What Gift Should You Bring to a Friend’s Home? (去朋友家带什么礼物好)',
+        title: 'Dialogue 1: Choosing Fruit Gifts for a Friend’s Home (去朋友家带什么水果好)',
         context:
-          'A cultural guide to the symbolism of fruits and flowers when visiting friends in China, highlighting homophonic wordplay and social taboos.',
+          'Mark (马克) and Lily (莉莉) ask Teacher Li Yue (李老师) what fruits to bring when visiting a Chinese friend’s home and why pears are avoided.',
         lines: [
           {
-            character: '第一段 · 水果与谐音 (Fruits & Auspicious Meanings)',
+            character: '马克 (Mark)',
+            hanzi: '李老师，周末我和莉莉要去中国朋友家玩儿，去朋友家带什么礼物好？',
+            pinyin:
+              'Lǐ lǎoshī, zhōumò wǒ hé Lìlì yào qù Zhōngguó péngyou jiā wánr, qù péngyou jiā dài shénme lǐwù hǎo?',
+            translation:
+              'Teacher Li, this weekend Lily and I are going to visit a Chinese friend’s home—what gift is good to bring?',
+          },
+          {
+            character: '李老师 (Teacher Li)',
             hanzi:
               '去朋友家一般都要带点儿礼物，很多人喜欢带香蕉、苹果、橘子等水果。因为香蕉很好吃，也不贵；苹果有“平安”的意思；橘子有“吉利”的意思。',
             pinyin:
               'Qù péngyou jiā yìbān dōu yào dài diǎnr lǐwù, hěn duō rén xǐhuan dài xiāngjiāo, píngguǒ, júzi děng shuǐguǒ. Yīnwèi xiāngjiāo hěn hǎochī, yě bú guì; píngguǒ yǒu “píng’ān” de yìsi; júzi yǒu “jílì” de yìsi.',
             translation:
-              'When visiting a friend’s home, people generally bring a small gift, and many like to bring fruits such as bananas, apples, and tangerines. That is because bananas are delicious and inexpensive; apples carry the meaning of "peace and safety" (píng’ān); and tangerines carry the meaning of "good fortune" (jílì).',
+              'When visiting a friend’s home, people generally bring a small gift, and many like to bring fruits such as bananas, apples, and tangerines. That is because bananas are delicious and inexpensive; apples mean "peace and safety"; and tangerines mean "good fortune."',
           },
           {
-            character: '第二段 · 为什么不送梨与应季水果 (Pears vs. Seasonal Fruit)',
+            character: '莉莉 (Lily)',
+            hanzi: '我也很喜欢吃梨，带梨去朋友家好不好？',
+            pinyin: 'Wǒ yě hěn xǐhuan chī lí, dài lí qù péngyou jiā hǎo bu hǎo?',
+            translation: 'I also really like eating pears—is it good to bring pears to a friend’s home?',
+          },
+          {
+            character: '李老师 (Teacher Li)',
             hanzi:
               '带梨就不好，因为“梨”和“离”发音一样，不吉利。带应季水果也不错，夏天带一个西瓜去朋友家，大家一起吃很开心。',
             pinyin:
               'Dài lí jiù bù hǎo, yīnwèi “lí” hé “lí” fāyīn yíyàng, bù jílì. Dài yìngjì shuǐguǒ yě búcuò, xiàtiān dài yí gè xīguā qù péngyou jiā, dàjiā yìqǐ chī hěn kāixīn.',
             translation:
-              'Bringing pears, however, is not good, because "pear" (lí, 梨) has the same pronunciation as "separation" (lí, 离), which is inauspicious. Bringing seasonal fruit is also nice—bringing a watermelon to a friend’s house in summer for everyone to eat together is very joyful.',
+              'Bringing pears is not good, because "pear" (lí) has the same pronunciation as "separation" (lí), which is inauspicious. Bringing seasonal fruit is also nice—bringing a watermelon to a friend’s house in summer for everyone to eat together is very joyful.',
+          },
+        ],
+      },
+      {
+        title: 'Dialogue 2: Flower Etiquette & the Golden Rule of Auspiciousness (送花儿的讲究与送吉利)',
+        context:
+          'Jin Zhiying (金志英) asks Teacher Li Yue (李老师) about bringing flowers to a friend’s house and learns which flower colors and varieties to avoid.',
+        lines: [
+          {
+            character: '金志英 (Jin Zhiying)',
+            hanzi: '李老师，除了水果，我还想带花儿去朋友家，可以吗？',
+            pinyin: 'Lǐ lǎoshī, chúle shuǐguǒ, wǒ hái xiǎng dài huār qù péngyou jiā, kěyǐ ma?',
+            translation: 'Teacher Li, besides fruit, I also want to bring flowers to my friend’s house—is that okay?',
           },
           {
-            character: '第三段 · 送花儿的讲究 (Flower Colors & Taboos)',
+            character: '李老师 (Teacher Li)',
             hanzi:
-              '有人还喜欢带花儿去朋友家。带花儿也很不错，可是要注意花儿的颜色和意思。在中国，不能送白色的花儿，最好也不送菊花，特别是白色和黄色的菊花，这两种一般都是扫墓时会带的花儿。',
+              '带花儿也很不错，可是要注意花儿的颜色和意思。在中国，不能送白色的花儿，最好也不送菊花，特别是白色和黄色的菊花，这两种一般都是扫墓时会带的花儿。',
             pinyin:
-              'Yǒu rén hái xǐhuan dài huār qù péngyou jiā. Dài huār yě hěn búcuò, kěshì yào zhùyì huār de yánsè hé yìsi. Zài Zhōngguó, bù néng sòng báisè de huār, zuìhǎo yě bú sòng júhuā, tèbié shì báisè hé huángsè de júhuā, zhè liǎng zhǒng yìbān dōu shì sǎomù shí huì dài de huār.',
+              'Dài huār yě hěn búcuò, kěshì yào zhùyì huār de yánsè hé yìsi. Zài Zhōngguó, bù néng sòng báisè de huār, zuìhǎo yě bú sòng júhuā, tèbié shì báisè hé huángsè de júhuā, zhè liǎng zhǒng yìbān dōu shì sǎomù shí huì dài de huār.',
             translation:
-              'Some people also like to bring flowers to a friend’s home. Bringing flowers is nice too, but you must pay attention to the colors and meanings of the flowers. In China, you cannot give white flowers, and it is best not to give chrysanthemums—especially white and yellow chrysanthemums, which are generally brought when sweeping tombs.',
+              'Bringing flowers is very nice too, but you must pay attention to the colors and meanings of the flowers. In China, you cannot give white flowers, and it is best not to give chrysanthemums—especially white and yellow chrysanthemums, which are generally brought when sweeping tombs.',
           },
           {
-            character: '第四段 · 送礼的核心原则 (The Golden Rule: Auspiciousness)',
-            hanzi: '在中国，送礼物最重要的就是送吉利，吉利的都比不吉利的好，你明白了吗？',
+            character: '金志英 (Jin Zhiying)',
+            hanzi: '哦，我明白了！在中国，送礼物最重要的就是送吉利，吉利的都比不吉利的好！',
             pinyin:
-              'Zài Zhōngguó, sòng lǐwù zuì zhòngyào de jiùshì sòng jílì, jílì de dōu bǐ bù jílì de hǎo, nǐ míngbai le ma?',
+              'Ò, wǒ míngbai le! Zài Zhōngguó, sòng lǐwù zuì zhòngyào de jiùshì sòng jílì, jílì de dōu bǐ bù jílì de hǎo!',
             translation:
-              'In China, the most important thing when giving gifts is to give good fortune—anything auspicious is better than something inauspicious. Have you understood?',
+              'Oh, I understand now! In China, the most important thing when giving gifts is to give good fortune—anything auspicious is better than something inauspicious!',
           },
         ],
       },
     ],
+    readingPassage: {
+      title: 'Cultural Reader 2: What Gift Should You Bring to a Friend’s Home? (去朋友家带什么礼物好)',
+      subtitle: 'Complete authentic reading passage from Mastering Chinese: Elementary 2 (会通汉语 精编版·初级2 · 文化读本2).',
+      paragraphs: [
+        {
+          hanzi:
+            '去朋友家一般都要带点儿礼物，很多人喜欢带香蕉、苹果、橘子等水果。因为香蕉很好吃，也不贵；苹果有“平安”的意思；橘子有“吉利”的意思。',
+          pinyin:
+            'Qù péngyou jiā yìbān dōu yào dài diǎnr lǐwù, hěn duō rén xǐhuan dài xiāngjiāo, píngguǒ, júzi děng shuǐguǒ. Yīnwèi xiāngjiāo hěn hǎochī, yě bú guì; píngguǒ yǒu “píng’ān” de yìsi; júzi yǒu “jílì” de yìsi.',
+          translation:
+            'When visiting a friend’s home, people generally bring a small gift, and many like to bring fruits such as bananas, apples, and tangerines. That is because bananas are delicious and inexpensive; apples carry the meaning of "peace and safety" (píng’ān); and tangerines carry the meaning of "good fortune and auspiciousness" (jílì).',
+        },
+        {
+          hanzi:
+            '带梨就不好，因为“梨”和“离”发音一样，不吉利。带应季水果也不错，夏天带一个西瓜去朋友家，大家一起吃很开心。',
+          pinyin:
+            'Dài lí jiù bù hǎo, yīnwèi “lí” hé “lí” fāyīn yíyàng, bù jílì. Dài yìngjì shuǐguǒ yě búcuò, xiàtiān dài yí gè xīguā qù péngyou jiā, dàjiā yìqǐ chī hěn kāixīn.',
+          translation:
+            'Bringing pears, however, is not good, because "pear" (lí, 梨) has the exact same pronunciation as "separation" (lí, 离), which is inauspicious. Bringing seasonal fruit is also a great choice—bringing a watermelon to a friend’s house in summer for everyone to eat together is very joyful.',
+        },
+        {
+          hanzi:
+            '有人还喜欢带花儿去朋友家。带花儿也很不错，可是要注意花儿的颜色和意思。在中国，不能送白色的花儿，最好也不送菊花，特别是白色和黄色的菊花，这两种一般都是扫墓时会带的花儿。',
+          pinyin:
+            'Yǒu rén hái xǐhuan dài huār qù péngyou jiā. Dài huār yě hěn búcuò, kěshì yào zhùyì huār de yánsè hé yìsi. Zài Zhōngguó, bù néng sòng báisè de huār, zuìhǎo yě bú sòng júhuā, tèbié shì báisè hé huángsè de júhuā, zhè liǎng zhǒng yìbān dōu shì sǎomù shí huì dài de huār.',
+          translation:
+            'Some people also like to bring flowers to a friend’s home. Bringing flowers is very nice too, but you must pay attention to the colors and meanings of the flowers. In China, you must not give white flowers, and it is best not to give chrysanthemums either—especially white and yellow chrysanthemums, as those two kinds are generally brought when sweeping tombs to mourn the deceased.',
+        },
+        {
+          hanzi: '在中国，送礼物最重要的就是送吉利，吉利的都比不吉利的好，你明白了吗？',
+          pinyin:
+            'Zài Zhōngguó, sòng lǐwù zuì zhòngyào de jiùshì sòng jílì, jílì de dōu bǐ bù jílì de hǎo, nǐ míngbai le ma?',
+          translation:
+            'In China, the most important thing when giving gifts is to give auspiciousness—anything auspicious is better than something inauspicious. Have you understood?',
+        },
+      ],
+    },
     vocabularyExplanation: [
       {
         hanzi: '带',
@@ -7343,4 +7397,3074 @@ export const lessons: Lesson[] = [
       }
     ]
   },
+  {
+    "id": "lesson13",
+    "title": "Lesson 10: I Want to Mail This Home — 第10课：我想把这个寄回家",
+    "chineseTitle": "第10课：我想把这个寄回家",
+    "unitBadge": "Mastering Chinese · Elementary 4 (会通汉语 精编版·初级4)",
+    "description": "Master daily service interactions in China—exchanging currency, opening a bank card, ordering takeout, filling out courier forms on a mobile phone, mailing international parcels, and using the '把' construction and compound directional complements.",
+    "content": "Synthesized from all four parts of Lesson 10 (第10课《我想把这个寄回家》（一）–（四）) in Mastering Chinese: Elementary 4 (会通汉语 精编版·初级4). Learners master 6 look-alike character pairs (同/问, 那/哪, 休/体, 直/真, 看/着, 住/往), 4 high-frequency radicals (宀, ⺮, 心, 广), compound directional complements (下去/出去/过来/上去), sequential actions (先 a，再 b), the disposal construction 把 + N + V + 到/在/回 + Place, polite requests (麻烦您/你……), and degree/number questions (多重, 多远, 多长时间, reading phone numbers with yāo).",
+    "hskLevel": 4,
+    "objectives": [
+      "Distinguish 6 pairs of look-alike characters (同/问, 那/哪, 休/体, 直/真, 看/着, 住/往) and recognize 4 core semantic radicals (宀 roof/house, ⺮ bamboo, 心 heart/thought, 广 spacious building).",
+      "Discuss currency exchange rates (美元兑人民币的汇率), opening a bank card with a passport (带护照去银行办卡), ordering set-meal takeout (点两份套餐外卖), and online grocery shopping (网上下单、放进购物车).",
+      "Use compound directional complements (下去取、出去一趟、快递员过来取、带着菜上来) and the '先 a，再 b' sequential pattern to describe multi-step errands.",
+      "Master the '把' disposal structure with locative complements (把 + N + V + 到/在/回 + 处所), polite requests with '麻烦您/你……', and '多 + Adj' degree questions (多重、多远、多长时间)."
+    ],
+    "phoneticsAndCharacters": {
+      "title": "Look-Alike Character Pairs (形近字) & Semantic Radicals (宀 · ⺮ · 心 · 广)",
+      "sections": [
+        {
+          "subtitle": "1. Six Look-Alike Character Pairs (比一比，读一读：形近字辨析)",
+          "summary": "Pay close attention to subtle stroke differences that distinguish high-frequency characters in daily errands and directions:",
+          "items": [
+            {
+              "label": "同 (tóng) vs. 问 (wèn)",
+              "pinyin": "tóng · wèn",
+              "detail": "同 uses an outer enclosure 冂 with a horizontal stroke 一 above 口 (同学 tóngxué, classmate); 问 uses the gate radical 门 enclosing 口 (问路 wènlù, ask for directions).",
+              "examples": "同学 (tóngxué) · 问路 (wènlù)"
+            },
+            {
+              "label": "那 (nà) vs. 哪 (nǎ)",
+              "pinyin": "nà · nǎ",
+              "detail": "那 means 'that' (那个 nàge); adding the mouth radical 口 on the left creates the question word 哪 'which / where' (哪国人 nǎ guó rén).",
+              "examples": "那个 (nàge) · 哪国人 (nǎ guó rén)"
+            },
+            {
+              "label": "休 (xiū) vs. 体 (tǐ)",
+              "pinyin": "xiū · tǐ",
+              "detail": "Both have 亻 (person) on the left; 休 has 木 (person leaning against a tree = 休息 xiūxi, to rest), whereas 体 adds a bottom horizontal stroke to form 本 (root/body = 身体 shēntǐ).",
+              "examples": "休息 (xiūxi) · 身体 (shēntǐ)"
+            },
+            {
+              "label": "直 (zhí) vs. 真 (zhēn)",
+              "pinyin": "zhí · zhēn",
+              "detail": "直 rests directly on a flat bottom horizontal stroke 一 (一直 yīzhí, straight/always); 真 rests on two bottom legs 八 below the horizontal stroke (真好 zhēn hǎo, really good).",
+              "examples": "一直 (yīzhí) · 真好 (zhēn hǎo)"
+            },
+            {
+              "label": "看 (kàn) vs. 着 (zhe / zháo)",
+              "pinyin": "kàn · zhe",
+              "detail": "看 places a hand 龸 over the eye 目 (看书 kànshū, read a book); 着 has sheep horns 䒑 at the top above 目 (走着 zǒuzhe, walking).",
+              "examples": "看书 (kànshū) · 走着 (zǒuzhe)"
+            },
+            {
+              "label": "住 (zhù) vs. 往 (wǎng)",
+              "pinyin": "zhù · wǎng",
+              "detail": "住 has single-person 亻 + 主 (person staying in one place = 住在 zhù zài); 往 has double-person 彳 + 主 (walking toward a direction = 往左拐 wǎng zuǒ guǎi).",
+              "examples": "住在 (zhù zài) · 往左拐 (wǎng zuǒ guǎi)"
+            }
+          ]
+        },
+        {
+          "subtitle": "2. Four Essential Radicals: 宀, ⺮, 心, and 广 (认识常用偏旁)",
+          "summary": "Understanding where a radical appears and what semantic category it signals helps you remember characters systematically:",
+          "items": [
+            {
+              "label": "宀 (宝盖头 bǎogàitóu — Roof / House Radical)",
+              "pinyin": "mián (at the top)",
+              "detail": "Appears at the top of a character and relates to houses, dwellings, or indoor shelter.",
+              "examples": "寄 (jì, to mail) · 家 (jiā, home/family) · 宜 (yí, suitable/cheap in 便宜) · 字 (zì, character)"
+            },
+            {
+              "label": "⺮ (竹字头 zhúzìtóu — Bamboo Radical)",
+              "pinyin": "zhú (at the top)",
+              "detail": "Appears at the top of a character and relates to bamboo or tools traditionally made from bamboo slips.",
+              "examples": "签 (qiān, bamboo slip / sign in 签字) · 笔 (bǐ, pen/brush) · 筷 (kuài, chopsticks) · 算 (suàn, calculate)"
+            },
+            {
+              "label": "心 (心字底 xīnzìdǐ — Heart / Mind Radical)",
+              "pinyin": "xīn (at the bottom)",
+              "detail": "Appears at the bottom of a character and relates to the heart, feelings, thoughts, and mental attitudes.",
+              "examples": "怎 (zěn, how) · 想 (xiǎng, think/want) · 忘 (wàng, forget) · 您 (nín, polite you) · 意思 (yìsi, meaning)"
+            },
+            {
+              "label": "广 (广字头 guǎngzìtóu — Cliff-Roof / Building Radical)",
+              "pinyin": "guǎng (top-left enclosure)",
+              "detail": "Encloses the top and left sides of a character and relates to spacious buildings, shops, or interior spaces.",
+              "examples": "麻 (má, hemp/trouble in 麻烦) · 店 (diàn, shop/store) · 床 (chuáng, bed) · 度 (dù, degree) · 座 (zuò, seat)"
+            }
+          ]
+        }
+      ]
+    },
+    "dialogue": [
+      {
+        "character": "朱迪",
+        "hanzi": "你刚才去哪儿了？",
+        "pinyin": "Nǐ gāngcái qù nǎr le?",
+        "translation": "Where did you just go?"
+      },
+      {
+        "character": "莉莉",
+        "hanzi": "我去给家人买了点儿礼物，换了点儿钱。",
+        "pinyin": "Wǒ qù gěi jiārén mǎile diǎnr lǐwù, huànle diǎnr qián.",
+        "translation": "I went to buy some gifts for my family and exchanged some money."
+      },
+      {
+        "character": "朱迪",
+        "hanzi": "现在美元兑人民币的汇率是多少了？",
+        "pinyin": "Xiànzài Měiyuán duì Rénmínbì de huìlǜ shì duōshao le?",
+        "translation": "What is the exchange rate from US dollars to RMB now?"
+      },
+      {
+        "character": "莉莉",
+        "hanzi": "1∶6.37。我现在先出去一趟，寄个包裹。",
+        "pinyin": "Yī bǐ liù diǎn sān qī. Wǒ xiànzài xiān chūqù yí tàng, jì ge bāoguǒ.",
+        "translation": "1 to 6.37. Right now I'm going out for a quick trip first to mail a parcel."
+      },
+      {
+        "character": "朱迪",
+        "hanzi": "你先在手机上填好单子，再去邮局寄东西，很快就能办好。",
+        "pinyin": "Nǐ xiān zài shǒujī shang tiánhǎo dānzi, zài qù yóujú jì dōngxi, hěn kuài jiù néng bànhǎo.",
+        "translation": "Fill out the form on your phone first, and then go to the post office to mail your things—it'll get done very quickly."
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Dialogue 1: Exchanging Currency, Ordering Takeout & Mailing a Heavy Parcel (换钱、点外卖与寄包裹)",
+        "context": "Judy (朱迪) asks Lily (莉莉) where she just went. They talk about the USD-to-RMB exchange rate, opening a bank card with a passport, ordering two set meals for dinner, and filling out a digital waybill on a phone before the post office closes at 5:00 PM.",
+        "lines": [
+          {
+            "character": "朱迪",
+            "hanzi": "你刚才去哪儿了？",
+            "pinyin": "Nǐ gāngcái qù nǎr le?",
+            "translation": "Where did you just go?"
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "我去给家人买了点儿礼物，换了点儿钱。",
+            "pinyin": "Wǒ qù gěi jiārén mǎile diǎnr lǐwù, huànle diǎnr qián.",
+            "translation": "I went to buy some gifts for my family and exchanged some money."
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "现在美元兑人民币的汇率是多少了？",
+            "pinyin": "Xiànzài Měiyuán duì Rénmínbì de huìlǜ shì duōshao le?",
+            "translation": "What is the exchange rate from US dollars to RMB now?"
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "1∶6.37。",
+            "pinyin": "Yī bǐ liù diǎn sān qī.",
+            "translation": "1 to 6.37."
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "哦。我最近也要去趟银行，我想办张卡，网上买东西什么的更方便些。",
+            "pinyin": "Ò. Wǒ zuìjìn yě yào qù tàng yínháng, wǒ xiǎng bàn zhāng kǎ, wǎng shang mǎi dōngxi shénmede gèng fāngbiàn xiē.",
+            "translation": "Oh. I also need to make a trip to the bank recently—I want to open a bank card so shopping online and such will be more convenient."
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "你去办的时候记得带护照。",
+            "pinyin": "Nǐ qù bàn de shíhou jìde dài hùzhào.",
+            "translation": "Remember to bring your passport when you go to apply for it."
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "好！今天晚上换一换，吃别的吧？",
+            "pinyin": "Hǎo! Jīntiān wǎnshang huàn yi huàn, chī biéde ba?",
+            "translation": "Okay! Let's have a change tonight and eat something different, shall we?"
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "那点外卖吧，要两份套餐，够了吧？",
+            "pinyin": "Nà diǎn wàimài ba, yào liǎng fèn tàocān, gòu le ba?",
+            "translation": "Then let's order takeout—let's get two set meals, that should be enough, right?"
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "够了。你点吧，到了以后我下去取。",
+            "pinyin": "Gòu le. Nǐ diǎn ba, dàole yǐhòu wǒ xiàqù qǔ.",
+            "translation": "That's enough. Go ahead and order; when it arrives I'll go downstairs to pick it up."
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "好。我现在先出去一趟，寄个包裹。",
+            "pinyin": "Hǎo. Wǒ xiànzài xiān chūqù yí tàng, jì ge bāoguǒ.",
+            "translation": "Great. Right now I'm going out for a trip first to mail a parcel."
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "挺忙的啊。呀！好重啊！快有十公斤了，运费很贵吧？",
+            "pinyin": "Tǐng máng de a. Yā! Hǎo zhòng a! Kuài yǒu shí gōngjīn le, yùnfèi hěn guì ba?",
+            "translation": "You're quite busy! Whoa! It's so heavy! It's almost ten kilograms—the shipping fee must be expensive, right?"
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "不知道，去看看。对了，邮局几点关门？",
+            "pinyin": "Bù zhīdào, qù kànkan. Duìle, yóujú jǐ diǎn guānmén?",
+            "translation": "I don't know, I'll go see. By the way, what time does the post office close?"
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "我记得是五点关门，早上八点半开门。",
+            "pinyin": "Wǒ jìde shì wǔ diǎn guānmén, zǎoshang bā diǎn bàn kāimén.",
+            "translation": "I remember it closes at five o'clock, and opens at eight-thirty in the morning."
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "啊？现在已经四点了！",
+            "pinyin": "Á? Xiànzài yǐjīng sì diǎn le!",
+            "translation": "Huh? It's already four o'clock now!"
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "你先在手机上填好单子，再去邮局寄东西，很快就能办好。",
+            "pinyin": "Nǐ xiān zài shǒujī shang tiánhǎo dānzi, zài qù yóujú jì dōngxi, hěn kuài jiù néng bànhǎo.",
+            "translation": "Fill out the form on your phone first, and then go to the post office to mail your things—it can be handled very quickly."
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "这么方便？那太好了！怎么弄？",
+            "pinyin": "Zhème fāngbiàn? Nà tài hǎo le! Zěnme nòng?",
+            "translation": "That convenient? That's wonderful! How do I do it?"
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "来！我教你！",
+            "pinyin": "Lái! Wǒ jiāo nǐ!",
+            "translation": "Come here! I'll teach you!"
+          }
+        ]
+      },
+      {
+        "title": "Dialogue 2: At the Post Office & Courier Desk — Weighing a Parcel & Signing (在邮局寄国际包裹)",
+        "context": "Jin Zhiying (金志英) mails a 2-kilogram package to Tokyo, Japan at the post office counter, compares standard vs. express shipping times and costs, checks her form, leaves her phone number, and signs for the shipment.",
+        "lines": [
+          {
+            "character": "营业员",
+            "hanzi": "您好，请问您要办什么业务？",
+            "pinyin": "Nín hǎo, qǐngwèn nín yào bàn shénme yèwù?",
+            "translation": "Hello, may I ask what service you would like to handle today?"
+          },
+          {
+            "character": "金志英",
+            "hanzi": "您好，我想把这个包裹寄到日本东京。",
+            "pinyin": "Nín hǎo, wǒ xiǎng bǎ zhège bāoguǒ jì dào Rìběn Dōngjīng.",
+            "translation": "Hello, I would like to mail this parcel to Tokyo, Japan."
+          },
+          {
+            "character": "营业员",
+            "hanzi": "好的，您把包裹放在这儿吧，我看看多重。两公斤。您寄普通还是特快？",
+            "pinyin": "Hǎo de, nín bǎ bāoguǒ fàng zài zhèr ba, wǒ kànkan duō zhòng. Liǎng gōngjīn. Nín jì pǔtōng háishi tèkuài?",
+            "translation": "Alright, please put the parcel here and let me see how heavy it is. Two kilograms. Would you like standard mail or express?"
+          },
+          {
+            "character": "金志英",
+            "hanzi": "寄普通最快几天能到？运费多少钱？",
+            "pinyin": "Jì pǔtōng zuì kuài jǐ tiān néng dào? Yùnfèi duōshao qián?",
+            "translation": "If I send it by standard mail, how many days will it take at the fastest? How much is the shipping fee?"
+          },
+          {
+            "character": "营业员",
+            "hanzi": "五到七天能到，两公斤一共二百二十元。您先在手机上填好单子，再在这儿签个字。",
+            "pinyin": "Wǔ dào qī tiān néng dào, liǎng gōngjīn yígòng èrbǎi èrshí yuán. Nín xiān zài shǒujī shang tiánhǎo dānzi, zài zài zhèr qiān ge zì.",
+            "translation": "It can arrive in five to seven days, and two kilograms is 220 yuan altogether. Please fill out the form on your phone first, and then sign your name here."
+          },
+          {
+            "character": "金志英",
+            "hanzi": "好的，麻烦您帮我看看单子填得对不对。上面留的是我的新手机号码：17782609997。",
+            "pinyin": "Hǎo de, máfan nín bāng wǒ kànkan dānzi tián de duì bu duì. Shàngmian liú de shì wǒ de xīn shǒujī hàomǎ: yāo qī qī bā èr liù líng jiǔ jiǔ jiǔ qī.",
+            "translation": "Okay, could I trouble you to help me check whether the form is filled out correctly? The number left on it is my new mobile number: 177-8260-9997."
+          },
+          {
+            "character": "营业员",
+            "hanzi": "填得很好，已经办好了！",
+            "pinyin": "Tián de hěn hǎo, yǐjīng bànhǎo le!",
+            "translation": "It's filled out very well—everything is all processed!"
+          }
+        ]
+      }
+    ],
+    "readingPassage": {
+      "title": "Reading: Lily's Chinese Letter to Her Brother & 24-Hour App Grocery Delivery (莉莉给哥哥的信与网上买菜)",
+      "subtitle": "Synthesized from Lesson 10 Section 3·2 (给哥哥的信) and Section 4 (综合表达训练：网上超市买菜).",
+      "paragraphs": [
+        {
+          "hanzi": "哥哥：你好！你看，我现在也能用中文写信了！我很好，你在北京怎么样？我今天特别开心。上午出去买东西，回学校的时候用手机叫了一辆出租车，司机师傅特别好，看我东西多，还帮我把东西搬到宿舍门口。我把东西放回宿舍以后，又和朱迪点了外卖，正好那家饭馆儿今天买一送一！好开心！",
+          "pinyin": "Gēge: Nǐ hǎo! Nǐ kàn, wǒ xiànzài yě néng yòng Zhōngwén xiě xìn le! Wǒ hěn hǎo, nǐ zài Běijīng zěnmeyàng? Wǒ jīntiān tèbié kāixīn. Shàngwǔ chūqù mǎi dōngxi, huí xuéxiào de shíhou yòng shǒujī jiàole yí liàng chūzūchē, sījī shīfu tèbié hǎo, kàn wǒ dōngxi duō, hái bāng wǒ bǎ dōngxi bān dào sùshè ménkǒu. Wǒ bǎ dōngxi fàng huí sùshè yǐhòu, yòu hé Zhūdí diǎnle wàimài, zhènghǎo nà jiā fànguǎnr jīntiān mǎi yī sòng yī! Hǎo kāixīn!",
+          "translation": "Dear Older Brother: Hello! Look, I can write letters in Chinese now too! I'm doing great—how are you doing in Beijing? I am especially happy today. In the morning I went out to buy things, and when returning to school I called a taxi using my phone. The driver was super kind—seeing that I had a lot of things, he even helped me carry my things to the dormitory entrance. After I put my things back in the dorm, Judy and I ordered takeout again, and it just so happened that the restaurant had a buy-one-get-one-free deal today! So happy!"
+        },
+        {
+          "hanzi": "下午，我在网上给爸妈买的礼物都到了，我已经在手机上填好了单子，明天上午快递员过来取，很快就寄回家了。在中国生活真的很方便！对了，你给我寄的衣服还没收到，你可以帮我问问还有几天能到吗？是不是因为我换了新的手机号码？麻烦你再问问那里留的是不是我的新号码：10353508899。好了，祝你开心快乐，身体健康！妹妹：莉莉 3月20日。",
+          "pinyin": "Xiàwǔ, wǒ zài wǎng shang gěi bàmā mǎi de lǐwù dōu dào le, wǒ yǐjīng zài shǒujī shang tiánhǎo le dānzi, míngtiān shàngwǔ kuàidìyuán guòlái qǔ, hěn kuài jiù jì huí jiā le. Zài Zhōngguó shēnghuó zhēn de hěn fāngbiàn! Duìle, nǐ gěi wǒ jì de yīfu hái méi shōudào, nǐ kěyǐ bāng wǒ wènwen hái yǒu jǐ tiān néng dào ma? Shì bu shì yīnwèi wǒ huànle xīn de shǒujī hàomǎ? Máfan nǐ zài wènwen nàlǐ liú de shì bu shì wǒ de xīn hàomǎ: yāo líng sān wǔ sān wǔ líng bā bā jiǔ jiǔ. Hǎo le, zhù nǐ kāixīn kuàilè, shēntǐ jiànkāng! Mèimei: Lìlì, sān yuè èrshí rì.",
+          "translation": "In the afternoon, the gifts I bought online for Mom and Dad all arrived. I have already filled out the shipping form on my phone; tomorrow morning the courier will come over to pick them up, and they will be mailed home very soon. Living in China is truly convenient! By the way, I haven't received the clothes you mailed me yet—could you help me ask how many more days until they arrive? Could it be because I changed to a new phone number? Please trouble yourself to ask again whether the number left there is my new number: 103-5350-8899. Alright, wishing you happiness and good health! Your younger sister: Lily, March 20."
+        },
+        {
+          "hanzi": "我最近爱上了在网上买菜！我家附近有一家大超市，24小时都开门，最方便的是可以从网上下单。先在手机上下载一个超市的App，再注册一个账号，就可以买东西了。看到你的单子，超市的服务员就会把那些东西装到袋子里，给他们的外卖员，外卖员30分钟左右就会帮你把东西送到家。今天我很忙、很累，到家以后不想下去买菜。打开App，把想买的菜放到购物车里，下单，等了25分钟，外卖员就带着我的菜上来了。真的太方便了！",
+          "pinyin": "Wǒ zuìjìn àishàng le zài wǎng shang mǎi cài! Wǒ jiā fùjìn yǒu yì jiā dà chāoshì, èrshísì xiǎoshí dōu kāimén, zuì fāngbiàn de shì kěyǐ cóng wǎng shang xiàdān. Xiān zài shǒujī shang xiàzài yí ge chāoshì de App, zài zhùcè yí ge zhànghào, jiù kěyǐ mǎi dōngxi le. Kàndào nǐ de dānzi, chāoshì de fúwùyuán jiù huì bǎ nàxiē dōngxi zhuāng dào dàizi lǐ, gěi tāmen de wàimàiyuán, wàimàiyuán sānshí fēnzhōng zuǒyòu jiù huì bāng nǐ bǎ dōngxi sòng dào jiā. Jīntiān wǒ hěn máng, hěn lèi, dào jiā yǐhòu bù xiǎng xiàqù mǎi cài. Dǎkāi App, bǎ xiǎng mǎi de cài fàng dào gòuwùchē lǐ, xiàdān, děngle èrshíwǔ fēnzhōng, wàimàiyuán jiù dàizhe wǒ de cài shànglái le. Zhēn de tài fāngbiàn le!",
+          "translation": "Recently I fell in love with buying groceries online! Near my home there is a big supermarket that is open 24 hours a day, and the most convenient thing is that you can place orders online. First download the supermarket's App on your phone, then register an account, and you can buy things. Seeing your order, the supermarket staff pack those items into bags and hand them to their delivery rider, who delivers the items to your home in around 30 minutes. Today I was very busy and tired, and after getting home I didn't want to go downstairs to buy groceries. I opened the App, put the groceries I wanted into the shopping cart, placed the order, waited 25 minutes, and the delivery rider came upstairs bringing my groceries. It's truly so convenient!"
+        }
+      ]
+    },
+    "vocabularyExplanation": [
+      {
+        "hanzi": "礼物",
+        "pinyin": "lǐwù",
+        "english": "gift; present",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "我去给家人买了点儿礼物。",
+        "examplePinyin": "Wǒ qù gěi jiārén mǎile diǎnr lǐwù.",
+        "exampleTranslation": "I went to buy some gifts for my family."
+      },
+      {
+        "hanzi": "换",
+        "pinyin": "huàn",
+        "english": "to exchange (money); to change",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "我去银行换了点儿钱，还换了新的手机号码。",
+        "examplePinyin": "Wǒ qù yínháng huànle diǎnr qián, hái huànle xīn de shǒujī hàomǎ.",
+        "exampleTranslation": "I went to the bank to exchange some money, and also changed to a new phone number."
+      },
+      {
+        "hanzi": "兑",
+        "pinyin": "duì",
+        "english": "to exchange; to convert (currency)",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "现在美元兑人民币的汇率是多少了？",
+        "examplePinyin": "Xiànzài Měiyuán duì Rénmínbì de huìlǜ shì duōshao le?",
+        "exampleTranslation": "What is the exchange rate from US dollars to RMB now?"
+      },
+      {
+        "hanzi": "汇率",
+        "pinyin": "huìlǜ",
+        "english": "exchange rate",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "今天美元兑人民币的汇率是1∶6.37。",
+        "examplePinyin": "Jīntiān Měiyuán duì Rénmínbì de huìlǜ shì yī bǐ liù diǎn sān qī.",
+        "exampleTranslation": "Today's exchange rate from USD to RMB is 1 to 6.37."
+      },
+      {
+        "hanzi": "最近",
+        "pinyin": "zuìjìn",
+        "english": "recently; lately",
+        "partOfSpeech": "名 (time noun)",
+        "exampleHanzi": "我最近也要去趟银行。",
+        "examplePinyin": "Wǒ zuìjìn yě yào qù tàng yínháng.",
+        "exampleTranslation": "I also need to make a trip to the bank recently."
+      },
+      {
+        "hanzi": "办",
+        "pinyin": "bàn",
+        "english": "to handle; to apply for / set up (a card, visa, service)",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "我想去银行办张卡。",
+        "examplePinyin": "Wǒ xiǎng qù yínháng bàn zhāng kǎ.",
+        "exampleTranslation": "I want to go to the bank to open a bank card."
+      },
+      {
+        "hanzi": "卡",
+        "pinyin": "kǎ",
+        "english": "card (bank card, transit card)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "办张银行卡，网上买东西更方便。",
+        "examplePinyin": "Bàn zhāng yínhángkǎ, wǎng shang mǎi dōngxi gèng fāngbiàn.",
+        "exampleTranslation": "Opening a bank card makes online shopping more convenient."
+      },
+      {
+        "hanzi": "记得",
+        "pinyin": "jìde",
+        "english": "to remember",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "你去办卡的时候记得带护照。",
+        "examplePinyin": "Nǐ qù bàn kǎ de shíhou jìde dài hùzhào.",
+        "exampleTranslation": "Remember to bring your passport when you go to open a card."
+      },
+      {
+        "hanzi": "护照",
+        "pinyin": "hùzhào",
+        "english": "passport",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "去银行换钱或者办卡都要带护照。",
+        "examplePinyin": "Qù yínháng huàn qián huòzhě bàn kǎ dōu yào dài hùzhào.",
+        "exampleTranslation": "You must bring your passport whether going to the bank to exchange money or open a card."
+      },
+      {
+        "hanzi": "外卖",
+        "pinyin": "wàimài",
+        "english": "takeout; food delivery",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "今天晚上我们点外卖吧。",
+        "examplePinyin": "Jīntiān wǎnshang wǒmen diǎn wàimài ba.",
+        "exampleTranslation": "Let's order takeout tonight."
+      },
+      {
+        "hanzi": "份",
+        "pinyin": "fèn",
+        "english": "measure word for portions, set meals, copies, or gifts",
+        "partOfSpeech": "量 (measure word)",
+        "exampleHanzi": "要两份套餐，够了吧？",
+        "examplePinyin": "Yào liǎng fèn tàocān, gòu le ba?",
+        "exampleTranslation": "Let's get two set meals—that should be enough, right?"
+      },
+      {
+        "hanzi": "套餐",
+        "pinyin": "tàocān",
+        "english": "set meal; combo meal",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "这家饭馆儿的套餐今天买一送一。",
+        "examplePinyin": "Zhè jiā fànguǎnr de tàocān jīntiān mǎi yī sòng yī.",
+        "exampleTranslation": "This restaurant's set meals are buy-one-get-one-free today."
+      },
+      {
+        "hanzi": "够",
+        "pinyin": "gòu",
+        "english": "to be enough; sufficient",
+        "partOfSpeech": "动/形 (verb/adj.)",
+        "exampleHanzi": "两个人吃两份套餐够了。",
+        "examplePinyin": "Liǎng ge rén chī liǎng fèn tàocān gòu le.",
+        "exampleTranslation": "Two set meals are enough for two people."
+      },
+      {
+        "hanzi": "下去",
+        "pinyin": "xiàqù",
+        "english": "to go down (away from the speaker)",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "外卖到了以后我下去取。",
+        "examplePinyin": "Wàimài dàole yǐhòu wǒ xiàqù qǔ.",
+        "exampleTranslation": "After the takeout arrives, I'll go downstairs to pick it up."
+      },
+      {
+        "hanzi": "取",
+        "pinyin": "qǔ",
+        "english": "to pick up; to fetch; to withdraw (money)",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "明天上午快递员过来取包裹。",
+        "examplePinyin": "Míngtiān shàngwǔ kuàidìyuán guòlái qǔ bāoguǒ.",
+        "exampleTranslation": "Tomorrow morning the courier will come over to pick up the parcel."
+      },
+      {
+        "hanzi": "出去",
+        "pinyin": "chūqù",
+        "english": "to go out (away from the speaker)",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "我现在先出去一趟，寄个包裹。",
+        "examplePinyin": "Wǒ xiànzài xiān chūqù yí tàng, jì ge bāoguǒ.",
+        "exampleTranslation": "I'm going out for a quick trip right now to mail a parcel."
+      },
+      {
+        "hanzi": "寄",
+        "pinyin": "jì",
+        "english": "to mail; to send; to post",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "我想把这个包裹寄回家。",
+        "examplePinyin": "Wǒ xiǎng bǎ zhège bāoguǒ jì huí jiā.",
+        "exampleTranslation": "I want to mail this parcel back home."
+      },
+      {
+        "hanzi": "包裹",
+        "pinyin": "bāoguǒ",
+        "english": "parcel; package",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "这个包裹快有十公斤了。",
+        "examplePinyin": "Zhège bāoguǒ kuài yǒu shí gōngjīn le.",
+        "exampleTranslation": "This parcel is almost ten kilograms."
+      },
+      {
+        "hanzi": "重",
+        "pinyin": "zhòng",
+        "english": "heavy",
+        "partOfSpeech": "形 (adj.)",
+        "exampleHanzi": "呀！你的包裹好重啊！",
+        "examplePinyin": "Yā! Nǐ de bāoguǒ hǎo zhòng a!",
+        "exampleTranslation": "Whoa! Your parcel is so heavy!"
+      },
+      {
+        "hanzi": "公斤",
+        "pinyin": "gōngjīn",
+        "english": "kilogram (kg)",
+        "partOfSpeech": "量 (measure word)",
+        "exampleHanzi": "这个包裹两公斤，运费二百二十元。",
+        "examplePinyin": "Zhège bāoguǒ liǎng gōngjīn, yùnfèi èrbǎi èrshí yuán.",
+        "exampleTranslation": "This parcel weighs two kilograms, and the shipping fee is 220 yuan."
+      },
+      {
+        "hanzi": "运费",
+        "pinyin": "yùnfèi",
+        "english": "shipping fee; freight cost",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "寄到东京运费多少钱？",
+        "examplePinyin": "Jì dào Dōngjīng yùnfèi duōshao qián?",
+        "exampleTranslation": "How much is the shipping fee to mail it to Tokyo?"
+      },
+      {
+        "hanzi": "关门",
+        "pinyin": "guānmén",
+        "english": "to close (of a shop, post office, bank); to shut the door",
+        "partOfSpeech": "动 (VO verb)",
+        "exampleHanzi": "邮局下午五点关门，早上八点半开门。",
+        "examplePinyin": "Yóujú xiàwǔ wǔ diǎn guānmén, zǎoshang bā diǎn bàn kāimén.",
+        "exampleTranslation": "The post office closes at 5:00 PM and opens at 8:30 AM."
+      },
+      {
+        "hanzi": "填",
+        "pinyin": "tián",
+        "english": "to fill in; to fill out (a form)",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "你先在手机上填好单子。",
+        "examplePinyin": "Nǐ xiān zài shǒujī shang tiánhǎo dānzi.",
+        "exampleTranslation": "Fill out the form on your phone first."
+      },
+      {
+        "hanzi": "单子",
+        "pinyin": "dānzi",
+        "english": "form; slip; waybill; order list",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "麻烦您帮我看看单子填得对不对。",
+        "examplePinyin": "Máfan nín bāng wǒ kànkan dānzi tián de duì bu duì.",
+        "exampleTranslation": "Could I trouble you to check whether the form is filled out correctly?"
+      },
+      {
+        "hanzi": "这么",
+        "pinyin": "zhème",
+        "english": "so; this (modifying adjectives or verbs)",
+        "partOfSpeech": "代 (pronoun)",
+        "exampleHanzi": "在手机上填单子这么方便？",
+        "examplePinyin": "Zài shǒujī shang tián dānzi zhème fāngbiàn?",
+        "exampleTranslation": "Filling out the form on a phone is this convenient?"
+      },
+      {
+        "hanzi": "弄",
+        "pinyin": "nòng",
+        "english": "to do; to handle; to work with (colloquial)",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "手机寄快递怎么弄？来，我教你！",
+        "examplePinyin": "Shǒujī jì kuàidì zěnme nòng? Lái, wǒ jiāo nǐ!",
+        "exampleTranslation": "How do you do courier shipping on a phone? Come, I'll teach you!"
+      },
+      {
+        "hanzi": "快递",
+        "pinyin": "kuàidì",
+        "english": "express delivery; courier package",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "明天上午快递员过来取快递。",
+        "examplePinyin": "Míngtiān shàngwǔ kuàidìyuán guòlái qǔ kuàidì.",
+        "exampleTranslation": "Tomorrow morning the courier will come over to pick up the express package."
+      },
+      {
+        "hanzi": "中文",
+        "pinyin": "Zhōngwén",
+        "english": "Chinese language (especially written/general Chinese)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "我现在也能用中文写信了！",
+        "examplePinyin": "Wǒ xiànzài yě néng yòng Zhōngwén xiě xìn le!",
+        "exampleTranslation": "I can write letters in Chinese now too!"
+      },
+      {
+        "hanzi": "信",
+        "pinyin": "xìn",
+        "english": "letter; mail",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "莉莉用中文给哥哥写了一封信。",
+        "examplePinyin": "Lìlì yòng Zhōngwén gěi gēge xiěle yì fēng xìn.",
+        "exampleTranslation": "Lily wrote a letter in Chinese to her older brother."
+      },
+      {
+        "hanzi": "帮",
+        "pinyin": "bāng",
+        "english": "to help; to assist",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "司机师傅帮我把东西搬到宿舍门口。",
+        "examplePinyin": "Sījī shīfu bāng wǒ bǎ dōngxi bān dào sùshè ménkǒu.",
+        "exampleTranslation": "The taxi driver helped me carry my things to the dorm entrance."
+      },
+      {
+        "hanzi": "把",
+        "pinyin": "bǎ",
+        "english": "disposal preposition placing the object before the verb",
+        "partOfSpeech": "介 (preposition)",
+        "exampleHanzi": "我把东西放回宿舍以后，又和朱迪点了外卖。",
+        "examplePinyin": "Wǒ bǎ dōngxi fàng huí sùshè yǐhòu, yòu hé Zhūdí diǎnle wàimài.",
+        "exampleTranslation": "After I put my things back in the dorm, Judy and I ordered takeout."
+      },
+      {
+        "hanzi": "搬",
+        "pinyin": "bān",
+        "english": "to move; to carry (heavy objects)",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "请把那张桌子搬到房间里去。",
+        "examplePinyin": "Qǐng bǎ nà zhāng zhuōzi bān dào fángjiān lǐ qù.",
+        "exampleTranslation": "Please move that table into the room."
+      },
+      {
+        "hanzi": "正好",
+        "pinyin": "zhènghǎo",
+        "english": "just in time; as it happens;刚好",
+        "partOfSpeech": "副 (adverb)",
+        "exampleHanzi": "正好那家饭馆儿今天买一送一！",
+        "examplePinyin": "Zhènghǎo nà jiā fànguǎnr jīntiān mǎi yī sòng yī!",
+        "exampleTranslation": "As it happened, that restaurant had a buy-one-get-one-free deal today!"
+      },
+      {
+        "hanzi": "收到",
+        "pinyin": "shōudào",
+        "english": "to receive; to get",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "你给我寄的衣服还没收到。",
+        "examplePinyin": "Nǐ gěi wǒ jì de yīfu hái méi shōudào.",
+        "exampleTranslation": "I haven't received the clothes you mailed me yet."
+      },
+      {
+        "hanzi": "号码",
+        "pinyin": "hàomǎ",
+        "english": "number (phone number, room number)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "我换了新的手机号码。",
+        "examplePinyin": "Wǒ huànle xīn de shǒujī hàomǎ.",
+        "exampleTranslation": "I changed to a new mobile phone number."
+      },
+      {
+        "hanzi": "麻烦",
+        "pinyin": "máfan",
+        "english": "to trouble somebody (polite request); troublesome",
+        "partOfSpeech": "动/形 (verb/adj.)",
+        "exampleHanzi": "麻烦你再问问那里留的是不是我的新号码。",
+        "examplePinyin": "Máfan nǐ zài wènwen nàlǐ liú de shì bu shì wǒ de xīn hàomǎ.",
+        "exampleTranslation": "Could I trouble you to ask again whether the number left there is my new number?"
+      },
+      {
+        "hanzi": "留",
+        "pinyin": "liú",
+        "english": "to leave behind (a message, phone number, address); to stay",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "单子上留的是我的新手机号码。",
+        "examplePinyin": "Dānzi shang liú de shì wǒ de xīn shǒujī hàomǎ.",
+        "exampleTranslation": "What is left on the form is my new mobile number."
+      },
+      {
+        "hanzi": "签字",
+        "pinyin": "qiānzì",
+        "english": "to sign one's name",
+        "partOfSpeech": "动 (VO verb)",
+        "exampleHanzi": "请您在这儿签个字。",
+        "examplePinyin": "Qǐng nín zài zhèr qiān ge zì.",
+        "exampleTranslation": "Please sign your name here."
+      },
+      {
+        "hanzi": "下单",
+        "pinyin": "xiàdān",
+        "english": "to place an order (online or in a shop)",
+        "partOfSpeech": "动 (VO verb)",
+        "exampleHanzi": "这家超市24小时可以从网上下单。",
+        "examplePinyin": "Zhè jiā chāoshì èrshísì xiǎoshí kěyǐ cóng wǎng shang xiàdān.",
+        "exampleTranslation": "You can place orders online 24 hours a day at this supermarket."
+      },
+      {
+        "hanzi": "下载",
+        "pinyin": "xiàzài",
+        "english": "to download",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "先在手机上下载一个超市的App。",
+        "examplePinyin": "Xiān zài shǒujī shang xiàzài yí ge chāoshì de App.",
+        "exampleTranslation": "First download the supermarket's App on your phone."
+      },
+      {
+        "hanzi": "注册",
+        "pinyin": "zhùcè",
+        "english": "to register; to sign up",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "下载App以后，再注册一个账号。",
+        "examplePinyin": "Xiàzài App yǐhòu, zài zhùcè yí ge zhànghào.",
+        "exampleTranslation": "After downloading the App, register an account."
+      },
+      {
+        "hanzi": "账号",
+        "pinyin": "zhànghào",
+        "english": "account; username",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "注册一个账号就可以在网上买东西了。",
+        "examplePinyin": "Zhùcè yí ge zhànghào jiù kěyǐ zài wǎng shang mǎi dōngxi le.",
+        "exampleTranslation": "Once you register an account, you can buy things online."
+      },
+      {
+        "hanzi": "装",
+        "pinyin": "zhuāng",
+        "english": "to pack; to put into; to load",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "服务员会把那些东西装到袋子里。",
+        "examplePinyin": "Fúwùyuán huì bǎ nàxiē dōngxi zhuāng dào dàizi lǐ.",
+        "exampleTranslation": "The staff member will pack those items into a bag."
+      },
+      {
+        "hanzi": "袋子",
+        "pinyin": "dàizi",
+        "english": "bag; sack; pouch",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "请把苹果装到这个袋子里。",
+        "examplePinyin": "Qǐng bǎ píngguǒ zhuāng dào zhège dàizi lǐ.",
+        "exampleTranslation": "Please put the apples into this bag."
+      },
+      {
+        "hanzi": "累",
+        "pinyin": "lèi",
+        "english": "tired; exhausted",
+        "partOfSpeech": "形 (adj.)",
+        "exampleHanzi": "今天我很忙、很累，不想下去买菜。",
+        "examplePinyin": "Jīntiān wǒ hěn máng, hěn lèi, bù xiǎng xiàqù mǎi cài.",
+        "exampleTranslation": "Today I am very busy and tired, and don't want to go downstairs to buy groceries."
+      },
+      {
+        "hanzi": "购物车",
+        "pinyin": "gòuwùchē",
+        "english": "shopping cart (physical or online)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "把想买的菜放到购物车里，就可以下单了。",
+        "examplePinyin": "Bǎ xiǎng mǎi de cài fàng dào gòuwùchē lǐ, jiù kěyǐ xiàdān le.",
+        "exampleTranslation": "Put the groceries you want to buy into the shopping cart, and then you can place the order."
+      }
+    ],
+    "grammarPoint": "Compound Directional Complements, '先 a，再 b', and the '把 + N + V + 到/在/回 + Place' Construction",
+    "structure": "Subject + 把 + Object + Verb + 到 / 在 / 回 + Place  |  先 + Action A，再 + Action B",
+    "explanation": "Lesson 10 introduces five core grammatical patterns for handling everyday errands in China: (1) compound directional verbs formed by combiningの上/下/进/出/过/回 with 来 (toward the speaker) or 去 (away from the speaker); (2) ordering steps with 先 a，再 b; (3) the 把 disposal sentence showing how an action moves or places an object at a destination (到/在/回); (4) polite requests with 麻烦您/你……; and (5) asking about weight, distance, or duration with 多 + Adjective.",
+    "examples": [
+      {
+        "hanzi": "司机师傅帮我把东西搬到宿舍门口。",
+        "pinyin": "Sījī shīfu bāng wǒ bǎ dōngxi bān dào sùshè ménkǒu.",
+        "translation": "The taxi driver helped me move my things to the dormitory entrance."
+      },
+      {
+        "hanzi": "你先在手机上填好单子，再去邮局寄东西。",
+        "pinyin": "Nǐ xiān zài shǒujī shang tiánhǎo dānzi, zài qù yóujú jì dōngxi.",
+        "translation": "Fill out the form on your phone first, and then go to the post office to mail your things."
+      },
+      {
+        "hanzi": "外卖到了以后我下去取；明天上午快递员过来取包裹。",
+        "pinyin": "Wàimài dàole yǐhòu wǒ xiàqù qǔ; míngtiān shàngwǔ kuàidìyuán guòlái qǔ bāoguǒ.",
+        "translation": "When the takeout arrives I'll go downstairs to pick it up; tomorrow morning the courier will come over to pick up the parcel."
+      }
+    ],
+    "grammarNotes": [
+      {
+        "title": "1. Compound Directional Verbs (复合趋向动词：上/下/进/出/过/回 + 来/去)",
+        "structure": "上 / 下 / 进 / 出 / 过 / 回 + 来 (toward speaker) / 去 (away from speaker)",
+        "explanation": "A single-character directional verb (上 up, 下 down, 进 in, 出 out, 过 across/over, 回 back) combines with 来 (movement toward the speaker's current location) or 去 (movement away from the speaker's current location) to form a compound directional verb.",
+        "tip": "If the speaker is upstairs in the dorm, going downstairs to get takeout is 下去 ('go down'), while the delivery rider bringing groceries upstairs toward the speaker is 上来 ('come up').",
+        "examples": [
+          {
+            "hanzi": "你点外卖吧，到了以后我下去取。",
+            "pinyin": "Nǐ diǎn wàimài ba, dàole yǐhòu wǒ xiàqù qǔ.",
+            "translation": "Go ahead and order takeout; after it arrives I will go downstairs to pick it up."
+          },
+          {
+            "hanzi": "我现在先出去一趟，寄个包裹。",
+            "pinyin": "Wǒ xiànzài xiān chūqù yí tàng, jì ge bāoguǒ.",
+            "translation": "Right now I'm going out for a quick trip to mail a parcel."
+          },
+          {
+            "hanzi": "明天上午快递员过来取包裹。",
+            "pinyin": "Míngtiān shàngwǔ kuàidìyuán guòlái qǔ bāoguǒ.",
+            "translation": "Tomorrow morning the courier will come over here to pick up the parcel."
+          },
+          {
+            "hanzi": "等了25分钟，外卖员就带着我的菜上来了。",
+            "pinyin": "Děngle èrshíwǔ fēnzhōng, wàimàiyuán jiù dàizhe wǒ de cài shànglái le.",
+            "translation": "After waiting 25 minutes, the delivery rider came upstairs bringing my groceries."
+          }
+        ]
+      },
+      {
+        "title": "2. Sequential Actions with '先 a，再 b' & Asking Business Hours ('几点开门/关门')",
+        "structure": "先 + Action A，再 + Action B  |  [Place] + 几点 + 开门 / 关门？",
+        "explanation": "Use '先 a，再 b' ('first do A, then do B') to explain procedural steps such as filling out an electronic shipping slip before visiting the counter, or downloading an App before registering an account. To ask or state when a business opens or closes, use '几点开门/关门' and '[Time] + 开门/关门'.",
+        "tip": "In procedural descriptions (present/future), use 再 (zài) for the second step rather than 又.",
+        "examples": [
+          {
+            "hanzi": "你先在手机上填好单子，再去邮局寄东西，很快就能办好。",
+            "pinyin": "Nǐ xiān zài shǒujī shang tiánhǎo dānzi, zài qù yóujú jì dōngxi, hěn kuài jiù néng bànhǎo.",
+            "translation": "First fill out the form on your phone, then go to the post office to mail your things—it'll get done very quickly."
+          },
+          {
+            "hanzi": "先在手机上下载一个超市的App，再注册一个账号，就可以买东西了。",
+            "pinyin": "Xiān zài shǒujī shang xiàzài yí ge chāoshì de App, zài zhùcè yí ge zhànghào, jiù kěyǐ mǎi dōngxi le.",
+            "translation": "First download the supermarket's App on your phone, then register an account, and you can buy things."
+          },
+          {
+            "hanzi": "邮局几点关门？——我记得是下午五点关门，早上八点半开门。",
+            "pinyin": "Yóujú jǐ diǎn guānmén? — Wǒ jìde shì xiàwǔ wǔ diǎn guānmén, zǎoshang bā diǎn bàn kāimén.",
+            "translation": "What time does the post office close? — I remember it closes at 5:00 PM and opens at 8:30 AM."
+          }
+        ]
+      },
+      {
+        "title": "3. The '把' Construction for Moving or Placing Objects (把 + N + V + 到/在/回 + 处所)",
+        "structure": "Subject (+ 帮 + Person) + 把 + Definite Object + Verb (搬/放/寄/装/送) + 到 / 在 / 回 + Location",
+        "explanation": "When an action causes a known object (N) to change its location or end up at a specific destination, Mandarin uses the '把' sentence structure instead of placing the object after the verb. Verbs of placement and transport (搬 move, 放 put, 寄 mail, 装 pack, 送 deliver) are followed by 到 (to), 在 (at/in), or 回 (back to) plus the destination.",
+        "tip": "Negative adverbs (没, 不) and modal verbs (想, 要, 会) must be placed BEFORE 把 (e.g., 我想把这个寄回家).",
+        "examples": [
+          {
+            "hanzi": "我想把这个包裹寄回家 / 寄到日本东京。",
+            "pinyin": "Wǒ xiǎng bǎ zhège bāoguǒ jì huí jiā / jì dào Rìběn Dōngjīng.",
+            "translation": "I want to mail this parcel back home / to Tokyo, Japan."
+          },
+          {
+            "hanzi": "司机师傅帮我把东西搬到宿舍门口。",
+            "pinyin": "Sījī shīfu bāng wǒ bǎ dōngxi bān dào sùshè ménkǒu.",
+            "translation": "The taxi driver helped me move my things to the dormitory entrance."
+          },
+          {
+            "hanzi": "我把东西放回宿舍以后，又和朱迪点了外卖。",
+            "pinyin": "Wǒ bǎ dōngxi fàng huí sùshè yǐhòu, yòu hé Zhūdí diǎnle wàimài.",
+            "translation": "After I put my things back in the dormitory, Judy and I ordered takeout."
+          },
+          {
+            "hanzi": "把想买的菜放到购物车里，外卖员30分钟左右就会帮你把东西送到家。",
+            "pinyin": "Bǎ xiǎng mǎi de cài fàng dào gòuwùchē lǐ, wàimàiyuán sānshí fēnzhōng zuǒyòu jiù huì bāng nǐ bǎ dōngxi sòng dào jiā.",
+            "translation": "Put the groceries you want to buy into the shopping cart, and the rider will deliver the items to your home in about 30 minutes."
+          }
+        ]
+      },
+      {
+        "title": "4. Polite Requests with '麻烦您/你……' and '你可以帮我……吗？'",
+        "structure": "麻烦您 / 你 + Verb Phrase  |  你 / 您可以帮我 + Verb Phrase + 吗？",
+        "explanation": "When asking a clerk, courier, or friend for assistance, start with '麻烦您/你……' ('Excuse me for troubling you to...') or use '你可以帮我……吗？' ('Could you help me...?').",
+        "tip": "Pair 麻烦您 with verb reduplication (看看, 问问) to make the request sound warm, natural, and polite.",
+        "examples": [
+          {
+            "hanzi": "麻烦您帮我看看单子填得对不对。",
+            "pinyin": "Máfan nín bāng wǒ kànkan dānzi tián de duì bu duì.",
+            "translation": "Could I trouble you to help me check whether the form is filled out correctly?"
+          },
+          {
+            "hanzi": "麻烦你再问问那里留的是不是我的新号码。",
+            "pinyin": "Máfan nǐ zài wènwen nàlǐ liú de shì bu shì wǒ de xīn hàomǎ.",
+            "translation": "Please trouble yourself to ask again whether the number left there is my new number."
+          },
+          {
+            "hanzi": "你可以帮我问问还有几天能到吗？",
+            "pinyin": "Nǐ kěyǐ bāng wǒ wènwen hái yǒu jǐ tiān néng dào ma?",
+            "translation": "Could you help me ask how many more days until it arrives?"
+          }
+        ]
+      },
+      {
+        "title": "5. Asking Degree with '多 + Adj (+ N)' & Reading Phone Numbers ('幺 yāo')",
+        "structure": "多 + 重 / 远 / 大 / 高 / 长时间  |  Digit-by-Digit Reading ('1' read as yāo)",
+        "explanation": "'多 (duō)' placed before a single-syllable adjective (多重 how heavy, 多远 how far, 多大 how old/big, 多高 how tall) or '多长时间 (how long)' queries exact measurements. When reading phone numbers, room numbers, or tracking numbers digit-by-digit, the digit '1' is pronounced '幺 (yāo)' to avoid confusion with '7 (qī)', and '2' is always read '二 (èr)', never '两'.",
+        "tip": "Example: 10353508899 is read 'yāo líng sān wǔ sān wǔ líng bā bā jiǔ jiǔ'.",
+        "examples": [
+          {
+            "hanzi": "我看看这个包裹多重。——两公斤。",
+            "pinyin": "Wǒ kànkan zhège bāoguǒ duō zhòng. — Liǎng gōngjīn.",
+            "translation": "Let me see how heavy this parcel is. — Two kilograms."
+          },
+          {
+            "hanzi": "从你家到邮局有多远？走路要多长时间？",
+            "pinyin": "Cóng nǐ jiā dào yóujú yǒu duō yuǎn? Zǒulù yào duō cháng shíjiān?",
+            "translation": "How far is it from your home to the post office? How long does it take to walk?"
+          },
+          {
+            "hanzi": "我的新手机号码是10353508899（幺零三五三五零八八九九）。",
+            "pinyin": "Wǒ de xīn shǒujī hàomǎ shì yāo líng sān wǔ sān wǔ líng bā bā jiǔ jiǔ.",
+            "translation": "My new mobile phone number is 103-5350-8899."
+          }
+        ]
+      }
+    ],
+    "exercises": [
+      {
+        "question": "In Dialogue 1, what advice does Judy give Lily when Lily realizes it is already 4:00 PM and the post office closes at 5:00 PM?",
+        "promptHanzi": "你先在手机上填好单子，再去邮局寄东西，很快就能办好。",
+        "promptPinyin": "Nǐ xiān zài shǒujī shang tiánhǎo dānzi, zài qù yóujú jì dōngxi, hěn kuài jiù néng bànhǎo.",
+        "options": [
+          "First fill out the shipping form on her phone (先在手机上填好单子), and then go to the post office to mail the parcel (再去邮局寄东西).",
+          "Wait until next week to mail the parcel because the post office is already closed.",
+          "Ask the taxi driver to mail the parcel without filling out any form.",
+          "Go to the bank first to exchange US dollars before buying a suitcase."
+        ],
+        "answerIndex": 0,
+        "explanation": "Judy uses the sequential pattern '先 a，再 b': “你先在手机上填好单子，再去邮局寄东西，很快就能办好。”"
+      },
+      {
+        "question": "Which sentence from Lily's letter correctly uses the '把' construction to show moving an object to a specific location?",
+        "options": [
+          "司机师傅帮我把东西搬到宿舍门口。",
+          "司机师傅把搬到宿舍门口东西帮我。",
+          "我把宿舍门口搬到东西。",
+          "把司机师傅帮我搬到东西宿舍门口。"
+        ],
+        "answerIndex": 0,
+        "explanation": "The structure is Subject + (帮 + Person) + 把 + Object (东西) + Verb (搬) + 到 + Location (宿舍门口): “司机师傅帮我把东西搬到宿舍门口。”"
+      },
+      {
+        "question": "Suppose you are upstairs in your apartment and the supermarket rider brings your groceries upstairs to your door. Which compound directional verb matches the textbook passage?",
+        "promptHanzi": "等了25分钟，外卖员就带着我的菜______了。",
+        "promptPinyin": "Děngle èrshíwǔ fēnzhōng, wàimàiyuán jiù dàizhe wǒ de cài ______ le.",
+        "options": [
+          "上来 (shànglái — come up toward the speaker)",
+          "下去 (xiàqù — go down away from the speaker)",
+          "出去 (chūqù — go out away from the speaker)",
+          "回去 (huíqù — go back away from the speaker)"
+        ],
+        "answerIndex": 0,
+        "explanation": "Since the speaker is upstairs at home and the rider moves upward toward the speaker, the passage uses '上来': “等了25分钟，外卖员就带着我的菜上来了。”"
+      },
+      {
+        "question": "How is the digit '1' pronounced when reading a Chinese mobile phone number such as 10353508899 aloud?",
+        "options": [
+          "幺 (yāo) — to distinguish it clearly from 七 (qī).",
+          "两 (liǎng) — because it is a measure word.",
+          "零 (líng) — because all phone numbers start with zero.",
+          "双 (shuāng) — to indicate a pair of numbers."
+        ],
+        "answerIndex": 0,
+        "explanation": "In spoken Mandarin, the digit '1' in phone numbers, room numbers, and bus/train numbers is read '幺 (yāo)' so it is never confused with '七 (qī)'."
+      }
+    ]
+  },
+  {
+    "id": "lesson14",
+    "title": "Lesson 11: My Head Is Hurting More and More — 第11课：头越来越疼了",
+    "chineseTitle": "第11课：头越来越疼了",
+    "unitBadge": "Mastering Chinese · Elementary 4 (会通汉语 精编版·初级4)",
+    "description": "Learn how to describe symptoms at a hospital clinic, discuss body temperature and medical treatments, visit a friend recovering from surgery, and give health and lifestyle advice using '越来越', '开始……，后来……', '只是', and '应该多/少 + V'.",
+    "content": "Synthesized from all four parts of Lesson 11 (第11课《头越来越疼了》（一）–（四）) in Mastering Chinese: Elementary 4 (会通汉语 精编版·初级4). Learners master 6 look-alike character pairs (工/红, 元/园, 坐/座, 过/对, 晴/睛, 超/起), 4 health/body/plant/clothing radicals (月, 疒, 艹, 衤), medical consultations for acute appendicitis (急性阑尾炎) and fevers, narrative progression (开始……，后来……; 越来越……), degree adverbs (比较 vs. 有点儿), mild contrast (只是), and giving health advice (应该多休息、少熬夜).",
+    "hskLevel": 4,
+    "objectives": [
+      "Distinguish 6 pairs of look-alike characters (工/红, 元/园, 坐/座, 过/对, 晴/睛, 超/起) and recognize 4 semantic radicals: 月 (flesh/body organs), 疒 (illness/pain), 艹 (plants/herbs/medicine), and 衤 (clothing).",
+      "Describe physical symptoms and medical exams at a clinic (肚子疼、想吐、没有力气、发烧、量体温38.3度、急性阑尾炎、做小手术、住院治疗).",
+      "Use '开始……，后来……' and '越来越 + Adj / Mental Verb' to narrate how a condition or situation develops over time.",
+      "Give caring lifestyle and health advice using '应该 + V (+ N)', '多 / 少 + V (+ N)', '好好 + V', and '别再熬夜了'."
+    ],
+    "phoneticsAndCharacters": {
+      "title": "Look-Alike Character Pairs (形近字) & Health Radicals (月 · 疒 · 艹 · 衤)",
+      "sections": [
+        {
+          "subtitle": "1. Six Look-Alike Character Pairs (比一比，读一读：形近字辨析)",
+          "summary": "Compare base characters with characters that add a semantic radical or modify an enclosure:",
+          "items": [
+            {
+              "label": "工 (gōng) vs. 红 (hóng)",
+              "pinyin": "gōng · hóng",
+              "detail": "工 is a standalone character meaning 'work' (工作 gōngzuò); adding the silk radical 纟 on the left forms 红 'red' (红绿灯 hónglǜdēng, traffic light).",
+              "examples": "工作 (gōngzuò) · 红绿灯 (hónglǜdēng)"
+            },
+            {
+              "label": "元 (yuán) vs. 园 (yuán)",
+              "pinyin": "yuán · yuán",
+              "detail": "元 is the currency unit 'yuan' (一元 yì yuán); enclosing 元 inside 囗 forms 园 'garden/park' (公园 gōngyuán).",
+              "examples": "一元 (yì yuán) · 公园 (gōngyuán)"
+            },
+            {
+              "label": "坐 (zuò) vs. 座 (zuò)",
+              "pinyin": "zuò · zuò",
+              "detail": "坐 (two people 两人 on earth 土) is the verb 'to sit' (坐下 zuòxià); adding the building radical 广 forms the noun/measure word 座 'seat' (座位 zuòwèi).",
+              "examples": "坐下 (zuòxià) · 座位 (zuòwèi)"
+            },
+            {
+              "label": "过 (guò) vs. 对 (duì)",
+              "pinyin": "guò · duì",
+              "detail": "过 combines 寸 with the walking radical 辶 (过来 guòlái, come over); 对 combines 又 with 寸 (对面 duìmiàn, opposite side).",
+              "examples": "过来 (guòlái) · 对面 (duìmiàn)"
+            },
+            {
+              "label": "晴 (qíng) vs. 睛 (jīng)",
+              "pinyin": "qíng · jīng",
+              "detail": "晴 has the sun radical 日 on the left (晴天 qíngtiān, sunny day); 睛 has the eye radical 目 on the left (眼睛 yǎnjing, eye).",
+              "examples": "晴天 (qíngtiān) · 眼睛 (yǎnjing)"
+            },
+            {
+              "label": "超 (chāo) vs. 起 (qǐ)",
+              "pinyin": "chāo · qǐ",
+              "detail": "Both share the walking/running radical 走; 超 has 召 inside (超市 chāoshì, supermarket), while 起 has 己 inside (一起 yìqǐ, together).",
+              "examples": "超市 (chāoshì) · 一起 (yìqǐ)"
+            }
+          ]
+        },
+        {
+          "subtitle": "2. Four Essential Radicals: 月 (肉), 疒, 艹, and 衤 (认识常用偏旁)",
+          "summary": "These four radicals are essential for reading medical, anatomical, herbal, and everyday vocabulary:",
+          "items": [
+            {
+              "label": "月 (肉月旁 ròuyuèpáng — Flesh / Body Organ Radical)",
+              "pinyin": "ròu / yuè (left or bottom)",
+              "detail": "Derived from 肉 (flesh), this radical appears on the left or bottom of characters denoting parts of the human body or physical build.",
+              "examples": "肚 (dù, belly in 肚子) · 胃 (wèi, stomach) · 胖 (pàng, fat/plump) · 腰 (yāo, waist) · 脖 (bó, neck) · 腿 (tuǐ, leg)"
+            },
+            {
+              "label": "疒 (病字旁 bìngzìpáng — Sickness / Illness Radical)",
+              "pinyin": "nè (top-left enclosure)",
+              "detail": "Represents a person lying on a sickbed and encloses the top-left of characters related to pain, disease, and physical weakness.",
+              "examples": "疼 (téng, ache/hurt) · 病 (bìng, illness/sick) · 瘦 (shòu, thin/weight loss)"
+            },
+            {
+              "label": "艹 (草字头 cǎozìtóu — Grass / Plant / Herb Radical)",
+              "pinyin": "cǎo (at the top)",
+              "detail": "Appears at the top of characters related to plants, vegetables, tea leaves, and herbal medicine.",
+              "examples": "药 (yào, medicine) · 茶 (chá, tea) · 菜 (cài, vegetable/dish)"
+            },
+            {
+              "label": "衤 (衣字旁 yīzìpáng — Clothing / Garment Radical)",
+              "pinyin": "yī (on the left)",
+              "detail": "Appears on the left of characters related to clothing and garments (note the single dot on the right, distinct from 礻).",
+              "examples": "裤 (kù, trousers) · 裙 (qún, skirt) · 衫 (shān, shirt)"
+            }
+          ]
+        }
+      ]
+    },
+    "dialogue": [
+      {
+        "character": "医生",
+        "hanzi": "你好！怎么了？哪儿不舒服？",
+        "pinyin": "Nǐ hǎo! Zěnme le? Nǎr bù shūfu?",
+        "translation": "Hello! What's wrong? Where do you feel unwell?"
+      },
+      {
+        "character": "马克",
+        "hanzi": "我肚子疼，很想吐，也没有力气。开始只是有点儿疼，后来越来越疼。",
+        "pinyin": "Wǒ dùzi téng, hěn xiǎng tù, yě méiyǒu lìqi. Kāishǐ zhǐshì yǒudiǎnr téng, hòulái yuèláiyuè téng.",
+        "translation": "My stomach hurts, I really feel like throwing up, and I have no strength. At first it only hurt a little, and later it hurt more and more."
+      },
+      {
+        "character": "医生",
+        "hanzi": "发烧吗？刚才量体温了吧？多少度？",
+        "pinyin": "Fāshāo ma? Gāngcái liáng tǐwēn le ba? Duōshao dù?",
+        "translation": "Do you have a fever? You just took your temperature, right? How many degrees?"
+      },
+      {
+        "character": "马克",
+        "hanzi": "量了，38.3度。医生，我得了什么病？严重吗？",
+        "pinyin": "Liáng le, sānshíbā diǎn sān dù. Yīshēng, wǒ déle shénme bìng? Yánzhòng ma?",
+        "translation": "I took it—38.3 degrees. Doctor, what illness did I get? Is it serious?"
+      },
+      {
+        "character": "医生",
+        "hanzi": "不太严重，是急性阑尾炎。做手术比较好，就是个小手术，半个小时到一个小时就做好了。",
+        "pinyin": "Bú tài yánzhòng, shì jíxìng lánwěiyán. Zuò shǒushù bǐjiào hǎo, jiùshì ge xiǎo shǒushù, bàn ge xiǎoshí dào yí ge xiǎoshí jiù zuòhǎo le.",
+        "translation": "Not too serious—it's acute appendicitis. Having surgery is better; it's just a minor operation and will be done in half an hour to an hour."
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Dialogue 1: At the Hospital Clinic — Diagnosing Acute Appendicitis (在医院看病：急性阑尾炎)",
+        "context": "Mark (马克) goes to the hospital clinic with worsening abdominal pain, nausea, weakness, and a 38.3°C fever. The doctor examines him, diagnoses acute appendicitis (急性阑尾炎), and reassures him that a minor 30–60 minute surgery will resolve it.",
+        "lines": [
+          {
+            "character": "马克",
+            "hanzi": "医生，您好。",
+            "pinyin": "Yīshēng, nín hǎo.",
+            "translation": "Hello, Doctor."
+          },
+          {
+            "character": "医生",
+            "hanzi": "你好！怎么了？哪儿不舒服？",
+            "pinyin": "Nǐ hǎo! Zěnme le? Nǎr bù shūfu?",
+            "translation": "Hello! What's the matter? Where do you feel unwell?"
+          },
+          {
+            "character": "马克",
+            "hanzi": "我肚子疼，很想吐，也没有力气。",
+            "pinyin": "Wǒ dùzi téng, hěn xiǎng tù, yě méiyǒu lìqi.",
+            "translation": "My stomach hurts, I really feel like vomiting, and I have no strength."
+          },
+          {
+            "character": "医生",
+            "hanzi": "什么时候开始的？",
+            "pinyin": "Shénme shíhou kāishǐ de?",
+            "translation": "When did it start?"
+          },
+          {
+            "character": "马克",
+            "hanzi": "前天早上。",
+            "pinyin": "Qiántiān zǎoshang.",
+            "translation": "The morning before yesterday."
+          },
+          {
+            "character": "医生",
+            "hanzi": "是这儿疼吗？",
+            "pinyin": "Shì zhèr téng ma?",
+            "translation": "Does it hurt right here?"
+          },
+          {
+            "character": "马克",
+            "hanzi": "对对对！开始只是有点儿疼，后来越来越疼。",
+            "pinyin": "Duì duì duì! Kāishǐ zhǐshì yǒudiǎnr téng, hòulái yuèláiyuè téng.",
+            "translation": "Yes, yes, yes! At first it only hurt a little bit, and later it hurt more and more."
+          },
+          {
+            "character": "医生",
+            "hanzi": "发烧吗？刚才量体温了吧？多少度？",
+            "pinyin": "Fāshāo ma? Gāngcái liáng tǐwēn le ba? Duōshao dù?",
+            "translation": "Do you have a fever? You took your temperature just now, right? How many degrees?"
+          },
+          {
+            "character": "马克",
+            "hanzi": "量了，38.3度。医生，我得了什么病？严重吗？",
+            "pinyin": "Liáng le, sānshíbā diǎn sān dù. Yīshēng, wǒ déle shénme bìng? Yánzhòng ma?",
+            "translation": "I took it—38.3°C. Doctor, what illness do I have? Is it serious?"
+          },
+          {
+            "character": "医生",
+            "hanzi": "不太严重，是急性阑尾炎。",
+            "pinyin": "Bú tài yánzhòng, shì jíxìng lánwěiyán.",
+            "translation": "It's not too serious; it's acute appendicitis."
+          },
+          {
+            "character": "马克",
+            "hanzi": "啊？那是不是要做手术？吃药行吗？",
+            "pinyin": "Á? Nà shì bu shì yào zuò shǒushù? Chī yào xíng ma?",
+            "translation": "Huh? Then do I have to have surgery? Will taking medicine work?"
+          },
+          {
+            "character": "医生",
+            "hanzi": "做手术比较好，就是个小手术，半个小时到一个小时就做好了。",
+            "pinyin": "Zuò shǒushù bǐjiào hǎo, jiùshì ge xiǎo shǒushù, bàn ge xiǎoshí dào yí ge xiǎoshí jiù zuòhǎo le.",
+            "translation": "Having surgery is better—it's just a minor surgery and takes only half an hour to an hour to complete."
+          },
+          {
+            "character": "马克",
+            "hanzi": "哦，好吧。谢谢医生。",
+            "pinyin": "Ò, hǎo ba. Xièxie yīshēng.",
+            "translation": "Oh, alright then. Thank you, Doctor."
+          }
+        ]
+      },
+      {
+        "title": "Dialogue 2: Checking on a Sick Friend & Offering Health Advice (关心生病的朋友与健康建议)",
+        "context": "Ali (阿里) checks on Judy (朱迪) after hearing she caught a cold and headache from staying up late studying, and advises her on healthy daily habits.",
+        "lines": [
+          {
+            "character": "阿里",
+            "hanzi": "朱迪，听说你昨天感冒了，怎么了？哪儿不舒服？",
+            "pinyin": "Zhūdí, tīngshuō nǐ zuótiān gǎnmào le, zěnme le? Nǎr bù shūfu?",
+            "translation": "Judy, I heard you caught a cold yesterday—what happened? Where do you feel unwell?"
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "我前天开始头疼、嗓子疼，还有点儿咳嗽，后来头越来越疼了。",
+            "pinyin": "Wǒ qiántiān kāishǐ tóuténg, sǎngzi téng, hái yǒudiǎnr késou, hòulái tóu yuèláiyuè téng le.",
+            "translation": "The day before yesterday my head and throat started hurting and I had a slight cough; later my head hurt more and more."
+          },
+          {
+            "character": "阿里",
+            "hanzi": "严重吗？去医院看了吗？",
+            "pinyin": "Yánzhòng ma? Qù yīyuàn kàn le ma?",
+            "translation": "Is it serious? Did you go to the hospital to see a doctor?"
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "去了。大夫给我量了体温，开了点儿感冒药。今天已经好点儿了，只是还没有力气。",
+            "pinyin": "Qù le. Dàifu gěi wǒ liángle tǐwēn, kāile diǎnr gǎnmàoyào. Jīntiān yǐjīng hǎo diǎnr le, zhǐshì hái méiyǒu lìqi.",
+            "translation": "I went. The doctor took my temperature and prescribed some cold medicine. Today I'm already a bit better, only I still don't have much strength."
+          },
+          {
+            "character": "阿里",
+            "hanzi": "你要好好休息，按时吃药！以后别再熬夜了，应该多喝水、多运动。",
+            "pinyin": "Nǐ yào hǎohǎo xiūxi, ànshí chī yào! Yǐhòu bié zài áoyè le, yīnggāi duō hē shuǐ, duō yùndòng.",
+            "translation": "You must rest well and take your medicine on time! Stop staying up late in the future—you should drink more water and exercise more."
+          },
+          {
+            "character": "朱迪",
+            "hanzi": "谢谢你的关心，我一定改一改不健康的生活习惯！",
+            "pinyin": "Xièxie nǐ de guānxīn, wǒ yídìng gǎi yi gǎi bù jiànkāng de shēnghuó xíguàn!",
+            "translation": "Thank you for your concern—I will definitely change my unhealthy lifestyle habits!"
+          }
+        ]
+      }
+    ],
+    "readingPassage": {
+      "title": "Reading: Mark's Hospital Recovery & Jin Zhiying's Weight-Loss Lesson (马克住院恢复与金志英减肥的故事)",
+      "subtitle": "Synthesized from Lesson 11 Section 3·2 (马克住院治疗) and Section 4 (综合表达训练：金志英减肥).",
+      "paragraphs": [
+        {
+          "hanzi": "马克得了阑尾炎，这几天在医院住院治疗。大夫给他做了手术，他身体很棒，恢复得不错，第二天就好点儿了，伤口也不太疼了，只是还不能下床。他的几个好朋友都担心他，跑到医院来看他。阿里说：“你要好好休息，按时吃药！”杰希说：“你以后别再熬夜了，要改一改不健康的生活习惯。”莉莉说：“你应该少吃凉的、辣的，少玩儿游戏，多运动运动。”",
+          "pinyin": "Mǎkè déle lánwěiyán, zhè jǐ tiān zài yīyuàn zhùyuàn zhìliáo. Dàifu gěi tā zuòle shǒushù, tā shēntǐ hěn bàng, huīfù de búcuò, dì-èr tiān jiù hǎo diǎnr le, shāngkǒu yě bú tài téng le, zhǐshì hái bù néng xià chuáng. Tā de jǐ ge hǎo péngyou dōu dānxīn tā, pǎo dào yīyuàn lái kàn tā. Ālǐ shuō: “Nǐ yào hǎohǎo xiūxi, ànshí chī yào!” Jiéxī shuō: “Nǐ yǐhòu bié zài áoyè le, yào gǎi yi gǎi bù jiànkāng de shēnghuó xíguàn.” Lìlì shuō: “Nǐ yīnggāi shǎo chī liáng de, là de, shǎo wánr yóuxì, duō yùndòng yùndòng.”",
+          "translation": "Mark got appendicitis and has been hospitalized for treatment these past few days. The doctor performed surgery on him; his physique is great and he is recovering well—by the second day he was already a bit better and his incision didn't hurt too much anymore, only he still couldn't get out of bed. Several of his good friends were worried about him and ran to the hospital to visit him. Ali said: 'You must rest well and take your medicine on time!' Jessie said: 'Don't stay up late anymore in the future; you need to change your unhealthy lifestyle habits.' Lily said: 'You should eat less cold and spicy food, play fewer video games, and exercise more.'"
+        },
+        {
+          "hanzi": "三个好朋友像妈妈一样的关心，让马克好感动啊！马克告诉三个朋友：“放心吧，三个小大夫！我很快就会恢复健康的。到那时，我们又可以一起上课，一起跑跳，一起开心快乐了！”",
+          "pinyin": "Sān ge hǎo péngyou xiàng māma yíyàng de guānxīn, ràng Mǎkè hǎo gǎndòng a! Mǎkè gàosu sān ge péngyou: “Fàngxīn ba, sān ge xiǎo dàifu! Wǒ hěn kuài jiù huì huīfù jiànkāng de. Dào nà shí, wǒmen yòu kěyǐ yìqǐ shàngkè, yìqǐ pǎo tiào, yìqǐ kāixīn kuàilè le!”",
+          "translation": "The mother-like care of his three good friends deeply moved Mark! Mark told his three friends: 'Rest assured, my three little doctors! I will recover my health very soon. When that time comes, we can attend class together, run and jump together, and be happy together again!'"
+        },
+        {
+          "hanzi": "金志英觉得瘦一点儿的女孩子比较好看，所以她想减肥。她减肥的方法是每天只吃两个苹果，不吃别的饭。第一个星期她瘦了三斤，可是开始觉得没有力气，有点儿难受；后来情况越来越严重了，她不但头晕，而且胃疼。莉莉知道了以后，让她别担心，还告诉她：正确的减肥方法要少吃饭，可是不能不吃饭，减肥还应该早睡早起、多运动，要有一个健康的生活习惯。",
+          "pinyin": "Jīn Zhìyīng juéde shòu yìdiǎnr de nǚháizi bǐjiào hǎokàn, suǒyǐ tā xiǎng jiǎnféi. Tā jiǎnféi de fāngfǎ shì měitiān zhǐ chī liǎng ge píngguǒ, bù chī biéde fàn. Dì-yī ge xīngqī tā shòule sān jīn, kěshì kāishǐ juéde méiyǒu lìqi, yǒudiǎnr nánshòu; hòulái qíngkuàng yuèláiyuè yánzhòng le, tā búdàn tóuyūn, érqiě wèiténg. Lìlì zhīdào le yǐhòu, ràng tā bié dānxīn, hái gàosu tā: zhèngquè de jiǎnféi fāngfǎ yào shǎo chīfàn, kěshì bù néng bù chīfàn, jiǎnféi hái yīnggāi zǎoshuì-zǎoqǐ, duō yùndòng, yào yǒu yí ge jiànkāng de shēnghuó xíguàn.",
+          "translation": "Jin Zhiying felt that girls who are a bit thinner look prettier, so she wanted to lose weight. Her weight-loss method was to eat only two apples every day and no other meals. In the first week she lost three jin, but at first she started feeling weak and a bit unwell; later the situation became more and more serious—she not only felt dizzy, but also had stomach pain. After Lily found out, she told her not to worry and advised her: the right way to lose weight is to eat less, but you cannot skip meals altogether; losing weight also requires going to bed early and rising early, exercising more, and maintaining healthy lifestyle habits."
+        }
+      ]
+    },
+    "vocabularyExplanation": [
+      {
+        "hanzi": "肚子",
+        "pinyin": "dùzi",
+        "english": "belly; abdomen; stomach",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "我肚子疼，很想吐。",
+        "examplePinyin": "Wǒ dùzi téng, hěn xiǎng tù.",
+        "exampleTranslation": "My stomach hurts and I really feel like throwing up."
+      },
+      {
+        "hanzi": "疼",
+        "pinyin": "téng",
+        "english": "to ache; to hurt; painful",
+        "partOfSpeech": "动/形 (verb/adj.)",
+        "exampleHanzi": "开始只是有点儿疼，后来越来越疼。",
+        "examplePinyin": "Kāishǐ zhǐshì yǒudiǎnr téng, hòulái yuèláiyuè téng.",
+        "exampleTranslation": "At first it only hurt a little, and later it hurt more and more."
+      },
+      {
+        "hanzi": "吐",
+        "pinyin": "tù",
+        "english": "to vomit; to throw up",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "他吃了不干净的东西，一直想吐。",
+        "examplePinyin": "Tā chīle bù gānjìng de dōngxi, yīzhí xiǎng tù.",
+        "exampleTranslation": "He ate something unclean and keeps feeling like throwing up."
+      },
+      {
+        "hanzi": "力气",
+        "pinyin": "lìqi",
+        "english": "physical strength; energy",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "我发烧了，浑身没有力气。",
+        "examplePinyin": "Wǒ fāshāo le, húnshēn méiyǒu lìqi.",
+        "exampleTranslation": "I have a fever and have no strength all over my body."
+      },
+      {
+        "hanzi": "前天",
+        "pinyin": "qiántiān",
+        "english": "the day before yesterday",
+        "partOfSpeech": "名 (time noun)",
+        "exampleHanzi": "肚子疼是前天早上开始的。",
+        "examplePinyin": "Dùzi téng shì qiántiān zǎoshang kāishǐ de.",
+        "exampleTranslation": "The stomachache started the morning before yesterday."
+      },
+      {
+        "hanzi": "开始",
+        "pinyin": "kāishǐ",
+        "english": "to begin; at the beginning / at first",
+        "partOfSpeech": "动/名 (verb/noun)",
+        "exampleHanzi": "开始只是有点儿疼，后来越来越疼。",
+        "examplePinyin": "Kāishǐ zhǐshì yǒudiǎnr téng, hòulái yuèláiyuè téng.",
+        "exampleTranslation": "At first it only hurt a little, and later it hurt more and more."
+      },
+      {
+        "hanzi": "后来",
+        "pinyin": "hòulái",
+        "english": "afterward; later (in the past)",
+        "partOfSpeech": "名 (time noun)",
+        "exampleHanzi": "后来情况越来越严重了。",
+        "examplePinyin": "Hòulái qíngkuàng yuèláiyuè yánzhòng le.",
+        "exampleTranslation": "Later the situation became more and more serious."
+      },
+      {
+        "hanzi": "越来越",
+        "pinyin": "yuèláiyuè",
+        "english": "more and more...",
+        "partOfSpeech": "副 (adverb)",
+        "exampleHanzi": "你的汉语越说越好了，我也越来越喜欢中国了。",
+        "examplePinyin": "Nǐ de Hànyǔ yuè shuō yuè hǎo le, wǒ yě yuèláiyuè xǐhuan Zhōngguó le.",
+        "exampleTranslation": "Your Chinese is getting better and better, and I also like China more and more."
+      },
+      {
+        "hanzi": "发烧",
+        "pinyin": "fāshāo",
+        "english": "to have a fever",
+        "partOfSpeech": "动 (VO verb)",
+        "exampleHanzi": "你发烧吗？刚才量体温了吧？",
+        "examplePinyin": "Nǐ fāshāo ma? Gāngcái liáng tǐwēn le ba?",
+        "exampleTranslation": "Do you have a fever? You took your temperature just now, right?"
+      },
+      {
+        "hanzi": "量",
+        "pinyin": "liáng",
+        "english": "to measure; to take (temperature)",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "大夫给我量了体温，38.3度。",
+        "examplePinyin": "Dàifu gěi wǒ liángle tǐwēn, sānshíbā diǎn sān dù.",
+        "exampleTranslation": "The doctor took my temperature—38.3 degrees."
+      },
+      {
+        "hanzi": "体温",
+        "pinyin": "tǐwēn",
+        "english": "body temperature",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "看病以前要先量一下体温。",
+        "examplePinyin": "Kànbìng yǐqián yào xiān liáng yíxià tǐwēn.",
+        "exampleTranslation": "Before seeing the doctor, you should measure your body temperature first."
+      },
+      {
+        "hanzi": "得病",
+        "pinyin": "dé bìng",
+        "english": "to fall ill; to contract a disease",
+        "partOfSpeech": "动 (VO verb)",
+        "exampleHanzi": "医生，我得了什么病？",
+        "examplePinyin": "Yīshēng, wǒ déle shénme bìng?",
+        "exampleTranslation": "Doctor, what illness did I get?"
+      },
+      {
+        "hanzi": "严重",
+        "pinyin": "yánzhòng",
+        "english": "serious; severe; grave",
+        "partOfSpeech": "形 (adj.)",
+        "exampleHanzi": "不太严重，是急性阑尾炎。",
+        "examplePinyin": "Bú tài yánzhòng, shì jíxìng lánwěiyán.",
+        "exampleTranslation": "It's not too serious; it's acute appendicitis."
+      },
+      {
+        "hanzi": "手术",
+        "pinyin": "shǒushù",
+        "english": "surgery; surgical operation",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "做手术比较好，就是个小手术。",
+        "examplePinyin": "Zuò shǒushù bǐjiào hǎo, jiùshì ge xiǎo shǒushù.",
+        "exampleTranslation": "Having surgery is better; it's just a minor operation."
+      },
+      {
+        "hanzi": "药",
+        "pinyin": "yào",
+        "english": "medicine; drug",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "你要好好休息，按时吃药！",
+        "examplePinyin": "Nǐ yào hǎohǎo xiūxi, ànshí chī yào!",
+        "exampleTranslation": "You must rest well and take your medicine on time!"
+      },
+      {
+        "hanzi": "行",
+        "pinyin": "xíng",
+        "english": "to be okay; to work; will do",
+        "partOfSpeech": "动/形 (verb/adj.)",
+        "exampleHanzi": "不做手术，吃药行吗？",
+        "examplePinyin": "Bú zuò shǒushù, chī yào xíng ma?",
+        "exampleTranslation": "Instead of having surgery, will taking medicine work?"
+      },
+      {
+        "hanzi": "比较",
+        "pinyin": "bǐjiào",
+        "english": "fairly; relatively; quite",
+        "partOfSpeech": "副 (adverb)",
+        "exampleHanzi": "金志英觉得瘦一点儿的女孩子比较好看。",
+        "examplePinyin": "Jīn Zhìyīng juéde shòu yìdiǎnr de nǚháizi bǐjiào hǎokàn.",
+        "exampleTranslation": "Jin Zhiying feels that girls who are a bit thinner look relatively prettier."
+      },
+      {
+        "hanzi": "胃",
+        "pinyin": "wèi",
+        "english": "stomach",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "不按时吃饭容易胃疼。",
+        "examplePinyin": "Bù ànshí chīfàn róngyì wèiténg.",
+        "exampleTranslation": "Not eating meals on time easily causes stomach pain."
+      },
+      {
+        "hanzi": "咳嗽",
+        "pinyin": "késou",
+        "english": "to cough",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "我感冒了，嗓子疼，还一直咳嗽。",
+        "examplePinyin": "Wǒ gǎnmào le, sǎngzi téng, hái yīzhí késou.",
+        "exampleTranslation": "I caught a cold, my throat hurts, and I keep coughing."
+      },
+      {
+        "hanzi": "嗓子",
+        "pinyin": "sǎngzi",
+        "english": "throat; voice",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "嗓子疼的时候应该多喝温水。",
+        "examplePinyin": "Sǎngzi téng de shíhou yīnggāi duō hē wēnshuǐ.",
+        "exampleTranslation": "When your throat hurts, you should drink more warm water."
+      },
+      {
+        "hanzi": "感冒",
+        "pinyin": "gǎnmào",
+        "english": "to catch a cold; common cold",
+        "partOfSpeech": "动/名 (verb/noun)",
+        "exampleHanzi": "天冷了，多穿点儿衣服，别感冒了。",
+        "examplePinyin": "Tiān lěng le, duō chuān diǎnr yīfu, bié gǎnmào le.",
+        "exampleTranslation": "The weather has turned cold; wear more clothes so you don't catch a cold."
+      },
+      {
+        "hanzi": "住院",
+        "pinyin": "zhùyuàn",
+        "english": "to be in the hospital; to be hospitalized",
+        "partOfSpeech": "动 (VO verb)",
+        "exampleHanzi": "马克得了阑尾炎，这几天在医院住院治疗。",
+        "examplePinyin": "Mǎkè déle lánwěiyán, zhè jǐ tiān zài yīyuàn zhùyuàn zhìliáo.",
+        "exampleTranslation": "Mark got appendicitis and has been hospitalized for treatment these past few days."
+      },
+      {
+        "hanzi": "治疗",
+        "pinyin": "zhìliáo",
+        "english": "to treat; medical treatment",
+        "partOfSpeech": "动/名 (verb/noun)",
+        "exampleHanzi": "他在医院住院治疗，恢复得很快。",
+        "examplePinyin": "Tā zài yīyuàn zhùyuàn zhìliáo, huīfù de hěn kuài.",
+        "exampleTranslation": "He is hospitalized for treatment and is recovering very quickly."
+      },
+      {
+        "hanzi": "大夫",
+        "pinyin": "dàifu",
+        "english": "doctor; physician (colloquial for 医生)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "大夫给他做了手术。",
+        "examplePinyin": "Dàifu gěi tā zuòle shǒushù.",
+        "exampleTranslation": "The doctor performed surgery on him."
+      },
+      {
+        "hanzi": "棒",
+        "pinyin": "bàng",
+        "english": "great; awesome; strong/fit",
+        "partOfSpeech": "形 (adj.)",
+        "exampleHanzi": "马克身体很棒，恢复得不错。",
+        "examplePinyin": "Mǎkè shēntǐ hěn bàng, huīfù de búcuò.",
+        "exampleTranslation": "Mark's body is very strong, and he is recovering quite well."
+      },
+      {
+        "hanzi": "恢复",
+        "pinyin": "huīfù",
+        "english": "to recover; to restore",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "放心吧，我很快就会恢复健康的。",
+        "examplePinyin": "Fàngxīn ba, wǒ hěn kuài jiù huì huīfù jiànkāng de.",
+        "exampleTranslation": "Rest assured, I will recover my health very soon."
+      },
+      {
+        "hanzi": "伤口",
+        "pinyin": "shāngkǒu",
+        "english": "wound; surgical incision; cut",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "第二天就好点儿了，伤口也不太疼了。",
+        "examplePinyin": "Dì-èr tiān jiù hǎo diǎnr le, shāngkǒu yě bú tài téng le.",
+        "exampleTranslation": "By the second day he was a bit better, and the wound didn't hurt too much anymore."
+      },
+      {
+        "hanzi": "只是",
+        "pinyin": "zhǐshì",
+        "english": "merely; only; however (mild contrast)",
+        "partOfSpeech": "副/连 (adv./conj.)",
+        "exampleHanzi": "伤口不太疼了，只是还不能下床。",
+        "examplePinyin": "Shāngkǒu bú tài téng le, zhǐshì hái bù néng xià chuáng.",
+        "exampleTranslation": "The wound doesn't hurt much anymore, only he still cannot get out of bed."
+      },
+      {
+        "hanzi": "担心",
+        "pinyin": "dānxīn",
+        "english": "to worry; to feel anxious about",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "他的几个好朋友都担心他，跑到医院来看他。",
+        "examplePinyin": "Tā de jǐ ge hǎo péngyou dōu dānxīn tā, pǎo dào yīyuàn lái kàn tā.",
+        "exampleTranslation": "Several of his good friends were worried about him and ran to the hospital to visit him."
+      },
+      {
+        "hanzi": "好好",
+        "pinyin": "hǎohǎo",
+        "english": "properly; well; thoroughly (before a verb)",
+        "partOfSpeech": "副 (adverb)",
+        "exampleHanzi": "你要好好休息，按时吃药！",
+        "examplePinyin": "Nǐ yào hǎohǎo xiūxi, ànshí chī yào!",
+        "exampleTranslation": "You must rest well and take your medicine on time!"
+      },
+      {
+        "hanzi": "按时",
+        "pinyin": "ànshí",
+        "english": "on time; on schedule",
+        "partOfSpeech": "副 (adverb)",
+        "exampleHanzi": "生病的时候一定要按时吃药、按时吃饭。",
+        "examplePinyin": "Shēngbìng de shíhou yídìng yào ànshí chī yào, ànshí chīfàn.",
+        "exampleTranslation": "When you are sick, you must take medicine on time and eat meals on time."
+      },
+      {
+        "hanzi": "熬夜",
+        "pinyin": "áoyè",
+        "english": "to stay up late / all night",
+        "partOfSpeech": "动 (VO verb)",
+        "exampleHanzi": "你以后别再熬夜了！",
+        "examplePinyin": "Nǐ yǐhòu bié zài áoyè le!",
+        "exampleTranslation": "Don't stay up late anymore in the future!"
+      },
+      {
+        "hanzi": "改",
+        "pinyin": "gǎi",
+        "english": "to change; to correct; to alter",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "要改一改不健康的生活习惯。",
+        "examplePinyin": "Yào gǎi yi gǎi bù jiànkāng de shēnghuó xíguàn.",
+        "exampleTranslation": "You need to change your unhealthy lifestyle habits."
+      },
+      {
+        "hanzi": "习惯",
+        "pinyin": "xíguàn",
+        "english": "habit; custom; to be accustomed to",
+        "partOfSpeech": "名/动 (noun/verb)",
+        "exampleHanzi": "早睡早起是一个健康的生活习惯。",
+        "examplePinyin": "Zǎoshuì-zǎoqǐ shì yí ge jiànkāng de shēnghuó xíguàn.",
+        "exampleTranslation": "Going to bed early and getting up early is a healthy lifestyle habit."
+      },
+      {
+        "hanzi": "应该",
+        "pinyin": "yīnggāi",
+        "english": "should; ought to",
+        "partOfSpeech": "动 (modal verb)",
+        "exampleHanzi": "你应该少吃凉的、辣的，多运动运动。",
+        "examplePinyin": "Nǐ yīnggāi shǎo chī liáng de, là de, duō yùndòng yùndòng.",
+        "exampleTranslation": "You should eat less cold and spicy food, and exercise more."
+      },
+      {
+        "hanzi": "凉",
+        "pinyin": "liáng",
+        "english": "cold; cool (of food, drinks, or weather)",
+        "partOfSpeech": "形 (adj.)",
+        "exampleHanzi": "肚子不舒服的时候要少吃凉的东西。",
+        "examplePinyin": "Dùzi bù shūfu de shíhou yào shǎo chī liáng de dōngxi.",
+        "exampleTranslation": "When your stomach feels unwell, you should eat less cold food."
+      },
+      {
+        "hanzi": "游戏",
+        "pinyin": "yóuxì",
+        "english": "game; video game",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "应该少玩儿手机游戏，多运动。",
+        "examplePinyin": "Yīnggāi shǎo wánr shǒujī yóuxì, duō yùndòng.",
+        "exampleTranslation": "You should play fewer mobile games and exercise more."
+      },
+      {
+        "hanzi": "像",
+        "pinyin": "xiàng",
+        "english": "to be like; to resemble",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "三个好朋友像妈妈一样的关心，让马克好感动。",
+        "examplePinyin": "Sān ge hǎo péngyou xiàng māma yíyàng de guānxīn, ràng Mǎkè hǎo gǎndòng.",
+        "exampleTranslation": "The mother-like care of his three good friends deeply moved Mark."
+      },
+      {
+        "hanzi": "让",
+        "pinyin": "ràng",
+        "english": "to make; to let; to cause (someone to feel/do)",
+        "partOfSpeech": "动 (pivotal verb)",
+        "exampleHanzi": "朋友们的关心让马克好感动啊！",
+        "examplePinyin": "Péngyoumen de guānxīn ràng Mǎkè hǎo gǎndòng a!",
+        "exampleTranslation": "His friends' care made Mark so moved!"
+      },
+      {
+        "hanzi": "感动",
+        "pinyin": "gǎndòng",
+        "english": "moved; touched (emotionally)",
+        "partOfSpeech": "形/动 (adj./verb)",
+        "exampleHanzi": "他说的话让我非常感动。",
+        "examplePinyin": "Tā shuō de huà ràng wǒ fēicháng gǎndòng.",
+        "exampleTranslation": "What he said made me very touched."
+      },
+      {
+        "hanzi": "瘦",
+        "pinyin": "shòu",
+        "english": "thin; slim; to lose weight",
+        "partOfSpeech": "形/动 (adj./verb)",
+        "exampleHanzi": "第一个星期她瘦了三斤。",
+        "examplePinyin": "Dì-yī ge xīngqī tā shòule sān jīn.",
+        "exampleTranslation": "In the first week she lost three jin (1.5 kg)."
+      },
+      {
+        "hanzi": "减肥",
+        "pinyin": "jiǎnféi",
+        "english": "to lose weight",
+        "partOfSpeech": "动 (VO verb)",
+        "exampleHanzi": "减肥还应该早睡早起、多运动。",
+        "examplePinyin": "Jiǎnféi hái yīnggāi zǎoshuì-zǎoqǐ, duō yùndòng.",
+        "exampleTranslation": "To lose weight, you should also go to bed early, get up early, and exercise more."
+      },
+      {
+        "hanzi": "晕",
+        "pinyin": "yūn",
+        "english": "dizzy; giddy (头晕 tóuyūn)",
+        "partOfSpeech": "形/动 (adj./verb)",
+        "exampleHanzi": "她每天只吃两个苹果，不但头晕，而且胃疼。",
+        "examplePinyin": "Tā měitiān zhǐ chī liǎng ge píngguǒ, búdàn tóuyūn, érqiě wèiténg.",
+        "exampleTranslation": "She only ate two apples a day and not only felt dizzy, but also had stomach pain."
+      },
+      {
+        "hanzi": "方法",
+        "pinyin": "fāngfǎ",
+        "english": "method; way",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "不吃饭不是正确的减肥方法。",
+        "examplePinyin": "Bù chīfàn bú shì zhèngquè de jiǎnféi fāngfǎ.",
+        "exampleTranslation": "Skipping meals is not the right weight-loss method."
+      },
+      {
+        "hanzi": "难受",
+        "pinyin": "nánshòu",
+        "english": "uncomfortable; feeling unwell; miserable",
+        "partOfSpeech": "形 (adj.)",
+        "exampleHanzi": "开始觉得没有力气，有点儿难受。",
+        "examplePinyin": "Kāishǐ juéde méiyǒu lìqi, yǒudiǎnr nánshòu.",
+        "exampleTranslation": "At first she felt weak and a bit unwell."
+      }
+    ],
+    "grammarPoint": "Describing Symptoms, '开始……，后来……', '越来越 + Adj/V', '只是', and Health Advice ('应该多/少 + V')",
+    "structure": "开始 + Clause 1，后来 + 越来越 + Adj  |  应该 + 多 / 少 + Verb (+ Object)",
+    "explanation": "Lesson 11 focuses on medical consultations and health communication: (1) asking what is wrong with '怎么了？哪儿不舒服？' and naming body aches ('[Body Part] + 疼/难受'); (2) narrating how a condition develops with '开始……，后来……' and '越来越 + Adj/Mental Verb'; (3) expressing moderate degree with '比较 + Adj' vs. '有点儿 + Adj'; (4) introducing a mild limitation with '只是'; and (5) giving health advice with '应该多/少 + Verb'.",
+    "examples": [
+      {
+        "hanzi": "开始只是有点儿疼，后来越来越疼。",
+        "pinyin": "Kāishǐ zhǐshì yǒudiǎnr téng, hòulái yuèláiyuè téng.",
+        "translation": "At first it only hurt a little bit, and later it hurt more and more."
+      },
+      {
+        "hanzi": "第二天就好点儿了，伤口也不太疼了，只是还不能下床。",
+        "pinyin": "Dì-èr tiān jiù hǎo diǎnr le, shāngkǒu yě bú tài téng le, zhǐshì hái bù néng xià chuáng.",
+        "translation": "By the second day he was a bit better and the wound didn't hurt much anymore, only he still couldn't get out of bed."
+      },
+      {
+        "hanzi": "你应该少吃凉的、辣的，少玩儿游戏，多运动运动。",
+        "pinyin": "Nǐ yīnggāi shǎo chī liáng de, là de, shǎo wánr yóuxì, duō yùndòng yùndòng.",
+        "translation": "You should eat less cold and spicy food, play fewer video games, and exercise more."
+      }
+    ],
+    "grammarNotes": [
+      {
+        "title": "1. Asking About & Describing Symptoms ('怎么了？哪儿不舒服？' & '[部位] + 疼/难受')",
+        "structure": "怎么了？ / 哪儿不舒服？  →  我 + [身体部位 (头/肚子/胃/嗓子)] + 疼 / 不舒服 / 难受",
+        "explanation": "Doctors and friends ask '怎么了？' ('What's wrong?') or '哪儿不舒服？' ('Where do you feel unwell?'). In Chinese, body-part aches are expressed directly with a Subject-Predicate predicate: Subject + Body Part + 疼 (e.g., 我肚子疼, 我头疼, 我嗓子疼) without needing a verb like 'have'.",
+        "tip": "To ask about severity, use '严重吗？' ('Is it serious?') or '重吗？' (for a cold/illness: 感冒重不重？).",
+        "examples": [
+          {
+            "hanzi": "你好！怎么了？哪儿不舒服？——我肚子疼，很想吐，也没有力气。",
+            "pinyin": "Nǐ hǎo! Zěnme le? Nǎr bù shūfu? — Wǒ dùzi téng, hěn xiǎng tù, yě méiyǒu lìqi.",
+            "translation": "Hello! What's wrong? Where do you feel unwell? — My stomach hurts, I feel like vomiting, and I have no strength."
+          },
+          {
+            "hanzi": "医生，我得了什么病？严重吗？——不太严重，是急性阑尾炎。",
+            "pinyin": "Yīshēng, wǒ déle shénme bìng? Yánzhòng ma? — Bú tài yánzhòng, shì jíxìng lánwěiyán.",
+            "translation": "Doctor, what illness did I get? Is it serious? — Not too serious; it's acute appendicitis."
+          }
+        ]
+      },
+      {
+        "title": "2. Narrative Progression with '开始……，后来……' & Changing Degree '越来越……'",
+        "structure": "开始 + Situation A，后来 + Situation B  |  越来越 + Adj / Mental Verb",
+        "explanation": "'开始……，后来……' contrasts how something was at the beginning ('开始') with how it changed later ('后来'). '越来越 + Adj/Mental Verb' ('more and more...') indicates that a quality or feeling continuously increases over time.",
+        "tip": "Do NOT add degree adverbs like 很 or 非常 after 越来越 (say 越来越疼, never *越来越很疼).",
+        "examples": [
+          {
+            "hanzi": "开始只是有点儿疼，后来越来越疼。",
+            "pinyin": "Kāishǐ zhǐshì yǒudiǎnr téng, hòulái yuèláiyuè téng.",
+            "translation": "At first it only hurt a little bit, and later it hurt more and more."
+          },
+          {
+            "hanzi": "开始觉得没有力气，有点儿难受；后来情况越来越严重了。",
+            "pinyin": "Kāishǐ juéde méiyǒu lìqi, yǒudiǎnr nánshòu; hòulái qíngkuàng yuèláiyuè yánzhòng le.",
+            "translation": "At first she felt weak and a bit unwell; later the situation became more and more serious."
+          }
+        ]
+      },
+      {
+        "title": "3. Comparing Degree Adverbs: '比较 + Adj' vs. '有点儿 + Adj' vs. '非常 + Adj'",
+        "structure": "比较 + Adj (fairly/relatively)  |  有点儿 + Adj (slightly, often undesirable)  |  很 / 非常 + Adj (very/extremely)",
+        "explanation": "'比较 (bǐjiào)' expresses a moderate, objective degree ('fairly / relatively / quite') and can modify both positive adjectives (比较好看, 比较好) and neutral ones. By contrast, '有点儿 (yǒudiǎnr)' means 'a little bit' and is mainly used before undesirable or uncomfortable states (有点儿疼, 有点儿难受, 有点儿贵).",
+        "tip": "'做手术比较好' means 'Having surgery is relatively better / preferable'.",
+        "examples": [
+          {
+            "hanzi": "做手术比较好，就是个小手术。",
+            "pinyin": "Zuò shǒushù bǐjiào hǎo, jiùshì ge xiǎo shǒushù.",
+            "translation": "Having surgery is better; it's just a minor surgery."
+          },
+          {
+            "hanzi": "金志英觉得瘦一点儿的女孩子比较好看。",
+            "pinyin": "Jīn Zhìyīng juéde shòu yìdiǎnr de nǚháizi bǐjiào hǎokàn.",
+            "translation": "Jin Zhiying feels that girls who are a bit thinner look relatively prettier."
+          }
+        ]
+      },
+      {
+        "title": "4. Mild Contrast with '只是' & Physical Capability '能' vs. '会'",
+        "structure": "Clause 1 (positive statement)，只是 + Clause 2 (minor limitation/exception)",
+        "explanation": "'只是 (zhǐshì)' can function as an adverb meaning 'merely/only' ('开始只是有点儿疼') or as a conjunction between two clauses meaning 'only / it's just that...' with a much softer tone than '可是/但是'. In '还不能下床', '能 (néng)' expresses physical capability or permission allowed by circumstances, whereas '会 (huì)' expresses a learned skill or future likelihood ('我很快就会恢复健康的').",
+        "tip": "Use 不能 (not 不会) when an injury or illness prevents someone from doing an action like getting out of bed (不能下床).",
+        "examples": [
+          {
+            "hanzi": "他恢复得不错，第二天就好点儿了，伤口也不太疼了，只是还不能下床。",
+            "pinyin": "Tā huīfù de búcuò, dì-èr tiān jiù hǎo diǎnr le, shāngkǒu yě bú tài téng le, zhǐshì hái bù néng xià chuáng.",
+            "translation": "He is recovering well—by the second day he was a bit better and the wound didn't hurt much anymore, only he still cannot get out of bed."
+          },
+          {
+            "hanzi": "放心吧，我很快就会恢复健康的！",
+            "pinyin": "Fàngxīn ba, wǒ hěn kuài jiù huì huīfù jiànkāng de!",
+            "translation": "Rest assured, I will recover my health very soon!"
+          }
+        ]
+      },
+      {
+        "title": "5. Giving Health & Lifestyle Advice: '应该 + V', '多 / 少 + V (+ N)', and '好好 + V'",
+        "structure": "应该 + 多 / 少 + Verb (+ Object)  |  要 + 好好 + Verb  |  别再 + Verb + 了",
+        "explanation": "In Chinese, '多 (duō)' and '少 (shǎo)' are placed directly BEFORE a verb as adverbs ('do more of / do less of'): 多喝水 (drink more water), 多运动 (exercise more), 少吃凉的、辣的 (eat less cold and spicy food), 少玩儿游戏 (play fewer games). Pair them with '应该 (should)', '好好 (properly/well)', or '别再……了 (stop doing... anymore)' to give warm, idiomatic health advice.",
+        "tip": "Never place 多 or 少 after the verb when giving advice—say 多休息 / 少吃凉的.",
+        "examples": [
+          {
+            "hanzi": "你应该少吃凉的、辣的，少玩儿游戏，多运动运动。",
+            "pinyin": "Nǐ yīnggāi shǎo chī liáng de, là de, shǎo wánr yóuxì, duō yùndòng yùndòng.",
+            "translation": "You should eat less cold and spicy food, play fewer video games, and exercise more."
+          },
+          {
+            "hanzi": "你要好好休息，按时吃药！你以后别再熬夜了。",
+            "pinyin": "Nǐ yào hǎohǎo xiūxi, ànshí chī yào! Nǐ yǐhòu bié zài áoyè le.",
+            "translation": "You must rest well and take your medicine on time! Don't stay up late anymore in the future."
+          }
+        ]
+      }
+    ],
+    "exercises": [
+      {
+        "question": "In Dialogue 1, what illness does Mark have, and what treatment does the doctor recommend?",
+        "promptHanzi": "不太严重，是急性阑尾炎。做手术比较好，就是个小手术，半个小时到一个小时就做好了。",
+        "promptPinyin": "Bú tài yánzhòng, shì jíxìng lánwěiyán. Zuò shǒushù bǐjiào hǎo, jiùshì ge xiǎo shǒushù, bàn ge xiǎoshí dào yí ge xiǎoshí jiù zuòhǎo le.",
+        "options": [
+          "Acute appendicitis (急性阑尾炎); having a minor surgery (做个小手术) that takes 30 to 60 minutes.",
+          "A common cold (感冒); drinking two apples and going home without treatment.",
+          "A toothache; staying in bed for three months without surgery.",
+          "Stomach flu; taking cold medicine only."
+        ],
+        "answerIndex": 0,
+        "explanation": "The doctor tells Mark: “不太严重，是急性阑尾炎……做手术比较好，就是个小手术，半个小时到一个小时就做好了。”"
+      },
+      {
+        "question": "Which sentence correctly uses '多 / 少 + Verb' to give health advice as Lily does in the reading passage?",
+        "options": [
+          "你应该少吃凉的、辣的，少玩儿游戏，多运动运动。",
+          "你应该吃少凉的、辣的，玩儿少游戏，运动多。",
+          "你应该多吃越来越凉的，少运动。",
+          "你应该只是吃凉的、辣的。"
+        ],
+        "answerIndex": 0,
+        "explanation": "In Mandarin, '多' and '少' precede the verb when advising someone to do more or less of an action: '少吃凉的、辣的，少玩儿游戏，多运动运动'."
+      },
+      {
+        "question": "Look at the characters 肚 (dù), 胃 (wèi), 胖 (pàng), 疼 (téng), and 病 (bìng). What do the radicals 月 (肉月旁) and 疒 (病字旁) indicate?",
+        "options": [
+          "月 (肉月旁) relates to parts of the body/flesh, while 疒 (病字旁) relates to illness and pain.",
+          "月 relates to the phases of the moon, while 疒 relates to spacious buildings.",
+          "Both radicals relate to bamboo tools and stationery.",
+          "月 relates to clothing, while 疒 relates to herbal tea."
+        ],
+        "answerIndex": 0,
+        "explanation": "As taught in Section 2, 肉月旁 (月) appears in body/flesh characters (肚、胃、胖、腰、腿), and 病字旁 (疒) appears in illness/pain characters (疼、病、瘦)."
+      },
+      {
+        "question": "Why did Jin Zhiying end up feeling dizzy (头晕) and having stomach pain (胃疼) during her weight-loss attempt?",
+        "options": [
+          "Because she only ate two apples a day and skipped all other meals (每天只吃两个苹果，不吃别的饭).",
+          "Because she exercised for ten hours every day in the snow.",
+          "Because she ate too much spicy hotpot late at night.",
+          "Because she had appendicitis surgery."
+        ],
+        "answerIndex": 0,
+        "explanation": "The Section 4 passage explains: “她减肥的方法是每天只吃两个苹果，不吃别的饭……后来情况越来越严重了，她不但头晕，而且胃疼。”"
+      }
+    ]
+  },
+  {
+    "id": "lesson15",
+    "title": "Lesson 12: I Want to Go Traveling — 第12课：我想去旅游",
+    "chineseTitle": "第12课：我想去旅游",
+    "unitBadge": "Mastering Chinese · Elementary 4 (会通汉语 精编版·初级4)",
+    "description": "Plan holiday trips across China—comparing Northern ice lanterns in Harbin with Southern sunshine in Yunnan and Hainan, weighing group tours vs. independent travel ('自由行'), and booking train sleepers and hotel rooms using 'Adj + 极了' and '[时间] + 前后'.",
+    "content": "Synthesized from all four parts of Lesson 12 (第12课《我想去旅游》（一）–（四）) in Mastering Chinese: Elementary 4 (会通汉语 精编版·初级4). Learners master 8 look-alike character triplets (同/司/向, 问/间/同, 请/清/晴, 北/比/非, 国/图/园, 时/对/双, 大/天/夫, 日/白/自), 4 high-frequency radicals (彳, 刂, 纟, 土), travel planning structures ('[想法]，怎么样？', '去哪儿/什么时候/怎么 + V + 好？'), approximate time '[时间点] + 前后', extreme degree 'Adj + 极了', and humorous stories about buying train sleeper tickets (硬座、硬卧、软卧) and booking hotels (快捷酒店、单人间、双人间).",
+    "hskLevel": 4,
+    "objectives": [
+      "Distinguish 8 groups of three look-alike characters (such as 请/清/晴, 国/图/园, 日/白/自) and recognize 4 core radicals: 彳 (walking), 刂 (knife/cutting), 纟 (silk/threads), and 土 (earth/land).",
+      "Discuss travel destinations in Northern and Southern China (哈尔滨的冰灯、云南的风景、海南的阳光大海沙滩、桂林、北京长城) and compare travel styles: group tour (跟团), independent travel (自己玩儿), and agency air+hotel packages (自由行).",
+      "Book train tickets (硬座、软座、硬卧、软卧) and hotel rooms (快捷酒店、单人间、双人间), and state ticket/room prices per unit ('513.5元一张', '328元一天').",
+      "Use '[时间点] + 前后' for approximate dates, '要 + V' vs. '想 + V' for intentions, and the extreme degree complement 'Adj + 极了' (美极了、多极了、方便极了)."
+    ],
+    "phoneticsAndCharacters": {
+      "title": "Look-Alike Character Triplets (形近字三字组) & Radicals (彳 · 刂 · 纟 · 土)",
+      "sections": [
+        {
+          "subtitle": "1. Eight Groups of Look-Alike Character Triplets (比一比，读一读：三字形近字辨析)",
+          "summary": "Master these 8 sets of three visually similar characters from Lesson 12 Section 1:",
+          "items": [
+            {
+              "label": "同 (tóng) · 司 (sī) · 向 (xiàng)",
+              "pinyin": "tóng · sī · xiàng",
+              "detail": "同 has an outer frame 冂 enclosing 一 and 口 (同事 tóngshì, colleague); 司 is open on the bottom-left (司机 sījī, driver); 向 has a top-left撇 stroke above 冂 and 口 (方向 fāngxiàng, direction).",
+              "examples": "同事 (tóngshì) · 司机 (sījī) · 方向 (fāngxiàng)"
+            },
+            {
+              "label": "问 (wèn) · 间 (jiān) · 同 (tóng)",
+              "pinyin": "wèn · jiān · tóng",
+              "detail": "问 places 口 inside the gate 门 (问路 wènlù); 间 places 日 inside 门 (房间 fángjiān, room); 同 uses 冂 with 一 and 口 (同样 tóngyàng, same).",
+              "examples": "问路 (wènlù) · 房间 (fángjiān) · 同样 (tóngyàng)"
+            },
+            {
+              "label": "请 (qǐng) · 清 (qīng) · 晴 (qíng)",
+              "pinyin": "qǐng · qīng · qíng",
+              "detail": "All three share the phonetic component 青 (qīng): speech 讠 gives 请 'please/invite' (请坐 qǐng zuò), water 氵 gives 清 'clear/light' (清淡 qīngdàn), and sun 日 gives 晴 'sunny' (晴天 qíngtiān).",
+              "examples": "请坐 (qǐng zuò) · 清淡 (qīngdàn) · 晴天 (qíngtiān)"
+            },
+            {
+              "label": "北 (běi) · 比 (bǐ) · 非 (fēi)",
+              "pinyin": "běi · bǐ · fēi",
+              "detail": "北 means 'north' (北方 běifāng); 比 means 'compare' (比较 bǐjiào); 非 has three horizontal strokes on each side and means 'not/extraordinary' (非常 fēicháng).",
+              "examples": "北方 (běifāng) · 比较 (bǐjiào) · 非常 (fēicháng)"
+            },
+            {
+              "label": "国 (guó) · 图 (tú) · 园 (yuán)",
+              "pinyin": "guó · tú · yuán",
+              "detail": "All three use the full enclosure 囗: 玉 inside forms 国 'country' (中国 Zhōngguó), 冬 inside forms 图 'map/picture' (地图 dìtú), and 元 inside forms 园 'garden' (花园 huāyuán).",
+              "examples": "中国 (Zhōngguó) · 地图 (dìtú) · 花园 (huāyuán)"
+            },
+            {
+              "label": "时 (shí) · 对 (duì) · 双 (shuāng)",
+              "pinyin": "shí · duì · shuāng",
+              "detail": "时 combines 日 + 寸 (时间 shíjiān, time); 对 combines 又 + 寸 (对错 duìcuò, right and wrong); 双 combines two 又 components (双人 shuāngrén, double/two-person).",
+              "examples": "时间 (shíjiān) · 对错 (duìcuò) · 双人 (shuāngrén)"
+            },
+            {
+              "label": "大 (dà) · 天 (tiān) · 夫 (fū)",
+              "pinyin": "dà · tiān · fū",
+              "detail": "大 is 'big' (大号 dàhào); adding a top horizontal stroke forms 天 'sky/day' (白天 báitiān); extending the vertical-left stroke through the top horizontal stroke forms 夫 'husband/man' (夫妻 fūqī).",
+              "examples": "大号 (dàhào) · 白天 (báitiān) · 夫妻 (fūqī)"
+            },
+            {
+              "label": "日 (rì) · 白 (bái) · 自 (zì)",
+              "pinyin": "rì · bái · zì",
+              "detail": "日 is 'sun/day' (日本 Rìběn); adding a top撇 stroke forms 白 'white' (白色 báisè); adding two internal horizontal strokes below the top撇 forms 自 'self' (自己 zìjǐ).",
+              "examples": "日本 (Rìběn) · 白色 (báisè) · 自己 (zìjǐ)"
+            }
+          ]
+        },
+        {
+          "subtitle": "2. Four Essential Radicals: 彳, 刂, 纟, and 土 (认识常用偏旁)",
+          "summary": "Recognize the position and core meaning of these four common radicals from Lesson 12 Section 2:",
+          "items": [
+            {
+              "label": "彳 (双人旁 shuāngrénpáng — Walking / Road Radical)",
+              "pinyin": "chì (on the left)",
+              "detail": "Appears on the left side of a character and relates to walking, roads, and movement.",
+              "examples": "很 (hěn, very) · 行 (xíng, walk/travel/okay) · 往 (wǎng, toward) · 得 (dé/děi, obtain/must)"
+            },
+            {
+              "label": "刂 (立刀旁 lìdāopáng — Standing Knife Radical)",
+              "pinyin": "dāo (on the right)",
+              "detail": "Appears on the right side of a character and relates to knives, cutting, dividing, or arriving at a sharp boundary.",
+              "examples": "到 (dào, arrive) · 别 (bié, separate/don't) · 利 (lì, sharp/benefit)"
+            },
+            {
+              "label": "纟 (绞丝旁 jiǎosīpáng — Silk / Thread Radical)",
+              "pinyin": "sī (on the left)",
+              "detail": "Appears on the left side of a character and relates to silk, threads, fabrics, or continuous lines/levels.",
+              "examples": "纸 (zhǐ, paper) · 经 (jīng, warp threads/pass through in 经理/已经) · 级 (jí, grade/star level in 星级) · 练 (liàn, practice)"
+            },
+            {
+              "label": "土 (提土旁 títǔpáng — Earth / Land Radical)",
+              "pinyin": "tǔ (on the left or bottom)",
+              "detail": "Relates to earth, soil, land, places, or structures built on the ground.",
+              "examples": "块 (kuài, piece/lump) · 地 (dì, ground/place) · 坏 (huài, bad/broken) · 城 (chéng, city wall/city in 长城) · 场 (chǎng, open ground/plaza)"
+            }
+          ]
+        }
+      ]
+    },
+    "dialogue": [
+      {
+        "character": "马克",
+        "hanzi": "快放假了，我们去旅游怎么样？去南方吧，云南怎么样？风景美，天气也暖和。",
+        "pinyin": "Kuài fàngjià le, wǒmen qù lǚyóu zěnmeyàng? Qù nánfāng ba, Yúnnán zěnmeyàng? Fēngjǐng měi, tiānqì yě nuǎnhuo.",
+        "translation": "The holiday is coming up soon—how about we go traveling? Let's go south; how about Yunnan? The scenery is beautiful and the weather is warm."
+      },
+      {
+        "character": "莉莉",
+        "hanzi": "我看过何大华在海南拍的照片，有阳光、大海、沙滩，非常美。我们去海南怎么样？",
+        "pinyin": "Wǒ kànguo Hé Dàhuá zài Hǎinán pāi de zhàopiàn, yǒu yángguāng, dàhǎi, shātān, fēicháng měi. Wǒmen qù Hǎinán zěnmeyàng?",
+        "translation": "I've seen the photos He Dahua took in Hainan—there's sunshine, the sea, and sandy beaches, very beautiful. How about we go to Hainan?"
+      },
+      {
+        "character": "阿里",
+        "hanzi": "你们觉得怎么去好？自己玩儿还是跟团？",
+        "pinyin": "Nǐmen juéde zěnme qù hǎo? Zìjǐ wánr háishi gēntuán?",
+        "translation": "How do you think we should go? Travel on our own or join a tour group?"
+      },
+      {
+        "character": "平田",
+        "hanzi": "我听说旅行社有一种“自由行”的旅行方式，可以帮客人订票，订宾馆，到了地方客人自己玩儿，我觉得这种更好。",
+        "pinyin": "Wǒ tīngshuō lǚxíngshè yǒu yì zhǒng “zìyóuxíng” de lǚxíng fāngshì, kěyǐ bāng kèrén dìng piào, dìng bīnguǎn, dàole dìfang kèrén zìjǐ wánr, wǒ juéde zhè zhǒng gèng hǎo.",
+        "translation": "I heard travel agencies have a 'free-and-easy independent package' travel style where they help guests book tickets and hotels, and once there the guests explore on their own—I think this kind is even better."
+      },
+      {
+        "character": "马克",
+        "hanzi": "那我们就选这一种吧，我上网查一下哪个旅行社更好。",
+        "pinyin": "Nà wǒmen jiù xuǎn zhè yì zhǒng ba, wǒ shàngwǎng chá yíxià nǎge lǚxíngshè gèng hǎo.",
+        "translation": "Then let's choose this one! I'll go online and check which travel agency is better."
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Dialogue 1: Planning a Holiday Trip — Harbin vs. Yunnan & Hainan, Group Tour vs. 'Ziyouxing' (商量假期旅游计划)",
+        "context": "With the winter vacation approaching, Mark (马克), Hirata (平田), Jessie (杰希), Ali (阿里), and Lily (莉莉) debate going north to see Harbin's ice lanterns vs. heading south to Yunnan and Hainan around the Spring Festival, and decide on a '自由行' (independent package) through a travel agency.",
+        "lines": [
+          {
+            "character": "马克",
+            "hanzi": "快放假了，我们去旅游怎么样？",
+            "pinyin": "Kuài fàngjià le, wǒmen qù lǚyóu zěnmeyàng?",
+            "translation": "Vacation is coming up soon—how about we go traveling?"
+          },
+          {
+            "character": "平田",
+            "hanzi": "好啊，去哪儿玩儿好？南方还是北方？",
+            "pinyin": "Hǎo a, qù nǎr wánr hǎo? Nánfāng háishi běifāng?",
+            "translation": "Great! Where would be a good place to visit? The South or the North?"
+          },
+          {
+            "character": "杰希",
+            "hanzi": "听说哈尔滨的冰灯很漂亮！",
+            "pinyin": "Tīngshuō Hā'ěrbīn de bīngdēng hěn piàoliang!",
+            "translation": "I've heard the ice lanterns in Harbin are very pretty!"
+          },
+          {
+            "character": "阿里",
+            "hanzi": "我不去，那儿太冷了。",
+            "pinyin": "Wǒ bú qù, nàr tài lěng le.",
+            "translation": "I'm not going—it's too cold there."
+          },
+          {
+            "character": "马克",
+            "hanzi": "去南方吧，云南怎么样？风景美，天气也暖和。",
+            "pinyin": "Qù nánfāng ba, Yúnnán zěnmeyàng? Fēngjǐng měi, tiānqì yě nuǎnhuo.",
+            "translation": "Let's go to the South—how about Yunnan? The scenery is beautiful and the weather is warm."
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "我看过何大华在海南拍的照片，有阳光、大海、沙滩，非常美。我们去海南怎么样？",
+            "pinyin": "Wǒ kànguo Hé Dàhuá zài Hǎinán pāi de zhàopiàn, yǒu yángguāng, dàhǎi, shātān, fēicháng měi. Wǒmen qù Hǎinán zěnmeyàng?",
+            "translation": "I've seen the photos He Dahua took in Hainan—there's sunshine, the ocean, and sandy beaches, very beautiful. How about we go to Hainan?"
+          },
+          {
+            "character": "平田",
+            "hanzi": "假期那么长，都去吧。什么时候去好？一放假就走吗？",
+            "pinyin": "Jiàqī nàme cháng, dōu qù ba. Shénme shíhou qù hǎo? Yí fàngjià jiù zǒu ma?",
+            "translation": "The holiday is so long, let's go to both! When would be a good time to go? Should we leave as soon as the holiday starts?"
+          },
+          {
+            "character": "杰希",
+            "hanzi": "放假第二周，春节前后去吧，第一周可以准备一下。",
+            "pinyin": "Fàngjià dì-èr zhōu, Chūnjié qiánhòu qù ba, dì-yī zhōu kěyǐ zhǔnbèi yíxià.",
+            "translation": "Let's go in the second week of the vacation, around the Spring Festival; we can use the first week to prepare."
+          },
+          {
+            "character": "阿里",
+            "hanzi": "你们觉得怎么去好？自己玩儿还是跟团？",
+            "pinyin": "Nǐmen juéde zěnme qù hǎo? Zìjǐ wánr háishi gēntuán?",
+            "translation": "How do you think we should go? Travel on our own or join a tour group?"
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "我觉得跟团更方便，也更安全。",
+            "pinyin": "Wǒ juéde gēntuán gèng fāngbiàn, yě gèng ānquán.",
+            "translation": "I think joining a tour group is more convenient and also safer."
+          },
+          {
+            "character": "马克",
+            "hanzi": "我觉得自己玩儿更自由，时间、地方都可以自己决定。",
+            "pinyin": "Wǒ juéde zìjǐ wánr gèng zìyóu, shíjiān, dìfang dōu kěyǐ zìjǐ juédìng.",
+            "translation": "I think traveling on our own is freer—we can decide both the schedule and the places ourselves."
+          },
+          {
+            "character": "平田",
+            "hanzi": "我听说旅行社有一种“自由行”的旅行方式，可以帮客人订票，订宾馆，到了地方客人自己玩儿，我觉得这种更好。",
+            "pinyin": "Wǒ tīngshuō lǚxíngshè yǒu yì zhǒng “zìyóuxíng” de lǚxíng fāngshì, kěyǐ bāng kèrén dìng piào, dìng bīnguǎn, dàole dìfang kèrén zìjǐ wánr, wǒ juéde zhè zhǒng gèng hǎo.",
+            "translation": "I heard travel agencies have a 'free-and-easy package' travel style where they help guests book tickets and hotels, and once at the destination the guests explore on their own—I think this kind is better."
+          },
+          {
+            "character": "马克",
+            "hanzi": "那我们就选这一种吧，我上网查一下哪个旅行社更好。",
+            "pinyin": "Nà wǒmen jiù xuǎn zhè yì zhǒng ba, wǒ shàngwǎng chá yíxià nǎge lǚxíngshè gèng hǎo.",
+            "translation": "Then let's choose this one! I'll go online to check which travel agency is better."
+          }
+        ]
+      },
+      {
+        "title": "Dialogue 2: Recommending Guilin Before the National Day Holiday (推荐去桂林旅游)",
+        "context": "From Lesson 12 Section 4: Lily (莉莉) asks her Chinese friend He Dahua (何大华) for a travel recommendation since she has already visited Beijing, Xi'an, Shanghai, Hangzhou, and Harbin. He recommends Guilin (桂林) and reminds her to book tickets and a hotel early before the National Day rush.",
+        "lines": [
+          {
+            "character": "何大华",
+            "hanzi": "你好，莉莉！",
+            "pinyin": "Nǐ hǎo, Lìlì!",
+            "translation": "Hello, Lily!"
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "你好！好久不见。你看见我的邮件了吗？",
+            "pinyin": "Nǐ hǎo! Hǎojiǔ bú jiàn. Nǐ kànjiàn wǒ de yóujiàn le ma?",
+            "translation": "Hello! Long time no see. Did you see my email?"
+          },
+          {
+            "character": "何大华",
+            "hanzi": "什么邮件？我最近没上网，不知道啊。",
+            "pinyin": "Shénme yóujiàn? Wǒ zuìjìn méi shàngwǎng, bù zhīdào a.",
+            "translation": "What email? I haven't been online recently, so I didn't know."
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "哦，那我现在跟你说吧。快放假了，我想去旅游，你说去哪儿好？",
+            "pinyin": "Ò, nà wǒ xiànzài gēn nǐ shuō ba. Kuài fàngjià le, wǒ xiǎng qù lǚyóu, nǐ shuō qù nǎr hǎo?",
+            "translation": "Oh, then I'll tell you right now. Vacation is coming up soon and I want to go traveling—where do you think would be a good place to go?"
+          },
+          {
+            "character": "何大华",
+            "hanzi": "你以前去过哪儿？",
+            "pinyin": "Nǐ yǐqián qùguo nǎr?",
+            "translation": "Where have you been before?"
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "我去过北京、西安、上海、杭州、哈尔滨，这次我想去别的地方看看。",
+            "pinyin": "Wǒ qùguo Běijīng, Xī'ān, Shànghǎi, Hángzhōu, Hā'ěrbīn, zhècì wǒ xiǎng qù biéde dìfang kànkan.",
+            "translation": "I have been to Beijing, Xi'an, Shanghai, Hangzhou, and Harbin; this time I want to visit somewhere else."
+          },
+          {
+            "character": "何大华",
+            "hanzi": "你觉得桂林怎么样？",
+            "pinyin": "Nǐ juéde Guìlín zěnmeyàng?",
+            "translation": "What do you think of Guilin?"
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "哦，我很早就听说桂林美极了！你去过吗？",
+            "pinyin": "Ò, wǒ hěn zǎo jiù tīngshuō Guìlín měi jí le! Nǐ qùguo ma?",
+            "translation": "Oh, I heard a long time ago that Guilin is extremely beautiful! Have you been there?"
+          },
+          {
+            "character": "何大华",
+            "hanzi": "我前两天刚去了一趟，那儿的天气非常舒服。对了，国庆节前后人非常多，你早点儿上网买票和找宾馆吧。",
+            "pinyin": "Wǒ qián liǎng tiān gāng qùle yí tàng, nàr de tiānqì fēicháng shūfu. Duìle, Guóqìngjié qiánhòu rén fēicháng duō, nǐ zǎodiǎnr shàngwǎng mǎi piào hé zhǎo bīnguǎn ba.",
+            "translation": "I just made a trip there two days ago, and the weather there is very comfortable. By the way, there are huge crowds around National Day, so go online early to buy tickets and find a hotel."
+          },
+          {
+            "character": "莉莉",
+            "hanzi": "哦，好的，谢谢！",
+            "pinyin": "Ò, hǎo de, xièxie!",
+            "translation": "Oh, alright, thank you!"
+          }
+        ]
+      }
+    ],
+    "readingPassage": {
+      "title": "Reading: Funny Stories Booking Sleeper Tickets & a '10-Star Hotel' + May Day Trip to the Great Wall (买卧铺票与订宾馆的笑话 · 五一爬长城)",
+      "subtitle": "Synthesized from Lesson 12 Section 3·2 (平田和马克闹的笑话) and Section 4 (五一去北京爬长城).",
+      "paragraphs": [
+        {
+          "hanzi": "留学生在中国可能都会闹点儿笑话，今天就说说平田、马克他们闹的笑话吧。几个朋友商量好春节前后要去云南和海南旅行。平田负责买票，他问售票员：“有1月30号去昆明的火车票吗？不要坐的，要睡觉的。”售票员一听就笑了：“是不要硬座，要卧铺吧？”“对对，软的卧铺多少钱一张？”“K2288次的只有硬卧了，513.5元一张，早上8:57从天津出发，第二天6:08到昆明。”“那好吧，就要这个吧。”",
+          "pinyin": "Liúxuéshēng zài Zhōngguó kěnéng dōu huì nào diǎnr xiàohua, jīntiān jiù shuōshuo Píngtián, Mǎkè tāmen nào de xiàohua ba. Jǐ ge péngyou shāngliang hǎo Chūnjié qiánhòu yào qù Yúnnán hé Hǎinán lǚxíng. Píngtián fùzé mǎi piào, tā wèn shòupiàoyuán: “Yǒu yī yuè sānshí hào qù Kūnmíng de huǒchēpiào ma? Bú yào zuò de, yào shuìjiào de.” Shòupiàoyuán yì tīng jiù xiào le: “Shì bú yào yìngzuò, yào wòpù ba?” “Duì duì, ruǎn de wòpù duōshao qián yì zhāng?” “K èr èr bā bā cì de zhǐyǒu yìngwò le, wǔbǎi yīshísān diǎn wǔ yuán yì zhāng, zǎoshang bā diǎn wǔshíqī cóng Tiānjīn chūfā, dì-èr tiān liù diǎn líng bā dào Kūnmíng.” “Nà hǎo ba, jiù yào zhège ba.”",
+          "translation": "International students in China probably all make a few funny blunders—today let's talk about the funny stories Hirata and Mark had. Several friends agreed to travel to Yunnan and Hainan around the Spring Festival. Hirata was in charge of buying tickets, and he asked the ticket clerk: 'Are there train tickets to Kunming for January 30? I don't want sitting ones; I want sleeping ones.' As soon as the clerk heard this, she laughed: 'You mean you don't want a hard seat, you want a sleeper berth, right?' 'Yes, yes! How much is a soft sleeper ticket?' 'Train K2288 only has hard sleepers left—513.5 yuan per ticket, departing from Tianjin at 8:57 AM and arriving in Kunming at 6:08 AM the next day.' 'Alright then, I'll take that.'"
+        },
+        {
+          "hanzi": "马克负责订宾馆，他想过几天再订。中国朋友告诉他春节前后旅游的人多极了，不早点儿订可能就没地方住了。马克一听着急了，马上上网订宾馆。他找到一家三亚的快捷酒店，打电话联系时他跟经理说：“我的朋友有的要订交通方便的，有的要可以上网的，有的要能看见大海的，我要‘十星级’的！”经理听了哈哈大笑：“你们是外星人啊？都这个时候了，还有这么多的要求，能订上就不错了，还‘十星级’呢！”马克笑着说：“我是开玩笑的。”",
+          "pinyin": "Mǎkè fùzé dìng bīnguǎn, tā xiǎng guò jǐ tiān zài dìng. Zhōngguó péngyou gàosu tā Chūnjié qiánhòu lǚyóu de rén duō jí le, bù zǎodiǎnr dìng kěnéng jiù méi dìfang zhù le. Mǎkè yì tīng zháojí le, mǎshàng shàngwǎng dìng bīnguǎn. Tā zhǎodào yì jiā Sānyà de kuàijié jiǔdiàn, dǎ diànhuà liánxì shí tā gēn jīnglǐ shuō: “Wǒ de péngyou yǒude yào dìng jiāotōng fāngbiàn de, yǒude yào kěyǐ shàngwǎng de, yǒude yào néng kànjiàn dàhǎi de, wǒ yào ‘shíxīngjí’ de!” Jīnglǐ tīngle hāhā dàxiào: “Nǐmen shì wàixīngrén a? Dōu zhège shíhou le, hái yǒu zhème duō de yāoqiú, néng dìngshàng jiù búcuò le, hái ‘shíxīngjí’ ne!” Mǎkè xiàozhe shuō: “Wǒ shì kāi wánxiào de.”",
+          "translation": "Mark was in charge of booking the hotel and wanted to wait a few days before booking. His Chinese friend told him that there are an extreme number of tourists around the Spring Festival, and if he didn't book early there might be nowhere to stay. Hearing this, Mark got anxious and immediately went online to book a hotel. He found an express hotel in Sanya, and when calling to contact them he told the manager: 'Some of my friends want to book one with convenient transportation, some want internet access, some want an ocean view, and I want a \"ten-star\" one!' Hearing this, the manager burst out laughing: 'Are you guys aliens? At this late hour you still have so many requirements—you're lucky if you can book a room at all, let alone a \"ten-star\" one!' Mark said with a smile: 'I was just joking.'"
+        },
+        {
+          "hanzi": "经理说：“我帮你联系一家在海边的快捷酒店吧。”“太好了！谢谢您啊！那家酒店在什么路附近？有单人间吗？多少钱一天？”“哦，没有单人间了，双人间还有，328元一天。”马克只好要了三个双人间。宾馆是贵了点儿，可是风景美极了，交通也方便极了。",
+          "pinyin": "Jīnglǐ shuō: “Wǒ bāng nǐ liánxì yì jiā zài hǎibiān de kuàijié jiǔdiàn ba.” “Tài hǎo le! Xièxie nín a! Nà jiā jiǔdiàn zài shénme lù fùjìn? Yǒu dānrénjiān ma? Duōshao qián yì tiān?” “Ò, méiyǒu dānrénjiān le, shuāngrénjiān hái yǒu, sānbǎi èrshíbā yuán yì tiān.” Mǎkè zhǐhǎo yàole sān ge shuāngrénjiān. Bīnguǎn shì guìle diǎnr, kěshì fēngjǐng měi jí le, jiāotōng yě fāngbiàn jí le.",
+          "translation": "The manager said: 'Let me help you contact an express hotel by the seaside.' 'Wonderful! Thank you! Near what road is that hotel located? Do they have single rooms? How much per day?' 'Oh, there are no single rooms left, but there are still double rooms at 328 yuan per day.' Mark had no choice but to take three double rooms. The hotel was a bit pricey, but the scenery was extremely beautiful and the transportation was extremely convenient."
+        },
+        {
+          "hanzi": "我来中国半年了，一直很想去旅游。五一的时候，学校放了三天假，我去了北京。我买了张硬座票，座票21.5元一张，早上八点出发，早上九点四十五到了北京。我先找了一家宾馆，宾馆在长城附近，半个小时就能走到长城。第二天一大早我就开始爬长城，门票45元一张。五一前后天气很舒服，花开了，风景很美，爬长城的人多极了。我觉得这次旅游很有意思，花钱不多，可是看了风景，吃了小吃，还学了汉语。以后有时间，我还要去旅游。",
+          "pinyin": "Wǒ lái Zhōngguó bàn nián le, yīzhí hěn xiǎng qù lǚyóu. Wǔ-Yī de shíhou, xuéxiào fàngle sān tiān jià, wǒ qùle Běijīng. Wǒ mǎile zhāng yìngzuò piào, zuòpiào èrshíyī diǎn wǔ yuán yì zhāng, zǎoshang bā diǎn chūfā, zǎoshang jiǔ diǎn sìshíwǔ dàole Běijīng. Wǒ xiān zhǎole yì jiā bīnguǎn, bīnguǎn zài Chángchéng fùjìn, bàn ge xiǎoshí jiù néng zǒu dào Chángchéng. Dì-èr tiān yídàzǎo wǒ jiù kāishǐ pá Chángchéng, ménpiào sìshíwǔ yuán yì zhāng. Wǔ-Yī qiánhòu tiānqì hěn shūfu, huā kāi le, fēngjǐng hěn měi, pá Chángchéng de rén duō jí le. Wǒ juéde zhècì lǚyóu hěn yǒu yìsi, huā qián bù duō, kěshì kànle fēngjǐng, chīle xiǎochī, hái xuéle Hànyǔ. Yǐhòu yǒu shíjiān, wǒ hái yào qù lǚyóu.",
+          "translation": "I have been in China for half a year and had always wanted to go traveling. During the May Day holiday, school gave us three days off and I went to Beijing. I bought a hard-seat train ticket at 21.5 yuan per ticket, departed at 8:00 AM, and arrived in Beijing at 9:45 AM. First I found a hotel near the Great Wall—it was just a half-hour walk to the Great Wall. Bright and early the next morning I started climbing the Great Wall; admission tickets were 45 yuan each. Around May Day the weather was very comfortable, flowers were in bloom, the scenery was beautiful, and the crowd climbing the Great Wall was huge. I felt this trip was very meaningful—I didn't spend much money, yet I saw the scenery, ate local snacks, and practiced Chinese. When I have time in the future, I definitely want to travel again."
+        }
+      ]
+    },
+    "vocabularyExplanation": [
+      {
+        "hanzi": "旅游",
+        "pinyin": "lǚyóu",
+        "english": "to travel; tourism; sightseeing trip",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "快放假了，我们去旅游怎么样？",
+        "examplePinyin": "Kuài fàngjià le, wǒmen qù lǚyóu zěnmeyàng?",
+        "exampleTranslation": "Vacation is coming up soon—how about we go traveling?"
+      },
+      {
+        "hanzi": "南方",
+        "pinyin": "nánfāng",
+        "english": "the South (southern China)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "去南方吧，云南风景美，天气也暖和。",
+        "examplePinyin": "Qù nánfāng ba, Yúnnán fēngjǐng měi, tiānqì yě nuǎnhuo.",
+        "exampleTranslation": "Let's go south—the scenery in Yunnan is beautiful and the weather is warm."
+      },
+      {
+        "hanzi": "北方",
+        "pinyin": "běifāng",
+        "english": "the North (northern China)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "去哪儿玩儿好？南方还是北方？",
+        "examplePinyin": "Qù nǎr wánr hǎo? Nánfāng háishi běifāng?",
+        "exampleTranslation": "Where is a good place to visit? The South or the North?"
+      },
+      {
+        "hanzi": "听说",
+        "pinyin": "tīngshuō",
+        "english": "to hear (it said that...)",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "听说哈尔滨的冰灯很漂亮！",
+        "examplePinyin": "Tīngshuō Hā'ěrbīn de bīngdēng hěn piàoliang!",
+        "exampleTranslation": "I heard that the ice lanterns in Harbin are very pretty!"
+      },
+      {
+        "hanzi": "冰灯",
+        "pinyin": "bīngdēng",
+        "english": "ice lantern",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "冬天很多人去哈尔滨看冰灯。",
+        "examplePinyin": "Dōngtiān hěn duō rén qù Hā'ěrbīn kàn bīngdēng.",
+        "exampleTranslation": "In winter many people go to Harbin to see the ice lanterns."
+      },
+      {
+        "hanzi": "风景",
+        "pinyin": "fēngjǐng",
+        "english": "scenery; landscape",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "宾馆是贵了点儿，可是风景美极了。",
+        "examplePinyin": "Bīnguǎn shì guìle diǎnr, kěshì fēngjǐng měi jí le.",
+        "exampleTranslation": "The hotel is a bit pricey, but the scenery is extremely beautiful."
+      },
+      {
+        "hanzi": "美",
+        "pinyin": "měi",
+        "english": "beautiful; pretty",
+        "partOfSpeech": "形 (adj.)",
+        "exampleHanzi": "我很早就听说桂林美极了！",
+        "examplePinyin": "Wǒ hěn zǎo jiù tīngshuō Guìlín měi jí le!",
+        "exampleTranslation": "I heard a long time ago that Guilin is extremely beautiful!"
+      },
+      {
+        "hanzi": "阳光",
+        "pinyin": "yángguāng",
+        "english": "sunlight; sunshine",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "海南有阳光、大海、沙滩，非常美。",
+        "examplePinyin": "Hǎinán yǒu yángguāng, dàhǎi, shātān, fēicháng měi.",
+        "exampleTranslation": "Hainan has sunshine, the sea, and sandy beaches—very beautiful."
+      },
+      {
+        "hanzi": "大海",
+        "pinyin": "dàhǎi",
+        "english": "the sea; the ocean",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "有的朋友要订能看见大海的房间。",
+        "examplePinyin": "Yǒude péngyou yào dìng néng kànjiàn dàhǎi de fángjiān.",
+        "exampleTranslation": "Some friends want to book a room with an ocean view."
+      },
+      {
+        "hanzi": "沙滩",
+        "pinyin": "shātān",
+        "english": "sandy beach",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "我们在海边的沙滩上拍了很多照片。",
+        "examplePinyin": "Wǒmen zài hǎibiān de shātān shang pāile hěn duō zhàopiàn.",
+        "exampleTranslation": "We took many photos on the sandy beach by the sea."
+      },
+      {
+        "hanzi": "假期",
+        "pinyin": "jiàqī",
+        "english": "holiday; vacation period",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "假期那么长，云南和海南都去吧。",
+        "examplePinyin": "Jiàqī nàme cháng, Yúnnán hé Hǎinán dōu qù ba.",
+        "exampleTranslation": "Since the vacation is so long, let's go to both Yunnan and Hainan."
+      },
+      {
+        "hanzi": "春节",
+        "pinyin": "Chūnjié",
+        "english": "Spring Festival (Chinese New Year)",
+        "partOfSpeech": "专名 (proper noun)",
+        "exampleHanzi": "几个朋友商量好春节前后要去云南和海南旅行。",
+        "examplePinyin": "Jǐ ge péngyou shāngliang hǎo Chūnjié qiánhòu yào qù Yúnnán hé Hǎinán lǚxíng.",
+        "exampleTranslation": "Several friends agreed to travel to Yunnan and Hainan around the Spring Festival."
+      },
+      {
+        "hanzi": "前后",
+        "pinyin": "qiánhòu",
+        "english": "around (a date, festival, or point in time)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "春节前后旅游的人多极了。",
+        "examplePinyin": "Chūnjié qiánhòu lǚyóu de rén duō jí le.",
+        "exampleTranslation": "Around the Spring Festival, the number of tourists is extremely large."
+      },
+      {
+        "hanzi": "准备",
+        "pinyin": "zhǔnbèi",
+        "english": "to prepare; to get ready",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "放假第一周可以准备一下。",
+        "examplePinyin": "Fàngjià dì-yī zhōu kěyǐ zhǔnbèi yíxià.",
+        "exampleTranslation": "We can use the first week of the vacation to prepare a bit."
+      },
+      {
+        "hanzi": "跟团",
+        "pinyin": "gēntuán",
+        "english": "to join a tour group",
+        "partOfSpeech": "动 (VO verb)",
+        "exampleHanzi": "莉莉觉得跟团更方便，也更安全。",
+        "examplePinyin": "Lìlì juéde gēntuán gèng fāngbiàn, yě gèng ānquán.",
+        "exampleTranslation": "Lily thinks joining a tour group is more convenient and safer."
+      },
+      {
+        "hanzi": "安全",
+        "pinyin": "ānquán",
+        "english": "safe; secure; safety",
+        "partOfSpeech": "形/名 (adj./noun)",
+        "exampleHanzi": "出国旅行要注意安全。",
+        "examplePinyin": "Chūguó lǚxíng yào zhùyì ānquán.",
+        "exampleTranslation": "When traveling abroad, you should pay attention to safety."
+      },
+      {
+        "hanzi": "自由",
+        "pinyin": "zìyóu",
+        "english": "free; unrestrained; freedom",
+        "partOfSpeech": "形/名 (adj./noun)",
+        "exampleHanzi": "我觉得自己玩儿更自由。",
+        "examplePinyin": "Wǒ juéde zìjǐ wánr gèng zìyóu.",
+        "exampleTranslation": "I think traveling on our own is freer."
+      },
+      {
+        "hanzi": "决定",
+        "pinyin": "juédìng",
+        "english": "to decide; decision",
+        "partOfSpeech": "动/名 (verb/noun)",
+        "exampleHanzi": "时间、地方都可以自己决定。",
+        "examplePinyin": "Shíjiān, dìfang dōu kěyǐ zìjǐ juédìng.",
+        "exampleTranslation": "Both the time and the places can be decided by ourselves."
+      },
+      {
+        "hanzi": "旅行社",
+        "pinyin": "lǚxíngshè",
+        "english": "travel agency",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "我上网查一下哪个旅行社更好。",
+        "examplePinyin": "Wǒ shàngwǎng chá yíxià nǎge lǚxíngshè gèng hǎo.",
+        "exampleTranslation": "I'll go online to check which travel agency is better."
+      },
+      {
+        "hanzi": "自由行",
+        "pinyin": "zìyóuxíng",
+        "english": "independent package travel (agency books transport/hotels, traveler explores freely)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "旅行社的“自由行”可以帮客人订票、订宾馆，到了地方客人自己玩儿。",
+        "examplePinyin": "Lǚxíngshè de “zìyóuxíng” kěyǐ bāng kèrén dìng piào, dìng bīnguǎn, dàole dìfang kèrén zìjǐ wánr.",
+        "exampleTranslation": "A travel agency's 'free-and-easy package' helps guests book tickets and hotels while letting them explore on their own once there."
+      },
+      {
+        "hanzi": "订",
+        "pinyin": "dìng",
+        "english": "to book; to reserve (tickets, hotel rooms)",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "不早点儿订宾馆可能就没地方住了。",
+        "examplePinyin": "Bù zǎodiǎnr dìng bīnguǎn kěnéng jiù méi dìfang zhù le.",
+        "exampleTranslation": "If you don't book a hotel early, there might be nowhere to stay."
+      },
+      {
+        "hanzi": "宾馆",
+        "pinyin": "bīnguǎn",
+        "english": "hotel; guesthouse",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "我先找了一家在长城附近的宾馆。",
+        "examplePinyin": "Wǒ xiān zhǎole yì jiā zài Chángchéng fùjìn de bīnguǎn.",
+        "exampleTranslation": "First I found a hotel near the Great Wall."
+      },
+      {
+        "hanzi": "查",
+        "pinyin": "chá",
+        "english": "to check; to look up; to search",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "去旅游以前要先上网查一下天气和地图。",
+        "examplePinyin": "Qù lǚyóu yǐqián yào xiān shàngwǎng chá yíxià tiānqì hé dìtú.",
+        "exampleTranslation": "Before going traveling, you should go online to check the weather and map first."
+      },
+      {
+        "hanzi": "闹笑话",
+        "pinyin": "nào xiàohua",
+        "english": "to make a funny mistake / blunder; to make a fool of oneself",
+        "partOfSpeech": "动 (VO phrase)",
+        "exampleHanzi": "留学生在中国可能都会闹点儿笑话。",
+        "examplePinyin": "Liúxuéshēng zài Zhōngguó kěnéng dōu huì nào diǎnr xiàohua.",
+        "exampleTranslation": "International students in China probably all make a few funny blunders."
+      },
+      {
+        "hanzi": "商量",
+        "pinyin": "shāngliang",
+        "english": "to discuss; to consult; to talk over",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "几个朋友商量好春节前后要去云南和海南旅行。",
+        "examplePinyin": "Jǐ ge péngyou shāngliang hǎo Chūnjié qiánhòu yào qù Yúnnán hé Hǎinán lǚxíng.",
+        "exampleTranslation": "Several friends discussed and agreed to travel to Yunnan and Hainan around the Spring Festival."
+      },
+      {
+        "hanzi": "负责",
+        "pinyin": "fùzé",
+        "english": "to be in charge of; to be responsible for",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "平田负责买火车票，马克负责订宾馆。",
+        "examplePinyin": "Píngtián fùzé mǎi huǒchēpiào, Mǎkè fùzé dìng bīnguǎn.",
+        "exampleTranslation": "Hirata is in charge of buying train tickets, and Mark is in charge of booking hotels."
+      },
+      {
+        "hanzi": "硬座",
+        "pinyin": "yìngzuò",
+        "english": "hard seat (on a train)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "是不要硬座，要卧铺吧？",
+        "examplePinyin": "Shì bú yào yìngzuò, yào wòpù ba?",
+        "exampleTranslation": "You mean you don't want a hard seat, you want a sleeper berth, right?"
+      },
+      {
+        "hanzi": "卧铺",
+        "pinyin": "wòpù",
+        "english": "sleeper berth (on a train, divided into 硬卧 hard sleeper and 软卧 soft sleeper)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "K2288次的只有硬卧了，513.5元一张。",
+        "examplePinyin": "K èr èr bā bā cì de zhǐyǒu yìngwò le, wǔbǎi yīshísān diǎn wǔ yuán yì zhāng.",
+        "exampleTranslation": "Train K2288 only has hard sleepers left, at 513.5 yuan per ticket."
+      },
+      {
+        "hanzi": "出发",
+        "pinyin": "chūfā",
+        "english": "to set off; to depart",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "早上8:57从天津出发，第二天6:08到昆明。",
+        "examplePinyin": "Zǎoshang bā diǎn wǔshíqī cóng Tiānjīn chūfā, dì-èr tiān liù diǎn líng bā dào Kūnmíng.",
+        "exampleTranslation": "Departing from Tianjin at 8:57 AM and arriving in Kunming at 6:08 AM the next day."
+      },
+      {
+        "hanzi": "极",
+        "pinyin": "jí",
+        "english": "extremely (used in Adj + 极了)",
+        "partOfSpeech": "副 (adverb)",
+        "exampleHanzi": "风景美极了，交通也方便极了。",
+        "examplePinyin": "Fēngjǐng měi jí le, jiāotōng yě fāngbiàn jí le.",
+        "exampleTranslation": "The scenery is extremely beautiful, and transportation is extremely convenient."
+      },
+      {
+        "hanzi": "着急",
+        "pinyin": "zháojí",
+        "english": "anxious; worried; in a hurry",
+        "partOfSpeech": "形 (adj.)",
+        "exampleHanzi": "马克一听着急了，马上上网订宾馆。",
+        "examplePinyin": "Mǎkè yì tīng zháojí le, mǎshàng shàngwǎng dìng bīnguǎn.",
+        "exampleTranslation": "As soon as Mark heard this, he got anxious and immediately went online to book a hotel."
+      },
+      {
+        "hanzi": "快捷酒店",
+        "pinyin": "kuàijié jiǔdiàn",
+        "english": "express / budget chain hotel",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "我帮你联系一家在海边的快捷酒店吧。",
+        "examplePinyin": "Wǒ bāng nǐ liánxì yì jiā zài hǎibiān de kuàijié jiǔdiàn ba.",
+        "exampleTranslation": "Let me help you contact an express hotel by the seaside."
+      },
+      {
+        "hanzi": "联系",
+        "pinyin": "liánxì",
+        "english": "to contact; to get in touch with",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "他找到一家三亚的快捷酒店，打电话联系经理。",
+        "examplePinyin": "Tā zhǎodào yì jiā Sānyà de kuàijié jiǔdiàn, dǎ diànhuà liánxì jīnglǐ.",
+        "exampleTranslation": "He found an express hotel in Sanya and called to contact the manager."
+      },
+      {
+        "hanzi": "交通",
+        "pinyin": "jiāotōng",
+        "english": "transportation; traffic",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "我的朋友有的要订交通方便的宾馆。",
+        "examplePinyin": "Wǒ de péngyou yǒude yào dìng jiāotōng fāngbiàn de bīnguǎn.",
+        "exampleTranslation": "Some of my friends want to book a hotel with convenient transportation."
+      },
+      {
+        "hanzi": "要求",
+        "pinyin": "yāoqiú",
+        "english": "requirement; request; demand",
+        "partOfSpeech": "名/动 (noun/verb)",
+        "exampleHanzi": "都这个时候了，还有这么多的要求！",
+        "examplePinyin": "Dōu zhège shíhou le, hái yǒu zhème duō de yāoqiú!",
+        "exampleTranslation": "Even at this late hour, you still have so many requirements!"
+      },
+      {
+        "hanzi": "开玩笑",
+        "pinyin": "kāi wánxiào",
+        "english": "to joke; to make a joke",
+        "partOfSpeech": "动 (VO phrase)",
+        "exampleHanzi": "马克笑着说：“我是开玩笑的。”",
+        "examplePinyin": "Mǎkè xiàozhe shuō: “Wǒ shì kāi wánxiào de.”",
+        "exampleTranslation": "Mark said with a smile: 'I was just joking.'"
+      },
+      {
+        "hanzi": "单人间",
+        "pinyin": "dānrénjiān",
+        "english": "single room (in a hotel)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "请问有单人间吗？多少钱一天？",
+        "examplePinyin": "Qǐngwèn yǒu dānrénjiān ma? Duōshao qián yì tiān?",
+        "exampleTranslation": "Excuse me, do you have single rooms? How much per day?"
+      },
+      {
+        "hanzi": "双人间",
+        "pinyin": "shuāngrénjiān",
+        "english": "double / twin room (in a hotel)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "没有单人间了，双人间还有，328元一天。",
+        "examplePinyin": "Méiyǒu dānrénjiān le, shuāngrénjiān hái yǒu, sānbǎi èrshíbā yuán yì tiān.",
+        "exampleTranslation": "There are no single rooms left, but double rooms are still available at 328 yuan per day."
+      },
+      {
+        "hanzi": "只好",
+        "pinyin": "zhǐhǎo",
+        "english": "to have no choice but to; can only",
+        "partOfSpeech": "副 (adverb)",
+        "exampleHanzi": "没有单人间了，马克只好要了三个双人间。",
+        "examplePinyin": "Méiyǒu dānrénjiān le, Mǎkè zhǐhǎo yàole sān ge shuāngrénjiān.",
+        "exampleTranslation": "Since there were no single rooms left, Mark had no choice but to take three double rooms."
+      }
+    ],
+    "grammarPoint": "Consulting Plans ('去哪儿/怎么 + V + 好？'), Approximate Time ('[时间] + 前后'), and Extreme Degree ('Adj + 极了')",
+    "structure": "去哪儿 / 什么时候 / 怎么 + V + 好？  |  [时间点] + 前后  |  Adj + 极了",
+    "explanation": "Lesson 12 equips learners to discuss and book travel plans: (1) proposing ideas with '[想法]，怎么样？' and consulting others with '去哪儿/什么时候/怎么 + V + 好？'; (2) distinguishing '[时间点] + 前后' (around a specific date/festival) from '[数量] + 左右' (an approximate quantity or duration); (3) contrasting firm determination '要 + V' with a desire '想 + V'; (4) expressing extreme degree with 'Adj + 极了'; and (5) stating unit prices for tickets and hotel rooms ('513.5元一张', '328元一天').",
+    "examples": [
+      {
+        "hanzi": "去哪儿玩儿好？什么时候去好？你们觉得怎么去好？",
+        "pinyin": "Qù nǎr wánr hǎo? Shénme shíhou qù hǎo? Nǐmen juéde zěnme qù hǎo?",
+        "translation": "Where is a good place to visit? When is a good time to go? How do you think we should go?"
+      },
+      {
+        "hanzi": "春节前后旅游的人多极了，宾馆的风景美极了，交通也方便极了。",
+        "pinyin": "Chūnjié qiánhòu lǚyóu de rén duō jí le, bīnguǎn de fēngjǐng měi jí le, jiāotōng yě fāngbiàn jí le.",
+        "translation": "Around the Spring Festival there are an extreme number of tourists; the hotel's scenery is extremely beautiful, and transportation is extremely convenient."
+      },
+      {
+        "hanzi": "K2288次的硬卧513.5元一张；双人间328元一天。",
+        "pinyin": "K èr èr bā bā cì de yìngwò wǔbǎi yīshísān diǎn wǔ yuán yì zhāng; shuāngrénjiān sānbǎi èrshíbā yuán yì tiān.",
+        "translation": "Hard sleepers on Train K2288 are 513.5 yuan per ticket; double rooms are 328 yuan per day."
+      }
+    ],
+    "grammarNotes": [
+      {
+        "title": "1. Proposing & Consulting Travel Plans: '[想法]，怎么样？' & '去哪儿/什么时候/怎么 + V + 好？'",
+        "structure": "[Proposal]，怎么样？  |  (你说 / 你们觉得) + 去哪儿 / 什么时候 / 怎么 + Verb + 好？",
+        "explanation": "Add '怎么样？' after a proposal ('我们去旅游怎么样？', '云南怎么样？') to ask for others' opinions. When asking someone to recommend the best destination, time, or method, place '好' at the end of a question-word verb phrase: '去哪儿玩儿好？' ('Where would be good to go?'), '什么时候去好？' ('When would be good to go?'), '怎么去好？' ('How would be good to go?').",
+        "tip": "You can preface the question with 你说…… or 你们觉得…… ('Where do you think is best to go?').",
+        "examples": [
+          {
+            "hanzi": "快放假了，我们去旅游怎么样？去南方吧，云南怎么样？",
+            "pinyin": "Kuài fàngjià le, wǒmen qù lǚyóu zěnmeyàng? Qù nánfāng ba, Yúnnán zěnmeyàng?",
+            "translation": "Vacation is coming up soon—how about we go traveling? Let's go south; how about Yunnan?"
+          },
+          {
+            "hanzi": "去哪儿玩儿好？什么时候去好？你们觉得怎么去好？自己玩儿还是跟团？",
+            "pinyin": "Qù nǎr wánr hǎo? Shénme shíhou qù hǎo? Nǐmen juéde zěnme qù hǎo? Zìjǐ wánr háishi gēntuán?",
+            "translation": "Where is a good place to visit? When is a good time to go? How do you think we should go—on our own or with a tour group?"
+          }
+        ]
+      },
+      {
+        "title": "2. Approximate Point in Time '[时间点] + 前后' vs. Approximate Quantity '[数量] + 左右'",
+        "structure": "[Festival / Date / Point in Time] + 前后  vs.  [Number + Measure Word] + 左右",
+        "explanation": "'前后 (qiánhòu)' follows a specific point in time or holiday (春节前后 around Spring Festival, 国庆节前后 around National Day, 五一前后 around May Day, 八点前后 around 8 o'clock) to mean 'a few days/minutes before and after that time'. It cannot be used after pure quantities or durations. Conversely, '左右 (zuǒyòu)' can follow both points in time and quantities/durations (30分钟左右 around 30 minutes, 五百元左右 around 500 yuan).",
+        "tip": "Say 春节前后 (around Spring Festival), never *春节左右; say 三十岁左右 or 三天左右, never *三天前后.",
+        "examples": [
+          {
+            "hanzi": "放假第二周，春节前后去吧，第一周可以准备一下。",
+            "pinyin": "Fàngjià dì-èr zhōu, Chūnjié qiánhòu qù ba, dì-yī zhōu kěyǐ zhǔnbèi yíxià.",
+            "translation": "Let's go in the second week of the holiday, around the Spring Festival; we can prepare during the first week."
+          },
+          {
+            "hanzi": "国庆节前后人非常多，你早点儿上网买票和找宾馆吧。",
+            "pinyin": "Guóqìngjié qiánhòu rén fēicháng duō, nǐ zǎodiǎnr shàngwǎng mǎi piào hé zhǎo bīnguǎn ba.",
+            "translation": "Around National Day there are huge crowds, so go online early to buy tickets and find a hotel."
+          }
+        ]
+      },
+      {
+        "title": "3. Expressing Firm Intention '要 + V' vs. Wish/Plan '想 + V'",
+        "structure": "要 + Verb (firm decision / determination)  vs.  想 + Verb (wish / desire / plan)",
+        "explanation": "'想 + V' expresses a wish, desire, or tentative thought ('我想去旅游', '他想过几天再订'). '要 + V' expresses a firm decision, strong requirement, or scheduled commitment ('几个朋友商量好春节前后要去云南和海南旅行', '以后有时间，我还要去旅游').",
+        "tip": "In negative answers to 'Want to go?', use 不去 or 不想去了 rather than 不要去.",
+        "examples": [
+          {
+            "hanzi": "几个朋友商量好春节前后要去云南和海南旅行。",
+            "pinyin": "Jǐ ge péngyou shāngliang hǎo Chūnjié qiánhòu yào qù Yúnnán hé Hǎinán lǚxíng.",
+            "translation": "Several friends discussed and decided they are going to travel to Yunnan and Hainan around the Spring Festival."
+          },
+          {
+            "hanzi": "我的朋友有的要订交通方便的，有的要可以上网的，有的要能看见大海的。",
+            "pinyin": "Wǒ de péngyou yǒude yào dìng jiāotōng fāngbiàn de, yǒude yào kěyǐ shàngwǎng de, yǒude yào néng kànjiàn dàhǎi de.",
+            "translation": "Some of my friends want to book one with convenient transport, some want internet access, and some want an ocean view."
+          }
+        ]
+      },
+      {
+        "title": "4. Extreme Degree Complement: 'Adj + 极了'",
+        "structure": "Adjective (美 / 多 / 方便 / 好 / 高兴 / 舒服) + 极了",
+        "explanation": "Placing '极了 (jí le)' immediately after an adjective expresses an exclamation of extreme degree ('extremely...', '...to the utmost').",
+        "tip": "Just like 越来越, never place 很 or 太 before an adjective that is followed by 极了 (say 美极了, never *很美极了).",
+        "examples": [
+          {
+            "hanzi": "春节前后旅游的人多极了，不早点儿订可能就没地方住了。",
+            "pinyin": "Chūnjié qiánhòu lǚyóu de rén duō jí le, bù zǎodiǎnr dìng kěnéng jiù méi dìfang zhù le.",
+            "translation": "Around the Spring Festival the number of tourists is extremely large; if you don't book early there might be nowhere to stay."
+          },
+          {
+            "hanzi": "宾馆是贵了点儿，可是风景美极了，交通也方便极了。",
+            "pinyin": "Bīnguǎn shì guìle diǎnr, kěshì fēngjǐng měi jí le, jiāotōng yě fāngbiàn jí le.",
+            "translation": "The hotel is a bit expensive, but the scenery is extremely beautiful and the transportation is extremely convenient."
+          }
+        ]
+      },
+      {
+        "title": "5. Booking Train Tickets & Hotel Rooms ('有去 [地点] 的 [票] 吗？' & Unit Pricing)",
+        "structure": "有 (+ Date) + 去 + [Place] + 的 + [Ticket] + 吗？  |  [Item] + [Price] + 元 + 一张 / 一天",
+        "explanation": "When buying tickets or booking rooms, ask '有1月30号去昆明的火车票吗？' or '有单人间吗？多少钱一天？'. Unit prices are stated as '[Price] + 元/块 + 一张 (per ticket) / 一天 (per day)'. When forced by circumstances to accept an alternative, use the adverb '只好 (zhǐhǎo, had no choice but to)'.",
+        "tip": "Train seat/berth types in China: 硬座 (hard seat), 软座 (soft seat), 硬卧 (hard sleeper), 软卧 (soft sleeper).",
+        "examples": [
+          {
+            "hanzi": "K2288次的只有硬卧了，513.5元一张，早上8:57从天津出发。",
+            "pinyin": "K èr èr bā bā cì de zhǐyǒu yìngwò le, wǔbǎi yīshísān diǎn wǔ yuán yì zhāng, zǎoshang bā diǎn wǔshíqī cóng Tiānjīn chūfā.",
+            "translation": "Train K2288 only has hard sleepers left, 513.5 yuan per ticket, departing from Tianjin at 8:57 AM."
+          },
+          {
+            "hanzi": "没有单人间了，双人间还有，328元一天。马克只好要了三个双人间。",
+            "pinyin": "Méiyǒu dānrénjiān le, shuāngrénjiān hái yǒu, sānbǎi èrshíbā yuán yì tiān. Mǎkè zhǐhǎo yàole sān ge shuāngrénjiān.",
+            "translation": "There were no single rooms left, but double rooms were available at 328 yuan per day. Mark had no choice but to take three double rooms."
+          }
+        ]
+      }
+    ],
+    "exercises": [
+      {
+        "question": "In Dialogue 1, why do Mark and his friends ultimately choose the '自由行' (free-and-easy independent package) travel option?",
+        "promptHanzi": "旅行社有一种“自由行”的旅行方式，可以帮客人订票，订宾馆，到了地方客人自己玩儿，我觉得这种更好。",
+        "promptPinyin": "Lǚxíngshè yǒu yì zhǒng “zìyóuxíng” de lǚxíng fāngshì, kěyǐ bāng kèrén dìng piào, dìng bīnguǎn, dàole dìfang kèrén zìjǐ wánr, wǒ juéde zhè zhǒng gèng hǎo.",
+        "options": [
+          "Because the travel agency helps book tickets and hotels (帮客人订票、订宾馆), and once at the destination travelers explore freely on their own (到了地方客人自己玩儿).",
+          "Because '自由行' means traveling without buying any train tickets or staying in any hotels.",
+          "Because Ali insists on going to Harbin to see the ice lanterns.",
+          "Because the tour guide decides every minute of their schedule."
+        ],
+        "answerIndex": 0,
+        "explanation": "'自由行' combines the convenience of agency ticket/hotel booking with the freedom of independent sightseeing once at the destination."
+      },
+      {
+        "question": "What funny mistake (闹笑话) did Hirata make when buying train tickets to Kunming?",
+        "options": [
+          "He forgot the word '卧铺' (sleeper berth) and told the clerk '不要坐的，要睡觉的' ('I don't want sitting ones, I want sleeping ones').",
+          "He accidentally bought plane tickets to Tokyo instead of train tickets to Kunming.",
+          "He asked for a 'ten-star train' (十星级火车).",
+          "He bought tickets for May Day instead of January 30."
+        ],
+        "answerIndex": 0,
+        "explanation": "In the reading passage, Hirata asks the ticket clerk: “有1月30号去昆明的火车票吗？不要坐的，要睡觉的。” The clerk laughs and replies: “是不要硬座，要卧铺吧？”"
+      },
+      {
+        "question": "Look at the character triplet 请 (qǐng), 清 (qīng), and 晴 (qíng). How do their radicals distinguish their meanings?",
+        "options": [
+          "请 has 讠 (speech -> polite request 'please'), 清 has 氵 (water -> 'clear/light'), and 晴 has 日 (sun -> 'sunny day').",
+          "All three mean 'sunny weather' and can be used interchangeably.",
+          "请 relates to bamboo, 清 relates to sickness, and 晴 relates to clothing.",
+          "请 has 彳, 清 has 刂, and 晴 has 土."
+        ],
+        "answerIndex": 0,
+        "explanation": "All three share the phonetic component 青 (qīng), while their semantic radicals (讠 speech, 氵 water, 日 sun) distinguish 请坐, 清淡, and 晴天."
+      },
+      {
+        "question": "Which sentence correctly uses '前后' or '极了' according to Lesson 12 grammar?",
+        "options": [
+          "春节前后旅游的人多极了，宾馆的风景美极了。",
+          "春节前后旅游的人很极了多，风景太美极了。",
+          "我等了三十分钟前后。",
+          "这个包裹十公斤前后。"
+        ],
+        "answerIndex": 0,
+        "explanation": "'前后' is used after points in time/festivals (春节前后, 五一前后), and 'Adj + 极了' (多极了, 美极了) takes no preceding degree adverb like 很 or 太."
+      }
+    ]
+  },
+  {
+    "id": "lesson16",
+    "title": "Cultural Reader 4: Where Is a Good Place to Travel? — 文化读本4：去哪儿旅行好",
+    "chineseTitle": "文化读本4：去哪儿旅行好",
+    "unitBadge": "Mastering Chinese · Elementary 4 (会通汉语 精编版·初级4 · 文化读本)",
+    "description": "Explore China's three major travel experiences: famous mountains and great rivers ('名山大川' with spiritual energy '灵气'), urban historical sites ('历史古迹') paired with local street snacks, and relaxing weekend rural farmhouse retreats ('农家乐').",
+    "content": "Synthesized from Cultural Reader 4 (文化读本4《去哪儿旅行好》) in Mastering Chinese: Elementary 4 (会通汉语 精编版·初级4). Learners read the complete authentic essay introducing China's famous mountains and rivers (泰山、黄山、华山、峨眉山、嵩山、武当山、长江三峡、杭州西湖) and their signature wonders (日出、奇松、怪石、云海、中国功夫、小猴子), iconic historical monuments (长城、故宫、孔庙、兵马俑、苏州园林) and local snacks, and the popular weekend '农家乐' (rural farmhouse tourism) trend, while mastering '有……才……', '除了……，还……', and '顺便 + V'.",
+    "hskLevel": 4,
+    "objectives": [
+      "Understand the Chinese cultural concept of '有山有水才有灵气' (where there are mountains and water, there is spiritual vitality) and identify China's famous mountains and rivers (泰山、黄山、华山、峨眉山、嵩山、武当山、长江三峡、杭州西湖).",
+      "Match famous scenic mountains with their signature attractions: Mount Huangshan's wondrous pines, grotesque rocks, and sea of clouds (奇松、怪石、云海), Mount Tai's sunrise (日出), Mount Song & Wudang's Chinese kung fu (中国功夫), and Mount Emei's cute monkeys (可爱的小猴子).",
+      "Describe China's major historical monuments (长城、故宫、孔庙、兵马俑、苏州园林) and explain why visiting them makes it easy to sample local street snacks along the way (顺便尝尝地方小吃).",
+      "Explain what '农家乐' (nóngjiālè, rural farmhouse tourism) is and why it is popular among urban Chinese residents and international students with limited time or budget."
+    ],
+    "phoneticsAndCharacters": {
+      "title": "Cultural Guide: Famous Mountains & Rivers (名山大川), Historical Sites (历史古迹) & Rural Retreats (农家乐)",
+      "sections": [
+        {
+          "subtitle": "1. Famous Mountains & Great Rivers of China (中国的名山大川)",
+          "summary": "Chinese culture holds that '有山有水才有灵气' (landscapes possess spiritual vitality only when mountains and water come together):",
+          "items": [
+            {
+              "label": "泰山 (Tài Shān) · 华山 (Huà Shān)",
+              "pinyin": "Tài Shān · Huà Shān",
+              "detail": "Mount Tai in Shandong (renowned for viewing the sacred sunrise 看日出) and Mount Hua in Shaanxi (famous for its sheer, precipitous peaks).",
+              "examples": "去泰山看日出 (watch the sunrise on Mount Tai)"
+            },
+            {
+              "label": "黄山 (Huáng Shān — Mount Huangshan in Anhui)",
+              "pinyin": "Huáng Shān",
+              "detail": "Celebrated across China for its 'Four Wonders', especially wondrous pines (奇松 qísōng), grotesque rocks (怪石 guàishí), and the sea of clouds (云海 yúnhǎi).",
+              "examples": "奇松 (qísōng) · 怪石 (guàishí) · 云海 (yúnhǎi)"
+            },
+            {
+              "label": "嵩山 (Sōng Shān) · 武当山 (Wǔdāng Shān)",
+              "pinyin": "Sōng Shān · Wǔdāng Shān",
+              "detail": "Mount Song in Henan (home of the Shaolin Temple 少林寺) and the Wudang Mountains in Hubei—the two legendary cradles where visitors can learn Chinese kung fu (学学中国功夫).",
+              "examples": "学学中国功夫 (learn Chinese martial arts / kung fu)"
+            },
+            {
+              "label": "峨眉山 (Éméi Shān) · 长江三峡 (Chángjiāng Sānxiá) · 杭州西湖 (Hángzhōu Xīhú)",
+              "pinyin": "Éméi Shān · Chángjiāng Sānxiá · Hángzhōu Xīhú",
+              "detail": "Mount Emei in Sichuan (famous for its lively wild monkeys 可爱的小猴子), the Three Gorges of the Yangtze River, and the poetic West Lake in Hangzhou.",
+              "examples": "看看可爱的小猴子 · 长江三峡 · 杭州西湖"
+            }
+          ]
+        },
+        {
+          "subtitle": "2. Historical Monuments (历史古迹) & 'Nongjiale' Rural Tourism (农家乐)",
+          "summary": "Beyond natural landscapes, travelers can explore urban heritage sites or relax in the countryside:",
+          "items": [
+            {
+              "label": "长城 (Chángchéng) · 故宫 (Gùgōng) · 孔庙 (Kǒngmiào)",
+              "pinyin": "Chángchéng · Gùgōng · Kǒngmiào",
+              "detail": "The Great Wall and the Forbidden City in Beijing, and the Temple of Confucius in Qufu (and Beijing)—monuments to China's imperial and philosophical history.",
+              "examples": "爬长城 · 参观故宫和孔庙"
+            },
+            {
+              "label": "兵马俑 (Bīngmǎyǒng) · 苏州园林 (Sūzhōu Yuánlín)",
+              "pinyin": "Bīngmǎyǒng · Sūzhōu Yuánlín",
+              "detail": "The Terracotta Warriors and Horses in Xi'an and the Classical Gardens of Suzhou. Because these historical sites are inside or close to cities, visitors can conveniently sample local street snacks along the way (顺便尝尝这些地方的小吃).",
+              "examples": "西安兵马俑 · 苏州园林 · 顺便尝尝小吃"
+            },
+            {
+              "label": "农家乐 (nóngjiālè — Rural Farmhouse Tourism)",
+              "pinyin": "nóngjiālè",
+              "detail": "A popular weekend travel style where city residents and students visit villages near the city (城市附近的农村) to eat fresh farmhouse food, relax (放松放松), and experience rural life without needing a lot of time or money.",
+              "examples": "周末去城市附近的农村放松放松，过几天农村生活"
+            }
+          ]
+        }
+      ]
+    },
+    "dialogue": [
+      {
+        "character": "马克",
+        "hanzi": "李老师，中国好玩儿的地方太多了，我常常不知道去哪儿旅行好。您能给我介绍一下吗？",
+        "pinyin": "Lǐ lǎoshī, Zhōngguó hǎowánr de dìfang tài duō le, wǒ chángcháng bù zhīdào qù nǎr lǚxíng hǎo. Nín néng gěi wǒ jièshào yíxià ma?",
+        "translation": "Teacher Li, there are so many fun places in China that I often don't know where is best to travel. Could you introduce some to me?"
+      },
+      {
+        "character": "李老师",
+        "hanzi": "如果你喜欢山水，可以去泰山、黄山、峨眉山或者杭州西湖。中国人觉得有山有水才有灵气。",
+        "pinyin": "Rúguǒ nǐ xǐhuan shānshuǐ, kěyǐ qù Tài Shān, Huáng Shān, Éméi Shān huòzhě Hángzhōu Xīhú. Zhōngguórén juéde yǒu shān yǒu shuǐ cái yǒu língqì.",
+        "translation": "If you like mountains and water, you can go to Mount Tai, Mount Huangshan, Mount Emei, or West Lake in Hangzhou. Chinese people believe that only where there are mountains and water is there spiritual vitality."
+      },
+      {
+        "character": "马克",
+        "hanzi": "除了名山大川，我还想看历史古迹，吃好吃的小吃！",
+        "pinyin": "Chúle míngshān-dàchuān, wǒ hái xiǎng kàn lìshǐ gǔjì, chī hǎochī de xiǎochī!",
+        "translation": "Besides famous mountains and great rivers, I also want to see historical sites and eat delicious local snacks!"
+      },
+      {
+        "character": "李老师",
+        "hanzi": "那你可以去长城、故宫、兵马俑或者苏州园林。这些古迹离城市很近，自己去很方便，顺便可以尝尝当地的小吃。",
+        "pinyin": "Nà nǐ kěyǐ qù Chángchéng, Gùgōng, Bīngmǎyǒng huòzhě Sūzhōu Yuánlín. Zhèxiē gǔjì lí chéngshì hěn jìn, zìjǐ qù hěn fāngbiàn, shùnbiàn kěyǐ chángchang dāngdì de xiǎochī.",
+        "translation": "Then you can go to the Great Wall, the Forbidden City, the Terracotta Warriors, or the Suzhou Gardens. These historical sites are close to cities, very convenient to visit on your own, and you can sample local snacks along the way."
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Dialogue 1: Why Chinese People Love Famous Mountains & Great Rivers (为什么中国人喜欢名山大川)",
+        "context": "Based on the Cultural Reader 4 discussion prompts (话题讨论 1): Mark (马克) asks Teacher Li (李老师) about the meaning of '名山大川' and why Chinese travelers love scenic mountains and rivers.",
+        "lines": [
+          {
+            "character": "马克",
+            "hanzi": "李老师，课文里说“中国名山大川多极了”，请问“名山大川”是什么意思？",
+            "pinyin": "Lǐ lǎoshī, kèwén lǐ shuō “Zhōngguó míngshān-dàchuān duō jí le”, qǐngwèn “míngshān-dàchuān” shì shénme yìsi?",
+            "translation": "Teacher Li, the text says 'China has an extreme number of míngshān-dàchuān'—may I ask what 'míngshān-dàchuān' means?"
+          },
+          {
+            "character": "李老师",
+            "hanzi": "“名山大川”就是有名的山和大江大河。因为中国人觉得有山有水才有灵气，而且这些地方一般都有自己的历史和故事。",
+            "pinyin": "“Míngshān-dàchuān” jiùshì yǒumíng de shān hé dàjiāng-dàhé. Yīnwèi Zhōngguórén juéde yǒu shān yǒu shuǐ cái yǒu língqì, érqiě zhèxiē dìfang yìbān dōu yǒu zìjǐ de lìshǐ hé gùshi.",
+            "translation": "'Míngshān-dàchuān' means famous mountains and great rivers. Because Chinese people feel that a place has spiritual vitality only when it has both mountains and water, and these places usually have their own history and stories."
+          },
+          {
+            "character": "马克",
+            "hanzi": "如果我想看奇松、怪石、云海，或者想学中国功夫，应该去哪座山呢？",
+            "pinyin": "Rúguǒ wǒ xiǎng kàn qísōng, guàishí, yúnhǎi, huòzhě xiǎng xué Zhōngguó gōngfu, yīnggāi qù nǎ zuò shān ne?",
+            "translation": "If I want to see wondrous pines, grotesque rocks, and a sea of clouds, or if I want to learn Chinese kung fu, which mountains should I visit?"
+          },
+          {
+            "character": "李老师",
+            "hanzi": "看奇松、怪石和云海可以去安徽黄山；看日出可以去山东泰山；想学中国功夫可以去嵩山或者武当山；去四川峨眉山还能看到可爱的小猴子呢！",
+            "pinyin": "Kàn qísōng, guàishí hé yúnhǎi kěyǐ qù Ānhuī Huáng Shān; kàn rìchū kěyǐ qù Shāndōng Tài Shān; xiǎng xué Zhōngguó gōngfu kěyǐ qù Sōng Shān huòzhě Wǔdāng Shān; qù Sìchuān Éméi Shān hái néng kàndào kě'ài de xiǎo hóuzi ne!",
+            "translation": "To see wondrous pines, grotesque rocks, and the sea of clouds, you can go to Mount Huangshan in Anhui; to watch the sunrise, go to Mount Tai in Shandong; to learn Chinese kung fu, go to Mount Song or the Wudang Mountains; and on Mount Emei in Sichuan you can even see cute little monkeys!"
+          }
+        ]
+      },
+      {
+        "title": "Dialogue 2: Choosing Between Urban Historical Sites & Weekend 'Nongjiale' (历史古迹与周末“农家乐”)",
+        "context": "Based on the Cultural Reader 4 discussion prompts (话题讨论 2): Jin Zhiying (金志英) and her classmate Lin Na (林娜) talk about visiting urban historical sites and trying '农家乐' (rural farmhouse tourism) on the weekend.",
+        "lines": [
+          {
+            "character": "金志英",
+            "hanzi": "林娜，这个周末我们没有太多的时间和钱，不敢去很远的地方，你说去哪儿玩儿好？",
+            "pinyin": "Lín Nà, zhège zhōumò wǒmen méiyǒu tài duō de shíjiān hé qián, bù gǎn qù hěn yuǎn de dìfang, nǐ shuō qù nǎr wánr hǎo?",
+            "translation": "Lin Na, this weekend we don't have too much time or money and don't dare go somewhere very far—where do you think would be a good place to go?"
+          },
+          {
+            "character": "林娜",
+            "hanzi": "我们可以试试“农家乐”！这种旅游最近在中国很流行。",
+            "pinyin": "Wǒmen kěyǐ shìshi “nóngjiālè”! Zhè zhǒng lǚyóu zuìjìn zài Zhōngguó hěn liúxíng.",
+            "translation": "We can try 'Nongjiale' (rural farmhouse tourism)! This kind of travel has been very popular in China recently."
+          },
+          {
+            "character": "金志英",
+            "hanzi": "什么是“农家乐”呀？",
+            "pinyin": "Shénme shì “nóngjiālè” ya?",
+            "translation": "What is 'Nongjiale'?"
+          },
+          {
+            "character": "林娜",
+            "hanzi": "就是周末的时候去城市附近的农村放松放松，吃农家菜，过几天农村生活。或者我们也可以去市里的历史古迹，顺便尝尝那儿的小吃。",
+            "pinyin": "Jiùshì zhōumò de shíhou qù chéngshì fùjìn de nóngcūn fàngsōng fàngsōng, chī nóngjiācài, guò jǐ tiān nóngcūn shēnghuó. Huòzhě wǒmen yě kěyǐ qù shì lǐ de lìshǐ gǔjì, shùnbiàn chángchang nàr de xiǎochī.",
+            "translation": "It means going to the countryside near the city on the weekend to relax, eat farmhouse dishes, and experience rural life for a couple of days. Or we can visit historical sites in the city and sample the local snacks there along the way."
+          },
+          {
+            "character": "金志英",
+            "hanzi": "太棒了！那我们这周去“农家乐”放松放松，下个月再去西安看兵马俑、去苏州看园林！",
+            "pinyin": "Tài bàng le! Nà wǒmen zhè zhōu qù “nóngjiālè” fàngsōng fàngsōng, xià ge yuè zài qù Xī'ān kàn Bīngmǎyǒng, qù Sūzhōu kàn yuánlín!",
+            "translation": "Awesome! Then let's go to a 'Nongjiale' to relax this week, and next month go to Xi'an to see the Terracotta Warriors and to Suzhou to see the classical gardens!"
+          }
+        ]
+      }
+    ],
+    "readingPassage": {
+      "title": "Cultural Reader 4: Where Is a Good Place to Travel? (去哪儿旅行好)",
+      "subtitle": "Complete authentic reading text from Mastering Chinese: Elementary 4 (会通汉语 精编版·初级4 · 文化读本4).",
+      "paragraphs": [
+        {
+          "hanzi": "很多留学生都喜欢旅游，可是中国好玩儿的地方、好看的风景、好吃的东西太多了，他们常常不知道去哪儿旅行好。我跟大家说说自己的体会吧。",
+          "pinyin": "Hěn duō liúxuéshēng dōu xǐhuan lǚyóu, kěshì Zhōngguó hǎowánr de dìfang, hǎokàn de fēngjǐng, hǎochī de dōngxi tài duō le, tāmen chángcháng bù zhīdào qù nǎr lǚxíng hǎo. Wǒ gēn dàjiā shuōshuo zìjǐ de tǐhuì ba.",
+          "translation": "Many international students love traveling, but because China has so many fun places, beautiful sights, and delicious foods, they often don't know where is best to travel. Let me share my own personal experiences and insights with everyone."
+        },
+        {
+          "hanzi": "中国名山大川多极了，因为中国人觉得有山有水才有灵气。名山大川一般都有自己的历史和故事，风景也很美丽。如果你喜欢山水，可以去泰山、黄山、华山、峨眉山、嵩山、武当山、长江三峡和杭州西湖，去看看日出、奇松、怪石、云海，学学中国功夫，看看可爱的小猴子。",
+          "pinyin": "Zhōngguó míngshān-dàchuān duō jí le, yīnwèi Zhōngguórén juéde yǒu shān yǒu shuǐ cái yǒu língqì. Míngshān-dàchuān yìbān dōu yǒu zìjǐ de lìshǐ hé gùshi, fēngjǐng yě hěn měilì. Rúguǒ nǐ xǐhuan shānshuǐ, kěyǐ qù Tài Shān, Huáng Shān, Huà Shān, Éméi Shān, Sōng Shān, Wǔdāng Shān, Chángjiāng Sānxiá hé Hángzhōu Xīhú, qù kànkan rìchū, qísōng, guàishí, yúnhǎi, xuéxue Zhōngguó gōngfu, kànkan kě'ài de xiǎo hóuzi.",
+          "translation": "China has an extraordinary number of famous mountains and great rivers, because Chinese people believe that only where there are mountains and water is there spiritual vitality. Famous mountains and great rivers generally have their own history and stories, and their scenery is also very beautiful. If you like mountains and water, you can go to Mount Tai, Mount Huangshan, Mount Hua, Mount Emei, Mount Song, the Wudang Mountains, the Three Gorges of the Yangtze River, and West Lake in Hangzhou—to see the sunrise, wondrous pines, grotesque rocks, and sea of clouds, learn a bit of Chinese kung fu, and see the cute little monkeys."
+        },
+        {
+          "hanzi": "除了名山大川，中国还有很多历史古迹，比如长城、故宫、孔庙、兵马俑、苏州园林。这些古迹常常在城市里或者离城市很近，自己去很方便，顺便可以尝尝这些地方的小吃，听说都好吃极了。",
+          "pinyin": "Chúle míngshān-dàchuān, Zhōngguó hái yǒu hěn duō lìshǐ gǔjì, bǐrú Chángchéng, Gùgōng, Kǒngmiào, Bīngmǎyǒng, Sūzhōu Yuánlín. Zhèxiē gǔjì chángcháng zài chéngshì lǐ huòzhě lí chéngshì hěn jìn, zìjǐ qù hěn fāngbiàn, shùnbiàn kěyǐ chángchang zhèxiē dìfang de xiǎochī, tīngshuō dōu hǎochī jí le.",
+          "translation": "Besides famous mountains and great rivers, China also has many historical sites, such as the Great Wall, the Forbidden City, the Temple of Confucius, the Terracotta Warriors, and the Classical Gardens of Suzhou. These historical sites are often located inside cities or very close to cities, making it very convenient to visit on your own, and along the way you can sample the local snacks of these places—I hear they are all extremely delicious."
+        },
+        {
+          "hanzi": "如果你觉得自己汉语还不太好，也没有太多的时间和钱，不敢去很远的地方，你还可以试试“农家乐”。这种旅游最近在中国很流行，很多中国人周末的时候都会去城市附近的农村放松放松，过几天农村生活。",
+          "pinyin": "Rúguǒ nǐ juéde zìjǐ Hànyǔ hái bú tài hǎo, yě méiyǒu tài duō de shíjiān hé qián, bù gǎn qù hěn yuǎn de dìfang, nǐ hái kěyǐ shìshi “nóngjiālè”. Zhè zhǒng lǚyóu zuìjìn zài Zhōngguó hěn liúxíng, hěn duō Zhōngguórén zhōumò de shíhou dōu huì qù chéngshì fùjìn de nóngcūn fàngsōng fàngsōng, guò jǐ tiān nóngcūn shēnghuó.",
+          "translation": "If you feel that your Chinese is still not very good, and you don't have too much time or money and don't dare go to very distant places, you can also try 'Nongjiale' (rural farmhouse tourism). This type of travel has been very popular in China recently; on weekends, many Chinese people go to the countryside near the city to relax and spend a few days living a rural life."
+        }
+      ]
+    },
+    "vocabularyExplanation": [
+      {
+        "hanzi": "体会",
+        "pinyin": "tǐhuì",
+        "english": "personal experience; insight; understanding learned from experience",
+        "partOfSpeech": "名/动 (noun/verb)",
+        "exampleHanzi": "我跟大家说说自己的体会吧。",
+        "examplePinyin": "Wǒ gēn dàjiā shuōshuo zìjǐ de tǐhuì ba.",
+        "exampleTranslation": "Let me share my own personal insights with everyone."
+      },
+      {
+        "hanzi": "名山大川",
+        "pinyin": "míngshān-dàchuān",
+        "english": "famous mountains and great rivers",
+        "partOfSpeech": "成语 (four-character idiom)",
+        "exampleHanzi": "中国名山大川多极了，风景也很美丽。",
+        "examplePinyin": "Zhōngguó míngshān-dàchuān duō jí le, fēngjǐng yě hěn měilì.",
+        "exampleTranslation": "China has an extreme number of famous mountains and great rivers, and the scenery is very beautiful."
+      },
+      {
+        "hanzi": "灵气",
+        "pinyin": "língqì",
+        "english": "spiritual energy / vitality (of mountains and waters); intelligence",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "中国人觉得有山有水才有灵气。",
+        "examplePinyin": "Zhōngguórén juéde yǒu shān yǒu shuǐ cái yǒu língqì.",
+        "exampleTranslation": "Chinese people believe that only where there are mountains and water is there spiritual vitality."
+      },
+      {
+        "hanzi": "历史",
+        "pinyin": "lìshǐ",
+        "english": "history",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "名山大川一般都有自己的历史和故事。",
+        "examplePinyin": "Míngshān-dàchuān yìbān dōu yǒu zìjǐ de lìshǐ hé gùshi.",
+        "exampleTranslation": "Famous mountains and great rivers generally have their own history and stories."
+      },
+      {
+        "hanzi": "故事",
+        "pinyin": "gùshi",
+        "english": "story; tale",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "杭州西湖有很多美丽的历史故事。",
+        "examplePinyin": "Hángzhōu Xīhú yǒu hěn duō měilì de lìshǐ gùshi.",
+        "exampleTranslation": "West Lake in Hangzhou has many beautiful historical stories."
+      },
+      {
+        "hanzi": "美丽",
+        "pinyin": "měilì",
+        "english": "beautiful",
+        "partOfSpeech": "形 (adj.)",
+        "exampleHanzi": "这些地方的风景都很美丽。",
+        "examplePinyin": "Zhèxiē dìfang de fēngjǐng dōu hěn měilì.",
+        "exampleTranslation": "The scenery of these places is all very beautiful."
+      },
+      {
+        "hanzi": "如果",
+        "pinyin": "rúguǒ",
+        "english": "if; in case",
+        "partOfSpeech": "连 (conj.)",
+        "exampleHanzi": "如果你喜欢山水，可以去泰山、黄山和杭州西湖。",
+        "examplePinyin": "Rúguǒ nǐ xǐhuan shānshuǐ, kěyǐ qù Tài Shān, Huáng Shān hé Hángzhōu Xīhú.",
+        "exampleTranslation": "If you like mountains and water, you can go to Mount Tai, Mount Huangshan, and West Lake in Hangzhou."
+      },
+      {
+        "hanzi": "奇松",
+        "pinyin": "qísōng",
+        "english": "wondrous / uniquely shaped pine trees (famous on Mount Huangshan)",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "去黄山可以看看日出、奇松、怪石、云海。",
+        "examplePinyin": "Qù Huáng Shān kěyǐ kànkan rìchū, qísōng, guàishí, yúnhǎi.",
+        "exampleTranslation": "Going to Mount Huangshan, you can see the sunrise, wondrous pines, grotesque rocks, and sea of clouds."
+      },
+      {
+        "hanzi": "怪石",
+        "pinyin": "guàishí",
+        "english": "grotesque / fantastically shaped rocks",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "黄山的奇松和怪石非常有名。",
+        "examplePinyin": "Huáng Shān de qísōng hé guàishí fēicháng yǒumíng.",
+        "exampleTranslation": "Mount Huangshan's wondrous pines and grotesque rocks are very famous."
+      },
+      {
+        "hanzi": "功夫",
+        "pinyin": "gōngfu",
+        "english": "kung fu (Chinese martial arts); skill",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "去嵩山或者武当山可以学学中国功夫。",
+        "examplePinyin": "Qù Sōng Shān huòzhě Wǔdāng Shān kěyǐ xuéxue Zhōngguó gōngfu.",
+        "exampleTranslation": "Going to Mount Song or the Wudang Mountains, you can learn some Chinese kung fu."
+      },
+      {
+        "hanzi": "猴子",
+        "pinyin": "hóuzi",
+        "english": "monkey",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "去峨眉山可以看看可爱的小猴子。",
+        "examplePinyin": "Qù Éméi Shān kěyǐ kànkan kě'ài de xiǎo hóuzi.",
+        "exampleTranslation": "Going to Mount Emei, you can see the cute little monkeys."
+      },
+      {
+        "hanzi": "除了",
+        "pinyin": "chúle",
+        "english": "besides; in addition to; except for",
+        "partOfSpeech": "介 (preposition)",
+        "exampleHanzi": "除了名山大川，中国还有很多历史古迹。",
+        "examplePinyin": "Chúle míngshān-dàchuān, Zhōngguó hái yǒu hěn duō lìshǐ gǔjì.",
+        "exampleTranslation": "Besides famous mountains and great rivers, China also has many historical sites."
+      },
+      {
+        "hanzi": "古迹",
+        "pinyin": "gǔjì",
+        "english": "historical site; historic monument / relic",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "这些古迹常常在城市里或者离城市很近。",
+        "examplePinyin": "Zhèxiē gǔjì chángcháng zài chéngshì lǐ huòzhě lí chéngshì hěn jìn.",
+        "exampleTranslation": "These historical sites are often inside cities or very close to cities."
+      },
+      {
+        "hanzi": "顺便",
+        "pinyin": "shùnbiàn",
+        "english": "conveniently along the way; in passing; while one is at it",
+        "partOfSpeech": "副 (adverb)",
+        "exampleHanzi": "自己去很方便，顺便可以尝尝这些地方的小吃。",
+        "examplePinyin": "Zìjǐ qù hěn fāngbiàn, shùnbiàn kěyǐ chángchang zhèxiē dìfang de xiǎochī.",
+        "exampleTranslation": "Going on your own is very convenient, and along the way you can sample the local snacks of these places."
+      },
+      {
+        "hanzi": "敢",
+        "pinyin": "gǎn",
+        "english": "to dare; to have the courage to",
+        "partOfSpeech": "动 (modal verb)",
+        "exampleHanzi": "因为汉语还不太好，他不敢一个人去很远的地方。",
+        "examplePinyin": "Yīnwèi Hànyǔ hái bú tài hǎo, tā bù gǎn yí ge rén qù hěn yuǎn de dìfang.",
+        "exampleTranslation": "Because his Chinese is still not very good, he doesn't dare go to very distant places alone."
+      },
+      {
+        "hanzi": "农家乐",
+        "pinyin": "nóngjiālè",
+        "english": "rural farmhouse tourism / country homestay recreation",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "你还可以试试“农家乐”，去城市附近的农村放松放松。",
+        "examplePinyin": "Nǐ hái kěyǐ shìshi “nóngjiālè”, qù chéngshì fùjìn de nóngcūn fàngsōng fàngsōng.",
+        "exampleTranslation": "You can also try 'Nongjiale' and go to the countryside near the city to relax."
+      },
+      {
+        "hanzi": "流行",
+        "pinyin": "liúxíng",
+        "english": "popular; fashionable; prevalent",
+        "partOfSpeech": "形/动 (adj./verb)",
+        "exampleHanzi": "这种旅游最近在中国很流行。",
+        "examplePinyin": "Zhè zhǒng lǚyóu zuìjìn zài Zhōngguó hěn liúxíng.",
+        "exampleTranslation": "This kind of travel has been very popular in China recently."
+      },
+      {
+        "hanzi": "农村",
+        "pinyin": "nóngcūn",
+        "english": "countryside; rural area; village",
+        "partOfSpeech": "名 (noun)",
+        "exampleHanzi": "很多中国人周末都会去城市附近的农村过几天农村生活。",
+        "examplePinyin": "Hěn duō Zhōngguórén zhōumò dōu huì qù chéngshì fùjìn de nóngcūn guò jǐ tiān nóngcūn shēnghuó.",
+        "exampleTranslation": "Many Chinese people go to the countryside near the city on weekends to spend a few days living a rural life."
+      },
+      {
+        "hanzi": "放松",
+        "pinyin": "fàngsōng",
+        "english": "to relax; to unwind",
+        "partOfSpeech": "动 (verb)",
+        "exampleHanzi": "周末去农村放松放松，身体和心情都会很好。",
+        "examplePinyin": "Zhōumò qù nóngcūn fàngsōng fàngsōng, shēntǐ hé xīnqíng dōu huì hěn hǎo.",
+        "exampleTranslation": "Going to the countryside to relax on the weekend is great for both your body and mood."
+      }
+    ],
+    "grammarPoint": "Necessary Conditions ('有……才……'), Additive Scope ('除了……，还……'), and '顺便 + V'",
+    "structure": "有 + Condition + 才 + Result  |  除了 + A (以外)，Subject + 还 / 也 + B  |  顺便 + Verb",
+    "explanation": "Cultural Reader 4 highlights three high-frequency HSK 4 discourse structures: (1) '有……才……' ('only when there is... is there...'), expressing a necessary condition; (2) '除了……，还……' ('besides / in addition to A, also B'), expanding a topic from natural landscapes to historical monuments; and (3) the adverb '顺便 (shùnbiàn)' ('conveniently along the way / while at it') paired with '如果……，(还)可以……' to offer practical travel suggestions.",
+    "examples": [
+      {
+        "hanzi": "中国名山大川多极了，因为中国人觉得有山有水才有灵气。",
+        "pinyin": "Zhōngguó míngshān-dàchuān duō jí le, yīnwèi Zhōngguórén juéde yǒu shān yǒu shuǐ cái yǒu língqì.",
+        "translation": "China has an extreme number of famous mountains and great rivers, because Chinese people believe that only where there are mountains and water is there spiritual vitality."
+      },
+      {
+        "hanzi": "除了名山大川，中国还有很多历史古迹，比如长城、故宫、孔庙、兵马俑、苏州园林。",
+        "pinyin": "Chúle míngshān-dàchuān, Zhōngguó hái yǒu hěn duō lìshǐ gǔjì, bǐrú Chángchéng, Gùgōng, Kǒngmiào, Bīngmǎyǒng, Sūzhōu Yuánlín.",
+        "translation": "Besides famous mountains and great rivers, China also has many historical sites, such as the Great Wall, the Forbidden City, the Temple of Confucius, the Terracotta Warriors, and the Classical Gardens of Suzhou."
+      },
+      {
+        "hanzi": "这些古迹离城市很近，自己去很方便，顺便可以尝尝这些地方的小吃。",
+        "pinyin": "Zhèxiē gǔjì lí chéngshì hěn jìn, zìjǐ qù hěn fāngbiàn, shùnbiàn kěyǐ chángchang zhèxiē dìfang de xiǎochī.",
+        "translation": "These historical sites are close to cities, making it convenient to go on your own, and along the way you can sample the local snacks of these places."
+      }
+    ],
+    "grammarNotes": [
+      {
+        "title": "1. Necessary Condition with '(因为……) 有 / 只有……才……'",
+        "structure": "(只有) / 有 + Condition + 才 + Result",
+        "explanation": "The adverb '才 (cái)' placed before a verb or '有' indicates that the preceding condition is essential before the result can happen ('only if / only when...'). In '有山有水才有灵气', having both mountains and water is the necessary condition for a landscape to possess spiritual vitality.",
+        "tip": "Contrast 才 (necessary condition or later than expected) with 就 (sufficient condition or early/fast).",
+        "examples": [
+          {
+            "hanzi": "中国人觉得有山有水才有灵气。",
+            "pinyin": "Zhōngguórén juéde yǒu shān yǒu shuǐ cái yǒu língqì.",
+            "translation": "Chinese people believe that only when there are both mountains and water is there spiritual vitality."
+          },
+          {
+            "hanzi": "只有早睡早起、多运动，才能有一个健康的身体。",
+            "pinyin": "Zhǐyǒu zǎoshuì-zǎoqǐ, duō yùndòng, cái néng yǒu yí ge jiànkāng de shēntǐ.",
+            "translation": "Only by going to bed early, rising early, and exercising more can you have a healthy body."
+          }
+        ]
+      },
+      {
+        "title": "2. Additive Scope with '除了……(以外)，还 / 也……' & Listing Examples with '比如'",
+        "structure": "除了 + Category A (以外)，Subject + 还 / 也 + Verb + Category B，比如 + Examples",
+        "explanation": "When '除了 (chúle)' is paired with '还 (hái)' or '也 (yě)' in the main clause, it is inclusive ('in addition to A, there is also B'). Follow the statement with '比如 (bǐrú, for example / such as)' to list representative examples.",
+        "tip": "除了……还…… includes A and adds B; 除了……都…… excludes A.",
+        "examples": [
+          {
+            "hanzi": "除了名山大川，中国还有很多历史古迹，比如长城、故宫、孔庙、兵马俑、苏州园林。",
+            "pinyin": "Chúle míngshān-dàchuān, Zhōngguó hái yǒu hěn duō lìshǐ gǔjì, bǐrú Chángchéng, Gùgōng, Kǒngmiào, Bīngmǎyǒng, Sūzhōu Yuánlín.",
+            "translation": "Besides famous mountains and great rivers, China also has many historical sites, such as the Great Wall, the Forbidden City, the Temple of Confucius, the Terracotta Warriors, and the Classical Gardens of Suzhou."
+          }
+        ]
+      },
+      {
+        "title": "3. Conditional Recommendations '如果……，(还)可以……' & Doing Something Along the Way '顺便 + V'",
+        "structure": "如果 + Condition，(Subject) + 可以 / 还可以 + Action  |  顺便 (+ 可以) + Verb Phrase",
+        "explanation": "'如果……，可以 / 还可以……' tailors recommendations to different listener situations (whether someone loves nature or has limited time and budget). The adverb '顺便 (shùnbiàn)' means doing a secondary action conveniently as part of the same trip without extra effort.",
+        "tip": "Place 顺便 before the modal verb or main verb: 顺便可以尝尝小吃 / 你出去寄包裹的时候，顺便帮我取一下外卖吧。",
+        "examples": [
+          {
+            "hanzi": "这些古迹常常在城市里或者离城市很近，自己去很方便，顺便可以尝尝这些地方的小吃。",
+            "pinyin": "Zhèxiē gǔjì chángcháng zài chéngshì lǐ huòzhě lí chéngshì hěn jìn, zìjǐ qù hěn fāngbiàn, shùnbiàn kěyǐ chángchang zhèxiē dìfang de xiǎochī.",
+            "translation": "These historical sites are often in or near cities, so going on your own is very convenient, and along the way you can sample the local snacks."
+          },
+          {
+            "hanzi": "如果你觉得自己汉语还不太好，也没有太多的时间和钱，不敢去很远的地方，你还可以试试“农家乐”。",
+            "pinyin": "Rúguǒ nǐ juéde zìjǐ Hànyǔ hái bú tài hǎo, yě méiyǒu tài duō de shíjiān hé qián, bù gǎn qù hěn yuǎn de dìfang, nǐ hái kěyǐ shìshi “nóngjiālè”.",
+            "translation": "If you feel your Chinese is still not very good, and you don't have much time or money and don't dare go far, you can also try 'Nongjiale'."
+          }
+        ]
+      }
+    ],
+    "exercises": [
+      {
+        "question": "According to Cultural Reader 4, why do Chinese people love '名山大川' (famous mountains and great rivers)?",
+        "promptHanzi": "中国名山大川多极了，因为中国人觉得有山有水才有灵气。名山大川一般都有自己的历史和故事，风景也很美丽。",
+        "promptPinyin": "Zhōngguó míngshān-dàchuān duō jí le, yīnwèi Zhōngguórén juéde yǒu shān yǒu shuǐ cái yǒu língqì. Míngshān-dàchuān yìbān dōu yǒu zìjǐ de lìshǐ hé gùshi, fēngjǐng yě hěn měilì.",
+        "options": [
+          "Because Chinese people believe that only where there are mountains and water is there spiritual vitality (有山有水才有灵气), and they have rich history, stories, and beautiful scenery.",
+          "Because all famous mountains are located inside city shopping malls.",
+          "Because international students are not allowed to visit historical sites.",
+          "Because mountains and rivers have no history or stories."
+        ],
+        "answerIndex": 0,
+        "explanation": "Paragraph 2 states: “因为中国人觉得有山有水才有灵气。名山大川一般都有自己的历史和故事，风景也很美丽。”"
+      },
+      {
+        "question": "Which group of attractions is specifically mentioned in the text as sights and experiences you can enjoy when visiting famous mountains and rivers (泰山、黄山、峨眉山、嵩山、武当山等)?",
+        "options": [
+          "Watching the sunrise (日出), wondrous pines (奇松), grotesque rocks (怪石), and sea of clouds (云海), learning Chinese kung fu (中国功夫), and seeing cute monkeys (可爱的小猴子).",
+          "Visiting the Terracotta Warriors and Forbidden City inside a supermarket.",
+          "Exchanging US dollars into RMB and mailing a 10-kg parcel.",
+          "Buying hard-seat tickets to Ottawa in winter."
+        ],
+        "answerIndex": 0,
+        "explanation": "Paragraph 2 lists: “去看看日出、奇松、怪石、云海，学学中国功夫，看看可爱的小猴子。”"
+      },
+      {
+        "question": "Which five historical sites (历史古迹) are given as examples in Paragraph 3, and what can travelers conveniently do along the way (顺便)?",
+        "options": [
+          "Great Wall (长城), Forbidden City (故宫), Temple of Confucius (孔庙), Terracotta Warriors (兵马俑), and Classical Gardens of Suzhou (苏州园林); sample delicious local snacks along the way (顺便尝尝这些地方的小吃).",
+          "Mount Tai, Mount Huangshan, Mount Hua, Mount Emei, and Mount Song; go skiing.",
+          "Harbin, Sanya, Ottawa, Tokyo, and London; open a bank card.",
+          "Hospital, post office, bank, supermarket, and KTV."
+        ],
+        "answerIndex": 0,
+        "explanation": "Paragraph 3 states: “除了名山大川，中国还有很多历史古迹，比如长城、故宫、孔庙、兵马俑、苏州园林。这些古迹常常在城市里或者离城市很近，自己去很方便，顺便可以尝尝这些地方的小吃，听说都好吃极了。”"
+      },
+      {
+        "question": "What does the author recommend for an international student whose Chinese isn't very fluent yet and who doesn't have much time or money to travel far?",
+        "options": [
+          "Try '农家乐' (rural farmhouse tourism) in the countryside near the city (城市附近的农村) to relax and experience rural life for a few days.",
+          "Book a 'ten-star hotel' (十星级酒店) in Sanya during the Spring Festival.",
+          "Stay up all night playing mobile games in the dormitory.",
+          "Never leave the dormitory on weekends."
+        ],
+        "answerIndex": 0,
+        "explanation": "Paragraph 4 concludes: “如果你觉得自己汉语还不太好，也没有太多的时间和钱，不敢去很远的地方，你还可以试试‘农家乐’……去城市附近的农村放松放松，过几天农村生活。”"
+      }
+    ]
+  }
 ];
+

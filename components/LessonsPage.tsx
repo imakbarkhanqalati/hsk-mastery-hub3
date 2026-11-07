@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Lesson } from '../data/lessons';
+import { getLessonCharacters } from '../utils/lessonCharacters';
 
 interface LessonCardProps {
   lesson: Lesson;
@@ -15,6 +16,7 @@ const LessonCard: React.FC<LessonCardProps> = ({
 }) => {
   const dialogueCount = lesson.dialogues ? lesson.dialogues.length : 1;
   const vocabCount = lesson.vocabularyExplanation.length;
+  const unitCharacters = useMemo(() => getLessonCharacters(lesson), [lesson]);
 
   return (
     <div
@@ -42,6 +44,30 @@ const LessonCard: React.FC<LessonCardProps> = ({
       <div className="lesson-card__content">
         <h3 className="lesson-card__title">{lesson.title}</h3>
         <p className="lesson-card__description">{lesson.description}</p>
+
+        {unitCharacters.length > 0 && (
+          <div className="lesson-card__cast" aria-label="Featured characters in this lesson">
+            <div className="lesson-card__cast-avatars">
+              {unitCharacters.slice(0, 5).map(char => (
+                <img
+                  key={char.id}
+                  src={char.avatarUrl}
+                  alt={`${char.hanziName} (${char.englishName})`}
+                  title={`${char.hanziName} (${char.englishName})`}
+                  referrerPolicy="no-referrer"
+                  className="lesson-card__cast-avatar"
+                />
+              ))}
+            </div>
+            <span className="lesson-card__cast-names font-noto-sc">
+              {unitCharacters
+                .slice(0, 4)
+                .map(c => c.hanziName)
+                .join(' · ')}
+              {unitCharacters.length > 4 ? ` +${unitCharacters.length - 4}` : ''}
+            </span>
+          </div>
+        )}
 
         <div className="lesson-card__footer">
           <span className="lesson-card__stats tabular-nums">

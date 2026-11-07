@@ -32,3 +32,10 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# AI Studio temporary media & chat attachments
+.aistudio
+.aistudio/
+public/assets/aistudio
+public/assets/aistudio/
+

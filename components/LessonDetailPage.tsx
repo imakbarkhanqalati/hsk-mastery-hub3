@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Lesson, lessons as allLessons } from '../data/lessons';
 import VocabCard from './VocabCard';
 import { speakChineseText, UserVocabProgress } from '../utils/progress';
+import { getLessonCharacters, resolveSpeakerGroup } from '../utils/lessonCharacters';
 import { Word } from '../types';
 
 interface LessonDetailPageProps {
@@ -29,6 +30,7 @@ const LessonDetailPage: React.FC<LessonDetailPageProps> = ({
   const [showPinyin, setShowPinyin] = useState<boolean>(true);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [revealedQuestions, setRevealedQuestions] = useState<Record<number, boolean>>({});
+  const [failedAvatarIds, setFailedAvatarIds] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     setActiveTab('dialogue');
@@ -36,6 +38,8 @@ const LessonDetailPage: React.FC<LessonDetailPageProps> = ({
     setRevealedQuestions({});
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [lesson.id]);
+
+  const lessonCharacters = useMemo(() => getLessonCharacters(lesson), [lesson]);
 
   const dialogueSections =
     lesson.dialogues && lesson.dialogues.length > 0
@@ -132,6 +136,93 @@ const LessonDetailPage: React.FC<LessonDetailPageProps> = ({
           </div>
           <h1 className="lesson-title">{lesson.title}</h1>
           <p className="lesson-description">{lesson.description}</p>
+
+          {lessonCharacters.length > 0 && (
+            <div className="lesson-characters-section" aria-label="Characters in this lesson">
+              <div className="lesson-characters-section__header">
+                <h2 className="lesson-characters-section__title">
+                  Characters in This Lesson · <span className="font-noto-sc">本课出场人物</span>
+                </h2>
+                <span className="lesson-characters-section__meta tabular-nums">
+                  {lessonCharacters.length}{' '}
+                  {lessonCharacters.length === 1 ? 'Character' : 'Characters'}
+                </span>
+              </div>
+
+              <div className="lesson-characters-grid">
+                {lessonCharacters.map(char => {
+                  const hasFailed = Boolean(failedAvatarIds[char.id]);
+                  return (
+                    <div key={char.id} className="lesson-character-card">
+                      <div className="lesson-character-card__avatar-wrap">
+                        {!hasFailed ? (
+                          <img
+                            src={char.avatarUrl}
+                            alt={`${char.hanziName} (${char.englishName})`}
+                            referrerPolicy="no-referrer"
+                            className="lesson-character-card__avatar"
+                            onError={() =>
+                              setFailedAvatarIds(prev => ({ ...prev, [char.id]: true }))
+                            }
+                          />
+                        ) : (
+                          <div
+                            className="lesson-character-card__avatar-fallback font-noto-sc"
+                            aria-hidden="true"
+                          >
+                            {char.sealChar}
+                          </div>
+                        )}
+                        <span
+                          className="lesson-character-card__seal font-noto-sc"
+                          aria-hidden="true"
+                        >
+                          {char.sealChar}
+                        </span>
+                      </div>
+
+                      <div className="lesson-character-card__info">
+                        <div className="lesson-character-card__name-row">
+                          <span className="lesson-character-card__hanzi font-noto-sc">
+                            {char.hanziName}
+                          </span>
+                          {showPinyin && (
+                            <span className="lesson-character-card__pinyin">{char.pinyin}</span>
+                          )}
+                          <span aria-hidden="true" className="lesson-character-card__sep">
+                            ·
+                          </span>
+                          <span className="lesson-character-card__en">{char.englishName}</span>
+                        </div>
+                        <p className="lesson-character-card__role">{char.origin}</p>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => speakChineseText(char.hanziName, 0.85)}
+                        className="vocab-card__icon-btn lesson-character-card__audio"
+                        title={`Listen to ${char.hanziName} (${char.pinyin})`}
+                        aria-label={`Listen to ${char.hanziName}`}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           {lesson.objectives && lesson.objectives.length > 0 && (
             <div className="lesson-objectives-box">
@@ -299,43 +390,116 @@ const LessonDetailPage: React.FC<LessonDetailPageProps> = ({
                   </div>
 
                   <div className="dialogue-container">
-                    {section.lines.map((line, index) => (
-                      <div
-                        key={index}
-                        className={`dialogue-line ${
-                          index % 2 === 0 ? 'dialogue-line--speakerA' : 'dialogue-line--speakerB'
-                        }`}
-                      >
-                        <div className="dialogue-line__top">
-                          <p className="dialogue-line__char font-noto-sc">
-                            <span className="dialogue-line__speaker">{line.character}:</span>{' '}
-                            &ldquo;{line.hanzi}&rdquo;
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => speakChineseText(line.hanzi, 0.85)}
-                            className="vocab-card__icon-btn"
-                            title="Listen to line"
-                            aria-label={`Listen to ${line.character}`}
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="15"
-                              height="15"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                            >
-                              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                            </svg>
-                          </button>
+                    {section.lines.map((line, index) => {
+                      const speakers = resolveSpeakerGroup(line.character);
+                      const primarySpeaker = speakers[0];
+                      return (
+                        <div
+                          key={index}
+                          className={`dialogue-line dialogue-line--with-avatar ${
+                            index % 2 === 0 ? 'dialogue-line--speakerA' : 'dialogue-line--speakerB'
+                          }`}
+                        >
+                          <div className="dialogue-line__avatar-col">
+                            {speakers.length > 1 ? (
+                              <div className="dialogue-line__avatar-stack">
+                                {speakers.slice(0, 2).map(sp => {
+                                  const hasFailed = Boolean(failedAvatarIds[sp.id]);
+                                  return !hasFailed ? (
+                                    <img
+                                      key={sp.id}
+                                      src={sp.avatarUrl}
+                                      alt={`${sp.hanziName} (${sp.englishName})`}
+                                      referrerPolicy="no-referrer"
+                                      className="dialogue-line__avatar dialogue-line__avatar--stacked"
+                                      onError={() =>
+                                        setFailedAvatarIds(prev => ({ ...prev, [sp.id]: true }))
+                                      }
+                                    />
+                                  ) : (
+                                    <span
+                                      key={sp.id}
+                                      className="dialogue-line__avatar-fallback font-noto-sc"
+                                    >
+                                      {sp.sealChar}
+                                    </span>
+                                  );
+                                })}
+                              </div>
+                            ) : (
+                              <div className="dialogue-line__avatar-single">
+                                {!failedAvatarIds[primarySpeaker.id] ? (
+                                  <img
+                                    src={primarySpeaker.avatarUrl}
+                                    alt={`${primarySpeaker.hanziName} (${primarySpeaker.englishName})`}
+                                    referrerPolicy="no-referrer"
+                                    className="dialogue-line__avatar"
+                                    onError={() =>
+                                      setFailedAvatarIds(prev => ({
+                                        ...prev,
+                                        [primarySpeaker.id]: true,
+                                      }))
+                                    }
+                                  />
+                                ) : (
+                                  <span className="dialogue-line__avatar-fallback font-noto-sc">
+                                    {primarySpeaker.sealChar}
+                                  </span>
+                                )}
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="dialogue-line__body">
+                            <div className="dialogue-line__speaker-bar">
+                              <div className="dialogue-line__speaker-identity">
+                                <span className="dialogue-line__speaker-hanzi font-noto-sc">
+                                  {speakers.map(s => s.hanziName).join('、')}
+                                </span>
+                                {showPinyin && (
+                                  <span className="dialogue-line__speaker-pinyin">
+                                    {speakers.map(s => s.pinyin).join(' · ')}
+                                  </span>
+                                )}
+                                <span aria-hidden="true" className="dialogue-line__speaker-sep">
+                                  ·
+                                </span>
+                                <span className="dialogue-line__speaker-en">
+                                  {speakers.map(s => s.englishName).join(' & ')}
+                                </span>
+                              </div>
+
+                              <button
+                                type="button"
+                                onClick={() => speakChineseText(line.hanzi, 0.85)}
+                                className="vocab-card__icon-btn"
+                                title="Listen to line"
+                                aria-label={`Listen to ${line.character}`}
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="15"
+                                  height="15"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                >
+                                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                </svg>
+                              </button>
+                            </div>
+
+                            <p className="dialogue-line__char font-noto-sc">
+                              &ldquo;{line.hanzi}&rdquo;
+                            </p>
+                            {showPinyin && <p className="dialogue-line__pinyin">{line.pinyin}</p>}
+                            <p className="dialogue-line__translation">{line.translation}</p>
+                          </div>
                         </div>
-                        {showPinyin && <p className="dialogue-line__pinyin">{line.pinyin}</p>}
-                        <p className="dialogue-line__translation">{line.translation}</p>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               );

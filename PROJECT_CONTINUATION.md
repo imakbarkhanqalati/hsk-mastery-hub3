@@ -34,6 +34,7 @@
 │   ├── reminders.ts                # Daily study reminder preferences in localStorage + Web Notification API & time evaluation helpers
 │   ├── offlineCache.ts             # Service Worker registration, Cache Storage sync for HSK 1–6 vocab/lessons, stroke pre-cacher & online status hook
 │   ├── usePWAInstall.ts            # React hook for beforeinstallprompt, standalone mode detection, and iOS install flow
+│   ├── lessonCharacters.ts         # Canonical Mastering Chinese (会通汉语 精编版) textbook character directory, portraits, and dialogue speaker resolver
 │   └── speech.ts                   # Web Speech API TTS (zh-CN pronunciation) + SpeechRecognition + Pinyin/Hanzi similarity scoring
 └── components/
     ├── Header.tsx                  # 3-Zone Top Bar: Brand (汉 HSK Hub) | 6 Core Study Links | Unified Goal + Streak + Reminder + Offline Status + PWA Install + Profile/Auth
@@ -82,7 +83,7 @@
 ## 3. Textbook Curriculum (`/data/lessons.ts`)
 
 ### Current Curriculum Status
-All 12 lessons are authored in `/data/lessons.ts` from the uploaded *Mastering Chinese: Elementary 1, 2 & 3 (会通汉语 精编版·初级1, 初级2 & 初级3)* PDFs in `/public/assets/aistudio/` with zero duplication across sub-parts.
+All 16 lessons are authored in `/data/lessons.ts` from the uploaded *Mastering Chinese: Elementary 1, 2, 3 & 4 (会通汉语 精编版·初级1, 初级2, 初级3 & 初级4)* PDFs in `/public/assets/aistudio/` with zero duplication across sub-parts.
 
 | Lesson ID | Unit Number | HSK Level | Chinese Title | English Title | Sub-Parts Covered |
 | :--- | :---: | :---: | :--- | :--- | :--- |
@@ -98,6 +99,10 @@ All 12 lessons are authored in `/data/lessons.ts` from the uploaded *Mastering C
 | `lesson10` | Unit 10 | **HSK 3** | 第8课：今天比昨天冷多了 | Lesson 8: Today Is Much Colder Than Yesterday (Weather, Seasons, Comparisons `比/更/一样` & `正…呢/着`) | 第8课 (一), (二), (三), (四) |
 | `lesson11` | Unit 11 | **HSK 3** | 第9课：地铁站在哪儿 | Lesson 9: Where Is the Subway Station? (Location Words, Distance `离/从…到…`, Route Directions & `过来/过去`) | 第9课 (一), (二), (三), (四) |
 | `lesson12` | Unit 12 | **HSK 3** | 文化读本3：中国的二十四节气 | Cultural Reader 3: China's Twenty-Four Solar Terms (Fifth Great Invention, Farming Wisdom & Seasonal Customs) | 文化读本3 (Comprehensive Synthesis) |
+| `lesson13` | Unit 13 | **HSK 4** | 第10课：我想把这个寄回家 | Lesson 10: I Want to Mail This Home (Currency Exchange, Bank Cards, Takeout, Mobile Courier & `把 + N + V + 到/在/回`) | 第10课 (一), (二), (三), (四) |
+| `lesson14` | Unit 14 | **HSK 4** | 第11课：头越来越疼了 | Lesson 11: My Head Is Hurting More and More (Hospital Clinic, Appendicitis Surgery, `开始…后来… / 越来越` & Health Advice) | 第11课 (一), (二), (三), (四) |
+| `lesson15` | Unit 15 | **HSK 4** | 第12课：我想去旅游 | Lesson 12: I Want to Go Traveling (Harbin vs. Yunnan/Hainan, `自由行`, Sleeper Tickets, Hotel Rooms & `Adj + 极了`) | 第12课 (一), (二), (三), (四) |
+| `lesson16` | Unit 16 | **HSK 4** | 文化读本4：去哪儿旅行好 | Cultural Reader 4: Where Is a Good Place to Travel? (`名山大川`, `历史古迹` + Local Snacks & `农家乐`) | 文化读本4 (Comprehensive Synthesis) |
 
 ### How to Add Future Textbook Lessons (e.g., Elementary 3 / HSK 2–6 Units)
 When the user uploads the next batch of PDFs (such as Lesson 7, Lesson 8, Lesson 9, Cultural Reader 3, or HSK 3–6 textbook chapters):
@@ -112,7 +117,11 @@ When the user uploads the next batch of PDFs (such as Lesson 7, Lesson 8, Lesson
    - `grammar: GrammarPoint[]` (4–5 detailed grammar structures with `structure`, `explanation`, `tip`, and `examples`)
    - `culturalNotes: CulturalNote[]` (cultural essays and insights from the textbook & Cultural Reader)
    - `exercises: LessonExercise[]` (6–8 interactive multiple-choice comprehension & grammar questions with `explanation`)
-4. **Check `LessonsPage.tsx`**: Level filter tabs automatically detect any new `hskLevel` values added to `lessonsData`.
+4. **Enforce Authentic Textbook Character Profiles (`/utils/lessonCharacters.ts`)**:
+   - **Strict Zero-Randomness Rule**: Always use the **exact character names** that appear in the uploaded textbook PDF for each lesson (e.g., `马克`, `金志英`, `莉莉`, `阿里`, `平田`, `杰希`, `朱迪`, `李老师 / 李悦`, `何大华`, `王老师`, `医生`, `营业员`, `服务员`, `售货员`, `小贩`, `行人`, `司机`). Never invent random names.
+   - If a new textbook unit introduces a new supporting speaker not yet in `TEXTBOOK_CHARACTER_DIRECTORY` inside `/utils/lessonCharacters.ts`, register their exact Chinese name, Pinyin, English name, textbook role, and portrait/avatar in `/utils/lessonCharacters.ts`.
+   - `getLessonCharacters(lesson)` and `resolveSpeakerGroup(speaker)` automatically render the **"Characters in This Lesson · 本课出场人物"** cards, dialogue speaker avatars in `LessonDetailPage.tsx`, and unit card character cast stacks in `LessonsPage.tsx` for every new lesson.
+5. **Check `LessonsPage.tsx`**: Level filter tabs automatically detect any new `hskLevel` values added to `lessonsData`.
 
 ---
 
@@ -268,5 +277,18 @@ Before finishing any future turn, always:
     - **`lesson10` (Unit 10 — 第8课：今天比昨天冷多了 / *Lesson 8: Today Is Much Colder Than Yesterday*)**: Look-alike character pairs (`了/子`, `少/小`, `几/儿`, `千/干`, `白/百`, `老/考`) and weather/temperature radicals (`日`, `冫`, `火`, `灬`), dialogues on windy autumn weather in Tokyo and Saudi summers vs. Ottawa winters (`零下三十五六度`), Hirata's global weather reading essay, 21 deduplicated vocabulary items, 5 grammar notes (`又+V+了` vs. `再+V`, `挺+Adj+的` & `左右`/adjacent digits, `跟…一样`/`更`/`比…多了/一点儿/[数量]`, `快…了` & `不会…吧？`, `正…呢` & `V+着`), and 4 exercises.
     - **`lesson11` (Unit 11 — 第9课：地铁站在哪儿 / *Lesson 9: Where Is the Subway Station?*)**: Initial/final discrimination drills (`b-p`, `d-t`, `z-zh`, `c-ch`, `s-sh`, `an-ang`, `in-ing`), 9 look-alike character pairs (`左/右`, `往/住`, etc.), and movement/place radicals (`辶`, `⺶/足`, `阝`), dialogues on asking a passerby for directions to a department store restroom and meeting at the subway station, reading passages on a residential complex (`小区`) and route directions to KTV, 22 deduplicated vocabulary items, 5 grammar notes (location words with `有/在/是`, distance with `离` & `从…到…`, route directions with `一直往…走` & `拐`, `一…就…`, `过来` vs. `过去`), and 4 exercises.
     - **`lesson12` (Unit 12 — 文化读本3：中国的二十四节气 / *Cultural Reader 3: China's Twenty-Four Solar Terms*)**: Detailed guide to the 7 featured solar terms (`立春`, `清明`, `小暑`, `大暑`, `冬至`, `小寒`, `大寒`), 2 discussion dialogues on agricultural origins and modern urban customs, the full 3-paragraph authentic essay on "China's Fifth Great Invention" (`中国的第五大发明`), 16 deduplicated vocabulary items, 3 discourse/grammar notes (`通过…总结出…`, `一是…；二是…`, `这么说吧 / 比如说我吧`), and 4 exercises.
-
+- **Phase 18 — *Mastering Chinese: Elementary 4 (会通汉语 精编版·初级4)* HSK 4 Curriculum (`lesson13`–`lesson16` in `/data/lessons.ts` & `Header.tsx`)**:
+  - **Zero-Duplication Synthesis of All 13 Uploaded Elementary 4 PDFs**: Authored 4 comprehensive **HSK 4 (`hskLevel: 4`)** units consolidating sub-parts `(一)`, `(二)`, `(三)`, and `(四)` plus *Cultural Reader 4*:
+    - **`lesson13` (Unit 13 — 第10课：我想把这个寄回家 / *Lesson 10: I Want to Mail This Home*)**: 6 look-alike character pairs (`同/问`, `那/哪`, `休/体`, `直/真`, `看/着`, `住/往`) and 4 radicals (`宀`, `⺮`, `心`, `广`), dialogues on USD-to-RMB exchange rates (`汇率 1∶6.37`), opening a bank card with a passport, ordering set-meal takeout, and filling out mobile shipping forms before mailing parcels to Tokyo, reading passages on Lily's Chinese letter to her brother and 24-hour supermarket App grocery delivery, 46 deduplicated vocabulary items, 5 grammar notes (compound directional complements `下去/出去/过来/上来`, `先 a，再 b` & business hours, `把 + N + V + 到/在/回 + Place`, polite requests with `麻烦您/你……`, and `多 + Adj` degree questions + reading phone numbers with `yāo`), and 4 exercises.
+    - **`lesson14` (Unit 14 — 第11课：头越来越疼了 / *Lesson 11: My Head Is Hurting More and More*)**: 6 look-alike character pairs (`工/红`, `元/园`, `坐/座`, `过/对`, `晴/睛`, `超/起`) and 4 health/body/plant/clothing radicals (`月`, `疒`, `艹`, `衤`), dialogues on diagnosing acute appendicitis (`急性阑尾炎`) and minor surgery at the hospital clinic and checking on a sick friend, reading passages on Mark's hospital recovery (`住院治疗`) and Jin Zhiying's weight-loss lesson (`减肥`), 45 deduplicated vocabulary items, 5 grammar notes (describing symptoms with `怎么了 / 哪儿不舒服`, `开始……，后来……` & `越来越 + Adj/V`, `比较` vs. `有点儿`, mild contrast `只是` & `能` vs. `会`, and giving health advice with `应该多/少 + V` & `好好 + V`), and 4 exercises.
+    - **`lesson15` (Unit 15 — 第12课：我想去旅游 / *Lesson 12: I Want to Go Traveling*)**: 8 look-alike character triplets (`同/司/向`, `问/间/同`, `请/清/晴`, `北/比/非`, `国/图/园`, `时/对/双`, `大/天/夫`, `日/白/自`) and 4 radicals (`彳`, `刂`, `纟`, `土`), dialogues on planning holiday travel to Harbin, Yunnan, Hainan, and Guilin and choosing agency `自由行` packages, reading passages on Hirata and Mark's funny stories buying train sleeper tickets (`硬座`, `卧铺`, `硬卧`) and booking a "10-star hotel" (`快捷酒店`, `单人间`, `双人间`) plus a May Day trip to the Great Wall, 39 deduplicated vocabulary items, 5 grammar notes (`去哪儿/什么时候/怎么 + V + 好？`, `[时间点] + 前后` vs. `左右`, `要 + V` vs. `想 + V`, extreme degree `Adj + 极了`, and ticket/room unit pricing), and 4 exercises.
+    - **`lesson16` (Unit 16 — 文化读本4：去哪儿旅行好 / *Cultural Reader 4: Where Is a Good Place to Travel?*)**: Cultural guide to China's famous mountains and rivers (`名山大川`: 泰山, 黄山, 华山, 峨眉山, 嵩山, 武当山, 长江三峡, 杭州西湖), historical monuments (`历史古迹`: 长城, 故宫, 孔庙, 兵马俑, 苏州园林), and weekend rural farmhouse retreats (`农家乐`), 2 discussion dialogues, the complete 4-paragraph authentic essay, 19 deduplicated vocabulary items, 3 discourse/grammar notes (`有山有水才有灵气`, `除了……，还……`, and `如果……，可以……` + `顺便 + V`), and 4 exercises.
+- **Phase 19 — Textbook Character Cast System & Dialogue Avatars Across All Lessons (`/utils/lessonCharacters.ts`, `/src/assets/images/char_*.jpg`, `LessonDetailPage.tsx`, `LessonsPage.tsx`, `data/lessons.ts`, `index.css`)**:
+  - **Canonical Textbook Cast Directory (`/utils/lessonCharacters.ts`)**: Created the authoritative character registry for *Mastering Chinese (会通汉语 精编版)* using strictly the exact textbook character names across `lesson1`–`lesson16` with zero random names.
+  - **Bespoke Character Portraits**: Generated 8 minimalist editorial portraits in `/src/assets/images/` for the recurring textbook cast (`马克` Mark, `金志英` Jin Zhiying, `莉莉` Lily, `阿里` Ali, `平田` Hirata, `杰希` Jessie, `朱迪` Judy, and `李老师 / 李悦` Teacher Li Yue) plus custom SVG editorial avatars for all supporting textbook speakers (`何大华`, `王老师`, `林娜`, `李明`, `卢卡`, `妈妈`, `司机`, `小贩`, `售货员`, `服务员`, `行人`, `营业员`, `医生`).
+  - **Complete 16-Lesson Coverage (`data/lessons.ts`)**: Added authentic textbook character dialogues (`马克`, `金志英`, `莉莉`, `李老师`) and `readingPassage` to `lesson8` (*Cultural Reader 2*) so all 16 units feature interactive character casts and dialogues.
+  - **Minimalist Character Cast UI (`LessonDetailPage.tsx`, `LessonsPage.tsx`, `index.css`)**: Added the **"Characters in This Lesson · 本课出场人物"** cast strip on every lesson page (with circular portrait, Hanzi badge, Chinese name, Pinyin, English name, textbook origin/role, and click-to-listen TTS), speaker portrait avatars next to every dialogue turn (including dual-speaker turns like `马克、金志英`), and compact character avatar stacks (`lesson-card__cast`) on every unit card in `LessonsPage.tsx`.
+- **Phase 20 — GitHub Push Payload Optimization & Attachment Cleanup (`.gitignore`, `/public/assets`, `/src/assets/images/`)**:
+  - **Resolved `Failed to push commit to GitHub: Request contains an invalid argument`**: Removed the `267 MB` of already-extracted raw textbook PDFs and screenshots in `/public/assets/aistudio/` (including single 48 MB and 39 MB PDFs that exceeded GitHub's commit API payload limit) and cleaned `.aistudio` temporary media storage.
+  - **Optimized Character Portrait Assets**: Compressed the 8 character portraits in `/src/assets/images/char_*.jpg` to `256x256` (`~10–15 KB` each, `101 KB` total down from `4.3 MB`) and added `.aistudio/` and `public/assets/aistudio/` to `.gitignore`.
 

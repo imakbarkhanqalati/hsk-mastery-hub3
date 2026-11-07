@@ -453,6 +453,13 @@ const Header: React.FC<HeaderProps> = ({
                     >
                       HSK 3 · Unit 09: Past Experiences &amp; Travel →
                     </button>
+                    <button
+                      type="button"
+                      onClick={() => runNavAction(() => onSelectLesson('lesson13'))}
+                      className="nav-dropdown__unit-link"
+                    >
+                      HSK 4 · Unit 13: Mailing &amp; Digital Life →
+                    </button>
                   </div>
                 )}
               </div>
